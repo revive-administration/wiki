@@ -1,0 +1,35 @@
+======BuffSkill======
+
+^  Code  ^  Name  ^  Type  ^  IsRemovable  ^  Description  ^  CheckTime  ^   Target1  ^  Sel.Cond.1  ^  Sel.Number1  ^  EffectNumber1  ^  C.Number1  ^  Target2  ^  Sel.Cond.2  ^  Sel.Number2  ^  EffectNumber2  ^  C.Number2  ^  BuffIcon  ^ BuffParticle ^
+|  Buff_1  | 버프1 | VE_BuffState  |  True  | | VE_UseSkill | VE_Owner | VE_None |  1  |  1  |  0  | VE_None | VE_None |  0  |  0  |  0  |  Buff_1_icon  |
+|  Buff_2  | 버프2 | VE_DebuffState  |  True  |  | VE_NormalAttack | VE_Owner | VE_None |  1  |  1  |  0  | VE_None | VE_None |  0  |  0  |  0  |  Buff_2_icon  |
+|  Buff_3  | 노림수 | VE_EtcState  |  False  |  | VE_Always | VE_Owner | VE_None |  1  |  1  |  0  | VE_None | VE_None |  0  |  0  |  0  |  Buff_3_icon  |
+|  Buff_4  | 고속 탄창 | VE_Magazine  |  False  |  | VE_NormalAttack | VE_Owner | VE_None |  1  |  1  |  0  | VE_None | VE_None |  0  |  0  |  0  |    |
+|  Buff_provoke  | 도발 | VE_EtcState  |  False  |  | VE_Always | VE_Opposite | VE_None |  5  |  1  |  0  | VE_None | VE_None |  0  |  0  |  0  |    |
+
+^  항목  ^  설명  ^
+|  Code  |  Buff DB의 RowName  |
+|  Name  |  버프 이름  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EB%B2%84%ED%94%84_%ED%83%80%EC%9E%85_bufftype|Type]]  |  Buff의 타입. BuffState, DebuffState, EtcState, Magazine 가능  |
+|  Removable  |  면역, 해제 가능 여부  |
+|  Description  |  사용 여부 미정  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime|CheckTime]]  | Condition이 True인지 False인지 판정해서 효과를 적용시키는 시점 Enum |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target|Target]]  |  효과피적용자의 대상 분류. AllUnit, Ally, Enemy, Self, None, Bullet  |
+|  SelectionCondition  |  Target 내에서 선별기준 Enum.  |
+|  SelectionNumber  |  SelectionCondition에 해당하는 개체 중 고르는 개수.  |
+|  EffectNumber  |  Effect의 개수.  |
+|  C.Number  |  발동 조건식 개수  |
+|  BuffIcon  |  버프 아이콘 이미지  |
+
+<code>
+CheckTime의 VE_Always 상세내용
+- 모든 Condition이 만족되면 효과가 적용된다.
+- 모든 Condition이 만족되어 효과가 적용되고 있다가, Condition이 만족되지 않게 되면 효과가 사라진다.
+</code>
+
+
+<code>
+- Removable이 True이면 상태 이상 해제 스킬로 해제가 가능하고, DefType에 따른 면역도 가능.
+- Removable이 False이면 상태 이상 해제 스킬로 해제가 불가능하고, DefType에 따른 면역도 불가능.
+- State는 True or False이지만 Magazine은 only False이다.
+</code>

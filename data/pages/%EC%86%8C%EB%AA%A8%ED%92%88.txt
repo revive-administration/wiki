@@ -1,0 +1,39 @@
+=====소모품=====
+
+====소모품 개요====
+
+<code>
+- 소모품은 사용 시 소모되는 아이템.
+- 인벤토리 화면에서 사용할 수 있음.
+- 보유할 수 있는 개수 제한은 없으며, 여러 개를 보유할 경우 하나의 묶음으로 표현.
+</code>
+
+====Consumable====
+^  Code  ^  Name  ^  Sort  ^  Type  ^  Use  ^ Grade  ^  Text  ^  Result  ^  Order  ^
+|  StaminaDrug  |  스태미나 포션  |  판매용  |  Consumable  |  Potion  | Normal  |  스태미나를 전부 충전해준다.  |  스태미나 풀 충전  |  501  |
+|  NormalMaterialRandom  |  노말 재료 획득권  |  증정용  |  Consumable  |  Paper  |  Normal  |  Normal등급의 재료를 소량 얻을 수 있다.  |  노말 재료 가챠  |  502  |
+|  RareMaterialRandom  |  레어 재료 획득권  |  증정용  |  Consumable  |  Paper  | Rare  |  Rare등급의 재료를 소량 얻을 수 있다.  |  레어 재료 가챠  |  503  |
+|  NormalCoreRandom  |  노말 코어 획득권  |  증정용  |  Consumable  |  Paper  |  Normal  |  Normal등급의 코어를 얻을 수 있다.  |  노말 코어 가챠  |  504  |
+
+^  항목  ^  내용  ^
+|  Code  |  Consumable DB의 Code  |
+|  Name  |  아이템 이름  |
+|  Sort  |  아이템을 분류하기 위한 항목.  |
+|  Type  |  아이템 종류.  Consumable  |
+|  Use   |  사용 용도  | 
+|  Grade  |  아이템 등급. Normal, Rare, Unique, Legend, Epic, Extra  |
+|  Text  |  플레이어에게 보이는 아이템 텍스트  |
+|  Result  |  소모품 효과 Enum  |
+|  Order  |  인벤토리에서 아이템 정렬 순서  |
+
+----
+
+====소모품 보유 정보====
+
+^  AccountID  ^  ItemCode  ^  Number  ^
+|  KR30130    |  StaminaDrug  |  21   |
+
+^  항목  ^  내용  ^
+|  AccountID  |  유저 계정 ID  |
+|  ItemCode   |  소모품 DB의 ItemCode  |
+|  Number     |  보유하고 있는 개수  |

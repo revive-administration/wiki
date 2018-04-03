@@ -1,0 +1,26 @@
+====== 개발 사전 ======
+개발과 관련된 것들을 정리함. 
+===== Dev Conventions =====
+  * [[프로젝트 네이밍 규칙]]
+  * [[데이터 테이블 작성 요령]]
+  * [[네트워킹]]
+  * [[애니메이션]]
+  * [[리소스 규칙]]
+  * [[폴리싱]]
+  * [[파티클]]
+===== 문서화 =====
+  * [[https://xzvfinet.github.io/life-savers-doc/classes.html | 클래스 리스트]]
+  * [[https://github.com/xzvfinet/life-savers-doc/tree/gh-pages | 깃허브 링크]]
+
+===== Unreal Skills =====
+  * [[자주 쓰는 타입 변환]]
+  * [[언리얼 스터디]]
+
+-----------------------------------------
+===== 유홍석개인폴더 =====
+  * [[작업중]]
+
+===== 기타 =====
+  * [[문서화 - Old]]
+  * [[버전업 가이드]]
+  * [[https://docs.google.com/document/d/1hnsBid61Ak7YVMerGZuxbHLFgTZ_pRwUs2-xwbkvNpc/edit | 프로그래머 역량 체크]]

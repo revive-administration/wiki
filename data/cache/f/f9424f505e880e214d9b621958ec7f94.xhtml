@@ -1,0 +1,216 @@
+
+<h1 class="sectionedit1" id="yassine_-_dsm_tutorial">Yassine - DSM Tutorial</h1>
+<div class="level1">
+
+<p>
+An Introduction to Modeling and Analyzing Complex Product Development Processes Using the Design Structure Matrix(DSM) Method
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Yassine - DSM Tutorial" [1-163] -->
+<h2 class="sectionedit2" id="abstract">Abstract</h2>
+<div class="level2">
+
+<p>
+The design and development of complex engineering products require the efforts and collaboration of hundreds of participants from diverse backgrounds resulting in complex relationships among both people and tasks. Many of the traditional project management tools do not address problems stemming from this complexity. While these tools allow the modeling of sequential and parallel processes, they fail to address interdependency (feedback and iteration), which is common in complex product development(PD) projects. 이 문제를 다루기 위해, 행렬(Matrix) 기반 툴인 DSM이 만들어졌다. 이 방식은 일의 흐름(Work flows)보다는 정보의 흐름(Information flows)을 표현하는데 포커스를 둔다는 점에서 전통적인 프로젝트 제작 툴과 차이를 보인다. DSM 방식은 태스크들이 모델링되는데 합리적인 순서를 결정하기 위해서 복잡한 태스크들의 관계를 표현하도록 하는 정보 교환 모델이다. 이 논문은 어떻게 기본적인 메서드가 작동되는지 및 당신들이 여러 알고리즘을 사용하여 복잡한 PD 프로젝트의 계획, 실행, 관리에 있어 어떻게 효율적으로 이용할 수 있는지를 다룰것이다.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "Abstract" [164-1418] -->
+<h2 class="sectionedit3" id="introductionmatrices_and_projects">Introduction : matrices and projects</h2>
+<div class="level2">
+
+<p>
+Consider a system (or project) that is composed of two elements /sub-systems (or activities/phases): element “A” and element “B”. A graph may be developed to represent this system pictorially. The graph is constructed by allowing a vertex/node on the graph to represent a system element and an edge joining two nodes to represent the relationship between two system elements. The directionality of influence from one element to another is captured by an arrow instead of a simple link. 이 결과 그래프를 directed graph 또는 간단히 digraph라고 부른다. There are three basic building blocks for describing the relationship amongst system elements: parallel (or concurrent), sequential (or dependent) and coupled (or interdependent)
+</p>
+
+<p>
+digraph의 매트릭스 표현은 바이너리이다. (i.e. a matrix populated with only zeros and ones) m x m 정방 행렬이며 0이 아닌 요소들 m은 노드의 개수이고 n은 digraph의 엣지의 개수이다. 매트릭스의 레이아웃은 다음과 같다: 시스템 요소 이름들 매트릭스의 사이드에 위치하고 x as row headings and across the top as column headings in the same order. If there exists an edge from node i to node j, then the value of element ij (column i, row j) is unity (or flagged with a mark such as “X” or “●”). Otherwise, the value of the element is zero (or left empty). In the binary matrix representation of a system, the diagonal elements of the matrix do not have any interpretation in describing the system, so they are usually either left empty or blacked out (fig. 2)
+</p>
+
+<p>
+시스템 모델링을 위한 바이너리 매트릭스들은 are useful in systems modeling because they can represent the presence or absence of a relationship between pairs of elements of a system. A major advantage of the matrix representation over the digraph is in its compactness(빽빽함) and ability to provide a systematic mapping among system elements that is clear and easy to read regardless of size.
+</p>
+
+<p>
+If the system to be represented is a project composed of a set of tasks to be performed, you can use the matrix approach with the Design Structure Matrix (DSM) methodology. Rows and columns are headed with the complete list of tasks to be performed in the project. 매트릭스에서의 마킹은 태스크들 사이의 정보-기반의 관계가 있다는것을 설명해주며 어떤 종류의 관계인지도 알려준다(sequential, parallel, coupled) Marks in a single row (of the DSM) represent all of the tasks whose output is required to perform the task corresponding to that row. 
+</p>
+
+<p>
+Similarly, reading down a specific column reveals which task receives information from the task corresponding to that column. If the order of elements in the matrix depict a time sequence, then marks below the diagonal represent forward information transfer to later (i.e. downstream) tasks. This kind of mark is called forward mark or forward information link. Marks above the diagonal depict information fed back to earlier listed tasks (i.e. feedback mark) and indicate that an upstream task is dependent on a downstream task.
+</p>
+
+<p>
+parallel한 설정에서 시스템 요소들은 서로 상호작용하지 않는다. 개별 요소들의 행위의 이해는 시스템 행위를 완벽히 이해하도록 해준다. 만약 해당 시스템이 프로젝트라면, 시스템 요소들은 수행되어야 할 프로젝트 태스크들일 것이다. 이러한 것을, 액티비티 B는 액티비티 A로부터 독립적이라고 말하며 두 액티비티로부터 어떠한 정보 교환도 필요하지 않다. sequential(순차적인) 설정에서는 한 요소가 다른 요소에  단방향적인 방식으로 영향을 미친다. 프로젝트 태스크에서는 태스크 A는 B가 시작하기 전에 수행되어야 한다. 마지막으로 coupled system에서는 각각의 정보가 엮여있다. 만약 파라미터 A가 B를 모르고 있다면 결정되지 못한다. 그리고 B또한 마찬가지이다. 이러한 cyclic한 의존성은 “Cirtuits” 혹은 “Information Cycles”라고 불린다. 
+</p>
+
+<p>
+Box 1 : DSM에서 표현될 수 있는 4가지 서로 다른 data 타입
+</p>
+
+<p>
+매트릭스를 통해 당신은 프로젝트의 컴포넌트들 사이의, 현재 활동중인 팀들 사이의, 액티비티 사이의, 파라미터들 사이의 정보 관계를 표현할 수 있다. 
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">DSM Data Types</th><th class="col1">표현</th><th class="col2">어플리케이션</th><th class="col3">분석 방법</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> 태스크 기반 </td><td class="col1"> 태스크/액티비티 인풋/아웃풋 관계 </td><td class="col2"> 프로젝트 스케쥴링, 액티비티 시퀀싱, 사이클 타입 절감 </td><td class="col3"> 파티셔닝, Tearing, Banding, 시뮬레이션 and Eigenvalue 분석</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> 파라미터 기반 </td><td class="col1"> 파라미터 결정 포인트와 요구 관럐 </td><td class="col2"> 로우 레벨 활동 시퀀싱과 프로세스 구조 </td><td class="col3"> 파티셔닝 Tearing, Banding, 시뮬레이션 and Eigenvalue 분석</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> 팀 기반 </td><td class="col1"> 멀티 팀 인터페이스 특징들 </td><td class="col2"> 구조적 디자인, 인터페이스 관리, 팀 통합 </td><td class="col3"> 클러스터링</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 컴포넌트 기반 </td><td class="col1"> 멀티 컴포넌트 관계 </td><td class="col2"> 시스템 아키텍팅, 엔지니어링, 디자인 </td><td class="col3"> 클러스터링</td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [5844-6569] -->
+<p>
+프로젝트의 DSM 표현 - 태스크 기반 DSM과 파라미터 기반 DMS
+</p>
+
+<p>
+DSM은 빽빽한 프로젝트 네트워크의 메트릭스 표현이다. 매트릭스는 모든 액티비티의 구성 리스트와 상응하는 정보 교환 패턴을 담고있다. 즉, 특정 액티비티 시장을 위해 어떤 정보 조각이 필요한지, 그리고 해당 액티비티를 반영하여 어디에서 정보가 생성되는지를 (예를들어 매트릭스의 다른 어떤 태스크가 output 정보를 활용하는지.) DSM은 어떻게 복잡한 프로젝트를 다루는지 및 이슈들의 정보와 요구사항, 태스크 시퀀싱, 반복들을 강조하는 통찰을 제공한다.  
+</p>
+
+<p>
+매트릭스는 feedback 마크를 줄이기 위해 조작될수 있고 이러한 프로세스를 partitioning이라고 부른다. 만약 이게 완료되면 네트워크의 투명한 구조가 나타난다. 그리고 이것이 PD project의 더 나은 계획을 허락한다. 우리는 어떤 태스크가 sequential한지, parallel한지, coupled or iterative한지 알 수 있다.
+</p>
+
+<p>
+일단 DSM이 분할되면 일련의 태스크들은 identified되고 순차적으로 수행된다. Parallel한 태스크들은 또한 노출되며 동시에 수행된다. couple한 것들을 위해서 upfront한 계획이 필요하다. 예를 들어, 우리는 잃어버린 조각 정보에 대한 초기의 추측에 기반하여 iteration 프로세스를 위해 어떤 태스크들을 시작해야하는지에 대한 iteration plan을 개발할 수 있다. Figure 3c에서, 블록 E-D-H는 다음과 같이 실행될 수 있다. task E가 H의 아웃풋을 추측하여 시작한다. E의 아웃풋은 task D에 반영된다, 그후 D의 아웃풋이 task H에 반영되고, 마지막으로 H의 아웃풋이 taskE에 반영된다. 이 시점에서, task E는 H의 아웃풋과 초기의 추측을 비교하고 얼마나 초기의 추측이 H의 마지막 정보와 벗어나 있는지에 따라 추가 iteration이 필요한지 결정한다. 이러한 iterative한 프로세스는 집합점이 발생할 때 까지 진행된다.
+</p>
+
+<p>
+Figure 4를 보자. 만약 rework가 발생한다면 다른 모든 태스크에 영향을 미친다. DSM은 파티션 되며 그 결과는 Figure 4의 아래와 같다. 파티션된 DSM은 향상되고 빠른 디자인 결정을 보여준다. 덜 되풀이된다. 어떻게 반복 루프가 두개의 작은 태스크의 세트로 제한되는지 주목하자.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Introduction : matrices and projects" [1419-9043] -->
+<h2 class="sectionedit5" id="dsm_빌드하고_만들기">DSM 빌드하고 만들기</h2>
+<div class="level2">
+
+<p>
+DSM 메서드의 성공은 정확한 시스템 분해와 수집된 의존 관계의 정확성으로부터 결정된다. 따라서 신중하게 연구 시스템을 의미있는 시스템 요소로 분해하는 것이 중요하다. 적절한 분해는 두 가지 주요 접근으로 정립될 수 있다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 주어진 문서 변환하기 : design manuals, process sheets, project schedules, IDEF models, …., etc.</div>
+</li>
+<li class="level1"><div class="li"> 구조화된 전문가 인터뷰</div>
+</li>
+</ul>
+
+<p>
+우리는 기존의 문서로부터 DSM을 접근하는 것, 전문가 인터뷰의 하위 단계가 초기의 DSM을 지원하고 검증하는 것의 혼합 접근을 권장한다. 두 번째 단계로, 한 그룹의 매니저/전문가는 다른 기능적 그룹으로 부터 모인다. 그리고 전체의 다른 시스템을 구성하는 서브 시스템들을 집합적으로 줄세우기를 요청받는다. 분해는 계층적/비계층적일 수 있다. 계층적 분해에서 시스템은 서브시스템이나 모듈로 나눠질 수 있다. 그리고 이 모듈들은 결국 최종 컴포넌트로 나눠진다. 네트워크 분해에서 시스템 계층은 분명하지 않다.
+</p>
+
+<p>
+일단 적절한 시스템 요소나 프로젝트를 구성하는 활동의 집합이 밝혀지면, 이것들은 DSM에서 같은 순서로 이름지워지면서 행과 열로 줄세워진다. 그리고 나서 매트릭스내의 요소들은 그들의 하위 체계에 영향을 미치고 그것들의 행동에 기여하는 최소 집합의 파라미터를 위해 그룹의 적절한 매니저/전문가를 요청하면서 밝혀진다. 태스크 기반의 DSM에서 이것은 액티비티가 질문받기 시작하기 전에 수행되기를 요구하는 최소 집합의 액티비티가 될 수 있다. 파라미터 기반 DSM에서 행과 열은 시스템을 정의하는 파라미터들을 디자인하며, 그리하여 매니저/전문가들은 순서화된 파라미터들의 앞선 관계들을 정의할 것을 요청받는다. 이러한 태스크/파라미터/요소들은 DSM에서 &#039;X&#039;나 “ㅇ”로 표시된다.
+</p>
+
+<p>
+프로세스에서 표현된 후 당신은 아래처럼 다른 기준으로 리디자인 할 수 있다. Fig. 5는 DSM 기반 프로젝트 리디자인 프로세스가 포함된 액티비티를 보여준다.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "DSM 빌드하고 만들기" [9044-11358] -->
+<h2 class="sectionedit6" id="dsm_파티셔닝">DSM 파티셔닝</h2>
+<div class="level2">
+
+<p>
+파티셔닝은 DSM의 행과 열을 조작하는 프로세스여서 지나치게 조작한 새 DSM 정렬은 어떤 피드백 마크도 담고 있지 않는다. 따라서 DSM을 낮은 삼각형 형태로 변형한다. 복잡한 엔지니어링 시스템에서, 간단한 행과 열이 그 결과를 작은 삼각형 형태에서 조작하는 것은 쉽지 않아보인다. 그래서 분석가들의 목적은 피드백 마크를 지우는 것에서 대각형태에 가까워지는 것으로 바뀌었다. 이렇게 함으로써 적은 수의 시스템 요소만이 반복 사이클에 포함되어 빠른 개발 프로세스를 가져온다.
+</p>
+
+<p>
+DSM 파티셔닝에는 몇가지 접근법이 존재한다. 하지만 이것들은 정보의 사이클(루프나 순환)을 어떻게 분석하느냐에만 차이가 있을뿐 유사하다. 모든 파티셔닝 알고리즘 과정은 다음과 같다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 1. 결정되거나 수행될 시스템 요소(혹은 태스크)를 행렬의 나머지 요소들의 input값 없이 확인한다. 이 요소들은 DSM의 빈 행을 관측함으로서 쉽게 분석될것이다. 이러한 요소들을 DSM의 최상단에 놓는다. 일단 요소들이 재정렬되면 이것은 DSM에서 지워진다. (상응하는 표시들과 함께) 그리고 1번의 스텝이 나머지 요소들에 반복된다.</div>
+</li>
+<li class="level1"><div class="li"> 2. 매트릭스의 다른 요소들에게 어떤 정보도 전달하지 않는 시스템 요소(혹은 태스크)들을 확인한다. 이 요소들은 DSM의 빈 열을 관찰함으로서 쉽게 확인 가능하다. 이 요소들을 DSM의 하단에 둔다. 일단 요소들이 정렬되면 이것은 DSM에서 상응하는 표시들과 함께 지워진다. 그리고 이 작업은 나머지 요소들에 대해서도 반복된다.</div>
+</li>
+<li class="level1"><div class="li"> 3. 만약 1번과 2번 작업이 끝난 후에 DSM에 남는 요소가 없으면, 매트릭스는 와전하게 파티션된것이다. 그렇지 않으면 나머지 요소들은 정보 순환(circuits)에 포함된다. (적어도 한 개)</div>
+</li>
+<li class="level1"><div class="li"> 4. 다음의 방법을 통해 순환(circuits)을 결정한다. </div>
+<ul>
+<li class="level2"><div class="li"> 경로 탐색 : 정보 흐름은 태스크가 2번 만날 때까지 앞뒤로 추적된다. 태스크의 첫 번째와 두 번째 발생 사이의 모든 태스크들은 정보 흐름의 루프로 구성된다.</div>
+</li>
+<li class="level2"><div class="li"> 인접 매트릭스 함수의 힘 : DSM을 n순위 파워로 올려놓는 것은 대각 매트릭스를 따라가는 태스크를 위한 non-zero 요소를 관측함으로써 어떤 요소가 n 스텝에서 닿을 수 있는지를 보여준다.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 5. Collapse the elements involved in a single circuit into one representative element and go to step1.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "DSM 파티셔닝" [11359-14046] -->
+<h2 class="sectionedit7" id="dsm_테어링_tearing">DSM 테어링(Tearing)</h2>
+<div class="level2">
+
+<p>
+테어링은 만약 매트릭스에서 지워지면(그리고나서 매트릭스는 재분해됨) 매트릭스를 작은 삼각형으로 만드는 피드백 마크의 집합을 고르는 과정이다. 우리가 매트릭스에서 지운 마크를 “tears”라고 부른다.
+</p>
+
+<p>
+이러한 작은 삼각형 매트릭스를 만드는 “tears”를 확인하는 것은 결합된 일들이 우리가 디자인 과정 순환을 시작하기 위해 프로세스와 마주했을때 만들어져야 하는 가정의 집합을 확인한다는 것을 의미한다. 이러한 가정들이 만들어지면 어떤 추가 예측도 만들어질 필요가 없다.
+</p>
+
+<p>
+테어링을 위한 어떠한 최적의 메서드도 존재하지 않는다. 다만 테어링 결정을 내리는데 있어 두가지 기준이 권장된다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 최소한의 tears 개수 : 이 기준의 이유는 tears가 초기의 추측이나 근사값으로 이용되기 때문이다. 우리는 이러한 추측을의 개수를 줄일 필요가 있다.</div>
+</li>
+<li class="level1"><div class="li"> tears를 대각을 따라 가장 작은 블록으로 제한하자 : 이 기준의 이유는 만약 반복문 안에 반복문이 있다면 (블록 안의 블록) 이러한 내부 반복문들은 더 자주 완료된다. 따라서 이러한 내부 순환을 작은 수의 일로 제한 하는 것이 바람직하다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "DSM 테어링(Tearing)" [14047-15400] -->
+<h2 class="sectionedit8" id="dsm_밴딩">DSM 밴딩</h2>
+<div class="level2">
+
+<p>
+밴딩은 독립적인(i.e. parallel or concurrent) 액티비티를(혹은 시스템 요소) 보이기 위해 DSM에 밝고 어두운 밴드를 번갈아가면서 추가하는 것을 의미한다. 밴드의 집합 이나 DSM 내부의 단계들은 시스템의 중요 경로를 구성한다. 더 나아가서 각 밴드내의 하나의 요소/액티비티는 중요한/병목 액티비티이다. 따라서 밴드들이 시스템의 병행 수행을 증가시키기 때문에 소수의 밴드가 선호된다. 예를들어 Fig 6에서 DSM의 태스크 4와 5는 서로 의존하지 않는다. 따라서 그것들은 같은 밴드내에 있다. 밴딩 절차에서 피드백 마크는 고려되지 않는다는 것을 주목하자
+</p>
+
+</div>
+<!-- EDIT8 SECTION "DSM 밴딩" [15401-16153] -->
+<h2 class="sectionedit9" id="numercial_수치_dsm">Numercial(수치) DSM</h2>
+<div class="level2">
+
+<p>
+이진 DSM 표기법에서 단일한 애트리뷰트가 서로 다른 시스템 요소들간의 관계를 전달하기 위해 이른바 서로 다른 시스템들간의 의존성의 존재 혹은 부재를 나타내는 “존재” 애트리뷰트로서 사용되었다. 
+</p>
+
+<p>
+이진 DSM과 비교해서, Numercial DSM(NDSM)은…
+</p>
+
+</div>
+<!-- EDIT9 SECTION "Numercial(수치) DSM" [16154-16511] -->
+<h2 class="sectionedit10" id="클러스터링_개괄">클러스터링 개괄</h2>
+<div class="level2">
+
+<p>
+파티셔닝에서 우리는 주요한 목적이 DSM 요소들이 수행되어야할 태스크들이라는 것을 고려하여 피드백 마크를 대각 부분 위에서 아래로 옮기는 것이라는 것을 확인하였다. 하지만 DSM 요소들이 태스크나 서브 시스템 그리고 큰 시스템의 컴포넌트를 담당하고 있는 사람들일 경우, 우리는 DSM을 정돈하는 다른 목적을 갖게된다. 새로운 목표는 서로 상호배타적이고 최소한의 상호작용을하는 DSM 요소들의 서브셋을 찾는 것이 된다. 이러한 프로세스를 clustering이라고 한다. 다시말해 클러스터는 대부분의 상호작용(DSM 마크)을 내부에 담고 있다. 그리고 분리되어 있는 클러스터들간의 상호작용이나 링크는 제거되거나 최소화된다. 이러한 케이스에서 블록은 
+팀 형성과 유사해진다. 더 나아가서 이러한 세팅을 통해 대각 아래에 존재하는 마크들은 대각 위의 마크들과 동일한 의미가 된다. 그리고 그것들은 모듈 인터페이스간 혹은 팀 간의 상호작용을 의미한다.
+</p>
+
+<p>
+예를들어 Figure 13의 DSM을 고려해보자. 매트릭스내의 항목들은 서로 다른 개발 참여자간 교환되는 커뮤니케이션의 주기 혹은 강도를 나타낸다. 
+</p>
+
+<p>
+Figure 14a에서 보듯이 원래의 DSM은 대부분의 상호작용을 담기위해 두개의 분리된 블록으로 재정렬되었다. 하지만 3개의 상호작용이 block 밖에서 일어나고 있고 두 팀간의 상호작용의 부분을 담당하고 있다. 대안적인 팀 정렬이 Figure 14b에서 제안된다. 이러한 정렬은 한 사람이 두 팀에 속하면서 두 오버래핑되는 형태를 제안한다. 어떻게 상품의 요소들이 chunks에 할당될는지에 대한 적절한 결정은 몇몇 기술적/비기술적인 요소에 따라 영향받게 된다.
+</p>
+
+</div>
+<!-- EDIT10 SECTION "클러스터링 개괄" [16512-] -->

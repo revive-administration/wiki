@@ -1,0 +1,17 @@
+====== 스킨 ======
+===== 개요 =====
+아이갓츄- 언더마이스킨
+
+===== 종류 및 데이터 ======
+==== 카드 뒷면 (CardBackSkin) ====
+^ ID ^ CodeName ^ IsAlreadyOwned ^
+| int | string | boolean |
+
+==== 패널 스킨 (PanelSkin) ====
+바닥 장식
+^ ID ^ CodeName ^ IsAlreadyOwned ^
+| int | string | boolean |
+
+==== 캐릭터 스킨 (CahracterSkin) ====
+^ ID ^ CodeName ^ Character ^ IsAlreadyOwned ^
+| int | string | enum | boolean |

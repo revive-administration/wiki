@@ -1,0 +1,29 @@
+<span class="kw1">import</span> <span class="co2">java.util.*</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.io.*</span><span class="sy0">;</span>
+&nbsp;
+<span class="co1">// Data 클래스 타입의 객체들이 가져야 할 메서드를 선언한 클래스</span>
+<span class="co1">// 직렬화를 위해 Serializable을 상속받음</span>
+<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw1">class</span> Data <span class="kw1">implements</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+serializable"><span class="kw3">Serializable</span></a> <span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw4">void</span> sort<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw4">int</span> getSize<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">public</span> <span class="kw1">abstract</span> Address getAddress<span class="br0">&#40;</span><span class="kw4">int</span> i<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">public</span> <span class="kw1">abstract</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getName<span class="br0">&#40;</span><span class="kw4">int</span> i<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+	<span class="co1">// 객체 자신을 복사하여, 복사본을 반환하는 메서드</span>
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> myClone<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> obj <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+bytearrayoutputstream"><span class="kw3">ByteArrayOutputStream</span></a> bao <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+bytearrayoutputstream"><span class="kw3">ByteArrayOutputStream</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+objectoutputstream"><span class="kw3">ObjectOutputStream</span></a> oos <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+objectoutputstream"><span class="kw3">ObjectOutputStream</span></a><span class="br0">&#40;</span>bao<span class="br0">&#41;</span><span class="sy0">;</span>
+			oos.<span class="me1">writeObject</span><span class="br0">&#40;</span><span class="kw1">this</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+bytearrayinputstream"><span class="kw3">ByteArrayInputStream</span></a> bai <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+bytearrayinputstream"><span class="kw3">ByteArrayInputStream</span></a><span class="br0">&#40;</span>bao.<span class="me1">toByteArray</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+objectinputstream"><span class="kw3">ObjectInputStream</span></a> ois <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+objectinputstream"><span class="kw3">ObjectInputStream</span></a><span class="br0">&#40;</span>bai<span class="br0">&#41;</span><span class="sy0">;</span>
+			obj <span class="sy0">=</span> ois.<span class="me1">readObject</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+ioexception"><span class="kw3">IOException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+classnotfoundexception"><span class="kw3">ClassNotFoundException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">return</span> obj<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

@@ -1,0 +1,41 @@
+
+<h2 class="sectionedit1" id="라이프사이클_개요">라이프사이클 개요</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">첫번째
+<ul  class="extlist">
+  <li><div class="li">모든 요청에 대한 시작점은 public/index.php 이다.</div></li>
+  <li><div class="li">index.php파일은 컴포저가 생성한 오토로더 정의를 로딩한다. 그리고 bootstrap/app.php스크립트에서 라라벨 어플리케이션의 인스턴스를 가져온다. 라라벨 자신의 첫 번째 동작은 서비스 컨테이너 인스턴스를 생성하는 것이다.</div></li>
+</ul>
+</li>
+  <li><div class="li">HTTP/CONSOLE 커널
+<ul  class="extlist">
+  <li><div class="li">다음으로 어플리케이션이 시작된 유형에 따라 전송된 요청을 HTTP 커널이나 콘솔 커널 둘 중 하나로 보낸다. 이 두가지의 커널은 모든 요청의 흐름 중심에서 작동하게 된다.</div></li>
+  <li><div class="li">HTTP 커널은 요청이 실행하기 전에 처리되는 bootstrappers (시작코드)의 배열을 정의하고 있다. 이 시작 코드들은 에러 처리, 로그 설정, 어플리케이션 동작환경의 감지 등 실제로 요청이 처리되기 전에 수행되어야 하는 작업들을 의미한다.</div></li>
+  <li><div class="li">또한 HTTP 커널은 어플리케이션에서 요청이 처리되기 전에 통과해야하는 HTTP 미들웨어의 목록을 정의하고 있다. 이 미들웨어들은 HTTP 세션을 읽고/쓰고, 어플리케이션이 유지 관리 모드인지 확인하고, CSRF 토큰을 확인하는 작업들을 처리한다.</div></li>
+</ul>
+</li>
+  <li><div class="li">서비스 프로바이더
+<ul  class="extlist">
+  <li><div class="li">커널 부팅(부트스트래핑) 과정의 가장 중요한 것 중의 하나는 어플리케이션의 서비스 프로바이더를 로딩하는 것이다. 어플리케이션의 모든 서비스 프로바이더는 config/app.php 파일의 providers 배열에 설정되어 있다. 먼저 모든 서비스 프로바이더의 register 메서드가 호출되고, 이후에 등록 된 모든 서비스 프로바이더의 boot 메서드가 호출되어 진다.</div></li>
+  <li><div class="li">서비스 프로바이더는 프레임워크의 데이터베이스, 큐, validation, 라우팅 컴포넌트와 같은 다양한 컴포넌트의 부트스트래핑(부팅과 같은 기초 작업들)의 처리를 책임진다. 프레임워크가 제공하는 모든 기능을 초기화하고 설정하는 것으로, 서비스 프로바이더는 라라벨의 부팅(부트스트래핑) 과정에서 가장 중요한 기능이다.</div></li>
+</ul>
+</li>
+  <li><div class="li">요청 처리-디스패칭
+<ul  class="extlist">
+  <li><div class="li">어플리케이션이 부팅(부트스트래핑)되고 모든 서비스 프로바이더가 등록된 후, Request는 라우터 처리를 위해서 전달될 것이다. 라우터는 라우팅 또는 컨트롤러로 요청(request)을 전달할 뿐 아니라, 임의의 특정 라우트에 지정된 미들웨어도 실행한다.</div></li>
+</ul>
+</li>
+</ul>
+
+<ul  class="extlist">
+  <li><div class="li">서비스 프로바이더
+<ul  class="extlist">
+  <li><div class="li">서비스 프로바이더는 라라벨 어플리케이션 부팅 단계의 주요한 핵심이다. 어플리케이션의 인스턴스가 생성되고, 서비스 프로바이더가 등록된 후 부트스트래핑 과정을 마친 프로그램이 요청을 처리한다.</div></li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "라이프사이클 개요" [2-] -->

@@ -1,0 +1,16 @@
+====== XE 프로젝트 ======
+===== XE 프로젝트 구상 =====
+레이아웃 및 모듈 만드는 법을 익혀 상용화한다.
+
+=====환경 구축하기=====
+  * [[환경 구축하기]]
+=====PHP 문법 익히기=====
+
+=====XE스쿨=====
+  * [[http://www.xeschool.com/xe/xenote_operation_sequence|XE스쿨]]
+  * [[XE 코어]]
+=====모듈 만들기 =====
+  * [[https://docs.google.com/presentation/d/1ODwK8J5InCt7UNrQhsDMoacWnrR3VMQCID5J4WatZ_0/edit#slide=id.p|XE모듈강의 - 걸음마 ]]
+  * [[https://docs.google.com/presentation/d/18HQk5xCDLpjp2nDWWwjwKZ3rs_DTrH9AAh5MjpkXQas/edit#slide=id.p|XE모듈강의 - 걷기]]
+=====레이아웃 만들기 =====
+  * [[레이아웃 실습 세미나]]

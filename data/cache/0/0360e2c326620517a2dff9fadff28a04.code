@@ -1,0 +1,9 @@
+<span class="sc3"><span class="re1">&lt;servlet<span class="re2">&gt;</span></span></span>
+	<span class="sc3"><span class="re1">&lt;servlet-name<span class="re2">&gt;</span></span></span>DaoProviderInit<span class="sc3"><span class="re1">&lt;/servlet-name<span class="re2">&gt;</span></span></span>
+	<span class="sc3"><span class="re1">&lt;servlet-class<span class="re2">&gt;</span></span></span>mvjsp.chap13.dao.DaoProviderInit<span class="sc3"><span class="re1">&lt;/servlet-class<span class="re2">&gt;</span></span></span>
+	<span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+		<span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>dbms<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+		<span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>mysql<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+	<span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+	<span class="sc3"><span class="re1">&lt;load-on-startup<span class="re2">&gt;</span></span></span>1<span class="sc3"><span class="re1">&lt;/load-on-startup<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/servlet<span class="re2">&gt;</span></span></span>

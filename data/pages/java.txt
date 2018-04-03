@@ -1,0 +1,1 @@
+  * [[http://cafe.naver.com/openrt/854|jdk 설치]]

@@ -1,0 +1,29 @@
+====== 체크타임 (CheckTime) ======
+소속 : 
+
+^  CheckTime  ^  설명  ^
+|  Always  | 메인에서, 필드에서, 전투에서 항상 유지 |
+|  InBattle  | 전투에서만 항상 유지 |
+|  BattleStart  | 전투 시작 시 |
+|  BattleEnd  | 전투 종료 시 |
+|  PhaseStart  | 페이즈 시작 시 |
+|  PhaseEnd  | 페이즈 종료 시 |
+|  ReloadStart  | 장전 시작 시 |
+|  ReloadEnd  | 장전 종료 시 |
+|  BulletAttackStart  | 일반 공격 시작 시 |
+|  BulletAttackEnd  | 일반 공격 종료 시 |
+|  SkillAttackStart  | 보유자가 스킬 사용 시작 시 |
+|  SkillAttackEnd  | 보유자가 스킬 사용 종료 시 |
+|  MoveStart  | 이동 시작 시 |
+|  MoveEnd  | 이동 종료 시 |
+|  MoveFrontStart  | 전열로 이동 시작 시 |
+|  MoveFrontEnd  | 전열로 이동 종료 시 |
+|  MoveBackStart  | 후열로 이동 시작 시 |
+|  MoveBackEnd  | 후열로 이동 종료 시 |
+|  Damage  | 적군에게 피해를 입혔을 시 |
+|  Hit  | 피해를 당했을 시 |
+|  Critical  | 공격이 치명타가 터졌을 때 |
+|  Kill  | 적군을 죽였을 시 |
+|  Dead  | 사망 시 |
+
+  * 재계산이 필요한 시점 : NormalAttackStart, SkillAttackStart, Start

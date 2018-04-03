@@ -1,0 +1,7 @@
+====== Lecture 1.1 - programming paradigms ======
+  * First-class citizen (일급객체)
+    * 주요 특징
+      * They may be named by variables. (변수에 담을 수 있다.)
+      * They may be passed as arguments to procedures. (파라미터로 전달할 수 있다.)
+      * They may be returned as the results of procedures. (리턴값으로 사용할 수 있다.)
+      * They may be included in data structures. (데이터 구조에 담을 수 있다.)

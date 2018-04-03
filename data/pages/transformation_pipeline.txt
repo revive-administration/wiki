@@ -1,0 +1,5 @@
+====== Transformation Pipeline ======
+  * (1) Object coordinates
+    * It is local coordinate system of objects and is initial position and orientation of objects before any transform is applied. In order to transform objects, use glRotatef(), glTranslatef(), glScalef().
+  * (2) Eye Coorinates
+    * It is yielded by multiplying GL_MODELVIEW matrix and object coordinates. Objects are transformed from object space to eye space using GL_MODELVIEW matrix in OpenGL. GL_MODELVIEW matrix is a combination of Model and View matrices. Model transform is convert from object space to world space. And View transform is to convert from world space to eye space.

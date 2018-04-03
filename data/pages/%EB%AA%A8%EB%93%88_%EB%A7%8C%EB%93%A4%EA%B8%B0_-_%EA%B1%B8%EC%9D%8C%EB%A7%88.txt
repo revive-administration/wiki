@@ -1,0 +1,5 @@
+  * conf
+    * [[module.xml]]
+  * [[myboard.class.php]]
+  * [[myboard.model.php]]
+  * [[myboard.admin.model.php]]

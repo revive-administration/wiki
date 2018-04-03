@@ -1,0 +1,18 @@
+<span class="kw1">public</span> <span class="kw1">class</span> SomeClass <span class="br0">&#123;</span>
+&nbsp;
+        <span class="kw1">private</span> CallBack someCallBack<span class="sy0">;</span>
+&nbsp;
+        <span class="kw1">public</span> SomeClass<span class="br0">&#40;</span>CallBack someCallBack<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                <span class="kw1">this</span>.<span class="me1">someCallBack</span> <span class="sy0">=</span> someCallBack<span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+&nbsp;
+        <span class="kw1">public</span> <span class="kw4">void</span> doSome<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+&nbsp;
+                <span class="co1">// working...</span>
+&nbsp;
+                <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> result <span class="sy0">=</span> <span class="st0">&quot;Hello CallBack&quot;</span><span class="sy0">;</span>
+&nbsp;
+                someCallBack.<span class="me1">callBackMethod</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+        <span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

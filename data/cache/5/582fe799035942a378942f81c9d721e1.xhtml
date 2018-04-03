@@ -1,0 +1,137 @@
+
+<h1 class="sectionedit1" id="autoskill">AutoSkill</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  ………..Description………..  </th><th class="col4 centeralign">  SkillGauge  </th><th class="col5 centeralign">  IsActionCancel  </th><th class="col6 centeralign">  Target1  </th><th class="col7 centeralign">  Sel.Cond.1  </th><th class="col8 centeralign">  Sel.Number1  </th><th class="col9 centeralign">  EffectNumber1  </th><th class="col10 centeralign">  C.Number1  </th><th class="col11 centeralign">  AnimType1  </th><th class="col12 centeralign">  BulletAnim1  </th><th class="col13 centeralign">  EffectAnim1  </th><th class="col14 centeralign">  Target2  </th><th class="col15 centeralign">  Sel.Cond.2  </th><th class="col16 centeralign">  Sel.Number2  </th><th class="col17 centeralign">  EffectNumber2  </th><th class="col18 centeralign">  C.Number2  </th><th class="col19 centeralign">  AnimType2  </th><th class="col20 centeralign">  BulletAnim2  </th><th class="col21 centeralign">  EffectAnim2  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  AutoSkill1  </td><td class="col1 centeralign">  저격  </td><td class="col2 centeralign">  VE_AutoSkill  </td><td class="col3 leftalign"> Hp가 가장 낮은 적 1명에게 220%의 대미지를 준다. 적이 전방에 있으면 최고 대미지를 입히고, 후방에 있으면 최소 대미지를 입힌다.  </td><td class="col4 centeralign">  100  </td><td class="col5 centeralign">  True  </td><td class="col6 centeralign">  VE_Enemy  </td><td class="col7 centeralign">  VE_Hp가 가장 낮음  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  2  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_Projectile  </td><td class="col12 centeralign">  AutoSkill1_1_Bullet  </td><td class="col13 centeralign">  AutoSkill1_1_Effect  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  VE_None  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18 centeralign">  0  </td><td class="col19 centeralign">  VE_None  </td><td class="col20 leftalign">    </td><td class="col21 leftalign">    </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  AutoSkill2  </td><td class="col1 centeralign">  산탄  </td><td class="col2 centeralign">  VE_AutoSkill  </td><td class="col3 leftalign"> 전방에 위치한 모든 적에게 80%의 대미지를 주고 후방으로 이동시킨 뒤 5초간 이동불가 부여  </td><td class="col4 centeralign">  100  </td><td class="col5 centeralign">  True  </td><td class="col6 centeralign">  VE_Enemy  </td><td class="col7 centeralign">  VE_전방에 위치  </td><td class="col8 centeralign">  5  </td><td class="col9 centeralign">  2  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_FullShot  </td><td class="col12 leftalign">    </td><td class="col13 centeralign">  AutoSkill2_1_Effect  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  VE_None  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18 centeralign">  0  </td><td class="col19 centeralign">  VE_None  </td><td class="col20 leftalign">    </td><td class="col21 leftalign">    </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  AutoSkill3  </td><td class="col1 centeralign">  수류탄 투척  </td><td class="col2 centeralign">  VE_AutoSkill  </td><td class="col3 leftalign"> 후방에 위치한 모든 적에게 80%의 대미지를 주고 스킬 게이지를 20 낮춘다.  </td><td class="col4 centeralign">  80  </td><td class="col5 centeralign">  False  </td><td class="col6 centeralign">  VE_Enemy  </td><td class="col7 centeralign">  VE_후방에 위치  </td><td class="col8 centeralign">  5  </td><td class="col9 centeralign">  2  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_FullShot  </td><td class="col12 leftalign">    </td><td class="col13 centeralign">  AutoSkill3_1_Effect  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  VE_None  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18 centeralign">  0  </td><td class="col19 centeralign">  VE_None  </td><td class="col20 leftalign">    </td><td class="col21 leftalign">    </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  AutoSkill4  </td><td class="col1 centeralign">  부상 치료  </td><td class="col2 centeralign">  VE_AutoSkill  </td><td class="col3 leftalign"> Hp가 가장 낮은 아군 2명의 Hp를 150 회복한다.  </td><td class="col4 centeralign">  80  </td><td class="col5 centeralign">  False  </td><td class="col6 centeralign">  VE_Ally  </td><td class="col7 centeralign">  VE_Hp가 가장 낮음  </td><td class="col8 centeralign">  2  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_Nonprojectile  </td><td class="col12 leftalign">    </td><td class="col13 centeralign">  AutoSkill4_1_Effect  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  VE_None  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18 centeralign">  0  </td><td class="col19 centeralign">  VE_None  </td><td class="col20 leftalign">    </td><td class="col21 leftalign">    </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  AutoSkill5  </td><td class="col1 centeralign">  치얼~업  </td><td class="col2 centeralign">  VE_AutoSkill  </td><td class="col3 leftalign"> 20초 동안 전방에 위치한 모든 아군의 리로드시간 30% 감소, 10초 동안 전방에 위치한 모든 적군의 리로드시간 30% 증가  </td><td class="col4 centeralign">  80  </td><td class="col5 centeralign">  False  </td><td class="col6 centeralign">  VE_Ally  </td><td class="col7 centeralign">  VE_전방에 위치  </td><td class="col8 centeralign">  5  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_Nonprojectile  </td><td class="col12 leftalign">    </td><td class="col13 centeralign">  AutoSkill5_1_Effect  </td><td class="col14 centeralign">  VE_Enemy  </td><td class="col15 centeralign">  VE_전방에 위치  </td><td class="col16 centeralign">  5  </td><td class="col17 centeralign">  1  </td><td class="col18 centeralign">  0  </td><td class="col19 centeralign">  VE_Nonprojectile  </td><td class="col20 leftalign">    </td><td class="col21 centeralign">  AutoSkill5_2_Effect  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  AutoSkill6  </td><td class="col1 centeralign">  도발  </td><td class="col2 centeralign">  VE_AutoSkill  </td><td class="col3 leftalign"> 10초 동안 자신에게 도발(비중 500 증가) 부여  </td><td class="col4 centeralign">  80  </td><td class="col5 centeralign">  False  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_Nonprojectile  </td><td class="col12 leftalign">    </td><td class="col13 centeralign">  AutoSkill6_1_Effect  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  VE_None  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18 centeralign">  0  </td><td class="col19 centeralign">  VE_None  </td><td class="col20 leftalign">    </td><td class="col21 leftalign">    </td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [23-2494] --><div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  AutoSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype" rel="nofollow">Type</a>  </td><td class="col1 centeralign">  스킬 타입 Enum. VE_AutoSkill  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  SkillGauge  </td><td class="col1 centeralign">  스킬 발동 시 소모되는 스킬 게이지  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  IsActionCancel  </td><td class="col1 centeralign">  스킬을 발동 시킬 때 일반 공격&amp;리로딩을 취소하고 발동할 지 여부. False라면 일시정지하고 발동한다.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target" rel="nofollow">Target</a>  </td><td class="col1 centeralign">  대상 분류. AllUnit, Ally, Enemy, Self, None, Bullet  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition" rel="nofollow">SelectionCondition</a>  </td><td class="col1 centeralign">  Target 내에서 선별기준 Enum.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  SelectionNumber  </td><td class="col1 centeralign">  SelectionCondition에 해당하는 개체 중 고르는 개수.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  EffectNumber  </td><td class="col1 centeralign">  Effect의 개수.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  C.Number  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98_%ED%83%80%EC%9E%85_animtype" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98_%ED%83%80%EC%9E%85_animtype" rel="nofollow">AnimType</a>  </td><td class="col1 centeralign">  Projectile(투사체가 날라가는 스킬), VE_Nonprojectile(대상에게 이펙트만 나타나는 스킬), FullShot(화면 전체에 이펙트가 재생되는 스킬)  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  BulletAnim  </td><td class="col1 centeralign">  투사체 애니메이션  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 centeralign">  EffectAnim  </td><td class="col1 centeralign">  투사체가 터질 때 애니메이션, 대상 이펙트 애니메이션, 화면 전체 이펙트 애니메이션  </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [2496-4074] --><pre class="code">IsActionCancel 상세내용
+- 개체의 스킬 게이지가 100이 되어 스킬이 발동 되면 IsActionCancel 여부에 따라 처리가 나뉘어짐.
+1. IsActionCancel이 True
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 취소(현재 탄알수가 0이 됨).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 취소(행동 게이지가 0이 됨).
+  - 위의 처리를 한 후 스킬이 발동되며 모든 EffectSet의 BulletAnim이 종료될 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - 모든 BulletAnim이 종료되면 리로딩 시작.
+2. IsActionCancel이 False
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 정지(현재 탄알수 고정).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 정지(행동 게이지 고정).
+  - 위의 처리를 한 후 스킬이 발동되며 모든 EffectSet의 BulletAnim이 종료될 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - 모든 BulletAnim이 종료되면 일반 공격이나 리로딩 재개.</pre>
+<pre class="code">Target의 Bullet 참고사항
+- Target이 Bullet인 스킬은 자신의 탄알을 강화하는 탄알 강화 스킬이다.
+- 1초 동안 재장전을 한다.
+- 재장전된 탄알을 사용하는 동안 Effect의 탄창 버프를 받는다. 이 버프는 아이콘을 표시하지 않는다.
+- 재장전된 탄알을 사용하는 동안 일반 공격의 애니메이션이 BulletAnim으로 바뀐다.
+- 모든 탄알을 사용하거나 스킬 발동에 의해 재장전하는 경우, 버프가 사라지며 일반 공격 애니메이션도 원래대로 돌아온다.
+- 탄알 강화 스킬의 경우 다른 AutoSkill이나 ExSkill과 마찬가지로 스킬 발동 후 스킬 게이지(명령 포인트)가 바로 감소한다.
+- 효과 유지 중에도 스킬 게이지가 증가할 수 있다.
+- 하지만 스킬 게이지가 100이 되어도 탄알 강화 스킬이 유지 중이라면 AutoSkill이 발동하지 않는다.</pre>
+<pre class="code">SelectionNumber 참고사항
+- SelectionCondition이 &#039;Hp가 가장 낮음&#039;이고, SelectionNumber가 2라면 현재 Hp가 가장 낮은 개체와 두 번째로 낮은 개체 선택
+- SelectionCondition이 &#039;전방에 위치&#039;이고, SelectionNumber가 2라면 전방에 위치한 개체 중 2개 랜덤하게 선택.
+- SelectionCondition이 &#039;전방에 위치&#039;이고, SelectionNumber가 0이라면 전방에 위치한 모든 개체 선택.
+- SelectionNumber보다 남아있는 개체가 적은 경우 동일한 개체가 중복 선택되지 않음.</pre>
+<pre class="code">AnimType 참고사항
+- Projectile : 스킬의 대상이 되는 대상마다 투사체가 날라가고, 이펙트가 터지는 스킬
+- Nonprojectile : 스킬의 대상이 되는 대상마다 이펙트가 터지는 스킬. 투사체가 없음.
+- Fullshot : 화면 중앙에 하나의 애니메이션을 재생하는 스킬.</pre>
+<pre class="code">BulletAnim&amp;EffectAnim 참고사항
+BulletAnim
+  - 스킬 발동과 동시에 재생되는 &#039;투사체가 날아가는 애니메이션&#039; 혹은 &#039;스킬 준비 애니메이션&#039;.
+  - 애니메이션이 종료되면 스킬의 효과가 적용되고 유닛의 행동 게이지, 스킬 게이지가 증가할 수 있게 된다. 그리고 EffectAnim을 재생시킨다.
+  - 이 항목이 비어있을 경우 바로 스킬의 효과가 적용되고 유닛의 행동 게이지, 스킬 게이지가 증가할 수 있게 된다. 그리고 EffectAnim을 재생시킨다.
+- EffectAnim
+  - 스킬 효과 적용과 동시에 재생되는 &#039;이펙트가 터지는 애니메이션&#039;.</pre>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "AutoSkill" [1-7747] -->
+<h1 class="sectionedit4" id="스킬_발동_처리">스킬 발동 처리</h1>
+<div class="level1">
+<pre class="code">1. 시간 흐름, 일반 공격, 피격으로 인해 바디의 SkillGauge 증가.
+2. SkillGauge가 100이 되는 순간 개체의 Poisition에 따라 사용될 Skill이 결정됨.
+
+3. Target1, SelectionCondition1과 SelectionNumber1로 스킬 대상을 결정하고 Condition DB에서 RowName이 (AutoSkill DB의 RowName)_1_Ca인 행이 참인지 판정. (a=1~C.Number)
+4. True인 경우 Effect DB에서 RowName이 (AutoSkill DB의 RowName)_1_b인 행을 참조. (b=1~EffectNumber)
+5. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_1_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+6. True인 Effect들을 체크.
+
+7. Target2, SelectionCondition2과 SelectionNumber2로 스킬 대상을 결정하고 Condition DB에서 RowName이 (AutoSkill DB의 RowName)_2_Ca인 행이 참인지 판정. (a=1~C.Number)
+8. True인 경우 Effect DB에서 RowName이 (AutoSkill DB의 RowName)_2_b인 행을 참조. (b=1~EffectNumber)
+9. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_2_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+10. True인 Effect들을 체크.
+
+11. 스킬 발동 후 AutoSkill의 BulletAnim이 종료될 때 True였던 Effect들 효과 적용.</pre>
+
+</div>
+<!-- EDIT4 SECTION "스킬 발동 처리" [7748-] -->

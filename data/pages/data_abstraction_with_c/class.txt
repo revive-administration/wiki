@@ -1,0 +1,54 @@
+====== Data Abstraction with C++ : class ======
+===== Data Abstraction =====
+  * Data Abstraction
+    * Creating classes with appropriate functionality, which hide the unnecessary details
+  * Data Encapsulation
+    * Implementation is encapsulated by the interface and the only way to get to the implementation legally is through the interface
+  * Information Hiding
+    * Implementation is hidden from user
+
+===== Internal and External Views ======
+  * Data Abstraction
+    * Separation of interface and implementation
+    * Interface : the outside, or service view, describes what an object does
+    * Implementation : the inside view describes how it does
+    * A Service View
+      * The ability to characterize an object by the service it provides, without knowing how it performs its task
+
+===== Class : Behavior and State =====
+  * Class 
+    * Fundamental unit of data abstraction in C++
+  * Behavior (method)
+    * The actions that an instance can perform in response to a request
+    * Implemented by methods
+  * State (variable)
+    * The data that an object must maintain in order to successfully complete its behavior
+    * Stored in instance variables (also known as data members, or data fields).
+
+===== Methods (member function) =====
+  * Name
+    * will be matched to a message to determine when the method should be executed
+  * Signature
+    * the combination of return type and argument types
+    * Methods with the same name can be distinguished by different signatures
+  * Body
+    * the code that will be executed when the method is invoked in response to a message
+
+
+===== Message Passing =====
+  * Differences : message & a function call
+    * A message is always given to some object, called the receiver
+    * The action performed in response is determined by the receiver, different receivers can do different actions in response to the same message
+
+===== Ensuring reliability of abstractions class invariants and assertions =====
+  * Class invariant(변함없는)
+    * Every class might have conditions that must always be true inside an object
+    * Add the condition to ensure that member function code checks these conditions
+  * In C/C++, we use assert macro : assert(e)
+    * If e is true, just continue
+    * If e is false, the program is stopped with and error message indicating the failure of the assertion
+    * can be used to implement programs that are more reliable
+
+===== Copy Constructor =====
+  * A copy constructor is called whenever a new object is created from an existing object with the same type
+  * Typical contstructor

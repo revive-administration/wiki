@@ -1,0 +1,26 @@
+a:73:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:0;}i:2;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:19:"참조 사이트 : ";}i:2;i:1;}i:3;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:35:"http://elinux.org/RPi_Ruby_on_Rails";i:1;N;}i:2;i:20;}i:4;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:1:" ";}i:2;i:55;}i:5;a:3:{i:0;s:9:"linebreak";i:1;a:0:{}i:2;i:56;}i:6;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:1:"
+";}i:2;i:58;}i:7;a:3:{i:0;s:12:"externallink";i:1;a:2:{i:0;s:80:"http://arubystory.blogspot.kr/2013/11/tutorial-saying-hello-world-with-ruby.html";i:1;N;}i:2;i:59;}i:8;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:139;}i:9;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:139;}i:10;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:41:"SSH 정보 velmont.iptime.org 포트 1022";}i:2;i:141;}i:11;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:182;}i:12;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:182;}i:13;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:53:"우선 레일즈를 설치할 폴더로 들어간다.";}i:2;i:184;}i:14;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:238;}i:15;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:19:"cd /var/www/rails/
+";}i:2;i:238;}i:16;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:238;}i:17;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:39:"레일즈 프로젝트를 설치한다.";}i:2;i:263;}i:18;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:303;}i:19;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:29:"rails new 프로젝트이름
+";}i:2;i:303;}i:20;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:303;}i:21;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:84:"프로젝트를 만드는데 성공하면 해당 프로젝트 폴더로 들어간다";}i:2;i:338;}i:22;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:423;}i:23;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:22:"cd 프로젝트이름
+";}i:2;i:423;}i:24;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:423;}i:25;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:18:"DB를 넣어주자";}i:2;i:451;}i:26;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:469;}i:27;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:17:"
+rake db:migrate
+";}i:2;i:469;}i:28;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:469;}i:29;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:71:"nohup rails server & 를 쳐서 서버에 접속되는지 확인한다.";}i:2;i:494;}i:30;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:566;}i:31;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:72:"sudo nohup rails server &
+
+접속경로 : http://velmont.iptime.org:3000";}i:2;i:566;}i:32;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:566;}i:33;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:79:"이제 컨트롤러를 만들 시간이다. 아래 명령어를 입력해보자";}i:2;i:647;}i:34;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:727;}i:35;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:32:"rails generate controller pages
+";}i:2;i:727;}i:36;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:727;}i:37;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:31:"컨트롤러를 건드려보자";}i:2;i:765;}i:38;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:796;}i:39;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:21:"
+cd app/controllers/
+";}i:2;i:796;}i:40;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:796;}i:41;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:30:"nano 에디터로 수정하자";}i:2;i:825;}i:42;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:856;}i:43;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:31:"sudo nano pages_controller.rb
+
+";}i:2;i:856;}i:44;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:856;}i:45;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:42:"즐거운 루비 타이핑을 시전하자";}i:2;i:895;}i:46;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:938;}i:47;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:271:"class PagesController < ApplicationController 
+  def home 
+    puts "Honey, I'm home!" 
+  end 
+end
+
+다 수정한담에 ctrl+o(저장)를 누르면 아래에 저장 경로가 뜨는데 그냥 Enter 쳐주면 된다
+그리고 ctrl+x(나가기)를 눌러 빠져나온다. 
+";}i:2;i:938;}i:48;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:938;}i:49;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:36:"app/views/pages/ 로 들어가보자";}i:2;i:1229;}i:50;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1266;}i:51;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:53:"cd /var/www/rails/프로젝트폴더/app/views/pages/";}i:2;i:1266;}i:52;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1266;}i:53;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:53:"home.html.erb 라는 파일을 만들고 편집하자";}i:2;i:1324;}i:54;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1378;}i:55;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:18:"nano home.html.erb";}i:2;i:1378;}i:56;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1378;}i:57;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:32:"내용을 자유롭게 써본다";}i:2;i:1401;}i:58;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1434;}i:59;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:30:"<h1>Hello Devil Monsters!</h1>";}i:2;i:1434;}i:60;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1434;}i:61;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:29:"config 파일을 수정하자";}i:2;i:1469;}i:62;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1499;}i:63;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:59:"cd /var/www/rails/프로젝트폴더/config
+nano routes.rb
+";}i:2;i:1499;}i:64;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1499;}i:65;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:53:"routes.rb 내용 안쪽 아무데나 요걸 써준다";}i:2;i:1566;}i:66;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1620;}i:67;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:23:"root to: 'pages#home'
+
+";}i:2;i:1620;}i:68;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:1620;}i:69;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:65:"velmont.iptime.org:3000에 접속하여 되는지 확인해보자";}i:2;i:1651;}i:70;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:1717;}i:71;a:3:{i:0;s:12:"preformatted";i:1;a:1:{i:0;s:30:"http://velmont.iptime.org:3000";}i:2;i:1717;}i:72;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:1717;}}

@@ -1,0 +1,11 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1488262748;s:8:"modified";i:1488262814;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:8:{s:4:"date";i:1488262814;s:2:"ip";s:14:"211.40.105.221";s:4:"type";s:1:"E";s:2:"id";s:29:"리소스_표현_우선순위";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:2;}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}s:5:"title";s:29:"리소스 표현 우선순위";s:11:"description";a:2:{s:15:"tableofcontents";a:3:{i:0;a:4:{s:3:"hid";s:29:"리소스_표현_우선순위";s:5:"title";s:29:"리소스 표현 우선순위";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:19:"전투_우선순위";s:5:"title";s:19:"전투 우선순위";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:6:"필드";s:5:"title";s:6:"필드";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:256:"리소스 표현 우선순위
+
+우선순위(ZOrder)에 관한 순서표 
+
+
+표의 상단에 위치할수록 우선순위가 높음
+
+좌표는 필요시에만 작성
+
+전투 우선순위
+  요소 구분    좌표    스킬 컷인 배경     공격 파티클";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1488262748;s:8:"modified";i:1488262814;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:8:{s:4:"date";i:1488262814;s:2:"ip";s:14:"211.40.105.221";s:4:"type";s:1:"E";s:2:"id";s:29:"리소스_표현_우선순위";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:2;}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}}}

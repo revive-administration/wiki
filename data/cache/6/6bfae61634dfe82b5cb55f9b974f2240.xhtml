@@ -1,0 +1,97 @@
+
+<h1 class="sectionedit1" id="chapter_11_jspusebean_액션_태그를_이용한_객체_사용">Chapter 11 &lt;jsp:useBean&gt; 액션 태그를 이용한 객체 사용</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 11 <jsp:useBean> 액션 태그를 이용한 객체 사용" [1-80] -->
+<h2 class="sectionedit2" id="자바_javabean">01 자바 (JavaBean)</h2>
+<div class="level2">
+
+<p>
+자바빈(JavaBean)은 데이터를 표현하는 것을 목적으로 하는 자바 클래스로서, 다음과 같은 형태로 구성된다.
+</p>
+<pre class="code">public class BeanClassName implements java.io.Serializable{
+	/* 값을 저장하는 필드 */
+	public BeanClassName(){
+	}
+	
+	/* BeanClassName의 기본 생성자 */
+	public BeanClass(){
+	}
+	
+	/* 필드의 값을 읽어오는 값 */
+	public String getValue(){
+		return value;
+	}
+	
+	/* 필드의 값을 변경하는 값 */
+	public void setValue(String value){
+		this.value = value;
+	}
+}</pre>
+
+<p>
+자바빈 규약에 따른 클래스를 자바빈이라고 부르며, JSP 프로그래밍에서 사용되는 자바빈 클래스는 위 예시 코드와 같이 데이터를 저장하는 필드, 데이터를 읽어올 때 사용하는 메서드, 값을 저장할 때 사용되는 메서드로 구성된다.
+</p>
+
+<p>
+자바빈은 프로퍼티, 지속성, 이벤트 등 다양한 특징을 갖는데, JSP 프로그래밍에서는 이 중에서 프로퍼티가 가장 많이 사용되며 이책에서는 프로퍼티에 대한 내용만 살펴보도록 하겠다.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "01 자바 (JavaBean)" [81-1214] -->
+<h3 class="sectionedit3" id="자바빈_프로퍼티">1.1 자바빈 프로퍼티</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT3 SECTION "1.1 자바빈 프로퍼티" [1215-1252] -->
+<h2 class="sectionedit4" id="예제에서_사용할_자바빈_클래스">02 예제에서 사용할 자바빈 클래스</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "02 예제에서 사용할 자바빈 클래스" [1253-1310] -->
+<h2 class="sectionedit5" id="jspusebean_태그를_이용한_자바_객체_사용">03 &lt;jsp:useBean&gt; 태그를 이용한 자바 객체 사용</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT5 SECTION "03 <jsp:useBean> 태그를 이용한 자바 객체 사용" [1311-1380] -->
+<h3 class="sectionedit6" id="jspusebean_액션_태그를_사용하여_객체_생성하기">3.1 &lt;jsp:useBean&gt; 액션 태그를 사용하여 객체 생성하기</h3>
+<div class="level3">
+
+<p>
+&lt;jsp:useBean&gt; 액션 태그는 JSP 페이지에서 사용할 자바빈 객체를 지정해주는 기능을 한다. 기본 문법은 다음과 같다.
+</p>
+<pre class="code">&lt;jsp:useBean id=&quot;[빈이름]&quot; class=&quot;[자바빈클래스이름]&quot; scope=&quot;[범위]&quot; /&gt;</pre>
+
+<p>
+&lt;jsp:useBean&gt; 액션 태그의 각 속성은 다음과 같다.
+</p>
+<ul>
+<li class="level1"><div class="li"> id - JSP 페이지에서 자바빈 객체에 접근할 때 사용할 이름을 명시한다.</div>
+</li>
+<li class="level1"><div class="li"> class - 패키지 이름을 포함한 자바빈 클래스의 완전한 이름을 입력한다.</div>
+</li>
+<li class="level1"><div class="li"> scope - 자바빈 객체가 저장될 영역을 지장한다. page, request, session, application 중 하나를 값으로 갖는다. 기본값은 page이다.</div>
+</li>
+</ul>
+
+<p>
+&lt;jsp:useBean&gt; 액션 태그의 class 속성 대신에 type 속성을 사용할 수도 있다. type 속성을 사용하면 지정한 영역에 객체가 존재한다고 가정한다. 존재하지 않을 경우 새 객체를 생성하는 대신 에러를 발생시킨다.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "3.1 <jsp:useBean> 액션 태그를 사용하여 객체 생성하기" [1381-2392] -->
+<h3 class="sectionedit7" id="jspgetproperty_액션_태그와_jspsetproperty_액션_태그">3.2 &lt;jsp:getProperty&gt; 액션 태그와 &lt;jsp:setProperty&gt; 액션 태그</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT7 SECTION "3.2 <jsp:getProperty> 액션 태그와 <jsp:setProperty> 액션 태그" [2393-2473] -->
+<h3 class="sectionedit8" id="자바빈_프로퍼티_타입에_따른_값_매핑">3.3 자바빈 프로퍼티 타입에 따른 값 매핑</h3>
+<div class="level3">
+
+<p>
+자바빈 프로퍼티의 타입이 int인 경우를 생각해보자. 이 경우 &lt;jsp:setProperty&gt; 액션 태그는 값을 어떻게 처리할까?
+</p>
+
+</div>
+<!-- EDIT8 SECTION "3.3 자바빈 프로퍼티 타입에 따른 값 매핑" [2474-] -->

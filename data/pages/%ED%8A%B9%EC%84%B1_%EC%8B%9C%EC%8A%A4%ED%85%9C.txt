@@ -1,0 +1,59 @@
+======특성 시스템======
+
+=====특성 개요=====
+<code>
+- 특성 연구를 통해 캐릭터의 AttributeLevel을 올릴 수 있음.
+- 캐릭터의 AttributeLevel에 따라 바디의 특성 트리 개방.
+- ex) 캐릭터의 AttributeLevel이 2라면, 그에 해당하는 바디들은 2단계 특성 트리까지 사용 가능
+</code>
+
+=====특성 트리=====
+<code>
+- 각 특성 트리는 여러 개의 특성으로 이루어짐.
+- 개방된 특성 트리가 있다면 유저는 여러 개의 특성 중 하나를 골라 바디에게 적용 시킬 수 있음.
+- 특성 선택은 수시로 변경할 수 있음
+</code>
+
+=====특성=====
+<code>
+- 특성은 패시브 스킬과 같은 원리로 작용.
+- 항상 적용되는 특성이 있는가 하면, 특정 조건 만족 시 발동하는 특성도 있음.
+</code>
+
+{{:특성트리0.png?400|}}
+
+{{:특성트리.png?800|}}
+
+<code>
+특성 트리 구조
+- 바디가 특성 보유.
+- 특성은 다음 규칙을 통해 위치하는 단계를 정함.
+  - 바디의 AttributeTreeArray의 n번 앨리먼트인 AttributeTree는 특성 n+1단계에 해당.
+  - AttributeTree의 Length에 따라 특성 버튼 배치.
+- 특성을 활성화시키면 바디 보유 정보의 SelectedAttribute의 (활성화시킨 특성 트리 단계-1)번째 엘리먼트에 해당 특성의 Index를 저장
+</code>
+
+=====Attribute=====
+PassiveSkill과 같은 구조체 사용
+
+^  Code  ^  Name  ^  Type  ^  Removable  ^  Description...................  ^  CheckTime1  ^  Target1  ^  Sel.Cond.1  ^  Sel.Number1  ^  EffectNumber1  ^  C.Number1  ^  CheckTime2  ^  Target2  ^  Sel.Cond.2  ^  Sel.Number2  ^  EffectNumber2  ^  C.Number2  ^  BuffIcon  ^
+|  Att_Izumi_ASU_1  |  공격력 소폭 상승  |  Attribute  |  False  | 공격력 + 5  |  VE_Always  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  VE_None  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  Att_Izumi_ASU_2  |  공격력 대폭 상승  |  Attribute  |  False  | 공격력 + 15  |  VE_Always  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  VE_None  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  Att_Izumi_ASU_3  |  공격력 초대폭 상승  |  Attribute  |  False  | 공격력 + 30  |  VE_Always  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  VE_None  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  Att_Izumi_Ranger_1  |  관통률 소폭 상승  |  Attribute  |  False  | 관통률 + 5%  |  VE_Always  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  VE_None  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  Att_Izumi_Ranger_2  |  튼튼데스네  |  Attribute  |  False  | 최대 Hp + 100, 방어력 + 100  |  VE_Always  |  VE_Self  |  VE_None  |  1  |  2  |  0  |  VE_None  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  Att_Izumi_Ranger_3  |  대단한 회복력  |  Attribute  |  False  | 일반 공격 시마다 체력 20 회복  |  VE_NormalAttack  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  VE_None  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+
+^  항목  ^  내용  ^
+|  Code  |  Attribute DB의 RowName  |
+|  Name  |  특성 이름  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype|Type]]  |  타입 Enum. Attribute  |
+|  Removable  |  면역, 해제 가능 여부. 패시브 스킬, 특성은 무조건 False  |
+|  Text  |  유저에게 보이는 특성 설명  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime|CheckTime]]  |  Condition이 True인지 False인지 판정해서 효과를 적용시키는 시점 Enum  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target|Target]]  |  대상 분류. AllUnit, Ally, Enemy, Self, Bullet, None  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition|SelectionCondition]]  |  Target 내에서 선별기준 Enum.  |
+|  SelectionNumber  |  SelectionCondition에 해당하는 개체 중 고르는 개수.  |
+|  EffectNumber  |  Effect의 개수.  |
+|  C.Number  |  발동 조건식 개수  |
+|  BuffIcon  |  특성 아이콘 이미지로 사용. 전투 시 버프 아이콘은 보이지 않음.  |

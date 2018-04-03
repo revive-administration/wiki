@@ -1,0 +1,55 @@
+<span class="co1"># 이 클래스는 from, to, by라는 세 가지 인수를 받는다. 숫자 x는 다음과 같은 조건이 있다.</span>
+<span class="co1">#</span>
+<span class="co1"># from &lt;= x &lt;= to</span>
+<span class="co1"># x = from + n*by, n은 정수</span>
+<span class="co1">#</span>
+<span class="co1">#</span>
+<span class="kw1">class</span> Sequence
+  <span class="co1"># enumerable 클래스로 each 반복자를 정의</span>
+  <span class="kw1">include</span> <span class="kw4">Enumerable</span>                  <span class="co1"># 모듈의 메서드를 클래스의 포함</span>
+&nbsp;
+  <span class="co1"># initialize 메서드는 클래스의 인스턴스가 새롭게 생성될 때 자동으로 실행됨</span>
+  <span class="kw1">def</span> initialize<span class="br0">&#40;</span>from, to, by<span class="br0">&#41;</span>
+&nbsp;
+    <span class="co1"># 인스턴스 변수에 인수를 보관</span>
+    <span class="re1">@from</span>, <span class="re1">@to</span>, <span class="re1">@by</span> = from, to, by      <span class="co1"># @ 전치구와 다중 대입에 주의</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># Enumerable 모듈에서 필요한 반복자</span>
+  <span class="kw1">def</span> each
+    x = <span class="re1">@from</span>
+    <span class="kw1">while</span> x <span class="sy0">&lt;</span>= <span class="re1">@to</span>
+      <span class="kw1">yield</span> x
+      x <span class="sy0">+</span>= <span class="re1">@by</span>
+    <span class="kw1">end</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># sequence 안에 든 값의 수를 반환하는 length 메서드 정의</span>
+  <span class="kw1">def</span> length
+    <span class="kw2">return</span> <span class="nu0">0</span> <span class="kw1">if</span> <span class="re1">@from</span> <span class="sy0">&gt;</span> <span class="re1">@to</span>              <span class="co1"># if가 구문 수식자로 쓰임</span>
+    <span class="kw3">Integer</span><span class="br0">&#40;</span><span class="br0">&#40;</span>@to<span class="sy0">-</span>@from<span class="br0">&#41;</span><span class="sy0">/</span>@by<span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">1</span>           <span class="co1"># 수열 길이를 계산해서 반환</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># 같은 메서드에 또다른 이름을 정의하는 것은 루비에서는 흔하다.</span>
+  <span class="kw1">alias</span> size length                      <span class="co1"># size는 length와 동의어</span>
+&nbsp;
+  <span class="co1"># 수열에 임의로 접근하는 배열 접근 연산자를 재정의</span>
+  <span class="kw1">def</span><span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#40;</span>index<span class="br0">&#41;</span>
+    <span class="kw2">return</span> <span class="kw2">nil</span> <span class="kw1">if</span> index <span class="sy0">&lt;</span> <span class="nu0">0</span>              <span class="co1"># 음수의 인덱스는 nil을 반환</span>
+    v = <span class="re1">@from</span> <span class="sy0">+</span> index<span class="sy0">*</span>@by                <span class="co1"># 값을 계산</span>
+    <span class="kw1">if</span> v <span class="sy0">&lt;</span>= <span class="re1">@to</span>                          <span class="co1"># 배열의 일부라면</span>
+      v                                  <span class="co1"># 그 값을 반환</span>
+    <span class="kw1">else</span>                                 <span class="co1"># 아니라면</span>
+      <span class="kw2">nil</span>                                <span class="co1"># nil을 반환</span>
+    <span class="kw1">end</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># 새로운 Sequence 객체를 반환하는 사칙연산자로 재정의</span>
+  <span class="kw1">def</span> <span class="sy0">*</span><span class="br0">&#40;</span>factor<span class="br0">&#41;</span>
+    Sequence.<span class="me1">new</span><span class="br0">&#40;</span>@from<span class="sy0">*</span>factor, <span class="re1">@to</span><span class="sy0">*</span>factor, <span class="re1">@by</span><span class="sy0">*</span>factor<span class="br0">&#41;</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="kw1">def</span> <span class="sy0">+</span><span class="br0">&#40;</span>offset<span class="br0">&#41;</span>
+    Sequence.<span class="me1">new</span><span class="br0">&#40;</span>@from<span class="sy0">+</span>offset, <span class="re1">@to</span><span class="sy0">+</span>offset, <span class="re1">@by</span><span class="br0">&#41;</span>
+  <span class="kw1">end</span>
+<span class="kw1">end</span>

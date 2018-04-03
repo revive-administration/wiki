@@ -1,0 +1,12 @@
+====== 스테이트 이펙트 (StateEffect) ======
+소속 : CPPFL_SkillStructLibrary
+
+^  StateEffect  ^  설명  ^
+| None | 없음 |
+| Immunity | 면역 |
+| SenseVitalize | (?) |
+| CannotMove | 이동불가 |
+| Oppression | 제압 |
+| Misfire | 불발 |
+| DisableShield | 실드 사용불가 |
+| SupportFire | 지원 사격 |

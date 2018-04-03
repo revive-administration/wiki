@@ -1,0 +1,5 @@
+====== 2014.07.30 ======
+  * Tomcat -> Eclipse Server -> JSP -> Run 해서 간단한 jsp파일 띄워보기
+    * (1) Webapps 폴더에 집어넣어 띄워보기
+    * (2) Eclipse 프로젝트로 run해서 띄워보기
+  * JSP 6장까지 읽어오기 

@@ -1,0 +1,32 @@
+====== 2장 배열과 구조 ======
+===== 2.1 배열 =====
+==== 2.1.1 추상 데이터 타입 ====
+===ADT Array===
+  * Objects : index의 각 값에 대하여 집합 item에 속한 한 값이 존재하는 <index.value>쌍의 집합. index는 1차원 또는 다차원의 유한 순서 집합이다. 예를 들면, 1차원의 경우 {0, ... , ㅜ-1}과 2차원 배열 {(0,0),(0,1),....(2,0),(2,1),(2,2)} 등이다.
+  * Functions : 모든 A <- Array, i<-index, x<-item, j,size<-integer
+    * Array Create(j,list) ::= return j차원의 배열, 여기서는 list는 i번째 원소가 i번재 차원의 크기인 j-tuple이며 item들은 정의되지 않았음.
+    * Item Retrieve(Ami) ::= if(i<-index) return 배열A의 인덱스 i값과 관련된 항목. else return 에러.
+    * Array Store(A,i,x) ::= if(i<-index) return 새로운 쌍 <i,x>가 삽입된 배열 A. else return 에러.
+==== 2.1.2 C언어에서의 배열 ====
+<file c pro2.1.c>
+#include<stdio.h>
+#define MAX_SIZE 100
+
+float sum(float [], int);
+float input[MAX_SIZE], answer;
+void main(void){
+	int i;
+	for(i=0; i<MAX_SIZE;i++)
+		input[i] = i;
+	answer = sum(input, MAX_SIZE);
+	printf("The sum is : %f\n", answer);
+}
+
+float sum(float list[], int n){
+	int i;
+	float tempsum = 0;
+	for(i=0; i<n;i++)
+		tempsum += list[i];
+	return tempsum;
+}
+</file>

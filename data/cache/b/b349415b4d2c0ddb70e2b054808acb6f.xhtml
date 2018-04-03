@@ -1,0 +1,100 @@
+
+<h1 class="sectionedit1" id="전투_흐름">전투 흐름</h1>
+<div class="level1">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A0%84%ED%88%AC_%ED%9D%90%EB%A6%84&amp;media=%EC%A0%84%ED%88%AC_%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8.png" class="media" title="전투_플로우차트.png"><img src="/dokuwiki/lib/exe/fetch.php?media=%EC%A0%84%ED%88%AC_%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8.png" class="media" title="900" alt="900" /></a>
+</p>
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A0%84%ED%88%AC_%ED%9D%90%EB%A6%84&amp;media=%EC%A0%84%ED%88%AC_%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B82.png" class="media" title="전투_플로우차트2.png"><img src="/dokuwiki/lib/exe/fetch.php?media=%EC%A0%84%ED%88%AC_%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B82.png" class="media" title="900" alt="900" /></a>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "전투 흐름" [1-103] -->
+<h2 class="sectionedit2" id="시퀀스">시퀀스</h2>
+<div class="level2">
+<pre class="code">- 전투 진입 시 등장할 적군의 부대 개수를 의미.
+- 전투는 최대 3개의 시퀀스로 이루어져 있다.
+- 하나의 시퀀스마다 최대 5명의 적군이 등장한다.
+- 전투는 실시간으로 이루어짐.
+- 모든 적군을 처치하면 해당 시퀀스가 종료되며 다음 시퀀스로 넘어간다.
+- 모든 시퀀스가 종료되면 보상을 받으며 전투가 종료된다.</pre>
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A0%84%ED%88%AC_%ED%9D%90%EB%A6%84&amp;media=%EC%8B%9C%ED%80%80%EC%8A%A4.png" class="media" title="시퀀스.png"><img src="/dokuwiki/lib/exe/fetch.php?w=350&amp;tok=26c784&amp;media=%EC%8B%9C%ED%80%80%EC%8A%A4.png" class="media" alt="" width="350" /></a>
+</p>
+
+</div>
+<!-- EDIT2 SECTION "시퀀스" [104-577] -->
+<h2 class="sectionedit3" id="행동_게이지">행동 게이지</h2>
+<div class="level2">
+<pre class="code">- 개체마다 최대 행동 게이지, 현재 행동 게이지 존재.
+- 최대 행동 게이지 = 10*(사용 중인 무기의 ReloadTime)*(1-ReloadTime감소율의 합산)
+- 현재 탄알수가 0이라면 1초마다 행동 게이지 10 증가. </pre>
+
+</div>
+<!-- EDIT3 SECTION "행동 게이지" [578-867] -->
+<h2 class="sectionedit4" id="재장전">재장전</h2>
+<div class="level2">
+<pre class="code">- (현재 행동 게이지)≥(최대 행동 게이지)인 경우 재장전 시행
+- 현재 행동 게이지를 0으로 초기화.
+- 현재 탄알수를 (사용 중인 무기의 Magazine)으로 충전.
+- 현재 탄알수가 0이 되기전까지 행동 게이지가 0으로 고정.
+- 현재 탄알수가 0이 되면 행동 게이지가 시간에 따라 증가하기 시작.</pre>
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A0%84%ED%88%AC_%ED%9D%90%EB%A6%84&amp;media=%EC%9E%AC%EC%9E%A5%EC%A0%84.png" class="media" title="재장전.png"><img src="/dokuwiki/lib/exe/fetch.php?w=300&amp;tok=485432&amp;media=%EC%9E%AC%EC%9E%A5%EC%A0%84.png" class="media" alt="" width="300" /></a>
+</p>
+<hr />
+
+</div>
+<!-- EDIT4 SECTION "재장전" [868-1306] -->
+<h2 class="sectionedit5" id="일반_공격">일반 공격</h2>
+<div class="level2">
+<pre class="code">- 현재 탄알수 0발이 아닌 경우 대상 지정 확률에 따라 무작위로 적군 1명에게 일반 공격을 가함.
+- 무기의 AttackCount만큼 탄환을 발사 및 현재 탄알수가 AttackCount만큼 감소.
+- 탄환의 속도는 BulletSpeed에 비례.
+- 탄환과 탄환 사이에는 BulletInterval(초)만큼 대기.
+- 일반 공격을 가하고도 현재 탄알수가 남아있으면 TrigerInterval(초)만큼 대기 후 다시 일반 공격을 가함.
+- 현재 탄알수보다 AttackCount가 더 큰 경우, 현재 탄알수만큼만 탄환을 발사하고 현재 탄알수는 0이 됨.
+- 현재 탄알수가 0이 된 경우, 일반 공격이 완벽히 종료되며, 행동 게이지가 증가하기 시작.</pre>
+
+</div>
+<!-- EDIT5 SECTION "일반 공격" [1307-2075] -->
+<h2 class="sectionedit6" id="스킬_게이지">스킬 게이지</h2>
+<div class="level2">
+<pre class="code">- 개체마다 현재 스킬 게이지, 최대 스킬 게이지 존재.
+- 최대 스킬 게이지 = 100
+- 1초마다 스킬 게이지 5 증가.
+- 일반 공격 종료 시 5 증가.
+- 피격 대상으로 지정될 시 5 증가.
+- (현재 스킬 게이지)≥(최대 스킬 게이지)인 경우 오토 스킬 발동.</pre>
+
+</div>
+<!-- EDIT6 SECTION "스킬 게이지" [2076-2433] -->
+<h2 class="sectionedit7" id="오토_스킬_발동">오토 스킬 발동</h2>
+<div class="level2">
+<pre class="code">- 개체가 전방에 위치한 경우는 FrontSkill, 후방에 위치한 경우는 BackSkill 선택.
+- 선택된 스킬의 EndTime(초)동안 스킬을 발동한 개체의 행동 게이지가 증가하지 않음.
+- 선택된 스킬의 ActionCancel이 True인 경우
+  - 현재 탄알수가 0보다 큰 경우, 현재 탄알수를 0으로 초기화.
+  - 현재 탄알수가 0인 경우, 행동 게이지를 0으로 초기화.
+- 선택된 스킬의 ActionCancel이 False인 경우에는 현재 탄알수와 행동 게이지가 초기화되지 않음.
+- 전투 및 동작들을 멈추고 스킬 컷씬 등장. 잠시후 컷씬이 사라지고 스킬의 SkillGauge만큼 스킬 게이지가 감소, 전투 및 동작들 재개.
+- EffectSet DB에서 RowName이 (AutoSkill DB의 RowName)_a인 행을 참조. (a=1~EffectSetNumber)
+- Condition DB에서 RowName이 (EffectSet DB의 RowName)_Cb인 행이 참인지 판정. (b=1~ConditionNumber)
+- 참이라면 EffectSet의 Target 중에서 SelectionCondition에 따라 스킬 대상 결정. 거짓이라면 해당 EffectSet의 투사체, 애니메이션 및 효과 무시.
+- Effect DB에서 RowName이 (EffectSet DB의 RowName)_c인 행을 참조. (c=1~EffectNumber)
+- Condition DB에서 RowName이 (Effect DB의 RowName)_Cd인 행이 참인지 판정. (d=1~ConditionNumber)
+- 스킬의 EffectSet의 AnimType이 Bullet인 경우
+  - EffectSet의 BulletAnim에 따라 투사체를 형성하여 대상에게 날라감.
+  - 투사체가 대상에게 도달하면 EffectSet의 EffectAnim이 대상 위에 재생.
+- 스킬의 EffectSet의 AnimType이 Nonbullet인 경우
+  - EffectSet의 EffectAnim이 대상 위에 재생.
+- 스킬의 EffectSet의 AnimType이 fullshot인 경우
+  - EffectSet의 EffectAnim이 화면 중심에 재생.
+- 스킬 발동 후 EffectSet의 ApplyTime(초)만큼 시간이 흘렀을 때 참이었던 Effect들 효과 적용.</pre>
+
+</div>
+<!-- EDIT7 SECTION "오토 스킬 발동" [2434-] -->

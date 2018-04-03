@@ -1,0 +1,5 @@
+  * [[http://elinux.org/RPi_Ruby_on_Rails|Rpi Ruby On Rails]]
+  * [[http://arubystory.blogspot.kr/2013/11/tutorial-saying-hello-world-with-ruby.html|tutorial:Say hello with rails]]
+  * [[벨몽서버에 레일즈 설치하기]]
+
+  * [[http://rubykr.github.io/rails_guides/action_controller_overview.html|레일즈 공식 가이드]]

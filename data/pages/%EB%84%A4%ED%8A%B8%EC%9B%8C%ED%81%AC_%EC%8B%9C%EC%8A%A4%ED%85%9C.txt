@@ -1,0 +1,10 @@
+====== 네트워크 시스템 ======
+===== UserInfo =====
+  * CreateUserInfo
+    * 계정 생성
+  * ReadUserInfo
+    * 랭킹 조회 및 기타
+  * UpdateUserInfo
+    * Score 시스템 수정
+  * DeleteUserInfo
+    * 계정 삭제

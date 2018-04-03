@@ -1,0 +1,16 @@
+====== 메일 ======
+==== Data ====
+^ 필드 ^ 타입 ^ 정의 ^ 비고 ^ 예 ^
+| ID | bigint | id값 | Primary Key | 34581 |
+| ItemType | string | 보상(?) Item 타입 | 장비, 포션, 문서 등 | 장비 |
+| ItemCode | string | 보상(?) Item id코드 |  | paper_2741 |
+| SendDate | DateTime | 해당 메일이 보낸 시각 |  | 2018-02-19 21:02:33 | 
+| ExpDate | DateTime | 해당 메일이 만료되는 시각 | 유통기한 |2018-02-21 21:03:33 |
+
+
+==== Method ====
+^ 헤더 ^ 바디 ^ Request ^ Response ^ 작동 여부 ^
+| USERMAIL_SELECT_ALL | 없음 | USERMAIL_SELECT_ALL.token. | USERMAIL. .[{"ID":"1","ItemType":"Equipment", "ItemCode" : "Glove_27392", "Content":"새 보상 Test","SendDate":"0001-01-01T00:00:00","ExpDate":"0001-01-01T00:00:00"}, {"ID":"2","ItemType":"Equipement", "ItemCode" : "Sword_3232", "Content":"새 보상 Test","SendDate":"0001-01-01T00:00:00","ExpDate":"0001-01-01T00:00:00"}] | O |
+| USERMAIL_SELECT_SINGLE | 유저 ID 값 | USERMAIL_SELECT_SINGLE.token.1 | USERMAIL. .{"ID":"1","ItemType":"Equipment", "ItemCode" : "Glove_27333","Content":"새 보상 Test","SendDate":"0001-01-01T00:00:00","ExpDate":"0001-01-01T00:00:00"}| O |
+| USERMAIL_CREATE | 메일 내용 | USERMAIL_CREATE.token.{"ItemType" : "REWARD", "ItemCode" : "Glove_27333","Content":"새 보상 Test"}  | USERMAIL. .{"Result" : "Success", "ID" : "3"} | X |
+| USERMAIL_DELETE | 유저 ID 값, 메일 ID값 | USERMAIL_DELETE.token.{"UID" : "33", "MAIL_ID" : "5"} | USERMAIL. .{"Result" : "Failed", "ErrorCode":"202"} | X |

@@ -1,0 +1,3 @@
+  * 루비 on Rails 가이드 및 책 보기
+    * http://rorlab.gitbooks.io/railsguidebook/contents/rubyonrails_intro.html
+    * http://rubykr.github.io/rails_guides/

@@ -1,0 +1,194 @@
+
+<h1 class="sectionedit1" id="소개">1. 소개</h1>
+<div class="level1">
+
+<p>
+루비는 복잡하지만, 표현이 다양한 동적(dynamic) 프로그래밍 언어로서 풍부하고 강력한 API로 구성된 코어 클래스 라이브러리를 제공합니다. 루비는 LISP, Smalltalk, Perl 언어의 영향을 받았지만 C와 Java 프로그래머도 배우기 쉬운 문법으로 되어 있습니다. 루비는 순수한 객체지향 언어이긴 하지만, 절차적 혹은 함수형 프로그래밍에도 잘 어울립니다. 강력한 메타프로그래밍 기능이 있어서 도메인 특정 언어(domain-specific languages)로 쓸 수도 있습니다.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "1. 소개" [1-613] -->
+<h3 class="sectionedit2" id="루비와_떠나는_여행">1.1 루비와 떠나는 여행</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="루비는_객체지향">1.1.1 루비는 객체지향</h4>
+<div class="level4">
+
+<p>
+루비는 완전한 객체지향 언어입니다. 숫자나 true, false, nil(루비에서 null을 의미하는 값) 같은 값도 모두 객체입니다. 루비는 객체의 캡슐화를 엄격하게 지키므로 객체 외부에서 객체 내부 상태를 볼 수 없습니다. 따라서 모든 접근은 class 메서드처럼 접근 메서드를 사용해야 합니다.
+</p>
+
+</div>
+
+<h4 id="블록과_반복자">1.1.2 블록과 반복자</h4>
+<div class="level4">
+
+<p>
+상수도 메서드를 부를 수 있다는 건 루비의 난해한 면만은 아닙니다. 반복문을 작성할 때 루비 프로그래머의 무기가 됩니다.
+</p>
+
+</div>
+
+<h4 id="식과_연산자">1.1.3 식과 연산자</h4>
+<div class="level4">
+
+<p>
+루비의 구문은 식(expression)을 기반으로 합니다. if 같은 제어 구조는 다른 언어에서 문(statement)이라고 하지만 루비에서는 식입니다. 다른 식에서 제어 구조도 값을 가지고 있어서 이런 코드를 작성할 수 있습니다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=0" title="조각 다운로드" class="mediafile mf_rb">1.1.3.rb</a></dt>
+<dd><pre class="code file ruby">minimum = <span class="kw1">if</span> x<span class="sy0">&lt;</span>y <span class="kw1">then</span> x <span class="kw1">else</span> y <span class="kw1">end</span></pre>
+</dd></dl>
+
+<p>
+비록 루비에서 모든 문이 식이기는 하지만, 의미 있는 반환값만 있는 건 아닙니다. 예를 들어 while 루프와 메서드 정의는 보통 nil을 반환하는 식입니다. <br/>
+대다수 언어처럼 루비의 식은 값과 연산자로 구성됩니다. C, 자바, 자바스크립트 같은 언어를 아는 사람이라면 루비 연산자를 봤을 때 친숙한 느낌이 들 겁니다. 
+</p>
+
+</div>
+
+<h4 id="메서드">1.1.4 메서드</h4>
+<div class="level4">
+
+<p>
+def 키워드로 정의하면 메서드가 됩니다. 본문에서 실행한 마지막 값이 메서드 반환값이 됩니다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=1" title="조각 다운로드" class="mediafile mf_rb">1.1.4-1.rb</a></dt>
+<dd><pre class="code file ruby"><span class="kw1">def</span> square<span class="br0">&#40;</span>x<span class="br0">&#41;</span>   <span class="co1"># x라는 인수를 가진 square 메서드를 정의</span>
+  x<span class="sy0">*</span>x           <span class="co1"># x 제곱값 반환</span>
+<span class="kw1">end</span>             <span class="co1"># 메서드 끝</span></pre>
+</dd></dl>
+
+<p>
+이와 같은 메서드가 모듈이나 클래스 바깥에서 정의되면 전역 함수와 비슷해집니다(엄밀하게 말하면 이런 메서드는 Object 클래스의 private 메서드가 됩니다). 메서드 이름 앞에 접두어로 클래스 이름을 붙이면 각각의 객체에 메서드를 정의하는 것과 같아집니다. 이런 메서드를 싱글톤 메서드(singleton methods)라 하며 다음과 같이 정의합니다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=2" title="조각 다운로드" class="mediafile mf_rb">1.1.4-2.rb</a></dt>
+<dd><pre class="code file ruby"><span class="kw1">def</span> <span class="kw4">Math</span>.<span class="me1">square</span><span class="br0">&#40;</span>x<span class="br0">&#41;</span>
+  x<span class="sy0">*</span>x
+<span class="kw1">end</span></pre>
+</dd></dl>
+
+<p>
+중요 루비 라이브러리인 Math 모듈에 새로운 메서드를 추가했습니다. 이렇듯 루비 클래스와 모듈은 &#039;열려&#039; 있으므로 실행할 때 수정하거나 확장할 수 있습니다. 중요한 특징이지요. 메서드 인수로 특정한 기본값을 지정할 수 있고 메서드를 이루는 구문의 개수는 얼마든지 가능합니다.
+</p>
+
+</div>
+
+<h4 id="대입">1.1.5 대입</h4>
+<div class="level4">
+
+<p>
+= 연산자(재정의할 수 없음)로 변수에 값을 대입합니다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=3" title="조각 다운로드" class="mediafile mf_rb">1.1.5-1.rb</a></dt>
+<dd><pre class="code file ruby">  x=<span class="nu0">1</span></pre>
+</dd></dl>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=4" title="조각 다운로드" class="mediafile mf_rb">1.1.5-2.rb</a></dt>
+<dd><pre class="code file ruby"><span class="co1"># 데카르트(직교) 좌표(x,y)를 극좌표(Polar)로 변환하는 메서드를 정의</span>
+<span class="kw1">def</span> polar<span class="br0">&#40;</span>x,y<span class="br0">&#41;</span>
+  theta = <span class="kw4">Math</span>.<span class="me1">atan2</span><span class="br0">&#40;</span>y,x<span class="br0">&#41;</span>
+  r = <span class="kw4">Math</span>.<span class="me1">hypot</span><span class="br0">&#40;</span>x,y<span class="br0">&#41;</span>
+  <span class="br0">&#91;</span>r, theta<span class="br0">&#93;</span>
+<span class="kw1">end</span>
+&nbsp;
+<span class="co1"># 다중 대입으로 메서드를 사용</span>
+distance, angle = polar<span class="br0">&#40;</span><span class="nu0">2</span>,<span class="nu0">2</span><span class="br0">&#41;</span></pre>
+</dd></dl>
+
+</div>
+
+<h4 id="클래스와_모듈">1.1.8 클래스와 모듈</h4>
+<div class="level4">
+
+<p>
+클래스는 객체 상태로 동작하는 연관 메서드의 집합입니다. 객체 상태는 인스턴스 변수로 유지합니다. 인스턴스 변수의 이름은 @로 시작하며 인스턴스의 값은 인스턴스 객체에 있습니다. 다음 코드는 Sequence 클래스를 정의하고, 반복자 메서드와 연산자를 작성하는 예제입니다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=5" title="조각 다운로드" class="mediafile mf_rb">1.1.8-1.rb</a></dt>
+<dd><pre class="code file ruby"><span class="co1"># 이 클래스는 from, to, by라는 세 가지 인수를 받는다. 숫자 x는 다음과 같은 조건이 있다.</span>
+<span class="co1">#</span>
+<span class="co1"># from &lt;= x &lt;= to</span>
+<span class="co1"># x = from + n*by, n은 정수</span>
+<span class="co1">#</span>
+<span class="co1">#</span>
+<span class="kw1">class</span> Sequence
+  <span class="co1"># enumerable 클래스로 each 반복자를 정의</span>
+  <span class="kw1">include</span> <span class="kw4">Enumerable</span>                  <span class="co1"># 모듈의 메서드를 클래스의 포함</span>
+&nbsp;
+  <span class="co1"># initialize 메서드는 클래스의 인스턴스가 새롭게 생성될 때 자동으로 실행됨</span>
+  <span class="kw1">def</span> initialize<span class="br0">&#40;</span>from, to, by<span class="br0">&#41;</span>
+&nbsp;
+    <span class="co1"># 인스턴스 변수에 인수를 보관</span>
+    <span class="re1">@from</span>, <span class="re1">@to</span>, <span class="re1">@by</span> = from, to, by      <span class="co1"># @ 전치구와 다중 대입에 주의</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># Enumerable 모듈에서 필요한 반복자</span>
+  <span class="kw1">def</span> each
+    x = <span class="re1">@from</span>
+    <span class="kw1">while</span> x <span class="sy0">&lt;</span>= <span class="re1">@to</span>
+      <span class="kw1">yield</span> x
+      x <span class="sy0">+</span>= <span class="re1">@by</span>
+    <span class="kw1">end</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># sequence 안에 든 값의 수를 반환하는 length 메서드 정의</span>
+  <span class="kw1">def</span> length
+    <span class="kw2">return</span> <span class="nu0">0</span> <span class="kw1">if</span> <span class="re1">@from</span> <span class="sy0">&gt;</span> <span class="re1">@to</span>              <span class="co1"># if가 구문 수식자로 쓰임</span>
+    <span class="kw3">Integer</span><span class="br0">&#40;</span><span class="br0">&#40;</span>@to<span class="sy0">-</span>@from<span class="br0">&#41;</span><span class="sy0">/</span>@by<span class="br0">&#41;</span><span class="sy0">+</span><span class="nu0">1</span>           <span class="co1"># 수열 길이를 계산해서 반환</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># 같은 메서드에 또다른 이름을 정의하는 것은 루비에서는 흔하다.</span>
+  <span class="kw1">alias</span> size length                      <span class="co1"># size는 length와 동의어</span>
+&nbsp;
+  <span class="co1"># 수열에 임의로 접근하는 배열 접근 연산자를 재정의</span>
+  <span class="kw1">def</span><span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#40;</span>index<span class="br0">&#41;</span>
+    <span class="kw2">return</span> <span class="kw2">nil</span> <span class="kw1">if</span> index <span class="sy0">&lt;</span> <span class="nu0">0</span>              <span class="co1"># 음수의 인덱스는 nil을 반환</span>
+    v = <span class="re1">@from</span> <span class="sy0">+</span> index<span class="sy0">*</span>@by                <span class="co1"># 값을 계산</span>
+    <span class="kw1">if</span> v <span class="sy0">&lt;</span>= <span class="re1">@to</span>                          <span class="co1"># 배열의 일부라면</span>
+      v                                  <span class="co1"># 그 값을 반환</span>
+    <span class="kw1">else</span>                                 <span class="co1"># 아니라면</span>
+      <span class="kw2">nil</span>                                <span class="co1"># nil을 반환</span>
+    <span class="kw1">end</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="co1"># 새로운 Sequence 객체를 반환하는 사칙연산자로 재정의</span>
+  <span class="kw1">def</span> <span class="sy0">*</span><span class="br0">&#40;</span>factor<span class="br0">&#41;</span>
+    Sequence.<span class="me1">new</span><span class="br0">&#40;</span>@from<span class="sy0">*</span>factor, <span class="re1">@to</span><span class="sy0">*</span>factor, <span class="re1">@by</span><span class="sy0">*</span>factor<span class="br0">&#41;</span>
+  <span class="kw1">end</span>
+&nbsp;
+  <span class="kw1">def</span> <span class="sy0">+</span><span class="br0">&#40;</span>offset<span class="br0">&#41;</span>
+    Sequence.<span class="me1">new</span><span class="br0">&#40;</span>@from<span class="sy0">+</span>offset, <span class="re1">@to</span><span class="sy0">+</span>offset, <span class="re1">@by</span><span class="br0">&#41;</span>
+  <span class="kw1">end</span>
+<span class="kw1">end</span></pre>
+</dd></dl>
+
+<p>
+Sequence 클래스를 사용해 봅시다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=1._%EC%86%8C%EA%B0%9C&amp;codeblock=6" title="조각 다운로드" class="mediafile mf_rb">1.1.8-2.rb</a></dt>
+<dd><pre class="code file ruby">s = Sequence.<span class="me1">new</span><span class="br0">&#40;</span><span class="nu0">1</span>, <span class="nu0">10</span>, <span class="nu0">2</span><span class="br0">&#41;</span>     <span class="co1"># 1에서 10까지 2식 증가</span>
+s.<span class="me1">each</span> <span class="br0">&#123;</span><span class="sy0">|</span>x<span class="sy0">|</span> <span class="kw3">print</span> x<span class="br0">&#125;</span>           <span class="co1"># 출력값 &quot;13579&quot;</span>
+<span class="kw3">print</span> s<span class="br0">&#91;</span>s.<span class="me1">sze</span><span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#93;</span>               <span class="co1"># 출력값 9</span>
+t = <span class="br0">&#40;</span>s<span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">*</span><span class="nu0">2</span>                    <span class="co1"># 4에서 22까지 4씩 증가</span></pre>
+</dd></dl>
+
+</div>
+
+<h4 id="루비의_깜짝_기능">1.1.9 루비의 깜짝 기능</h4>
+<div class="level4">
+
+<p>
+루비의 문자열은 변경하기 쉬워서 때때로 자바 프로그래머를 곤혹에 빠트립니다. []= 연산자는 문자열의 글자를 바꾸거나 문자열 일부분을 삽입, 삭제, 치환하는 데 쓸 수 있습니다. « 연산자는 문자열을 추가하는 데 쓸 수 있고 String 클래스에는 수많은 메서드가 정의되어 있습니다. 문자열이 변하기 쉬워서 프로그램 속에서 문자 상수는 유일한 객체가 아닙니다. 문자 상수를 루프 안에 포함시킨다면 루프마다 새로운 객체가 생성됩니다. freeze 메서드를 문자열(또는 다른 모든 객체)에서 호출 하면 객체의 변경을 방지합니다. <br/>
+
+루비의 조건문이나 반복문(if나 while같은)은 어떤 분기나 반복을 할지 판단하는 조건식을 실행합니다. 조건식은 보통 true나 false로 실행되지만 다른 값도 받습니다. nil 값은 false와 동일하게 취급되고 그 외의 값은 true와 같이 취급합니다. 이런 특성은 0이 false로 동작하기를 기대하는 C 프로그래머와 “” 문자가 false로 동작할거라고 믿는 자바스크립트 프로그래머를 충격에 빠트립니다.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "1.1 루비와 떠나는 여행" [614-] -->

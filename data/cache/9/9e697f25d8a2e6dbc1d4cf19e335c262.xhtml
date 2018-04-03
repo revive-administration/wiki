@@ -1,0 +1,106 @@
+
+<h1 class="sectionedit1" id="캐릭터_시스템">캐릭터 시스템</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "캐릭터 시스템" [1-33] -->
+<h2 class="sectionedit2" id="캐릭터와_바디의_관계">캐릭터와 바디의 관계</h2>
+<div class="level2">
+<pre class="code">LISA에서는 한 캐릭터에 해당하는 바디가 여러 개 있다.
+전투에 참여하는 것은 캐릭터가 아니라 바디이다.
+예를 들어 이즈미의 경우, &quot;ASU요원 이즈미&quot;라는 바디와 &quot;에이스 파일럿 이즈미&quot;라는 바디가 있다.
+그러면 부대에는 &quot;이즈미&quot;를 넣는 것이 아닌 &quot;ASU요원 이즈미&quot;나 &quot;에이스 파일럿 이즈미&quot;를 넣게 된다.</pre>
+<pre class="code">캐릭터와 바디는 포함관계가 아닌 대응관계이다.
+적군은 캐릭터없이 바디로만 구성되기 때문에 캐릭터와 대응되지 않는다.
+그렇기 때문에 아군도 바디가 전투에 나서야한다. 바디vs바디의 형태가 되어 코드의 재활용성이 높아진다.</pre>
+<pre class="code">같은 캐릭터에 해당하는 바디는 동시에 같은 부대에 편성할 수 없다.</pre>
+
+</div>
+<!-- EDIT2 SECTION "캐릭터와 바디의 관계" [34-930] -->
+<h2 class="sectionedit3" id="character">Character</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Type  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  MainWeapon  </th><th class="col3 centeralign">  SubWeapon  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Izumi          </td><td class="col1 centeralign">  이즈미    </td><td class="col2 centeralign">  VE_AR  </td><td class="col3 centeralign">  VE_PI  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Lisa           </td><td class="col1 centeralign">  리사      </td><td class="col2 centeralign">  VE_AR  </td><td class="col3 centeralign">  VE_PI  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  LiuJialing     </td><td class="col1 centeralign">  류자링    </td><td class="col2 centeralign">  VE_PI  </td><td class="col3 centeralign">  VE_PI  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Kinel          </td><td class="col1 centeralign">  키넬      </td><td class="col2 centeralign">  VE_HM  </td><td class="col3 centeralign">  VE_SR  </td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [951-1221] --><div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  CharacterType  </td><td class="col1 centeralign">  Character DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name           </td><td class="col1 centeralign">  캐릭터 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  MainWeapon     </td><td class="col1 centeralign">  메인 무기 종류. 착용한 기체에서 MainWeapon과 동일한 종류의 무기가 메인 무기가 됨.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  SubWeapon      </td><td class="col1 centeralign">  서브 무기 종류. 착용한 기체에서 SubWeapon과 동일한 종류의 무기가 서브 무기가 됨.  </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1223-1604] --><hr />
+
+</div>
+<!-- EDIT3 SECTION "Character" [931-1611] -->
+<h2 class="sectionedit6" id="캐릭터_보유_정보">캐릭터 보유 정보</h2>
+<div class="level2">
+
+<p>
+HTTPRequest 사용시의 유리함을 고려하여 클래스로 설계한다
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  CharacterCode  </th><th class="col1 centeralign">  AttributeLevel  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Kinel      </td><td class="col1 centeralign">  3  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Brek       </td><td class="col1 centeralign">  1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Annice     </td><td class="col1 centeralign">  2  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Lisa       </td><td class="col1 centeralign">  5  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1724-1850] --><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  CharacterCode  </td><td class="col1 centeralign">  캐릭터 DB의 CharacterCode  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  AttributeLevel  </td><td class="col1 centeralign">  특성 연구를 하면 증가하는 값. 해당 값만큼 특성 트리가 개방 됨. 초기값 1  </td>
+	</tr>
+</table></div>
+<!-- EDIT8 TABLE [1852-2054] --><pre class="code">아직 얻지 못한 캐릭터는 보유 정보에 포함되지 않는다.</pre>
+<hr />
+
+</div>
+<!-- EDIT6 SECTION "캐릭터 보유 정보" [1612-] -->

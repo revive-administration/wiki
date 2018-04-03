@@ -1,0 +1,576 @@
+
+<h1 class="sectionedit1" id="requirements_engineering">4. Requirements engineering</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> The process of establishing</div>
+<ul>
+<li class="level2"><div class="li"> the services that the customer requires from a system</div>
+</li>
+<li class="level2"><div class="li"> and the constraints under which it operates and is developed.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "4. Requirements engineering" [1-202] -->
+<h3 class="sectionedit2" id="what_is_a_requirement">What is a requirement?</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> It may range</div>
+<ul>
+<li class="level2"><div class="li"> from a high-level abstract statement of a service or of a system constraints</div>
+</li>
+<li class="level2"><div class="li"> to a detailed mathematical functional specification</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> This is inevitable as requirements may serve a dual function</div>
+<ul>
+<li class="level2"><div class="li"> May be the basis for a bid for a contract</div>
+<ul>
+<li class="level3"><div class="li"> abstract enough to be open various solution</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> May be the basis for the contract itself</div>
+<ul>
+<li class="level3"><div class="li"> must be defined in detail</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Both these statements may be called requirements</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "What is a requirement?" [203-694] -->
+<h3 class="sectionedit3" id="types_of_requirement">Types of requirement</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> User requirements</div>
+<ul>
+<li class="level2"><div class="li"> Statements in a natural language plus diagrams of the service the system provides and its operational contstraints</div>
+</li>
+<li class="level2"><div class="li"> Written for customers</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> System requirements</div>
+<ul>
+<li class="level2"><div class="li"> A structured document setting out detailed descriptions of the system services</div>
+</li>
+<li class="level2"><div class="li"> Written as a contract between client and contractor</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Types of requirement" [695-1063] -->
+<h2 class="sectionedit4" id="functional_and_non-functional_requirements">4.1 Functional and non-functional requirements</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Functional requirements</div>
+<ul>
+<li class="level2"><div class="li"> Statements of services the system should provide, how the system should react to particular inputs and how the system should behave in particular situations</div>
+</li>
+<li class="level2"><div class="li"> May state what the system should not do</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Non-functional requirements</div>
+<ul>
+<li class="level2"><div class="li"> Constraints on the services or functions offered by the system such as timing constraints, constraints on the development process, standard, etc.</div>
+</li>
+<li class="level2"><div class="li"> Often apply to the system as a whole rather than individual features or services.</div>
+</li>
+<li class="level2"><div class="li"> 비기능 요구사항은 시스템과 관련된 다양한 요구사항을 표현한다</div>
+</li>
+<li class="level2"><div class="li"> 성능, 정확성, 이식성, 재사용성, 관리용이성, 상호운영성, 용량, 보안성, 가용성 등..</div>
+</li>
+<li class="level2"><div class="li"> 비기능 요구사항들은 시스템의 동작 방식에 제약을 두는 경우가 많음</div>
+</li>
+<li class="level2"><div class="li"> 몇 가지 제약사항은 현실적으로 테스트하기 힘들다거나 테스트하는 것이 의미가 없을 수 있음</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "4.1 Functional and non-functional requirements" [1064-2076] -->
+<h3 class="sectionedit5" id="non-functional_requirements">4.1.2 Non-functional requirements</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="non-functional_classifications">Non-functional classifications</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Product requirements</div>
+<ul>
+<li class="level2"><div class="li"> Specify that the delivered product must behave in a particular way</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Organisational requirements</div>
+<ul>
+<li class="level2"><div class="li"> Consequence of organisational policies and procedures</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> External requirements</div>
+<ul>
+<li class="level2"><div class="li"> External to the system and its development process</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "4.1.2 Non-functional requirements" [2077-2434] -->
+<h3 class="sectionedit6" id="goals_and_requirements">4.1.3 Goals and requirements</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Difficult to state precisely</div>
+</li>
+<li class="level1"><div class="li"> Imprecise requirements</div>
+</li>
+<li class="level1"><div class="li"> Goal : A general intention of the user</div>
+</li>
+<li class="level1"><div class="li"> Verifiable non-functional requirement</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "4.1.3 Goals and requirements" [2435-2619] -->
+<h2 class="sectionedit7" id="the_software_requirements_document">4.2 The software requirements document</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT7 SECTION "4.2 The software requirements document" [2620-2671] -->
+<h3 class="sectionedit8" id="software_requirements_specification_srs">Software Requirements Specification (SRS)</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> The requirements document is the official statement of what is required of the system developers</div>
+</li>
+<li class="level1"><div class="li"> Should include both</div>
+<ul>
+<li class="level2"><div class="li"> User requirements and</div>
+</li>
+<li class="level2"><div class="li"> System requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> It is NOT A design document</div>
+<ul>
+<li class="level2"><div class="li"> It should set of WHAT the system should do rather than HOW it should do it</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Software Requirements Specification (SRS)" [2672-3016] -->
+<h2 class="sectionedit9" id="requirements_specification">4.3 Requirements specification</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Definition </div>
+<ul>
+<li class="level2"><div class="li"> The process of writing down the user and system requirements in a requirements document</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Poperties</div>
+<ul>
+<li class="level2"><div class="li"> User requirements have to be understandable by end-users and customers who do not have a technical background</div>
+</li>
+<li class="level2"><div class="li"> System requirements are more detailed requirements and may include more technical information</div>
+</li>
+<li class="level2"><div class="li"> The requirements may be part of a contract for the system development</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "4.3 Requirements specification" [3017-3476] -->
+<h3 class="sectionedit10" id="ways_of_writing_system_requirements_specification">Ways of writing system requirements specification</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Natural language sentences</div>
+<ul>
+<li class="level2"><div class="li"> The requirements are written using numbered sentences in natural language. Each sentence should express one requirement</div>
+</li>
+<li class="level2"><div class="li"> Problem</div>
+</li>
+<li class="level2"><div class="li"> Lack of clarity</div>
+</li>
+<li class="level2"><div class="li"> Requirements confusion</div>
+</li>
+<li class="level2"><div class="li"> Requirements amalgamation(섞임)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Structured natural language</div>
+</li>
+<li class="level1"><div class="li"> Design description languages</div>
+</li>
+<li class="level1"><div class="li"> Graphical notations</div>
+</li>
+<li class="level1"><div class="li"> Mathematical specifications</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "Ways of writing system requirements specification" [3477-3923] -->
+<h3 class="sectionedit11" id="guidelines_for_writing_requirements">4.3.1 Guidelines for writing requirements</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Invent a standard format and use it for all requirements</div>
+</li>
+<li class="level1"><div class="li"> Use language in a consistent way. Use shall for mandatory requirements, should for desirable requirements.</div>
+</li>
+<li class="level1"><div class="li"> Use text highlighting to identify key parts of the requirements</div>
+</li>
+<li class="level1"><div class="li"> Avoid the use of computer jargon</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "4.3.1 Guidelines for writing requirements" [3924-4253] -->
+<h3 class="sectionedit12" id="structured_specification">4.3.2 Structured specification</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Restrictions over natural language</div>
+<ul>
+<li class="level2"><div class="li"> Template</div>
+<ul>
+<li class="level3"><div class="li"> Uses predefined template for requirements</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Standardization</div>
+<ul>
+<li class="level3"><div class="li"> All requirements are written in a standard way</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Limited terminology</div>
+<ul>
+<li class="level3"><div class="li"> The terminology used in the description may be limited</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Adavantages</div>
+<ul>
+<li class="level2"><div class="li"> Expressiveness of natural language is maintained</div>
+</li>
+<li class="level2"><div class="li"> Uniformity is imposed on the specification</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "4.3.2 Structured specification" [4254-4684] -->
+<h2 class="sectionedit13" id="requirements_engineering_process">4.4 Requirements Engineering Process</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT13 SECTION "4.4 Requirements Engineering Process" [4685-4733] -->
+<h3 class="sectionedit14" id="feasibility_studies">4.4.1 Feasibility studies</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> A feasibility study decides whether or not the proposed system is worthwhile</div>
+</li>
+<li class="level1"><div class="li"> A short focused study that checks</div>
+<ul>
+<li class="level2"><div class="li"> If the system contributes to organisational objectives</div>
+</li>
+<li class="level2"><div class="li"> If the system can be engineered using current technology and within budget</div>
+</li>
+<li class="level2"><div class="li"> If the system can be integrated with other systems that are used</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Questions in the organisation</div>
+<ul>
+<li class="level2"><div class="li"> What if the system wasn&#039;t implemented?</div>
+</li>
+<li class="level2"><div class="li"> What are current process problems?</div>
+</li>
+<li class="level2"><div class="li"> How will the proposed system help?</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "4.4.1 Feasibility studies" [4734-5262] -->
+<h2 class="sectionedit15" id="elicitation_도출_and_analysis">4.5 Elicitation(도출) and analysis</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Sometimes called requirements elicitation or requirements discovery</div>
+</li>
+<li class="level1"><div class="li"> Involves technical staff working with customers to find out about the application domain, the service that system should provide and the system&#039;s operational constraints.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "4.5 Elicitation(도출) and analysis" [5263-5558] -->
+<h3 class="sectionedit16" id="requirements_discovery">4.5.1 Requirements discovery</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> The process of </div>
+<ul>
+<li class="level2"><div class="li"> gathering information about the systems and</div>
+</li>
+<li class="level2"><div class="li"> distilling(추출하다) the user/system requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Sources of information include</div>
+<ul>
+<li class="level2"><div class="li"> documentation</div>
+</li>
+<li class="level2"><div class="li"> system stakeholder</div>
+</li>
+<li class="level2"><div class="li"> specifications of similar systems</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="viewpoints">Viewpoints</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> a way of structuring the requirements to represent the perspectives of different stakeholder</div>
+</li>
+<li class="level1"><div class="li"> Stakeholders may be classified under different viewpoints</div>
+</li>
+<li class="level1"><div class="li"> The multi-perspective analysis is important</div>
+<ul>
+<li class="level2"><div class="li"> there is no single correct way to analyse system requirements</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="types_of_viewpoint">Types of viewpoint</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Interactor viewpoints </div>
+<ul>
+<li class="level2"><div class="li"> 시스템을 직접 쓰는 사람들의 관점에서 요구사항을 나타낸 것</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Indirect viewpoints </div>
+<ul>
+<li class="level2"><div class="li"> 직접 쓰진 않지만 영향이 있는 사람들의 관점에서 나타낸것 (PPT의 경우 의료계 관련 종사자)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Domain viewpoints</div>
+<ul>
+<li class="level2"><div class="li"> 도메인 특성와 요구사항에 영향을 끼치는 그 제약들을 전문가의 관점에서 나타낸 것</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "4.5.1 Requirements discovery" [5559-6581] -->
+<h3 class="sectionedit17" id="use_cases">4.5.4 Use cases</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Use-cases are a kind of a scenario that are included in the UML</div>
+</li>
+<li class="level1"><div class="li"> Use cases identify the actors in an interaction and which describe the interaction itself</div>
+</li>
+<li class="level1"><div class="li"> A set of use cases should describe all possible interactions with the system.</div>
+</li>
+<li class="level1"><div class="li"> High-level graphical model supplemented by more detailed tabular description</div>
+</li>
+<li class="level1"><div class="li"> UML sequence diagrams may be used to add detail to use-cases by showing the sequence of event processing in the system.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT17 SECTION "4.5.4 Use cases" [6582-7057] -->
+<h2 class="sectionedit18" id="requirements_validation">4.6 Requirements validation</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Concerned with demonstrating that</div>
+<ul>
+<li class="level2"><div class="li"> the requirements define the system that the customer really wants</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Requirements error costs are high</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT18 SECTION "4.6 Requirements validation" [7058-7246] -->
+<h3 class="sectionedit19" id="requirements_checking">Requirements checking</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Validity : Does the system provide the functions which best support the customer&#039;s needs?</div>
+</li>
+<li class="level1"><div class="li"> Consistency : Are there any requirements conflicts?</div>
+</li>
+<li class="level1"><div class="li"> Completeness : Are all functions required by the customer included?</div>
+</li>
+<li class="level1"><div class="li"> Realism : Can the requirements be implemented given available budget and technology?</div>
+</li>
+<li class="level1"><div class="li"> Verifiability : Can the requirements be checked?</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT19 SECTION "Requirements checking" [7247-7643] -->
+<h3 class="sectionedit20" id="requirements_validation_techniques">Requirements validation techniques</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Requirements reviews</div>
+<ul>
+<li class="level2"><div class="li"> Systematic manual analysis of the requirements</div>
+</li>
+<li class="level2"><div class="li"> Checks Verifiability, Comprehensibility, Traceability, Adaptability</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Prototyping</div>
+<ul>
+<li class="level2"><div class="li"> Using an executable model of the system to check requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Test-case generation</div>
+<ul>
+<li class="level2"><div class="li"> Developing tests for requirements to check testablility</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "Requirements validation techniques" [7644-8012] -->
+<h2 class="sectionedit21" id="requirements_management">4.7 Requirements management</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Requirements management</div>
+<ul>
+<li class="level2"><div class="li"> The process of managing changing requirements during the requirements engineering process and system development</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Requirements Change</div>
+<ul>
+<li class="level2"><div class="li"> The priority of requirements from different viewpoints changes during the development process.</div>
+</li>
+<li class="level2"><div class="li"> System customers may specify requirements from a business perspective that conflict with end-user requirements</div>
+</li>
+<li class="level2"><div class="li"> The business and technical environment of the system changes during its development</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT21 SECTION "4.7 Requirements management" [8013-8531] -->
+<h3 class="sectionedit22" id="requirements_management_planning">4.7.1 Requirements management planning</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Requirement identification</div>
+<ul>
+<li class="level2"><div class="li"> Each requirements must be uniquely identified</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> A change management process</div>
+<ul>
+<li class="level2"><div class="li"> The set of activities that assess the impact and cost of changes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Traceability policies</div>
+<ul>
+<li class="level2"><div class="li"> The relationship between requirements, and between the requirements and the system design</div>
+</li>
+<li class="level2"><div class="li"> How these records should be maintained</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> CASE tool support</div>
+<ul>
+<li class="level2"><div class="li"> The tool support required to help manage requirements change; ranges from spreadsheet to database system</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="traceability">Traceability</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Traceability is concerned with relationships between requirements, their sources and the system design</div>
+</li>
+<li class="level1"><div class="li"> Source traceability</div>
+<ul>
+<li class="level2"><div class="li"> Links from requirements to stakeholders who proposed these requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Requirements traceability</div>
+<ul>
+<li class="level2"><div class="li"> Links between dependent requirements </div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Design traceability</div>
+<ul>
+<li class="level2"><div class="li"> Links from the requirements to the design</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="case_tool_support">CASE tool support</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Requirements storage</div>
+<ul>
+<li class="level2"><div class="li"> Requirements should be managed in a secure, managed data store.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Change management</div>
+<ul>
+<li class="level2"><div class="li"> The process of change management is a workflow process whose stages can be defined and information flow between these stages partially automated</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Traceability management</div>
+<ul>
+<li class="level2"><div class="li"> Automated retrieval of the links between requirements.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT22 SECTION "4.7.1 Requirements management planning" [8532-] -->

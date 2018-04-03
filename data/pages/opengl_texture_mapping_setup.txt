@@ -1,0 +1,12 @@
+====== OpenGL texture mapping setup ======
+  * Steps in your program
+    * 1) Specify texture
+      * read or generate images
+      * generate texture objects(optional)
+      * assign images to textures
+    * 2) Specify texture mapping parameters
+      * Wrapping, filtering, etc
+    * 3) Enable GL texture mapping
+    * 4) Assign texture coordinates to vertices
+    * 5) Draw your objects (with fixed function pipeline or shaders)
+    * 6) Disable GL texture mapping

@@ -1,0 +1,14 @@
+====== 공격 타입 (AtkType) ======
+소속 : CPPFL_EquipmentLibrary
+
+실탄공격을 Default로 하는 무기의 공격 타입. 공격 타입에 따라 [[데미지 계산식]]이 달라짐. \\
+AttackType은 넓은 의미의 공격(NormalAttack, AutoSkill, ExSkill 등)의 구분을 의미하며 AtkType은 기본 공격의 하위 타입들을 의미한다.
+
+
+^ 구분 ^ 설명 ^
+| Bullet | 기본적인 실탄 베이스 공격 |
+| Photon | 광학 기반 공격 |
+| Explosion | 폭발형 공격 (대포 등) |
+| Magic | 마법 계열 공격 |
+| Energy | 에너지 계열 공격 |
+

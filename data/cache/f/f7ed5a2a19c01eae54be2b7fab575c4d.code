@@ -1,0 +1,5 @@
+<span class="kw1">public</span> <span class="kw1">interface</span> CallBack <span class="br0">&#123;</span>
+&nbsp;
+        <span class="kw4">void</span> callBackMethod<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> obj<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="br0">&#125;</span>

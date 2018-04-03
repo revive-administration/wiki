@@ -1,0 +1,279 @@
+====== 2. Software Process ======
+===== Software process and software process models =====
+  * Software Process
+    * A structured set of activities required to develop a software system
+  * Software Process Model
+    * An abstract representation of a software process, presented from a specific perspective
+  * Many different software processes but all involve
+    * Specification
+      * defining what the system should do
+    * Design and implementation
+      * defining the organization of the system and implementing the system
+    * Validation
+      * checking that it does what customer wants
+    * Evolution
+      * changing the system in response to changing customer needs
+
+==== Software process descriptions ====
+  * Typically include
+    * Activities such as specifying a data model, designinig a user interface
+    * The ordering of these activities
+  * Process descriptions may also include:
+    * Products(상품), which are the outcomes of a process activity;
+    * Roles(역할), which reflect the responsibilities of the people involved int the process;
+    * Pre- and post-conditions(전후조건), which are statements that are true before and after a process activity has been enacted or a product produced.
+
+===== 2.1 Software process models =====
+==== Plan-driven and agile processes ====
+  * Plan-driven processes
+    * all of the processes activities are planned in advance and progress is measured against this plan
+  * Agile processes
+    * planning is incremental and it is easier to change the process to reflect changing customer requirements
+  * In practive most practical processes include elements of both plan-driven and agile approaches
+  * There are no right or wrong software processes.
+
+==== 2.1.1 The waterfall model ====
+This takes the fundamental process activities of specification, development, validation, and evolution and represents them as separate process phases such as requirements specification, software design, implementation, testing, and so on.
+
+  * Separate and distinct phases
+    * Requirements analysis definition
+    * System and software design
+    * Implementation and unit testing
+    * Integration and system testing
+    * Operation and maintanance
+  * Main drawback
+    * Difficulty of accommodating change after the process is underway.
+    * In principle, a phase has to be completed before moving onto the next phase.
+    * Inflexible partitioning of the project into distinct stages
+    * Still effective to large systems
+==== 2.1.2 Incremental development ====
+This approach interleaves the activities of specification, development, and validation. The system is developed as a series of versions(increments), with each version adding functionality to the previous version.
+ 
+  * The cost of accommodating changing customer requirements is reduced.
+  * It is easier to get customer feedback on the development work that has been done
+  * More rapid delivery and deployment of useful software to the customer is possible.
+
+
+  * Problems
+    * Lack of process visibility
+    * Systems are often poorly structured
+  * Applicability
+    * For small or medium-size interactive systems
+    * For parts of large systems (UI)
+    * For short-lifetime systems
+==== 2.1.3 Reuse-oriented software engineering ====
+This approach is based on the existence of a significant number of reusable components. The system development process focuses on integrating these components into a system rather than developing them from scratch.
+
+  * Systematic reuse
+    * systems are integrated from existing components or COTS(Commercial-off-the-shelf) systems.
+  * Process stages
+    * Component analysis
+    * Requirements modification
+    * System design with reuse
+    * Development and integration
+  * Becoming popular
+    * Reuse is now the standard approach for building many types of business system
+===== 2.2 Process activities =====
+Real software processes are interleaved sequences of technical, collaborative, and managerial activities.
+  * Four basic process activities
+    * Specification, Development, Validation, and Evolution
+    * Organized differently in defferent development processes
+==== 2.2.1 Software specification ===
+  * The process of establishing what services are required and the constraints on the system's operation and development
+  * Requirements engineering process
+    * Feasibility study(사업화 가능성 조사)
+    * Requirements elicitation(도출) and analysis
+    * Requirements specification
+    * Requirements validation
+
+==== 2.2.2 Software design and implementation ====
+  * The process of converting the system specification into an executable system
+  * Software design
+    * Design a software structure that realises the specification
+  * Implementation
+    * Translate this structure into an executable program
+    * The activities of design and implementation are closely related and may be inter-leaved
+
+=== Design activities ===
+    * Architectural design
+      * identify the overall structure of the system, the principal components, their relationships and how they are distributed
+    * Database design
+    * Interface design
+    * Component selection and design
+=== System implementation ===
+  * The software is implemented
+    * By developing a program or programs or
+    * by configuring an application system
+  * Design and implementation are interleaved activities for most types of software system
+  * Programming is an individual activity with no standard process
+  * Debugging is the activity of finding program faults and correcting these faults
+
+==== 2.2.3 Software validation (V&V) ====
+  * Verification
+    * Show that the system conforms to its specification
+  * Validation
+    * Show that the system meets the requirements of the system customer
+  * Involves checking and review processes
+  * Testing is the most commonly used V&V activity
+
+  * Testing stages
+    * Component or unit testing
+      * Individual components are tested independently
+      * Components may be functions or objects or coherent(일관성 있는) groupings of these entities
+    * System testing
+      * Testing of the system as a whole
+      * Testing of emergent properties is particularly important
+    * Acceptance testing
+      * Testing with customer data to check that the system meets the customer's needs.
+
+==== 2.2.4 Software evolution ====
+  * Software is inherently(본질적으로) flexible and can change
+  * As requirements change through changing business circumstances, the software that supports the business must also evolve and change
+  * Fewer and fewer systems are completely new
+
+===== 2.3 Coping with change =====
+  * Requirement evolves
+    * system requirements ALWAYS evolve in the course of a project
+    * Change leads to rework so the costs of change include both
+      * implementing new functionality
+      * rework(re-analyzing requirements)
+    * Iteration can be applied to any of the generic process models.
+
+==== Reducing the costs of rework ====
+  * Change anticipation
+    * process includes activities that can anticipate possible changes before significant rework is required
+    * E.g. prototype system
+      * a version of the system or part of the system is developed quickly to check the customer's requirements and the feasibility of design decisions
+      * Requirements engineering : help with requirements elicitation(도출) validation.
+      * Design : explore options and develop a UI design
+      * Testing : run back-to-back tests
+    * Change tolerance
+      * process is designed so that changes can be accommodated at relatively low cost
+      * E.g. incremental development
+        * proposed changes may be implements that have not yet been developed
+        * then only a single increment may have be altered to incorporate the change
+==== 2.3.2 Incremental delivery ====
+  * Definition
+    * Rather than deliver the system as a single delivery, the development and delivery is broken down into increments with each increment delivering part of the required functionality
+  * Requirement Prioritization
+    * The highest priority requirements are included in early increments
+  * Requirement Freezing
+    * Once the development of an increment is started, the requirements are frozen
+
+  * Problems
+    * Most systems require a set of basic facilities
+      * It can be hard to identify common facilities that are needed by all increments
+    * Specification is developed in conjunction(결합) with the software
+      * Procurement model of many organizations prohibit this.
+=== Extreme Programming (XP) ===
+  * development and delivery of very small increments(typically 1-2 weeks) of functionality
+  * Relies on
+    * constant code improvement(refactoring)
+    * user involvement in the development team
+    * Pair-wise programming
+  * Enabled by
+    * automated test framework
+    * continuous build
+
+==== 2.3.3 Boehm's spiral model ====
+  * Process is represented as a spiral
+    * rather than as a sequence of activities with backtracking
+  * Each loop is the spiral represents a phase in the process
+  * No fixed phases such as specification or design
+    * loops in the spiral are chosen depending on what is required
+  * Risks are explicitly assessed and resolved throughout the process
+
+  * Spiral model sectors
+    * Objective setting (목표설정)
+      * Specific objectives for the phase are identified
+    * Risk assessment and reduction (리스크 측정과 해결)
+      * Risks are assessed and activities put in place to reduce the key risks.
+    * Development and validation (개발과 확인)
+      * A development model for the system is chosen which can be any of the generic models
+    * Planning (다음 개발 계획)
+      * The project is review and the next phase of the spiral is planned
+
+===== 2.4 The Rational Unified Process (RUP) =====
+  * A modern process model derived from the work on the UML and associated process
+  * 객체지향 개발 방법론
+  * Brings together aspects of the 3 generic process models discussed previously
+  * Normarlly described from 3 perspectives
+    * A dynamic perspective that shows phases over time
+    * A static perspective that shows process activities
+    * A practice perspective that suggest good practice
+
+  * RUP good practice 
+    * 발견된 위험 요소를 원동력으로 반복적으로 개발하라.
+      * Develop software iteratively
+    * 필수사항을 관리하라.
+      * Manage requirements
+    * 컴포넌트 기반의 구조를 도입하라.
+      * Use component-based architectures
+    * 소프트웨어를 시각화하라.
+      * Visually model software
+    * 품질을 지속적으로 확인하라.
+      * Verify software quality 
+    * 변화를 통제하라.
+      * Control changes to software
+
+===== 2.5 CASE (Computer-Aided Software Engineering)
+  * Software systems that are intended to provide automated support for software process activities
+  * CASE systems are often used for method support
+    * support the early process activities of requirements and design.
+    * support later activities such as programming, debugging and testing.
+===== 2.6 Process improvement =====
+  * Software Process Improvement
+    * To enhance the quality of software
+    * To reduce costs
+    * To accelerate development process
+  * Understanding existing processes and changing these processes
+==== 2.6.1 Process improvement activities ====
+  * Process measurement
+    * Measure one or more attributes of the software process or product
+    * These measurements forms a baseline
+  * Process analysis
+    * Assessment of the current process
+    * Process models that describe the process may be developed
+  * Process change
+    * Process changes and proposed to address some of the identified process weakness
+    * These are introduced and the cycle resumes to collect data about the effectiveness of the changes
+
+==== 2.6.2 What are CMM and CMMI? ====
+  * CMM : Capability(능력) Maturity Model
+  * CMMI : Capability Maturity Model Integration
+  * Developed by the Software Engineering Institute (SEI) of the Carnegie Mellon University
+  * Process improvement training and appraisal program and service
+
+=== What is CMM? ===
+  * Describing evolutionary improvement path for software organizatinos
+    * from an ad hoc(임시 변통의), immature(미숙한) process to a mature, disciplined one.
+  * Provide guidance
+    * how to gain control of processes for developing and maintaining software
+    * how to evolve toward a culture of software engineering and management excellence. 
+
+=== Process Maturity Concepts
+  * Software Process
+    * set of activities, methods, practices, and transformations that people use to develop and maintain software and the associated products
+  * Software Process Capability
+    * describes the range of expected results that can be achieved by following a software process
+    * means of predicting the most likely outcomes to be expected from the next software project the organization undertakes
+
+=== CMM Levels ===
+  * Level 1. Initial
+    * Processes unpredictable, poorly controlled and reactive
+  * Level 2. Managed
+    * Processes characterized for projects and is often reactive
+  * Levle 3. Defined
+    * Processes characterized for the organization and is proactive
+  * Level 4. (Quantitiatively) Managed
+    * Processes measured and controlled
+  * Level 5. Optimizing Focus on process improvement
+
+=== Approaches to improvement ===
+  * The process maturity approach
+    * Improving process and project management
+    * Introducing good software engineering practice
+    * Process maturity level reflects the extend to which good technical and management practice has been adopted in organizational software development processes
+  * The agile approach
+    * Iterative development and the reduction of overheads in the software process
+    * Rapid delivery of functionality and responsiveness to changing customer requirements

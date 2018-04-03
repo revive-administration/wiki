@@ -1,0 +1,58 @@
+======필드 구조체======
+
+=====Field=====
+
+^  RowName  ^  TileList  ^  EnemyCorpsList  ^  EliteEnemyCorpsList  ^  ItemCodeList  ^  GetItemMinList  ^  GetItemMaxList  ^  GetItemProbability  ^  TimeZone  ^  BattleImage  ^  FieldImage  ^
+|  Field_1  |  |  (EnemyCorps_1, EnemyCorps_2, EnemyCorps_3)  |  (EnemyCorps_10, EnemyCorps_11, EnemyCorps_12)  |  (Material_1, Material_2, Material_2)  |  (1, 2, 3)  |  (3, 2, 10)  |  (1, 4, 5)  |  VE_Morning  |  |  |
+
+^  항목  ^  설명  ^
+|  TileList  |  Tile의 배열.  |
+|  EnemyCorpsList  |  타일의 효과가 BattleRandom인 경우 이 중에서 랜덤으로 1개가 골라진다.  |
+|  EliteEnemyCorpsList  |  경계가 100%가 되어서 진입하는 전투의 경우 이 중에서 랜덤으로 1개가 골라진다.  |
+|  ItemCodeList  |  타일의 효과가 GetItemRandom인 경우 이 중에서 랜덤으로 1개가 골라진다. 그리고 필드 클리어 시 이 중에서 랜덤으로 3개가 골라진다.  |
+|  GetItemMinList  |  ItemCodeList에서 n번 앨리먼트가 골라지면 이 리스트에서 n번 리스트를 골라서 MinNumber로 사용한다.  |
+|  GetItemMaxList  |  ItemCodeList에서 n번 앨리먼트가 골라지면 이 리스트에서 n번 리스트를 골라서 MaxNumber로 사용하여 랜덤한 개수의 아이템을 부여한다.  |
+|  GetItemProbability  |  ItemCodeList 중 어느 항목이 결정되는 지에 대한 각 항목의 확률 비중  |
+|  TimeZone  |  VE_Morning, VE_Afternoon, VE_Night. 배경 이미지의 시간대  |
+|  BattleImage  |  전투 시 배경 이미지. TimeZone과 조합해서 배경이미지가 정해짐  |
+|  FieldImage  |  필드 배경 이미지.  |
+
+=====Tile=====
+{{:kakaotalk_photo_2017-03-08-11-15-41.png?400|}}
+^  TileX  ^  TileY  ^  TileType  ^  TileEffect  ^  ArrowDirection  ^  StoryType  ^  StoryCode  ^   IsRandomable  ^
+|  0  |  0  |  VE_Start  |  |  (VE_Right)  |  VE_None  |  |      False  | 
+|  0  |  1  |  VE_Normal  |  |  (VE_Right,VE_Down)  |  VE_None  |  |      True  |
+|  1  |  1  |  VE_Normal  |  |  (VE_Up)  |  VE_None  |  |      True  |
+|  0  |  1  |  VE_Normal  |  |  (VE_Down)  |  VE_PreviousEffect  |  MainStory_1  |    False  |
+|  1  |  2  |  VE_Clear  |  |  ()  |  VE_None  |  |  False  |
+
+
+^  항목  ^  설명  ^
+|  TileX  |  타일이 위치할 X좌표  |
+|  TileY  |  타일이 위치할 Y좌표  |
+|  TileType  |  Start, Normal, Clear.  Start는 1개만 존재 가능. Clear타일은 필드 클리어 처리를 해준다. Normal타일은 TileEffect를 처리한 후 다음 카드 사용을 대기한다.  |
+|  TileEffect  |  TileEffect. 순서대로 처리해준다.  |
+|  ArrowDirection  |  다음 타일이 어느 방향에 위치하는 지 이넘 배열. Up, Right, Down. 마지막 타일인 경우 빈 배열.  |
+|  StoryType  |  None, PreviousEffect, AfterEffect. 스토리 실행을 TileEffect 처리 전에 하는지 후에 하는지, 스토리가 있는지 없는지 지정  |
+|  ChapterCode  |  실행시킬 챕터의 RowName을 지정  |
+|  StoryCode  |  ChapterCode에 적은 챕터에 포함된 스토리의 RowName을 지정  |
+|  IsRandomable  |  타일의 Shuffle을 진행하는 경우 Shuffle될 수 있는지 여부. Start, Clear타일은 False이고, Normal타일 중에서도 방향타일, 스토리타일, 정지 타일은 False이다.  |
+
+=====TileEffect=====
+
+^  TileEffectType  ^  IntValue  ^  TextValue  ^
+|  VE_Battle  |    |  EnemyCorps_1  |
+|  VE_BattleRandom  |    |  |
+|  VE_BossBattle  |    |  EnemyCorps_100  |
+|  VE_Heal  |  10  |  |
+|  VE_GetGold  |  500  |  |
+|  VE_GetItemRandom  |  |  |
+
+^  항목  ^  설명  ^
+|  TileEffectType  |  처리할 Effect의 이넘  |
+|  Battle  |  TextValue에 지정한 코드로 DT에서 검색하여 전투 발생.  |
+|  BattleRandom  |  Field가 가지고 있는 EnemyCorpsList에서 랜덤으로 1개를 뽑아와 전투 발생  |
+|  BossBattle  |  TextValue에 지정한 코드로 DT에서 검색하여 전투 발생. Battle과 전투 진입 이펙트가 다르다.  |
+|  Heal  |  아군 전체의 체력을 최대 체력의 n%만큼 회복시킨다.  |
+|  GetGold  |  IntValue만큼의 골드를 획득한다.  |
+|  GetItemRandom  |  Field가 가지고 있는 ItemCodeList에서 랜덤으로 1개를 뽑아와 아이템 획득  |

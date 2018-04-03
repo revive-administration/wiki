@@ -1,0 +1,28 @@
+<span class="kw1">package</span> <span class="co2">Ch08</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">class</span> Lamp <span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> turnOn<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;Lamp on&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">class</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a> <span class="br0">&#123;</span>
+	<span class="kw1">private</span> Lamp theLamp<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#40;</span>Lamp theLamp<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">theLamp</span> <span class="sy0">=</span> theLamp<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> pressed<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		theLamp.<span class="me1">turnOn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Client <span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		Lamp lamp <span class="sy0">=</span> <span class="kw1">new</span> Lamp<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a> lampButton <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#40;</span>lamp<span class="br0">&#41;</span><span class="sy0">;</span>
+		lampButton.<span class="me1">pressed</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+<span class="br0">&#125;</span>

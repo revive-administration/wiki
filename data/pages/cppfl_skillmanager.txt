@@ -1,0 +1,7 @@
+====== CPPFL_SkillManager ======
+AutoSkill, ExSkill등의 스킬 사용과 그에 대한 이펙트셋/이펙트에 대한 처리를 관장하는 클래스
+
+=====Functions =====
+  * UseAutoSkill(ACPP_Slot* TargetSlot, FBattlePacket BattlePacket)
+  * DoEffectSet(ACPP_Slot* FromSlot, FEffectSet EffectSet, ACPP_Slot* TargetSlot)
+  * DoEffect(ACPP_Slot* FromSlot, FEffect Effect, ACPP_Slot* TargetSlot)

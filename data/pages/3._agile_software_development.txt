@@ -1,0 +1,47 @@
+====== 3. Agile Software Development ======
+  * Rapid development and delivery
+    * Often the most important requirement these days
+    * Business operate in a fast-changing requirement
+    * Impossible to produce stable requirements
+  * Iterative software development
+===== 3.1 Agile methods =====
+  * Dissatisfaction with the overheads involved in software design methods
+  * Creation of agile methods
+    * Focus on the code rather than the design
+    * Based on an iterative approach to software development
+    * Deliver working software quickly
+    * Evolve quickly to meet changing requirements
+==== Agile manifesto ====
+  * Values
+    * Individuals and interactions over processes and tools
+    * Working software over comprehensive documentation
+    * Customer collaboration over contract negotiation
+    * Responding to change over following a plan
+
+==== The principles of agile methods====
+  * Customer involvement
+  * Incremental delivery
+  * People, not process
+    * The skills of the development team should be recognized and exploited. Team members should be left to develop their own ways of working without prescriptive processes.
+  * Embrace change
+  * Maintain simplcity
+
+===== 3.3 Extreme Programming =====
+  * Perhaps the best-known and most widely used agile method.
+
+==== Extreme programming practices
+  * Incremental planning
+  * Small releases
+  * Simple design
+  * Test-first development
+  * Refactoring
+  * Pair programming
+  * Collective ownership
+  * Continuous integration
+  * Sustainble pace
+  * On-site customer
+
+==== Test-first development ====
+  * Writing tests before code
+  * Tests are written as programs
+  * All previous and new tests are automatically run

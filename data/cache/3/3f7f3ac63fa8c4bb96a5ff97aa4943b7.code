@@ -1,0 +1,4 @@
+<span class="kw1">private</span> Alarm theAlarm<span class="sy0">;</span>
+<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#40;</span>Alarm theAlarm<span class="br0">&#41;</span><span class="br0">&#123;</span>
+	<span class="kw1">this</span>.<span class="me1">theAlarm</span> <span class="sy0">=</span> theAlarm<span class="sy0">;</span>
+<span class="br0">&#125;</span>

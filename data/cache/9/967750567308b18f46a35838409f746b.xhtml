@@ -1,0 +1,94 @@
+
+<h1 class="sectionedit1" id="chapter_01_mvcmodel-view-controller">Chapter 01 MVC : Model-View-Controller</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 01 MVC : Model-View-Controller" [1-53] -->
+<h2 class="sectionedit2" id="mvc의_일반적_예">1.1 MVC의 일반적 예</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 윈도우즈 탐색기</div>
+</li>
+<li class="level1"><div class="li"> Internet Explorer</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "1.1 MVC의 일반적 예" [54-139] -->
+<h2 class="sectionedit3" id="mvc란">1.2 MVC란 ?</h2>
+<div class="level2">
+
+<p>
+MVC = Model + View + Controller
+</p>
+
+<p>
+기본적으로 객체지향 언어를 이용한 프로그램 설계에서는 필요한 기능을 열거하고 열거된 기능들을 별도의 클래스들로 나누어 작성하게 되는데, 이때 클래스의 기능을 모델의 역할(Role)을 하는 클래스와 뷰의 역할을 하는 클래스, 그리고 컨트롤러의 역할을 하는 클래스로 나누는 것이 가장 기본이며, 핵심이라 할 수 있습니다. 이렇게 각각의 역할을 맡게 된 클래스는 독립적으로 작동하는 것이 아니라 서로 연관 관계를 맺으면서 프로그램의 목적된 바를 수행하게 되는데, 이 때 서로의 연관 관계를 최소화시키는 것이 최대의 관건입니다. 
+</p>
+
+<p>
+하나의 클래스에 다른 두 개 이상의 역할(Role 또는 Responsibility)이 존재한다면, 예를 들어 뷰의 역할을 하는 클래스에 컨트롤러의 기능이 포함되어 있거나 하는 경우, 이는 클래스 설계에 커다란 문제를 내포하고 있음을 의미합니다. 왜냐하면, 눈으로 보이는 부분을 수정하기 위해 Controller의 기능을 수정해야 하기 때문입니다. 이는 하나의 클래스를 수정하는 것이 다른 클래스를 재사용 할 수 없도록 만듭니다. 그래서 클래스 간의 연결 관계를 최소화하는 것이 바람직합니다.
+</p>
+
+<p>
+따라서 클래스는 Model, View, Controller의 역할 중 하나만을 담당하여야 하며, 클래스는 자신을 외부에 노출 시킬 수 있는 추상 계층(Abstract Layer)을 선언하게 됩니다. 여기서 추상 계층이란 클래스에 대한 명세를 선언한 것으로서 실제 구현은 되어 있지 않음을 말합니다. 객체 지향 세계에서의 구현은 추상 계층에서 선언된 명세를 준수해야 하는 강제성을 갖고 있으므로 “추상 계층은 구현된다.”라는 명제는 항상 성립합니다.
+</p>
+
+<p>
+클래스는 추상 계층을 통해 자신을 노출하고 클래스를 필요로 하는 곳 또한 추상 계층을 통해 참조하게 되므로, 추상 계층의 실제 구현부가 변경, 수정된다 하더라도 이 변경 내용이 서로에게 영향을 주는 사건은 발생하지 않습니다. 즉 추상 계층을 통해 서로의 관계가 연약(Loose Coupling)해지게 만듭니다.
+</p>
+
+<p>
+예) libGdx의 Screen ← 상속해서 사용하므로 서로의 관계가 느슨함
+</p>
+
+<p>
+Model, View, Controller 이들이 추상 계층을 통해 하나의 유기체와 같이 원활히 작동하면서 동시에 서로의 영향력이 최소화된다면 여기서 사용된 각각의 클래스는 서로에게 독립적이므로 재사용이 가능한 형태가 되게 됩니다.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "1.2 MVC란 ?" [140-2884] -->
+<h2 class="sectionedit4" id="웹에서의_mvc">1.3 웹에서의 MVC</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "1.3 웹에서의 MVC" [2885-2917] -->
+<h3 class="sectionedit5" id="model">1.3.1 Model</h3>
+<div class="level3">
+
+<p>
+자바에서 모델이라 함은 보통 빈(Bean)을 의미하고 자바에서의 빈은 다음과 같이 3가지로 나누어집니다.
+</p>
+<ul>
+<li class="level1"><div class="li"> Java Bean : <abbr title="Graphical User Interface">GUI</abbr> Component</div>
+</li>
+<li class="level1"><div class="li"> JSP Bean : 이 장에서 우리가 사용할 것</div>
+</li>
+<li class="level1"><div class="li"> Enterprise Java Bean : 분산환경에서 사용하는 자바 컴포넌트 기술</div>
+</li>
+</ul>
+
+<p>
+여기서 우리가 만들어 볼 JSP Bean은 실질적인 비즈니스 로직을 담는 클래스로, Model에 해당하며 이 클래스에 비즈니스 프로세스를 처리할 수 있는 역할만을 부여하고 View라 할 수 있는 Presentation 영역과 컨트롤러의 역할을 내포시키지 않았다면 이 클래스는 꼭 웹에서만 사용될 수 있는 것이 아니라 일반 애플리케이션 또는 다른 시스템에서도 사용할 수 있게 될 것입니다.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "1.3.1 Model" [2918-3734] -->
+<h3 class="sectionedit6" id="controller">1.3.2 Controller</h3>
+<div class="level3">
+
+<p>
+웹에서의 서블릿은 컨트롤러 역할을 담당합니다. 서블릿은 기본적으로 쓰레드단위로 구동되기 때문에 프로세스 단위로 구동되는 단점을 극복할 수 있었습니다만, Controller과 View가 공존하는 형태가 문제를 낳았습니다. 이러한 문제를 극복하기 위해 출시된 것이 JSP이며, JSP의 출현으로 인해 서블릿 클래스는 컨트롤러의 역할만을 수행할 수 있게 되었고, 프레젠테이션 기능은 JSP에게 위임되게 되었습니다.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "1.3.2 Controller" [3735-4298] -->
+<h3 class="sectionedit7" id="view">1.3.3 View</h3>
+<div class="level3">
+
+<p>
+JSP의 등장으로 MVC패턴의 완벽한 구현이 가능해졌습니다.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "1.3.3 View" [4299-] -->

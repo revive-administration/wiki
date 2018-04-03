@@ -1,0 +1,450 @@
+
+<h1 class="sectionedit1" id="architectural_design">6. Architectural Design</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "6. Architectural Design" [1-38] -->
+<h3 class="sectionedit2" id="software_architecture">Software Architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Architectural design</div>
+<ul>
+<li class="level2"><div class="li"> 일반적으로 하드웨어 시스템 또는 소프트웨어 시스템 개발의 초기 단계에서 시스템의 개념적인 구조 없이 논리적인 시방을 결정하는 작업</div>
+</li>
+<li class="level2"><div class="li"> An early stage of the system design process : All architecture is software design, but not all design is software architecture</div>
+</li>
+<li class="level2"><div class="li"> Represents the link between specification and design processes</div>
+</li>
+<li class="level2"><div class="li"> Often carried out in parallel with some specification activities</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Architecture focuses on issues that will be defficult/impossible to change once the system is built</div>
+</li>
+<li class="level1"><div class="li"> Architectural model</div>
+<ul>
+<li class="level2"><div class="li"> Output of the architectural design</div>
+</li>
+<li class="level2"><div class="li"> describes how the system is organized as a set of communicating systems.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Software Architecture" [39-808] -->
+<h3 class="sectionedit3" id="architecture_vs_design">Architecture vs Design</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Architecture </div>
+<ul>
+<li class="level2"><div class="li"> non-functional requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Design</div>
+<ul>
+<li class="level2"><div class="li"> functional requirements</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Architecture vs Design" [809-935] -->
+<h3 class="sectionedit4" id="definitionarchitectural_design">Definition : Architectural Design</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> SEI</div>
+<ul>
+<li class="level2"><div class="li"> The software architecture of a program or computing system is the structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> ANSI/IEEE Std</div>
+<ul>
+<li class="level2"><div class="li"> Architecture is the fundamental organization of a system, embodied in its components, their relationships to each other and the environment, and the principles governing its design and evolution.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 위키백과</div>
+<ul>
+<li class="level2"><div class="li"> 소프트웨어 구성요소와 그들이 지니고 있는 특성 중에 외부에 드러나는 요소의 특성과 구성요소들 간의 관계를 표현하는 시스템의 구조나 구조체</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Garlan and Shaw</div>
+<ul>
+<li class="level2"><div class="li"> Software architecture goes beyond the algorithms and data structures of the computation; designing and specifying the overall system structure emerges as a new kind of problem. Structural issues include gross organization and global control structure; protocols for communication, synchronization, and data access; assignment of functionality to design elements; physical distribution; composition of design elements; scaling and performance; and selection among design alternatives.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+==== Architecture Defines Structure
+</p>
+<ul>
+<li class="level1"><div class="li"> Decomposition(분해) of system into components/modules/subsystems</div>
+</li>
+<li class="level1"><div class="li"> Architecture defines</div>
+<ul>
+<li class="level2"><div class="li"> Component interfaces</div>
+</li>
+<li class="level2"><div class="li"> Component communications and dependencies</div>
+</li>
+<li class="level2"><div class="li"> Component responsibilities</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Definition : Architectural Design" [936-2396] -->
+<h3 class="sectionedit5" id="externally_visible_vs_internal_properties">Externally visible vs Internal properties</h3>
+<div class="level3">
+
+<p>
+Externally visible properties are what assumption(추정) other elements can make of an element
+</p>
+<ul>
+<li class="level1"><div class="li"> Provided services</div>
+</li>
+<li class="level1"><div class="li"> Performance</div>
+</li>
+<li class="level1"><div class="li"> Fault handling</div>
+</li>
+<li class="level1"><div class="li"> Shared resource usage</div>
+</li>
+</ul>
+
+<p>
+SA intentionally(의도적으로) abstracts away internal properties of elements(to better encounter complexity)
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Externally visible vs Internal properties" [2397-2741] -->
+<h3 class="sectionedit6" id="software_architecture_vs_system_architecture">Software Architecture vs System Architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> architect has more freedom in software than hardware</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Software Architecture vs System Architecture" [2742-2854] -->
+<h3 class="sectionedit7" id="advantages_of_explicit_명쾌한_분병한_architecture">Advantages of explicit(명쾌한,분병한) architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Stakeholder communication</div>
+</li>
+<li class="level1"><div class="li"> System analysis</div>
+<ul>
+<li class="level2"><div class="li"> whether the system can meet its non-functional requirements is possible</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Large-scale reuse</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Advantages of explicit(명쾌한,분병한) architecture" [2855-3072] -->
+<h3 class="sectionedit8" id="architectural_representations">Architectural representations</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Non-standard Models</div>
+<ul>
+<li class="level2"><div class="li"> Simple, informal block diagrams showing entities and relationships</div>
+<ul>
+<li class="level3"><div class="li"> the most frequently used method for documenting software architectures</div>
+</li>
+<li class="level3"><div class="li"> lack semantics</div>
+</li>
+<li class="level3"><div class="li"> do not show the types of relationships between entities nor the visible properties of entities in the architecture.</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> ADL (Architecture Description Language)</div>
+</li>
+<li class="level2"><div class="li"> UML (Unified Modeling Language)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Architectural representations" [3073-3519] -->
+<h3 class="sectionedit9" id="an_adl_example_in_acme">An ADL Example (in ACME)</h3>
+<div class="level3">
+<pre class="code">System simple_cs = {
+	Component client = {Port send-request}
+	Component server = {Port receive-request}
+	Connector rpc = {Rolse{caller,callee}}
+	Attachments : {client.send-request to rpc.caller;
+		server.receive-requiest to rpc.callee}
+}</pre>
+
+</div>
+<!-- EDIT9 SECTION "An ADL Example (in ACME)" [3520-3799] -->
+<h3 class="sectionedit10" id="adl_-_pros_cons">ADL - Pros&amp;Cons</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Pros</div>
+<ul>
+<li class="level2"><div class="li"> ADLs represent a formal way of representing architecture</div>
+</li>
+<li class="level2"><div class="li"> ADLs are intended to be both human and machine readable</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Cons</div>
+<ul>
+<li class="level2"><div class="li"> There is not universal agreement on what ADLs should represent</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "ADL - Pros&Cons" [3800-4038] -->
+<h3 class="sectionedit11" id="architecture_reuse">Architecture reuse</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Similarity </div>
+<ul>
+<li class="level2"><div class="li"> Systems in the same domain often have similar architectures that reflect domain concepts.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Application product lines</div>
+<ul>
+<li class="level2"><div class="li"> are built around a core architecture with variants that satisfy particular customer requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Architectural patterns or styles</div>
+<ul>
+<li class="level2"><div class="li"> These capture the essence of an architecture and can be instantiated in different ways.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "Architecture reuse" [4039-4444] -->
+<h2 class="sectionedit12" id="architectural_views">6.2 Architectural views</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> A software architecture represents a complex design artifact</div>
+</li>
+<li class="level1"><div class="li"> Many possible views of the architecture</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "6.2 Architectural views" [4445-4589] -->
+<h3 class="sectionedit13" id="component_and_connector_c_c">Component and Connector (C&amp;C)</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Elements viewed as run time entities called components</div>
+<ul>
+<li class="level2"><div class="li"> Component is a unit that has identity in executing system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Connectors provide means of interaction between components</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "Component and Connector (C&C)" [4590-4816] -->
+<h3 class="sectionedit14" id="module_view">Module view</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> A system is a collection of code units, that is, they do not represent runtime entities</div>
+</li>
+<li class="level1"><div class="li"> Elements are modules (class, package, function, procedure, method,..)</div>
+</li>
+<li class="level1"><div class="li"> Relationship between them is code based</div>
+<ul>
+<li class="level2"><div class="li"> Depends on how code of a module interacts with another module</div>
+</li>
+<li class="level2"><div class="li"> Example of relationships</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "Module view" [4817-5148] -->
+<h3 class="sectionedit15" id="allocation_view">Allocation view</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Focuses on how sw units are allocated to resources like hardware, file system, people</div>
+</li>
+<li class="level1"><div class="li"> Specifies relationship between sw elements and execution units in the environment</div>
+</li>
+<li class="level1"><div class="li"> Expose structural properties like which process runs on which processor, which file resides where, …</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "Allocation view" [5149-5458] -->
+<h3 class="sectionedit16" id="view_model_of_software_architecture">4+1 view model of software architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Philippe Kruchten</div>
+</li>
+<li class="level1"><div class="li"> Logical view</div>
+<ul>
+<li class="level2"><div class="li"> shows the key abstractions in the system as objects or object classes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Processes view</div>
+<ul>
+<li class="level2"><div class="li"> shows how, at run-time, the system is composed of interacting processes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Development view</div>
+<ul>
+<li class="level2"><div class="li"> shows how the software is decomposed(분해되다) for development</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Physical view</div>
+<ul>
+<li class="level2"><div class="li"> shows the system hardware and how software components are distributed across the processors in the system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Use cases or scenarios</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "4+1 view model of software architecture" [5459-5972] -->
+<h2 class="sectionedit17" id="architectural_patterns">6.3 Architectural patterns</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Patterns</div>
+<ul>
+<li class="level2"><div class="li"> means of representing, sharing and reusing knowledge</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> An architectural pattern</div>
+<ul>
+<li class="level2"><div class="li"> a stylized description of good design practice</div>
+</li>
+<li class="level2"><div class="li"> has been tried and tested in different environments</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Patterns should include information aobut</div>
+<ul>
+<li class="level2"><div class="li"> when they are and</div>
+</li>
+<li class="level2"><div class="li"> when they are not useful</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Represntaion</div>
+<ul>
+<li class="level2"><div class="li"> tabular(표로정리된) and graphical descriptions</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT17 SECTION "6.3 Architectural patterns" [5973-6400] -->
+<h3 class="sectionedit18" id="the_model-view-controller_mvc_pattern">The Model-View-Controller(MVC) pattern</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Description : Separates presentation and interaction from the system data. The system is structured into three logical components that interact with each other. The Model component manages the system data and associated operations on that data. The View component defines and manages how the data is presented to the user. The Controller component manages user interaction and passes these interactions to the View and the Model</div>
+</li>
+<li class="level1"><div class="li"> Model</div>
+<ul>
+<li class="level2"><div class="li"> Encapsulates application state</div>
+</li>
+<li class="level2"><div class="li"> Notifies view of state changes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Views </div>
+<ul>
+<li class="level2"><div class="li"> Renders model</div>
+</li>
+<li class="level2"><div class="li"> Requests model updates</div>
+</li>
+<li class="level2"><div class="li"> Sends user events to controller</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Controller </div>
+<ul>
+<li class="level2"><div class="li"> Maps user actions to model updates</div>
+</li>
+<li class="level2"><div class="li"> Selects view</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT18 SECTION "The Model-View-Controller(MVC) pattern" [6401-7141] -->
+<h3 class="sectionedit19" id="layered_architecture">6.3.1 Layered architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Used to model the interfacing of sub-systems.</div>
+</li>
+<li class="level1"><div class="li"> Organises the system into a set of layers (or abstract machines) each of which provide a set of services</div>
+</li>
+<li class="level1"><div class="li"> Incremental development of sub-systems in different layers</div>
+<ul>
+<li class="level2"><div class="li"> When a layer interface changes, only the adjacent layer is affected</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Disadvantages</div>
+<ul>
+<li class="level2"><div class="li"> Providing a clean separation between layers is often difficult and a high-level layer may have to interact directly with lower-level layers rather than through the later immediately below it. Performance can be a problem because of multiple levels of interpretation of a service request as it is processed at each layer</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+==== 6.3.3 Client-Server architecture
+</p>
+<ul>
+<li class="level1"><div class="li"> Distributed system model which shows how data and processing is distributed across a range of components</div>
+</li>
+<li class="level1"><div class="li"> Set of stand-alone servers which provide specific services such as printing, data management, etc.</div>
+</li>
+<li class="level1"><div class="li"> Set of clients which call on these services</div>
+</li>
+<li class="level1"><div class="li"> Network which allows clients to access servers</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT19 SECTION "6.3.1 Layered architecture" [7142-8169] -->
+<h3 class="sectionedit20" id="pipe_and_filter_architecture">6.3.4 Pipe and filter architecture</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Functional transformations process their inputs to produce outputs</div>
+</li>
+<li class="level1"><div class="li"> UNIX shell</div>
+</li>
+<li class="level1"><div class="li"> Variants of this approach are very coommon</div>
+</li>
+<li class="level1"><div class="li"> Not really suitable for interactive systems.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "6.3.4 Pipe and filter architecture" [8170-] -->

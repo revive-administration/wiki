@@ -1,0 +1,95 @@
+======AutoSkill======
+^  Code  ^  Name  ^  Type  ^  ...........Description...........  ^  SkillGauge  ^  IsActionCancel  ^  Target1  ^  Sel.Cond.1  ^  Sel.Number1  ^  EffectNumber1  ^  C.Number1  ^  AnimType1  ^  BulletAnim1  ^  EffectAnim1  ^  Target2  ^  Sel.Cond.2  ^  Sel.Number2  ^  EffectNumber2  ^  C.Number2  ^  AnimType2  ^  BulletAnim2  ^  EffectAnim2  ^
+|  AutoSkill1  |  저격  |  VE_AutoSkill  | Hp가 가장 낮은 적 1명에게 220%의 대미지를 준다. 적이 전방에 있으면 최고 대미지를 입히고, 후방에 있으면 최소 대미지를 입힌다.  |  100  |  True  |  VE_Enemy  |  VE_Hp가 가장 낮음  |  1  |  2  |  0  |  VE_Projectile  |  AutoSkill1_1_Bullet  |  AutoSkill1_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+|  AutoSkill2  |  산탄  |  VE_AutoSkill  | 전방에 위치한 모든 적에게 80%의 대미지를 주고 후방으로 이동시킨 뒤 5초간 이동불가 부여  |  100  |  True  |  VE_Enemy  |  VE_전방에 위치  |  5  |  2  |  0  |  VE_FullShot  |    |  AutoSkill2_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+|  AutoSkill3  |  수류탄 투척  |  VE_AutoSkill  | 후방에 위치한 모든 적에게 80%의 대미지를 주고 스킬 게이지를 20 낮춘다.  |  80  |  False  |  VE_Enemy  |  VE_후방에 위치  |  5  |  2  |  0  |  VE_FullShot  |    |  AutoSkill3_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+|  AutoSkill4  |  부상 치료  |  VE_AutoSkill  | Hp가 가장 낮은 아군 2명의 Hp를 150 회복한다.  |  80  |  False  |  VE_Ally  |  VE_Hp가 가장 낮음  |  2  |  1  |  0  |  VE_Nonprojectile  |    |  AutoSkill4_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+|  AutoSkill5  |  치얼~업  |  VE_AutoSkill  | 20초 동안 전방에 위치한 모든 아군의 리로드시간 30% 감소, 10초 동안 전방에 위치한 모든 적군의 리로드시간 30% 증가  |  80  |  False  |  VE_Ally  |  VE_전방에 위치  |  5  |  1  |  0  |  VE_Nonprojectile  |    |  AutoSkill5_1_Effect  |  VE_Enemy  |  VE_전방에 위치  |  5  |  1  |  0  |  VE_Nonprojectile  |    |  AutoSkill5_2_Effect  |
+|  AutoSkill6  |  도발  |  VE_AutoSkill  | 10초 동안 자신에게 도발(비중 500 증가) 부여  |  80  |  False  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  VE_Nonprojectile  |    |  AutoSkill6_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+
+^  항목  ^  내용  ^
+|  Code  |  AutoSkill DB의 RowName  |
+|  Name  |  스킬 이름  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype|Type]]  |  스킬 타입 Enum. VE_AutoSkill  |
+|  Text  |  유저에게 보이는 스킬 설명  |
+|  SkillGauge  |  스킬 발동 시 소모되는 스킬 게이지  |
+|  IsActionCancel  |  스킬을 발동 시킬 때 일반 공격&리로딩을 취소하고 발동할 지 여부. False라면 일시정지하고 발동한다.  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target|Target]]  |  대상 분류. AllUnit, Ally, Enemy, Self, None, Bullet  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition|SelectionCondition]]  |  Target 내에서 선별기준 Enum.  |
+|  SelectionNumber  |  SelectionCondition에 해당하는 개체 중 고르는 개수.  |
+|  EffectNumber  |  Effect의 개수.  |
+|  C.Number  |  발동 조건식 개수  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98_%ED%83%80%EC%9E%85_animtype|AnimType]]  |  Projectile(투사체가 날라가는 스킬), VE_Nonprojectile(대상에게 이펙트만 나타나는 스킬), FullShot(화면 전체에 이펙트가 재생되는 스킬)  |
+|  BulletAnim  |  투사체 애니메이션  |
+|  EffectAnim  |  투사체가 터질 때 애니메이션, 대상 이펙트 애니메이션, 화면 전체 이펙트 애니메이션  |
+
+<code>
+IsActionCancel 상세내용
+- 개체의 스킬 게이지가 100이 되어 스킬이 발동 되면 IsActionCancel 여부에 따라 처리가 나뉘어짐.
+1. IsActionCancel이 True
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 취소(현재 탄알수가 0이 됨).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 취소(행동 게이지가 0이 됨).
+  - 위의 처리를 한 후 스킬이 발동되며 모든 EffectSet의 BulletAnim이 종료될 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - 모든 BulletAnim이 종료되면 리로딩 시작.
+2. IsActionCancel이 False
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 정지(현재 탄알수 고정).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 정지(행동 게이지 고정).
+  - 위의 처리를 한 후 스킬이 발동되며 모든 EffectSet의 BulletAnim이 종료될 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - 모든 BulletAnim이 종료되면 일반 공격이나 리로딩 재개.
+</code>
+
+<code>
+Target의 Bullet 참고사항
+- Target이 Bullet인 스킬은 자신의 탄알을 강화하는 탄알 강화 스킬이다.
+- 1초 동안 재장전을 한다.
+- 재장전된 탄알을 사용하는 동안 Effect의 탄창 버프를 받는다. 이 버프는 아이콘을 표시하지 않는다.
+- 재장전된 탄알을 사용하는 동안 일반 공격의 애니메이션이 BulletAnim으로 바뀐다.
+- 모든 탄알을 사용하거나 스킬 발동에 의해 재장전하는 경우, 버프가 사라지며 일반 공격 애니메이션도 원래대로 돌아온다.
+- 탄알 강화 스킬의 경우 다른 AutoSkill이나 ExSkill과 마찬가지로 스킬 발동 후 스킬 게이지(명령 포인트)가 바로 감소한다.
+- 효과 유지 중에도 스킬 게이지가 증가할 수 있다.
+- 하지만 스킬 게이지가 100이 되어도 탄알 강화 스킬이 유지 중이라면 AutoSkill이 발동하지 않는다.
+</code>
+
+<code>
+SelectionNumber 참고사항
+- SelectionCondition이 'Hp가 가장 낮음'이고, SelectionNumber가 2라면 현재 Hp가 가장 낮은 개체와 두 번째로 낮은 개체 선택
+- SelectionCondition이 '전방에 위치'이고, SelectionNumber가 2라면 전방에 위치한 개체 중 2개 랜덤하게 선택.
+- SelectionCondition이 '전방에 위치'이고, SelectionNumber가 0이라면 전방에 위치한 모든 개체 선택.
+- SelectionNumber보다 남아있는 개체가 적은 경우 동일한 개체가 중복 선택되지 않음.
+</code>
+
+<code>
+AnimType 참고사항
+- Projectile : 스킬의 대상이 되는 대상마다 투사체가 날라가고, 이펙트가 터지는 스킬
+- Nonprojectile : 스킬의 대상이 되는 대상마다 이펙트가 터지는 스킬. 투사체가 없음.
+- Fullshot : 화면 중앙에 하나의 애니메이션을 재생하는 스킬.
+</code>
+
+<code>
+BulletAnim&EffectAnim 참고사항
+BulletAnim
+  - 스킬 발동과 동시에 재생되는 '투사체가 날아가는 애니메이션' 혹은 '스킬 준비 애니메이션'.
+  - 애니메이션이 종료되면 스킬의 효과가 적용되고 유닛의 행동 게이지, 스킬 게이지가 증가할 수 있게 된다. 그리고 EffectAnim을 재생시킨다.
+  - 이 항목이 비어있을 경우 바로 스킬의 효과가 적용되고 유닛의 행동 게이지, 스킬 게이지가 증가할 수 있게 된다. 그리고 EffectAnim을 재생시킨다.
+- EffectAnim
+  - 스킬 효과 적용과 동시에 재생되는 '이펙트가 터지는 애니메이션'.
+</code>
+
+----
+====== 스킬 발동 처리 ======
+<code>
+1. 시간 흐름, 일반 공격, 피격으로 인해 바디의 SkillGauge 증가.
+2. SkillGauge가 100이 되는 순간 개체의 Poisition에 따라 사용될 Skill이 결정됨.
+
+3. Target1, SelectionCondition1과 SelectionNumber1로 스킬 대상을 결정하고 Condition DB에서 RowName이 (AutoSkill DB의 RowName)_1_Ca인 행이 참인지 판정. (a=1~C.Number)
+4. True인 경우 Effect DB에서 RowName이 (AutoSkill DB의 RowName)_1_b인 행을 참조. (b=1~EffectNumber)
+5. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_1_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+6. True인 Effect들을 체크.
+
+7. Target2, SelectionCondition2과 SelectionNumber2로 스킬 대상을 결정하고 Condition DB에서 RowName이 (AutoSkill DB의 RowName)_2_Ca인 행이 참인지 판정. (a=1~C.Number)
+8. True인 경우 Effect DB에서 RowName이 (AutoSkill DB의 RowName)_2_b인 행을 참조. (b=1~EffectNumber)
+9. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_2_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+10. True인 Effect들을 체크.
+
+11. 스킬 발동 후 AutoSkill의 BulletAnim이 종료될 때 True였던 Effect들 효과 적용.
+</code>

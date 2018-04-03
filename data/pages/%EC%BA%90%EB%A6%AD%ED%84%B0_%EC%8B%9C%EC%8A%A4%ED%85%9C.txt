@@ -1,0 +1,53 @@
+======캐릭터 시스템======
+
+=====캐릭터와 바디의 관계=====
+
+<code>
+LISA에서는 한 캐릭터에 해당하는 바디가 여러 개 있다.
+전투에 참여하는 것은 캐릭터가 아니라 바디이다.
+예를 들어 이즈미의 경우, "ASU요원 이즈미"라는 바디와 "에이스 파일럿 이즈미"라는 바디가 있다.
+그러면 부대에는 "이즈미"를 넣는 것이 아닌 "ASU요원 이즈미"나 "에이스 파일럿 이즈미"를 넣게 된다.
+</code>
+  
+<code>
+캐릭터와 바디는 포함관계가 아닌 대응관계이다.
+적군은 캐릭터없이 바디로만 구성되기 때문에 캐릭터와 대응되지 않는다.
+그렇기 때문에 아군도 바디가 전투에 나서야한다. 바디vs바디의 형태가 되어 코드의 재활용성이 높아진다.
+</code>
+    
+<code>
+같은 캐릭터에 해당하는 바디는 동시에 같은 부대에 편성할 수 없다.
+</code>
+
+=====Character=====
+^  Type  ^  Name  ^  MainWeapon  ^  SubWeapon  ^
+|  Izumi          |  이즈미    |  VE_AR  |  VE_PI  |
+|  Lisa           |  리사      |  VE_AR  |  VE_PI  |
+|  LiuJialing     |  류자링    |  VE_PI  |  VE_PI  |
+|  Kinel          |  키넬      |  VE_HM  |  VE_SR  |
+
+^  항목  ^  내용  ^
+|  CharacterType  |  Character DB의 RowName  |
+|  Name           |  캐릭터 이름  |
+|  MainWeapon     |  메인 무기 종류. 착용한 기체에서 MainWeapon과 동일한 종류의 무기가 메인 무기가 됨.  |
+|  SubWeapon      |  서브 무기 종류. 착용한 기체에서 SubWeapon과 동일한 종류의 무기가 서브 무기가 됨.  |
+
+----
+
+=====캐릭터 보유 정보=====
+HTTPRequest 사용시의 유리함을 고려하여 클래스로 설계한다
+
+^  CharacterCode  ^  AttributeLevel  ^
+|  Kinel      |  3  |
+|  Brek       |  1  |
+|  Annice     |  2  |
+|  Lisa       |  5  |
+
+^  항목  ^  내용  ^
+|  CharacterCode  |  캐릭터 DB의 CharacterCode  |
+|  AttributeLevel  |  특성 연구를 하면 증가하는 값. 해당 값만큼 특성 트리가 개방 됨. 초기값 1  |
+
+<code>
+아직 얻지 못한 캐릭터는 보유 정보에 포함되지 않는다.
+</code>
+----

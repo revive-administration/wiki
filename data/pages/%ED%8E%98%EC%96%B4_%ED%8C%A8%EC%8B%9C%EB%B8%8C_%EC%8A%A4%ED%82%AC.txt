@@ -1,0 +1,21 @@
+======PairPassiveSkill======
+^  Code  ^  Name  ^  Type  ^  EffectSetNumber  ^  Text  ^  ConditionNumber  ^  CheckTime  ^  PairCharacter  ^
+|  PPSkill1  |  친한 친구  |  PPassiveSkill  |  1  | 스킬 사용 시 출혈 상태인 경우 Hp 50 회복  |   1   |  스킬 사용 시  |  {Izumi}  |  
+|  PPSkill2  |  질긴 악연  |  PPassiveSkill  |  1  | 최대 Hp + 100, 방어력 + 100  |   0   |  항상 적용  |  {Izumi, Lisa}  | 
+|  PPSkill3  |  부자 사랑  |  PPassiveSkill  |  1  | 모든 적의 공격력 - 10%  |   0   |  항상 적용  |  {Brek}  |
+
+^  항목  ^  내용  ^
+|  Code  |  PassiveSkill DB의 RowName  |
+|  Name  |  스킬 이름  |
+|  Type  |  스킬 타입 Enum. PPassiveSkill  |
+|  EffectSetNumber  |  EffectSet의 개수  |
+|  Text  |  유저에게 보이는 스킬 설명  |
+|  ConditionNumber  |  발동 조건식 개수  |
+|  CheckTime  |  ConditionSet이 True인지 False인지 판정하는 시점 Enum  |
+|  PairCharacter  |  해당 캐릭터가 부대에 속해 있어야만 이 스킬이 적용된다. Character Enum 배열. 비어 있으면 제한 없는 스킬.  |
+
+<code>
+PairCharacter 상세내용
+- PairCharacter에 포함된 캐릭터가 부대에 속해있지 않으면 효과가 적용되지 않음.
+- 효과를 받다가 PairCharacter에 포함된 캐릭터가 전투불능이 된 경우, 효과 해제.
+</code>

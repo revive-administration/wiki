@@ -1,0 +1,12 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1481352583;s:8:"modified";i:1484373338;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:8:{s:4:"date";i:1484373338;s:2:"ip";s:14:"210.92.209.130";s:4:"type";s:1:"E";s:2:"id";s:29:"프로젝트_네이밍_규칙";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:1;}s:11:"contributor";a:2:{s:9:"soyagok11";s:9:"소야곡";s:7:"velmont";s:6:"벨몽";}s:5:"title";s:29:"프로젝트 네이밍 규칙";s:11:"description";a:2:{s:15:"tableofcontents";a:7:{i:0;a:4:{s:3:"hid";s:29:"프로젝트_네이밍_규칙";s:5:"title";s:29:"프로젝트 네이밍 규칙";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:27:"엔진_내_네이밍_규칙";s:5:"title";s:27:"엔진 내 네이밍 규칙";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:6:"cpp_bp";s:5:"title";s:6:"CPP/BP";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:3;a:4:{s:3:"hid";s:21:"bpfl의_용도_구분";s:5:"title";s:21:"BPFL의 용도 구분";s:4:"type";s:2:"ul";s:5:"level";i:4;}i:4;a:4:{s:3:"hid";s:6:"assets";s:5:"title";s:6:"Assets";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:11:"bool_관련";s:5:"title";s:11:"bool 관련";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:6;a:4:{s:3:"hid";s:16:"캐릭터_일람";s:5:"title";s:16:"캐릭터 일람";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:259:"프로젝트 네이밍 규칙
+
+----------
+
+엔진 내 네이밍 규칙
+
+CPP/BP
+
+기본적으로 CPP_ , BP_ 를 붙이고 시작하지만, 그 뒤의 이름은 PascalCase로 사용한다.
+
+예) CPP_AttackActorFactory, BPFL_ParticleManager
+ 구분  사용첨자";}s:8:"relation";a:2:{s:10:"references";a:13:{s:23:"메인_캐릭터:리사";b:1;s:26:"메인_캐릭터:류자링";b:1;s:23:"메인_캐릭터:키넬";b:1;s:26:"메인_캐릭터:황기원";b:1;s:33:"메인_캐릭터:브렉_쿠마시";b:1;s:39:"메인_캐릭터:오리모토_사쿠야";b:1;s:26:"메인_캐릭터:엘리야";b:1;s:33:"메인_캐릭터:시릴_카우어";b:1;s:46:"메인_캐릭터:아니스_펠젤-슈타이거";b:1;s:33:"메인_캐릭터:마를렌_하트";b:1;s:39:"메인_캐릭터:하즈가와_이즈미";b:1;s:26:"메인_캐릭터:강찬성";b:1;s:36:"메인_캐릭터:마리벨_맥도웰";b:1;}s:10:"firstimage";s:0:"";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1481352583;s:8:"modified";i:1484373338;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:8:{s:4:"date";i:1484373338;s:2:"ip";s:14:"210.92.209.130";s:4:"type";s:1:"E";s:2:"id";s:29:"프로젝트_네이밍_규칙";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:1;}s:11:"contributor";a:2:{s:9:"soyagok11";s:9:"소야곡";s:7:"velmont";s:6:"벨몽";}}}

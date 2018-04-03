@@ -1,0 +1,42 @@
+<span class="kw1">package</span> <span class="co2">Ch04</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Person <span class="kw1">implements</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+cloneable"><span class="kw3">Cloneable</span></a> <span class="br0">&#123;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name<span class="sy0">;</span>
+	<span class="kw1">private</span> <span class="kw4">int</span> age<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> Person<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name, <span class="kw4">int</span> age<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">ssn</span> <span class="sy0">=</span> ssn<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">name</span> <span class="sy0">=</span> name<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">age</span> <span class="sy0">=</span> age<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setSsn<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">ssn</span> <span class="sy0">=</span> ssn<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getSsn<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">return</span> ssn<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setName<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">name</span> <span class="sy0">=</span> name<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getName<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">return</span> name<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setAge<span class="br0">&#40;</span><span class="kw4">int</span> age<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">age</span> <span class="sy0">=</span> age<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">int</span> getAge<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<span class="kw1">return</span> age<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> myClone<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="kw1">throws</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+clonenotsupportedexception"><span class="kw3">CloneNotSupportedException</span></a> <span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> obj <span class="sy0">=</span> <span class="kw1">super</span>.<span class="me1">clone</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">return</span> obj<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

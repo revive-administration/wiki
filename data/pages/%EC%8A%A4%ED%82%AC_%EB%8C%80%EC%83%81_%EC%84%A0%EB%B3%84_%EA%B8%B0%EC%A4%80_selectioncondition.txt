@@ -1,0 +1,16 @@
+====== 대상 선별 기준 (SelectionCondition) ======
+소속 : 
+
+^  SelectionCondition  ^  설명  ^
+|  None  | SelectionCondition 사용 안함 |
+|  All   | Target 내에서 따로 선별하지 않고 Target 전체가 선별됨. |
+|  LowestHp  | Hp가 가장 낮음 |
+|  FrontPosition  | 전열에 위치 |
+|  BackPosition  | 후열에 위치 |
+|  Slot1  | 첫 번째 슬롯에 위치  |
+|  Slot2  | 두 번째 슬롯에 위치  |
+|  Slot3  | 세 번째 슬롯에 위치  |
+|  Slot4  | 네 번째 슬롯에 위치  |
+|  Slot5  | 다섯 번째 슬롯에 위치  |
+|  Targeting  | 타겟팅된 개체(ExSkill용) |
+|  AttackTarget  | 일반 공격, 스킬 공격에 피격될 대상  |

@@ -1,0 +1,99 @@
+======ExSkill======
+^  Code  ^  Name  ^  Type  ^  Text....................  ^  OrderPoint  ^  CooldownTime  ^  Targeting  ^  ActionCancel  ^  Target1  ^  Sel.Cond.1  ^  Sel.Number1  ^  EffectNumber1  ^  C.Number1  ^  AnimType1  ^  BulletAnim1  ^  EffectAnim1  ^  Target2  ^  Sel.Cond.2  ^  Sel.Number2  ^  EffectNumber2  ^  C.Number2  ^  AnimType2  ^  BulletAnim2  ^  EffectAnim2  ^
+|  ExSkill1  |  EX:돌격 명령  |  VE_ExSkill  |  부대원들이 전방으로 이동하며, 4초간 부동 상태를 부여한다. 10초간 아군의 소총 공격의 데미지가 100% 증가한다.  |  2  |  10  |  VE_NonTarget  |  True  |  VE_Ally  |  VE_사용 안 함  |  5  |  3  |  0  |  VE_Nonprojectile  |    |  ExSkill1_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+|  ExSkill2  |  EX:전술 폭격  |  VE_ExSkill  | 이즈미가 부대에 포함되지 않았을 때에만 활성화된다. 전열의 적들에게 120의 피해를 입힌다.  |  4  |  14.5  |  VE_NonTarget  |  false  |  VE_Enemy  |  VE_전방에 위치  |  5  |  1  |  0  |  VE_Fullshot  |    |  ExSkill2_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+|  ExSkill3  |  EX:집중 공격  |  VE_ExSkill  | 적 1체를 선택한다. 아군이 선택한 적을 공격할 확률이 50% 증가한다.  |  2  |  10  |  VE_EnemyTarget  |  false  |  VE_Enemy  |  VE_Targeting  |  1  |  1  |  0  |  VE_Nonprojectile  |    |  ExSkill3_1_Effect  |  VE_None  |  VE_None  |  0  |  0  |  0  |  VE_None  |    |    |
+
+^  항목  ^  내용  ^
+|  Code  |  ExSkill DB의 RowName  |
+|  Name  |  스킬 이름  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype|Type]]  |  스킬 타입 Enum. VE_ExSkill  |
+|  Text  |  유저에게 보이는 스킬 설명  |
+|  OrderPoint  |  사용 시 필요 및 소모되는 명령 포인트 양.   |
+|  CooldownTime  |  사용 후 다음 사용까지 기다려야 하는 개별 쿨타임. 이와 별개로 글로벌 쿨타임도 있음.  |
+|  Targeting  |  스킬 발동 시 타겟팅 조작 필요 여부. VE_NonTarget, VE_AllyTarget, VE_EnemyTarget, VE_AllTarget.  |
+|  IsActionCancel  |  스킬을 발동 시킬 때 일반 공격&리로딩을 취소하고 발동할 지 여부. False라면 일시정지하고 발동한다.  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target|Target]]  |  대상 분류. AllUnit, Ally, Enemy, Self, None, Bullet  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition|SelectionCondition]]  |  Target 내에서 선별기준 Enum.  |
+|  SelectionNumber  |  SelectionCondition에 해당하는 개체 중 고르는 개수.  |
+|  EffectNumber  |  Effect의 개수.  |
+|  C.Number  |  발동 조건식 개수  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98_%ED%83%80%EC%9E%85_animtype|AnimType]]  |  Projectile(투사체가 날라가는 스킬), VE_Nonprojectile(대상에게 이펙트만 나타나는 스킬), FullShot(화면 전체에 이펙트가 재생되는 스킬)  |
+|  BulletAnim  |  투사체 애니메이션  |
+|  EffectAnim  |  투사체가 터질 때 애니메이션, 대상 이펙트 애니메이션, 화면 전체 이펙트 애니메이션  |
+
+----
+
+<code>
+IsActionCancel 상세내용
+- 스킬을 발동시키면 IsActionCancel 여부에 따라 처리가 나뉘어짐.
+1. IsActionCancel이 True
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 취소(현재 탄알수가 0이 됨).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 취소(행동 게이지가 0이 됨).
+  - 위의 처리를 한 후 스킬이 발동되며 모든 EffectSet의 BulletAnim이 종료될 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - 모든 BulletAnim이 종료되면 리로딩 시작.
+2. IsActionCancel이 False
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 정지(현재 탄알수 고정).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 정지(행동 게이지 고정).
+  - 위의 처리를 한 후 스킬이 발동되며 모든 EffectSet의 BulletAnim이 종료될 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - 모든 BulletAnim이 종료되면 일반 공격이나 리로딩 재개.
+</code>
+
+<code>
+Target의 Bullet 참고사항
+- Target이 Bullet인 스킬은 자신의 탄알을 강화하는 탄알 강화 스킬이다.
+- 1초 동안 재장전을 한다.
+- 재장전된 탄알을 사용하는 동안 Effect의 탄창 버프를 받는다. 이 버프는 아이콘을 표시하지 않는다.
+- 재장전된 탄알을 사용하는 동안 일반 공격의 애니메이션이 BulletAnim으로 바뀐다.
+- 모든 탄알을 사용하거나 스킬 발동에 의해 재장전하는 경우, 버프가 사라지며 일반 공격 애니메이션도 원래대로 돌아온다.
+- 탄알 강화 스킬의 경우 다른 AutoSkill이나 ExSkill과 마찬가지로 스킬 발동 후 스킬 게이지(명령 포인트)가 바로 감소한다.
+- 효과 유지 중에도 스킬 게이지가 증가할 수 있다.
+- 하지만 스킬 게이지가 100이 되어도 탄알 강화 스킬이 유지 중이라면 AutoSkill이 발동하지 않는다.
+</code>
+
+<code>
+SelectionNumber 참고사항
+- SelectionCondition이 'Hp가 가장 낮음'이고, SelectionNumber가 2라면 현재 Hp가 가장 낮은 개체와 두 번째로 낮은 개체 선택
+- SelectionCondition이 '전방에 위치'이고, SelectionNumber가 2라면 전방에 위치한 개체 중 2개 랜덤하게 선택.
+- SelectionCondition이 '전방에 위치'이고, SelectionNumber가 0이라면 전방에 위치한 모든 개체 선택.
+- SelectionNumber보다 남아있는 개체가 적은 경우 동일한 개체가 중복 선택되지 않음.
+</code>
+
+<code>
+AnimType 참고사항
+- Projectile : 스킬의 대상이 되는 대상마다 투사체가 날라가고, 이펙트가 터지는 스킬
+- Nonprojectile : 스킬의 대상이 되는 대상마다 이펙트가 터지는 스킬. 투사체가 없음.
+- Fullshot : 화면 중앙에 하나의 애니메이션을 재생하는 스킬.
+</code>
+
+<code>
+BulletAnim&EffectAnim 참고사항
+BulletAnim
+  - 스킬 발동과 동시에 재생되는 '투사체가 날아가는 애니메이션' 혹은 '스킬 준비 애니메이션'.
+  - 애니메이션이 종료되면 스킬의 효과가 적용되고 유닛의 행동 게이지, 스킬 게이지가 증가할 수 있게 된다. 그리고 EffectAnim을 재생시킨다.
+  - 이 항목이 비어있을 경우 바로 스킬의 효과가 적용되고 유닛의 행동 게이지, 스킬 게이지가 증가할 수 있게 된다. 그리고 EffectAnim을 재생시킨다.
+- EffectAnim
+  - 스킬 효과 적용과 동시에 재생되는 '이펙트가 터지는 애니메이션'.
+</code>
+
+----
+======스킬 발동 처리======
+
+<code>
+1. 시간 흐름, 적 처치로 인해 OrderPoint 증가.
+2. 플레이어가 UI조작으로 사용할 EX스킬 버튼을 누름.
+3. Targeting에 따라 타겟팅 조작 진행(Nontargeting인 경우는 스킵)
+4. OrderPoint만큼 명령 포인트 감소
+
+5. ExSkill의 Target1, SelectionCondition1, SelectionNumber1로 스킬 대상을 결정하고 Condition DB에서 RowName이 (ExSkill DB의 RowName)_1_Ca인 행이 참인지 판정. (a=1~C.Number)
+6. True인 경우 Effect DB에서 RowName이 (ExSkill DB의 RowName)_1_b인 행을 참조. (b=1~EffectNumber)
+7. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_1_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+8. True인 Effect들을 체크.
+
+9. ExSkill의 Target2, SelectionCondition2, SelectionNumber2로 스킬 대상을 결정하고 Condition DB에서 RowName이 (ExSkill DB의 RowName)_2_Ca인 행이 참인지 판정. (a=1~C.Number)
+10. True인 경우 Effect DB에서 RowName이 (ExSkill DB의 RowName)_2_b인 행을 참조. (b=1~EffectNumber)
+11. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_2_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+12. True인 Effect들을 체크.
+
+13. 스킬 발동 후 ExSkill의 BulletAnim이 종료될 때 True였던 Effect들 효과 적용.
+</code>

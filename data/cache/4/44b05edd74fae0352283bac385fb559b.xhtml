@@ -1,0 +1,203 @@
+
+<h1 class="sectionedit1" id="chapter_12_팩토리_메서드_패턴">Chapter 12 팩토리 메서드 패턴</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 12 팩토리 메서드 패턴" [1-52] -->
+<h2 class="sectionedit2" id="여러_가지_방식의_엘리베이터_스케줄링_방법_지원하기">12.1 여러 가지 방식의 엘리베이터 스케줄링 방법 지원하기</h2>
+<div class="level2">
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=chapter_12_%ED%8C%A9%ED%86%A0%EB%A6%AC%EB%A9%94%EC%84%9C%EB%93%9C_%ED%8C%A8%ED%84%B4&amp;codeblock=0" title="조각 다운로드" class="mediafile mf_">코드 12-1</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">class</span> ElevatorManager<span class="br0">&#123;</span>
+	<span class="kw1">private</span> List<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span> controllers<span class="sy0">;</span>
+	<span class="kw1">private</span> ThroughputScheduler scheduler<span class="sy0">;</span>
+&nbsp;
+	<span class="co1">//주어진 수만큼의 ElevatorController를 생성함</span>
+	<span class="kw1">public</span> ElevatorManager<span class="br0">&#40;</span><span class="kw4">int</span> controllerCount<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		controllers <span class="sy0">=</span> <span class="kw1">new</span> ArrayList<span class="sy0">&lt;</span>ElavatorController<span class="sy0">&gt;</span><span class="br0">&#40;</span>controllerCount<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>controllerCount<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			ElevatorController controller <span class="sy0">=</span> <span class="kw1">new</span> ElevatorController<span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			controllers.<span class="me1">add</span><span class="br0">&#40;</span>controller<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		scheduler <span class="sy0">=</span> <span class="kw1">new</span> ThroughputScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw4">void</span> requestElevator<span class="br0">&#40;</span><span class="kw4">int</span> destination, Direction direction<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="co1">//ThroughputScheduler를 이용해 엘리베이터를 선택함</span>
+		<span class="kw4">int</span> selectedElevator <span class="sy0">=</span> scheduler.<span class="me1">selectElevator</span><span class="br0">&#40;</span><span class="kw1">this</span>, destination, direction<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="co1">//선택된 엘리베이터를 이동시킴</span>
+		controllers.<span class="me1">get</span><span class="br0">&#40;</span>selectedElevator<span class="br0">&#41;</span>.<span class="me1">gotoFloor</span><span class="br0">&#40;</span>destination<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> ElevatorController<span class="br0">&#123;</span>
+	<span class="kw1">private</span> <span class="kw4">int</span> id<span class="sy0">;</span>
+	<span class="kw1">private</span> <span class="kw4">int</span> curFloor<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> ElevatorController<span class="br0">&#40;</span><span class="kw4">int</span> id<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">id</span> <span class="sy0">=</span> id<span class="sy0">;</span>
+		curFloor <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> gotoFloor<span class="br0">&#40;</span><span class="kw4">int</span> destination<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">print</span><span class="br0">&#40;</span><span class="st0">&quot;Elevator [&quot;</span> <span class="sy0">+</span> id <span class="sy0">+</span> <span class="st0">&quot;] Floor : &quot;</span> <span class="sy0">+</span> curFlooor<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="co1">//현재 층 갱신, 즉 주어진 목적지 층(destination)으로 엘리베이터가 이동함</span>
+		curFloor <span class="sy0">=</span> destination<span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot; ==&gt; &quot;</span> <span class="sy0">+</span> curFloor<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> ThroughputScheduler<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw4">int</span> selectElevator<span class="br0">&#40;</span>ElevatorManager manager, <span class="kw4">int</span> destination, Direction direction<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+</div>
+<!-- EDIT2 SECTION "12.1 여러 가지 방식의 엘리베이터 스케줄링 방법 지원하기" [53-1549] -->
+<h2 class="sectionedit3" id="문제점">12.2 문제점</h2>
+<div class="level2">
+
+<p>
+* 현재 ElevatorManager 클래스는 ThroughputScheduler 클래스를 이용한다. 즉, 엘리베이터의 처리량을 최대화시키는 전략을 사용한다는 의미다. 만약 다른 스케줄링 전략을 사용해야 한다면?
+* 프로그램 실행중에 스케줄링 전략을 변경, 즉 동적 스케줄링을 지원해야 한다면?
+</p>
+
+<p>
+우선 대기 시간을 최소화하는 전략을 수행하기 위한 스케줄링 클래스가 필요하다.
+</p>
+
+<p>
+코드 12-2는 동적 스케줄링을 지원하도록 수정된 ElevatorManager 클래스의 코드다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=chapter_12_%ED%8C%A9%ED%86%A0%EB%A6%AC%EB%A9%94%EC%84%9C%EB%93%9C_%ED%8C%A8%ED%84%B4&amp;codeblock=1" title="조각 다운로드" class="mediafile mf_">코드 12-2</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">class</span> ElevatorManager<span class="br0">&#123;</span>
+	<span class="kw1">private</span> List<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span> controllers<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> ElevatorManager<span class="br0">&#40;</span><span class="kw4">int</span> controllerCount<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		controllers <span class="sy0">=</span> <span class="kw1">new</span> ArrayList<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span><span class="br0">&#40;</span>controllerCount<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i <span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>controllerCount<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			ElevatorController controller <span class="sy0">=</span> <span class="kw1">new</span> ElevatorController<span class="br0">&#40;</span>i<span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			controllers.<span class="me1">add</span><span class="br0">&#40;</span>controller<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw4">void</span> requestElevator<span class="br0">&#40;</span><span class="kw4">int</span> destination, Direction direction<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ElevatorScheduler scheduler<span class="sy0">;</span>
+&nbsp;
+		<span class="co1">//0..23</span>
+		<span class="kw4">int</span> hour <span class="sy0">=</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+calendar"><span class="kw3">Calendar</span></a>.<span class="me1">getInstance</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">get</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+calendar"><span class="kw3">Calendar</span></a>.<span class="me1">HOUR_OF_DAY</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">if</span><span class="br0">&#40;</span>hour<span class="sy0">&lt;</span><span class="nu0">12</span><span class="br0">&#41;</span> <span class="co1">// 오전에는 ResponseTimeScheduler를 이용함</span>
+			scheduler <span class="sy0">=</span> <span class="kw1">new</span> ResponseTimeScheduler
+		<span class="kw1">else</span>
+			scheduler <span class="sy0">=</span> <span class="kw1">new</span> ThroughputScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw4">int</span> selectedElevator <span class="sy0">=</span> scheduler.<span class="me1">selectElevator</span><span class="br0">&#40;</span><span class="kw1">this</span>, destination, direction<span class="br0">&#41;</span><span class="sy0">;</span>
+		controllers.<span class="me1">get</span><span class="br0">&#40;</span>selectedElevator<span class="br0">&#41;</span>.<span class="me1">gotoFloor</span><span class="br0">&#40;</span>destination<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+<p>
+전략패턴을 사용하면 ElevatorManager 클래스는 Scheduler클래스를 동적으로 선택할 수 있다. 그러나 문제는 ElevatorManager 클래스는 엘리베이터 스케줄링 전략이 변경될 때 requestElevator 메서드도 수정해야 한다.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "12.2 문제점" [1550-3258] -->
+<h2 class="sectionedit4" id="해결책">12.3 해결책</h2>
+<div class="level2">
+
+<p>
+이러한 문제를 해결하려면 주어진 기능을 실제로 제공하는 적절한 클래스 생성 작업을 별도의 클래스/메서드로 분리시키는 편이 좋다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=chapter_12_%ED%8C%A9%ED%86%A0%EB%A6%AC%EB%A9%94%EC%84%9C%EB%93%9C_%ED%8C%A8%ED%84%B4&amp;codeblock=2" title="조각 다운로드" class="mediafile mf_">코드 12-3</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">enum</span> SchedulingStarategyID<span class="br0">&#123;</span>RESPONSE_TIME, THROUGHPUT, DYNAMIC<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> SchedulerFactory<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> ElevatorScheduler getScheduler<span class="br0">&#40;</span>SchedulingStrategyID strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ElevatorScheduler scheduler <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+		<span class="kw1">switch</span><span class="br0">&#40;</span>strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw1">case</span> RESPONSE_TIME<span class="sy0">:</span> <span class="co1">//대기 시간 최소화 전략</span>
+				scheduler <span class="sy0">=</span> <span class="kw1">new</span> ResponseTimeScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">break</span><span class="sy0">;</span>
+			caseTHROUGHPUT<span class="sy0">:</span>
+				scheduler <span class="sy0">=</span> <span class="kw1">new</span> ThroughputScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">break</span><span class="sy0">;</span>
+			<span class="kw1">case</span> DYNAMIC<span class="sy0">:</span>
+				<span class="kw4">int</span> hour <span class="sy0">=</span> Clalendar.<span class="me1">getInstance</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">get</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+calendar"><span class="kw3">Calendar</span></a>.<span class="me1">HOUR_OF_DAY</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">if</span><span class="br0">&#40;</span>hour<span class="sy0">&lt;</span><span class="nu0">12</span><span class="br0">&#41;</span>
+					scheduler <span class="sy0">=</span> <span class="kw1">new</span> ResponseTimeScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">else</span>
+					scheduler <span class="sy0">=</span> <span class="kw1">new</span> ThroughputScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">break</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">return</span> scheduler<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+<p>
+이제 ElevatorManager 클래스의 requestElevator 메서드에서는 직접 스케줄링 클래스를 생성하는 대신 SchedulerFactory 클래스의 getScheduler 메서드를 호출하면 된다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=chapter_12_%ED%8C%A9%ED%86%A0%EB%A6%AC%EB%A9%94%EC%84%9C%EB%93%9C_%ED%8C%A8%ED%84%B4&amp;codeblock=3" title="조각 다운로드" class="mediafile mf_">코드 12-4</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">class</span> ElevatorManager<span class="br0">&#123;</span>
+	<span class="kw1">private</span> List<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span> controllers<span class="sy0">;</span>
+	<span class="kw1">private</span> SchedulingStrategyID strategyID<span class="sy0">;</span>
+	<span class="kw1">public</span> ElevatorManager<span class="br0">&#40;</span><span class="kw4">int</span> controllerCount, SchedulingStrategyID strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		controllers <span class="sy0">=</span> <span class="kw1">new</span> ArrayList<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span><span class="br0">&#40;</span>controllerCount<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>controllerCount<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			ElevatorController controller <span class="sy0">=</span> <span class="kw1">new</span> ElevatorController<span class="br0">&#40;</span>i<span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			controllers.<span class="me1">add</span><span class="br0">&#40;</span>controller<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">this</span>.<span class="me1">strategyID</span> <span class="sy0">=</span> starategyID<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> setStrategyID<span class="br0">&#40;</span>SchedulingStrategyID strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">strategyID</span> <span class="sy0">=</span> strategyID<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw4">void</span> requestElevator<span class="br0">&#40;</span><span class="kw4">int</span> destination, Direction direction<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="co1">//주어진 전략 ID에 해당되는 ElevatorScheduler를 사용함</span>
+		ElevatorScheduler scheduler <span class="sy0">=</span> SchedulerFactory.<span class="me1">getSchedulerID</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>scheduler<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw4">int</span> selectedElevator <span class="sy0">=</span> scheduler.<span class="me1">selectElevator</span><span class="br0">&#40;</span><span class="kw1">this</span>, destination, direction<span class="br0">&#41;</span><span class="sy0">;</span>
+		controllers.<span class="me1">get</span><span class="br0">&#40;</span>selectedElevator<span class="br0">&#41;</span>.<span class="me1">getoFloor</span><span class="br0">&#40;</span>destination<span class="br0">&#41;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>	
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Client<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ElevatorManager emWithResponseTimeScheduler <span class="sy0">=</span> <span class="kw1">new</span> ElevatorManager<span class="br0">&#40;</span><span class="nu0">2</span>, SchedulingStrategyID.<span class="me1">RESPONSE_TIME</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		emWithResponseTimeScheduler.<span class="me1">requestElevator</span><span class="br0">&#40;</span><span class="nu0">10</span>, Direction.<span class="me1">UP</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		ElevatorManager emWithThroughputScheduler <span class="sy0">=</span> <span class="kw1">new</span> ElevatorManager<span class="br0">&#40;</span><span class="nu0">2</span>, SchedulingStrategyID.<span class="me1">THORUGHPUT</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		emWithThroughputScheduler.<span class="me1">requestElevator</span><span class="br0">&#40;</span><span class="nu0">10</span>, Direction.<span class="me1">UP</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		ElevatorManager emWithDynamicScheduler <span class="sy0">=</span> <span class="kw1">new</span> ElevatorManager<span class="br0">&#40;</span><span class="nu0">2</span>, SchedulingStrategyID.<span class="me1">DYNAMIC</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		emWithDynamicScheduler.<span class="me1">requestElevator</span><span class="br0">&#40;</span><span class="nu0">10</span>, Direction.<span class="me1">UP</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+</div>
+<!-- EDIT4 SECTION "12.3 해결책" [3259-5891] -->
+<h2 class="sectionedit5" id="팩토리_메서드_패턴">12.4 팩토리 메서드 패턴</h2>
+<div class="level2">
+
+<p>
+팩토리 메서드 패턴은 객체의 생성 코드를 별도의 클래스/메서드로 분리함으로써 객체 생성의 변화에 대비하는 데 유용하다. 지금까지 설명한 엘리베이터 스케줄링의 예에서 볼 수 있듯이 프로그램이 제공하는 기능은 상황에 따라 변경될 수 있다. 그리고 특정 기능의 구현은 개별 클래스를 통해 제공되는 것이 바람직한 설계다. 
+</p>
+
+<p>
+또한 팩토리 메서드 패턴은 객체 생성을 전담하는 별도의 클래스를 두는 하위 클래스에서 적합한 클래스의 객체를 생성하는 방식으로도 적용할 수 있다.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "12.4 팩토리 메서드 패턴" [5892-] -->

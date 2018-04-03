@@ -1,0 +1,58 @@
+<span class="kw1">public</span> <span class="kw1">class</span> ScoreRecord<span class="br0">&#123;</span>
+	<span class="kw1">private</span> List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> scores <span class="sy0">=</span> <span class="kw1">new</span> ArrayList<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">private</span> DataSheetView dataSheetView<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setDataSheetView<span class="br0">&#40;</span>DataSheetView dataSheetView<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">dataSheetView</span> <span class="sy0">=</span> dataSheetView<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> addScore<span class="br0">&#40;</span><span class="kw4">int</span> score<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		scores.<span class="me1">add</span><span class="br0">&#40;</span>score<span class="br0">&#41;</span><span class="sy0">;</span>
+		dataSheetView.<span class="me1">update</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> getScoreRecord<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> scores<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> DataSheetView<span class="br0">&#123;</span>
+	<span class="kw1">private</span> ScoreRecord scoreRecord<span class="sy0">;</span>
+	<span class="kw1">private</span> <span class="kw4">int</span> viewCount<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> DataSheetView<span class="br0">&#40;</span>ScoreRecord scoreRecord, <span class="kw4">int</span> viewCount<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">scoreRecord</span> <span class="sy0">=</span> scoreRecord<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">viewCount</span> <span class="sy0">=</span> viewCount<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> update<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> record <span class="sy0">=</span> scoreRecord.<span class="me1">getScoreRecord</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		displayScores<span class="br0">&#40;</span>record, viewCount<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">private</span> <span class="kw4">void</span> displayScores<span class="br0">&#40;</span>List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> record, <span class="kw4">int</span> viewCount<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;List of &quot;</span> <span class="sy0">+</span> viewCount <span class="sy0">+</span> <span class="st0">&quot; entries: &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>viewCount <span class="sy0">&amp;&amp;</span> i<span class="sy0">&lt;</span>record.<span class="me1">size</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>record.<span class="me1">get</span><span class="br0">&#40;</span>i<span class="br0">&#41;</span> <span class="sy0">+</span> <span class="st0">&quot; &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>		
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>		
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Client<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ScoreRecord scoreRecord <span class="sy0">=</span> <span class="kw1">new</span> ScoreRecord<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		DataSheetView dataSheetView <span class="sy0">=</span> <span class="kw1">new</span> DataSheetView<span class="br0">&#40;</span>scoreRecord, <span class="nu0">3</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		scoreRecord.<span class="me1">setDataSheetView</span><span class="br0">&#40;</span>dataSheetView<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> index <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span> index<span class="sy0">&lt;=</span><span class="nu0">5</span><span class="sy0">;</span> index<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw4">int</span> score <span class="sy0">=</span> index <span class="sy0">*</span> <span class="nu0">10</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;Adding &quot;</span> <span class="sy0">+</span>score<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+			<span class="co1">//10 20 30 40 50을 추가함, 추가할 때마다 최대 3개의 점수만 출력함</span>
+			scoreRecord.<span class="me1">addScore</span><span class="br0">&#40;</span>score<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

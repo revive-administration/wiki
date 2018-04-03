@@ -1,0 +1,538 @@
+
+<h1 class="sectionedit1" id="system_modeling">5. System modeling</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> System modeling</div>
+<ul>
+<li class="level2"><div class="li"> the process of developing abstract models of a system</div>
+</li>
+<li class="level2"><div class="li"> each model presents a different view or perspective</div>
+</li>
+<li class="level2"><div class="li"> understanding the functionality of the system</div>
+</li>
+<li class="level2"><div class="li"> communication with customers</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Unified Modeling Language (UML)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "5. System modeling" [1-295] -->
+<h3 class="sectionedit2" id="usage_of_models">Usage of models</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Models of the existing system</div>
+<ul>
+<li class="level2"><div class="li"> help clarify(명확하게 하다) what the existing system does</div>
+</li>
+<li class="level2"><div class="li"> can be used as a basis for discussing its strengths and weaknesses</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Models of the new system</div>
+<ul>
+<li class="level2"><div class="li"> help explain the proposed requirements to other system stakeholders</div>
+</li>
+<li class="level2"><div class="li"> Engineers use these models to discuss design proposals and to document the system for implementation</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> MDE (model-driven engineering)</div>
+<ul>
+<li class="level2"><div class="li"> generate a complete or partial system implementation from the system model</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Usage of models" [296-824] -->
+<h3 class="sectionedit3" id="system_perspectives">System perspectives</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> External perspective</div>
+<ul>
+<li class="level2"><div class="li"> model the context or environment of the system.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Interaction perspective</div>
+<ul>
+<li class="level2"><div class="li"> model the interactions between a system and its environment, or between the components of a system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Structural perspective</div>
+<ul>
+<li class="level2"><div class="li"> model the organization of a system or the structure of the data</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Behavioral perspective</div>
+<ul>
+<li class="level2"><div class="li"> model the dynamic behavior of the system and how it responds to events</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "System perspectives" [825-1268] -->
+<h3 class="sectionedit4" id="uml_diagram_types">UML diagram types</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Activity diagrams </div>
+<ul>
+<li class="level2"><div class="li"> show the activities involved in a process or in data processing</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Use case diagrams</div>
+<ul>
+<li class="level2"><div class="li"> show the interactions between a system and its environment</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Sequence diagrams</div>
+<ul>
+<li class="level2"><div class="li"> show interactions between actors and the system and between system components</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Class diagrams</div>
+<ul>
+<li class="level2"><div class="li"> show the object classes in the system and the associations between these classes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> State diagrams </div>
+<ul>
+<li class="level2"><div class="li"> show how the system reacts to internal and external events</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "UML diagram types" [1269-1774] -->
+<h2 class="sectionedit5" id="context_models">5.1 Context models</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Context models</div>
+<ul>
+<li class="level2"><div class="li"> illustrate the operational context of a system - they show what lies outside the system boundaries</div>
+</li>
+<li class="level2"><div class="li"> In Architectural design, the models show the system and its relationship with other systems.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "5.1 Context models" [1775-2028] -->
+<h3 class="sectionedit6" id="system_boundaries">System boundaries</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> System boundaries</div>
+<ul>
+<li class="level2"><div class="li"> are established to define what is inside and what is outside the system</div>
+</li>
+<li class="level2"><div class="li"> They show other systems that are used or depend or the system being developed</div>
+</li>
+<li class="level2"><div class="li"> have a profound effect on the system requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Defining a system boundary is a political(정략적인) judgment</div>
+<ul>
+<li class="level2"><div class="li"> There may be pressure to develop system boundaries that increase/decrease the influence or workload(업무량) of different parts of an organization</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "System boundaries" [2029-2521] -->
+<h3 class="sectionedit7" id="process_perspective">Process perspective</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Context models</div>
+<ul>
+<li class="level2"><div class="li"> simply show the other systems in the environment</div>
+</li>
+<li class="level2"><div class="li"> not how the system being developed is used in that environment</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Process models</div>
+<ul>
+<li class="level2"><div class="li"> reveal how the system being developed in used in broader business processes</div>
+</li>
+<li class="level2"><div class="li"> UML activity diagrams may be used to define business process models.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Process perspective" [2522-2871] -->
+<h2 class="sectionedit8" id="interaction_models">5.2 Interaction models</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Modeling user interation</div>
+<ul>
+<li class="level2"><div class="li"> important as it helps to identify user requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> System-to-system interaction</div>
+<ul>
+<li class="level2"><div class="li"> highlights the communication problems that may arise</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Component interaction</div>
+<ul>
+<li class="level2"><div class="li"> helps us understand if a proposed system structure is likely to deliver the required system performance and dependability</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Use case diagrams and sequence diagrams</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "5.2 Interaction models" [2872-3284] -->
+<h3 class="sectionedit9" id="use_case_modeling">5.2.1 Use case modeling</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Use case</div>
+<ul>
+<li class="level2"><div class="li"> represents a discrete(별개의) task that involves external interaction with a system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Actors</div>
+<ul>
+<li class="level2"><div class="li"> may be people or other systems</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Represented graphically</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "5.2.1 Use case modeling" [3285-3501] -->
+<h3 class="sectionedit10" id="sequence_diagrams">5.2.2 Sequence diagrams</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Sequence diagrams</div>
+<ul>
+<li class="level2"><div class="li"> model the interactions between the actors and the objects within a system</div>
+</li>
+<li class="level2"><div class="li"> show the sequence of interactions that take place during a particular use case or use case instance</div>
+</li>
+<li class="level2"><div class="li"> The objects and actors involved are listed along the top of the diagram, with a dotted line drawn vertically from these</div>
+</li>
+<li class="level2"><div class="li"> Interactions between objects are indicated by annotated arrows.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "5.2.2 Sequence diagrams" [3502-3940] -->
+<h2 class="sectionedit11" id="structural_models">5.3 Structural models</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Structural models of software</div>
+<ul>
+<li class="level2"><div class="li"> display the organization of a system in terms of the components that make up that system and their relationships</div>
+</li>
+<li class="level2"><div class="li"> Static models</div>
+<ul>
+<li class="level3"><div class="li"> show the structure of the system design, or dynamic models, which show the organization of the system when it is executing</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Your create structural models of a system when you are discussing and designing the system architecture.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "5.3 Structural models" [3941-4389] -->
+<h3 class="sectionedit12" id="class_diagrams">5.3.1 Class diagrams</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Used when developing an object-oriented system model</div>
+<ul>
+<li class="level2"><div class="li"> to show the classes in a system and the associations between these classes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> An object class</div>
+<ul>
+<li class="level2"><div class="li"> a general definition of one kind of system object</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> An association</div>
+<ul>
+<li class="level2"><div class="li"> link between classes that indicated that there is some relationship between these classes.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "5.3.1 Class diagrams" [4390-4751] -->
+<h3 class="sectionedit13" id="generalization">5.3.2 Generalization</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Generalization manages complexity</div>
+<ul>
+<li class="level2"><div class="li"> Rather than learn the detailed characteristics of every entity that we experience, we place these entities in more general classes and learn the characteristics of these classes.</div>
+</li>
+<li class="level2"><div class="li"> This allows us to infer that different members of these classes have some common characteristics e.g. squirrels and rats are rodents</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> In modeling systems</div>
+<ul>
+<li class="level2"><div class="li"> useful to examine the classes in a system to see if there is scope for generalization</div>
+</li>
+<li class="level2"><div class="li"> if changes are proposed, you don&#039;t have to look at all classes in the system to see if they are affected by the change</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Generalization is implements using the class inheritance</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "5.3.2 Generalization" [4752-5447] -->
+<h3 class="sectionedit14" id="aggregation_association_composition">5.3.3 Aggregation, Association, Composition</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 참조 링크 : <a href="http://velmont.cafe24.com/xe/g_umlxml/10592" class="urlextern" title="http://velmont.cafe24.com/xe/g_umlxml/10592"  rel="nofollow">http://velmont.cafe24.com/xe/g_umlxml/10592</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Association</div>
+<ul>
+<li class="level2"><div class="li"> represents the ability of one instance to send a message to another instance</div>
+</li>
+<li class="level2"><div class="li"> This is typically implemented with a pointer or reference instance variable, although it might also be implemented as a mothod argument, or the creation of a local variable</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Aggregation (구성) - 차와 탑승자의 관계 (차가 없어도 탑승객이라는 사람 자체는 존재함)</div>
+<ul>
+<li class="level2"><div class="li"> typical whole/part relationship</div>
+</li>
+<li class="level2"><div class="li"> This is exactly the same as an association with the exception that instances cannot have cyclic aggregation relationships(a part cannot contain its whole)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Composition (포함) - 차와 엔진의 관계 (차가 없으면 엔진도 없다)</div>
+<ul>
+<li class="level2"><div class="li"> like Aggregation except that the lifetime of the part is controlled by the whole</div>
+</li>
+<li class="level2"><div class="li"> This control may be directive or transitive(이행성). That is, the &#039;whole&#039; may take direct responsibility for creating or destroying the &#039;part&#039;, or it may accept an already created part, and later pass it on to some other whole that assumes responsibility for it.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "5.3.3 Aggregation, Association, Composition" [5448-6609] -->
+<h2 class="sectionedit15" id="behavioral_models">5.4 Behavioral models</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Models of the dynamic behavior of a system</div>
+</li>
+<li class="level1"><div class="li"> Show what happens when a system responds to a stimulus(자극)</div>
+</li>
+<li class="level1"><div class="li"> Stimulus types</div>
+<ul>
+<li class="level2"><div class="li"> Data</div>
+<ul>
+<li class="level3"><div class="li"> some data arrives that has to be processed by the system</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Events</div>
+<ul>
+<li class="level3"><div class="li"> some event happens that triggers system processing</div>
+</li>
+<li class="level3"><div class="li"> Events may have associated data, although this is not always the case</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "5.4 Behavioral models" [6610-7003] -->
+<h3 class="sectionedit16" id="data-driven_modeling">5.4.1 Data-driven modeling</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Business systems</div>
+<ul>
+<li class="level2"><div class="li"> data-processing systems that are primarily driven by data</div>
+</li>
+<li class="level2"><div class="li"> controlled by the data input to the system, with relatively little external event processing</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Data-driven models</div>
+<ul>
+<li class="level2"><div class="li"> show the sequence of actions involved in processing input data and generating an associated output</div>
+</li>
+<li class="level2"><div class="li"> particularly useful during the analysis of requirements as they can be used to show end-to-end processing in a system</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "5.4.1 Data-driven modeling" [7004-7477] -->
+<h3 class="sectionedit17" id="event-driven_modeling">5.4.2 Event-driven modeling</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Real-time systems</div>
+<ul>
+<li class="level2"><div class="li"> often event-driven, with minimal data processing</div>
+</li>
+<li class="level2"><div class="li"> For example, a landline phone switching system responds to events such as &#039;receiver off hook&#039; by generating a dial tone.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Event-driven modeling</div>
+<ul>
+<li class="level2"><div class="li"> shows how a system responds to external and internal events</div>
+</li>
+<li class="level2"><div class="li"> based on the assumption that a system has a finite number of states and that events (stimuli) may cause a transition from one state to another.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="state_machine_models">State machine models</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> State machine models</div>
+<ul>
+<li class="level2"><div class="li"> model the behaviour of the system in response to external and internal events.</div>
+</li>
+<li class="level2"><div class="li"> show the systems&#039;s responses to stimuli so are often used for modelling real-time systems</div>
+</li>
+<li class="level2"><div class="li"> show system states as nodes and events as arcs between these nodes.</div>
+</li>
+<li class="level2"><div class="li"> When an event occurs, the system moves from one state to another</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Statechart</div>
+<ul>
+<li class="level2"><div class="li"> UML diagram for state machine models</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+===== 5.5 Model-driven engineering
+</p>
+<ul>
+<li class="level1"><div class="li"> Models are principal(주요한) outputs of the development process</div>
+<ul>
+<li class="level2"><div class="li"> rather than programs</div>
+</li>
+<li class="level2"><div class="li"> From the models the programs that execute on a hardware/software platform are generated automatically</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Raising level of abstraction</div>
+<ul>
+<li class="level2"><div class="li"> engineers no longer have to be concerned with programming language details or the specifics of execution platforms</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT17 SECTION "5.4.2 Event-driven modeling" [7478-8797] -->
+<h3 class="sectionedit18" id="usage_of_model-driven_engineering">Usage of model-driven engineering</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Model-driven engineering is still at an early stage of development</div>
+<ul>
+<li class="level2"><div class="li"> unclear whether or not it will have a significant effect on software engineering practice</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Pros</div>
+<ul>
+<li class="level2"><div class="li"> Allow systems to be considered at higher levels of abstraction</div>
+</li>
+<li class="level2"><div class="li"> Generating code automatically means that it is cheaper to adapt systems to new platforms</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Cons</div>
+<ul>
+<li class="level2"><div class="li"> Models for abstraction and not necessarily right for implementation</div>
+</li>
+<li class="level2"><div class="li"> Savings from generating code may be outweighed(더 중요하다) by the costs of developing translators for new platforms.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT18 SECTION "Usage of model-driven engineering" [8798-9394] -->
+<h3 class="sectionedit19" id="model_driven_architecture_mda">Model Driven Architecture (MDA)</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> MDA</div>
+<ul>
+<li class="level2"><div class="li"> a model-focused approach to software design and implementation</div>
+</li>
+<li class="level2"><div class="li"> uses a subset of UML models to describe a system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Models</div>
+<ul>
+<li class="level2"><div class="li"> A computation independent model (CIM)</div>
+</li>
+<li class="level2"><div class="li"> A platform independent model (PIM)</div>
+</li>
+<li class="level2"><div class="li"> Platform specific model (PSM)</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT19 SECTION "Model Driven Architecture (MDA)" [9395-9701] -->
+<h3 class="sectionedit20" id="adoption_of_mda">Adoption of MDA</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Specialized tool support is required</div>
+</li>
+<li class="level1"><div class="li"> The arguments for platform-independence are only valid for large, long-lifetime systems.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "Adoption of MDA" [9702-] -->

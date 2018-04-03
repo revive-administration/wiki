@@ -1,0 +1,2 @@
+  * 레일즈 설치하기(for Win) : http://hosang.tistory.com/entry/Rails-%EC%84%A4%EC%B9%98-Ruby-%ED%8F%AC%ED%95%A8
+  * 레일즈 기반 사이트 : http://jasoseol.com/

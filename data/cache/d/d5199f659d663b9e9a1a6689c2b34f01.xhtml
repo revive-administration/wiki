@@ -1,0 +1,122 @@
+
+<h1 class="sectionedit1" id="대상_지정_확률">대상 지정 확률</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "대상 지정 확률" [1-36] -->
+<h2 class="sectionedit2" id="개요">개요</h2>
+<div class="level2">
+<pre class="code">- 전투에서 무작위로 대상을 지정해야할 때 대상을 지정할 확률.
+- 전투에 참여한 바디마다 자신이 공격당할 비중을 가지고 있다.
+- 일반 공격 또는 무작위 대상을 공격하는 스킬 공격 시 적군의 공격당할 비중에 따라 공격 확률을 계산하여 대상을 판정한다.</pre>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "개요" [37-415] -->
+<h2 class="sectionedit3" id="비중">비중</h2>
+<div class="level2">
+<pre class="code">전방에 위치한 개체의 비중 = 70
+
+후방에 위치한 개체의 비중 = 30
+
+사망한 개체의 비중 = 0
+
+대상 지정 확률 = (개체의 비중)/(모든 개체의 비중 합)
+
+만약 살아있는 개체의 비중이 1미만이라면 1이 된다.
+
+만약 모든 개체의 비중 합이 0이라면 1이 된다.</pre>
+
+</div>
+<!-- EDIT3 SECTION "비중" [416-775] -->
+<h2 class="sectionedit4" id="비중_계산_타이밍">비중 계산 타이밍</h2>
+<div class="level2">
+
+<p>
+아군이나 적군이 앞뒤이동, 사망할 때마다 위치에 의한 비중을 계산.
+</p>
+
+<p>
+일반 공격이나 스킬이 사용될 때마다 버프, 패시브, 특성, 장비효과에 의한 비중을 계산.
+(매번 사용할 때마다 새로 계산해도 됨.)
+</p>
+
+</div>
+<!-- EDIT4 SECTION "비중 계산 타이밍" [776-1078] -->
+<h2 class="sectionedit5" id="비중_계산법">비중 계산법</h2>
+<div class="level2">
+
+<p>
+전방에 있는 개체에게는 70을, 후방에 있는 개체에게는 30 부여.
+</p>
+
+<p>
+버프, 패시브, 특성, 장비효과에 의한 비중 증감 계산.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "비중 계산법" [1079-1264] -->
+<h3 class="sectionedit6" id="예시">예시</h3>
+<div class="level3">
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  개체  </th><th class="col1 centeralign">  위치  </th><th class="col2 centeralign">  비중  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  적군1  </td><td class="col1 centeralign">  Front  </td><td class="col2 centeralign">  70  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  적군2  </td><td class="col1 centeralign">  Back  </td><td class="col2 centeralign">  30  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  적군3  </td><td class="col1 centeralign">  Dead  </td><td class="col2 centeralign">  0  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  적군4  </td><td class="col1 centeralign">  Front  </td><td class="col2 centeralign">  70  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  적군5  </td><td class="col1 centeralign">  Front  </td><td class="col2 centeralign">  70  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1281-1467] --><pre class="code">아군1이 대상을 선택할 때
+
+적군1을 선택할 확률은 (70)/((70)+(30)+(0)+(70)+(70)) = 29.2%
+
+적군2를 선택할 확률은 (30)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 12.5%
+
+적군3을 선택할 확률은 (0)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 0%
+
+적군4를 선택할 확률은 (70+20)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 29.2%
+
+적군5를 선택할 확률은 (70+20)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 29.2%</pre>
+<pre class="code">아군1의 특성 중 &#039;전방에 위치한 적에 대한 비중 20 증가&#039;가 있으면
+
+아군1이 대상을 선택할 때
+
+적군1을 선택할 확률은 (70+20)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 30%
+
+적군2를 선택할 확률은 (30)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 10%
+
+적군3을 선택할 확률은 (0)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 0%
+
+적군4를 선택할 확률은 (70+20)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 30%
+
+적군5를 선택할 확률은 (70+20)/((70+20)+(30)+(0)+(70+20)+(70+20)) = 30%</pre>
+<pre class="code">적군1의 버프 중 &#039;자신이 공격당할 비중 20 감소&#039;가 있으면
+
+아군1이 대상을 선택할 때
+
+적군1을 선택할 확률은 (70+20-20)/((70+20-20)+(30)+(0)+(70+20)+(70+20)) = 17.9%
+
+적군2를 선택할 확률은 (30)/((70+20-20)+(30)+(0)+(70+20)+(70+20)) = 10.7%
+
+적군3을 선택할 확률은 (0)/((70+20-20)+(30)+(0)+(70+20)+(70+20)) = 0%
+
+적군4를 선택할 확률은 (70+20)/((70+20-20)+(30)+(0)+(70+20)+(70+20)) = 32.1%
+
+적군5를 선택할 확률은 (70+20)/((70+20-20)+(30)+(0)+(70+20)+(70+20)) = 32.1%</pre>
+
+</div>
+<!-- EDIT6 SECTION "예시" [1265-] -->

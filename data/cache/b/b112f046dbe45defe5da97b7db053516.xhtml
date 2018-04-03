@@ -1,0 +1,26 @@
+
+<h1 class="sectionedit1" id="버프_분류별_특징">버프 분류별 특징</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "버프 분류별 특징" [1-37] -->
+<h2 class="sectionedit2" id="상태_state">상태(State)</h2>
+<div class="level2">
+<pre class="code">- 개체에게 상태가 걸리면 상태에 대한 내용을 BuffSlot에 등록.
+- 일정 시간동안 특정 개체에게 일정한 효과 부여.
+- Removable : True or False
+- 일정 시간이 흐르거나, 보유자 사망 시 해제된다.</pre>
+
+</div>
+<!-- EDIT2 SECTION "상태(State)" [38-322] -->
+<h2 class="sectionedit3" id="탄창_magazine">탄창(Magazine)</h2>
+<div class="level2">
+<pre class="code">- 개체에게 탄창이 걸리면 탄창에 대한 내용을 BuffSlot에 등록.
+- 총알 강화 스킬에 의해 재장전된 총알을 사용하는 동안 스킬 발동자에게 일정한 효과 부여.
+- Removable : False
+- 새롭게 재장전을 시작할 경우 해제된다.
+  - 탄알을 모두 사용하여 재장전하는 경우
+  - 총알 강화 스킬을 다시 사용하여 강제로 재장전하는 경우</pre>
+
+</div>
+<!-- EDIT3 SECTION "탄창(Magazine)" [323-] -->

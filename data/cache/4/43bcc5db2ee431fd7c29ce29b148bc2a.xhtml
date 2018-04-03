@@ -1,0 +1,185 @@
+
+<h1 class="sectionedit1" id="대미지_계산식">대미지 계산식</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "대미지 계산식" [1-34] -->
+<h2 class="sectionedit2" id="대미지_공격자의_atk_1-_피해감소율_명중_비율_상성_계수_공격_비율">대미지 = (공격자의 Atk)*(1-(피해감소율))*(명중 비율)*(상성 계수)*(공격 비율)</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "대미지 = (공격자의 Atk)*(1-(피해감소율))*(명중 비율)*(상성 계수)*(공격 비율)" [35-146] -->
+<h3 class="sectionedit3" id="피해감소율">피해감소율</h3>
+<div class="level3">
+
+<p>
+= [(피해자의 DefRate)-(공격자의 Pierce), 최대1.00, 최소0.00]
+</p>
+
+</div>
+<!-- EDIT3 SECTION "피해감소율" [147-245] -->
+<h3 class="sectionedit4" id="명중_비율">명중 비율</h3>
+<div class="level3">
+
+<p>
+= [(공격자의 Balance), 최대1, 최소0]~1.00의 랜덤값
+</p>
+
+</div>
+<!-- EDIT4 SECTION "명중 비율" [246-334] -->
+<h3 class="sectionedit5" id="atk">Atk</h3>
+<div class="level3">
+
+<p>
+= [ (무기의 Atk) + (바디 특성에 의한 Atk 고정 증감) + (패시브 스킬에 의한 Atk 고정 증감) + (버프에 의한 Atk 고정 증감) + (착용한 장비의 옵션에 의한 Atk 고정 증감) ] × [ 1 + (바디 특성에 의한 Atk 비율 증감) + (패시브 스킬에 의한 Atk 비율 증감) + (버프에 의한 Atk 비율 증감) + (착용한 장비의 옵션에 의한 Atk 비율 증감) ]
+</p>
+
+</div>
+<!-- EDIT5 SECTION "Atk" [335-765] -->
+<h3 class="sectionedit6" id="def">Def</h3>
+<div class="level3">
+
+<p>
+= (방어구의 Def) + (바디 특성에 의한 Def 고정 증감) + (패시브 스킬에 의한 Def 고정 증감) + (버프에 의한 Def 고정 증감) + (착용한 장비의 옵션에 의한 Def 고정 증감)
+</p>
+
+</div>
+<!-- EDIT6 SECTION "Def" [766-993] -->
+<h3 class="sectionedit7" id="defrate_-42_def_60_070">DefRate = -42/(Def + 60) + 0.70</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT7 SECTION "DefRate = -42/(Def + 60) + 0.70" [994-1034] -->
+<h3 class="sectionedit8" id="pierce">Pierce</h3>
+<div class="level3">
+
+<p>
+= (무기의 Pierce) + (바디 특성에 의한 Pierce 고정 증감) + (패시브 스킬에 의한 Pierce 고정 증감) + (버프에 의한 Pierce 고정 증감) + (착용한 장비의 옵션에 의한 Pierce 고정 증감)
+</p>
+
+</div>
+<!-- EDIT8 SECTION "Pierce" [1035-1277] -->
+<h3 class="sectionedit9" id="balance">Balance</h3>
+<div class="level3">
+
+<p>
+= (무기의 Balance) + (바디 특성에 의한 Balance 고정 증감) + (패시브 스킬에 의한 Balance 고정 증감) + (버프에 의한 Balance 고정 증감) + (착용한 장비의 옵션에 의한 Balance 고정 증감) + (공격자와 피격자 위치에 따른 Balance 보정값)
+</p>
+<hr />
+
+</div>
+<!-- EDIT9 SECTION "Balance" [1278-1594] -->
+<h2 class="sectionedit10" id="공격자와_피격자_위치에_따른_balance_보정값">공격자와 피격자 위치에 따른 Balance 보정값</h2>
+<div class="level2">
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  공격자 위치  </th><th class="col1 centeralign">  피격자 위치  </th><th class="col2 centeralign">  Balance 보정값  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  전방  </td><td class="col1 centeralign">  전방  </td><td class="col2 centeralign">  0.0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  전방  </td><td class="col1 centeralign">  후방  </td><td class="col2 centeralign">  -0.1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  후방  </td><td class="col1 centeralign">  전방  </td><td class="col2 centeralign">  -0.1  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  후방  </td><td class="col1 centeralign">  후방  </td><td class="col2 centeralign">  -0.2  </td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [1663-1859] --><hr />
+
+</div>
+<!-- EDIT10 SECTION "공격자와 피격자 위치에 따른 Balance 보정값" [1595-1866] -->
+<h2 class="sectionedit12" id="상성_계수">상성 계수</h2>
+<div class="level2">
+
+<p>
+공격자의 공격 타입과 피해자의 방어 타입에 따라 입히는 대미지가 다름.
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">             </th><th class="col1 centeralign">  방어 타입  </th><th class="col2 centeralign" rowspan="2">  노멀  </th><th class="col3 centeralign" rowspan="2">  머시너리  </th><th class="col4 centeralign" rowspan="2">  사이킥  </th><th class="col5 centeralign" rowspan="2">  쉴드  </th>
+	</tr>
+	<tr class="row1">
+		<th class="col0 centeralign">  공격 타입  </th><th class="col1 leftalign">             </th>
+	</tr>
+	</thead>
+	<tr class="row2">
+		<th class="col0 centeralign" colspan="2">  실탄계     </th><td class="col2 centeralign">  1.0  </td><td class="col3 centeralign">  0.7  </td><td class="col4 leftalign">    </td><td class="col5 centeralign">  1.0  </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 centeralign" colspan="2">  광학계     </th><td class="col2 centeralign">  1.3  </td><td class="col3 centeralign">  0.7  </td><td class="col4 leftalign">    </td><td class="col5 centeralign">  1.3  </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 centeralign" colspan="2">  폭발계     </th><td class="col2 centeralign">  1.0  </td><td class="col3 centeralign">  1.3  </td><td class="col4 leftalign">    </td><td class="col5 centeralign">  0.7  </td>
+	</tr>
+</table></div>
+<!-- EDIT13 TABLE [1990-2294] --><hr />
+
+</div>
+<!-- EDIT12 SECTION "상성 계수" [1867-2301] -->
+<h2 class="sectionedit14" id="공격_비율">공격 비율</h2>
+<div class="level2">
+
+<p>
+공격 타입에 따라 대미지가 체력과 쉴드를 공격하는 비율.
+쉴드를 공격하는 부분의 대미지 계산 시 방어 타입이 쉴드로 고정.
+</p>
+<div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  무기 종류  </th><th class="col1 centeralign">  체력 공격 비율  </th><th class="col2 centeralign">  쉴드 공격 비율  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  실탄계     </td><td class="col1 centeralign">  0.7  </td><td class="col2 centeralign">  0.3  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  광학계     </td><td class="col1 centeralign">  0.0  </td><td class="col2 centeralign">  1.0  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  폭발계     </td><td class="col1 centeralign">  0.3  </td><td class="col2 centeralign">  0.7  </td>
+	</tr>
+</table></div>
+<!-- EDIT15 TABLE [2495-2669] --><hr />
+
+</div>
+<!-- EDIT14 SECTION "공격 비율" [2302-2676] -->
+<h2 class="sectionedit16" id="예시">예시</h2>
+<div class="level2">
+
+<p>
+공격자 : 공격력=100, 관통률=0.20, 균형=0.80, 실탄계.
+</p>
+
+<p>
+피격자 : 방어력=10, 기계식, 쉴드 존재.
+</p>
+
+<p>
+DefRate = -42/(10 + 60) + 0.70 = 0.10
+</p>
+
+<p>
+피해감소율 = [0.1 - 0.2, 최대1.00, 최소1.00] = [-0.10, 최대1.00, 최소0.00] = 0.00
+</p>
+
+<p>
+명중 비율 = [0.80, 최대1.00, 최소0.00]~1.0의 랜덤값 = 0.80~1.00의 랜덤값
+</p>
+
+<p>
+체력 대미지 = 100*(1-0.00)*(0.80~1.00의 랜덤값)*0.5*0.7*0.7 = [19.6]~[24.5] = 19~24
+</p>
+
+<p>
+쉴드 대미지 = 100*(1-0.00)*(0.80~1.00의 랜덤값)*0.5*1.0*0.3 = [12]~[15] = 12~15
+</p>
+
+</div>
+<!-- EDIT16 SECTION "예시" [2677-] -->

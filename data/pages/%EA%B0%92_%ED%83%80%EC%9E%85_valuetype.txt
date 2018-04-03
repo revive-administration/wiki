@@ -1,0 +1,19 @@
+======= 값 타입 (ValueType) ======
+소속 : 
+
+^  ValueType  ^  설명  ^
+| None | Value를 사용하지 않음 |
+| Fixed | Value를 고정된 값으로 사용 |
+| HpPlus | 스킬 발동자의 최대 체력 + N |
+| HpPercent | 스킬 발동자의 최대 체력 × N |
+| HpRate | 스킬 발동자의 최대 체력 비율 × N |
+| TargetHpPercent | 스킬 대상자의 최대 체력 × N |
+| EnergyPlus | 스킬 발동자의 최대 에너지 + N |
+| EnergyPercent | 스킬 발동자의 최대 에너지 × N |
+| EnergyRate | 스킬 발동자의 최대 에너지 비율 × N |
+| TargetEnergyPercent | 스킬 대상자의 최대 에너지 × N |
+| AtkPlus | 스킬 발동자의 공격력 + N |
+| AtkPercent | 스킬 발동자의 공격력 × N |
+| DefPlus | 스킬 발동자의 방어력 + N |
+| DefPercent | 스킬 발동자의 방어력 × N |
+| DurationTime | Value를 BuffSkill의 DurationTime으로 사용. InstantEffect가 AddBuff일 때만 사용 |

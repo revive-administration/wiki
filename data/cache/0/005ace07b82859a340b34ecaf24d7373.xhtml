@@ -1,0 +1,114 @@
+
+<h1 class="sectionedit1" id="ch06_sql">ch.06 SQL</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "ch.06 SQL" [1-24] -->
+<h3 class="sectionedit2" id="집계_함수를_이용한_검색">(8) 집계 함수를 이용한 검색</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT2 SECTION "(8) 집계 함수를 이용한 검색" [25-72] -->
+<h3 class="sectionedit3" id="group_by를_이용한_검색">(9) GROUP BY를 이용한 검색</h3>
+<div class="level3">
+
+<p>
+논리적으로 FROM절에 있는 테이블을 GROUP BY절에 명세된 열의 값에 따라 그룹으로 분할한다.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "(9) GROUP BY를 이용한 검색" [73-236] -->
+<h3 class="sectionedit4" id="having을_사용한_검색">(10) HAVING을 사용한 검색</h3>
+<div class="level3">
+
+<p>
+[질의] 3명 이상 등록한 과목의 기말 평균 성적을 검색하라
+</p>
+<pre class="code">	SELECT Cno, AVG(Final) AS 평균
+FROM ENROL
+GROUP BY Cno
+HAVING COUNT(*) &gt;= 3;</pre>
+
+<p>
+==== (11) 부속 질의문(Subquery)을 사용한 검색
+[질의] 과목 번호(Cno) &#039;C413&#039;등록한 학생 이름(Sname)을 검색하라.
+SELECT Sname FROM STUDENT WHERE Sno in (SELECT Sno from ENROL where cno=&#039;c413&#039;);
+</p>
+
+<p>
+[질의] 학생 &#039;정기태&#039;와 같은 학과에 속하는 학생의 이름과 학과를 검색하라.
+select Sname, Dept from student where dept = (select dept from student where Sname=&#039;정기태&#039;);
+</p>
+
+</div>
+<!-- EDIT4 SECTION "(10) HAVING을 사용한 검색" [237-864] -->
+<h3 class="sectionedit5" id="like를_사용하는_검색">(12) LIKE를 사용하는 검색</h3>
+<div class="level3">
+
+<p>
+[질의] 과목번호(Cno)가 C로 시작하는 과목의 과목 번호와 과목 이름(Cname)을 검색하라
+</p>
+
+</div>
+<!-- EDIT5 SECTION "(12) LIKE를 사용하는 검색" [865-1021] -->
+<h3 class="sectionedit6" id="exists를_사용하는_검색">(14) EXISTS를 사용하는 검색</h3>
+<div class="level3">
+
+<p>
+[질의] 과목 &#039;C413&#039;에 등록한 학생의 이름을 검색하라.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "(14) EXISTS를 사용하는 검색" [1022-1137] -->
+<h3 class="sectionedit7" id="union이_관련된_검색">(15) UNION이 관련된 검색</h3>
+<div class="level3">
+
+<p>
+UNION은 일반 집합론의 합집합과 같다. 따라서 UNION이 사용되면 결과 테이블에서 중복되는 투플은 제거된다. 이 밖에 SQL은 INTERSECT(교집합), EXCEPT(차집합) 연산이 있다.
+</p>
+
+<p>
+[질의] 3학년이거나 또는 과목 &#039;C324&#039;에 등록한 학생의 학번을 검색하라.
+SELECT SNO FROM STUDENT WHERE YEAR=3 UNION SELECT SNO FROM ENROL WHERE CNO=&#039;C324&#039;;
+</p>
+
+</div>
+<!-- EDIT7 SECTION "(15) UNION이 관련된 검색" [1138-1575] -->
+<h2 class="sectionedit8" id="sql_뷰">6.3 SQL 뷰</h2>
+<div class="level2">
+
+<p>
+뷰는 기본적으로 다른 테이블로부터 유도된 이름을 가진 가상 테이블을 말한다. 즉 기본 테이블은 물리적으로 구현되어 데이터가 실제로 저장되지만 뷰는 반드시 물리적으로 구현되어 있는 것은 아니다.
+</p>
+
+<p>
+AS SELECT문은 일반 검색문과 같은데 다만 UNION이나 ORDER BY를 사용할 수 없다. WITH CHECK OPTION; 절은 이 뷰에 대한 갱신이나 삽입 연산을 실행할 대 뷰 정의 조건을 위반하면 실행이 거부된다는 것을 명세하는 것이다.
+</p>
+
+</div>
+<!-- EDIT8 SECTION "6.3 SQL 뷰" [1576-2149] -->
+<h3 class="sectionedit9" id="뷰의_제거">6.3.2 뷰의 제거</h3>
+<div class="level3">
+
+<p>
+뷰의 정의는 기본 테이블처럼 ALTER문을 이용하여 변경할 수 없다. 다만 필요 없는 뷰는 제거하고 필요한 뷰를 정의하면 된다. 
+</p>
+
+<p>
+뷰에 대한 변경이 가능하려면 먼저 그 뷰는 기본적으로 어느 한 기본 테이블의 행과 열의 부분 집합으로만 정의되어야 한다. 그러나 적어도 다음과 같은 경우에는 변경이 허용되지 않는다 
+</p>
+<ul>
+<li class="level1"><div class="li"> 1) 뷰의 열이 상수나 산술 연산자 또는 함수가 사용된 산술 식으로 만들어지면 변경이 허용되지 않는다.</div>
+</li>
+<li class="level1"><div class="li"> 2) 집계 함수가 관련되어 정의된 뷰는 변경할 수 없다.</div>
+</li>
+<li class="level1"><div class="li"> 3) DISTINCT, GROUP BY, HAVING이 사용되어 정의된 뷰는 변경할 수 없다.</div>
+</li>
+<li class="level1"><div class="li"> 4) 두 개 이상의 테이블이 관련되어 정의된 뷰는 변경할 수 없다.</div>
+</li>
+<li class="level1"><div class="li"> 5) 변경할 수 없는 뷰를 기초로 정의된 뷰는 변경할 수 없다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "6.3.2 뷰의 제거" [2150-] -->

@@ -1,0 +1,15 @@
+1. "JSP Apache Tomcat Server 연동하기 (전자정부 프레임워크)"
+
+2. 책 준비
+  * 성공적인 PHP MySQL 웹 프로그래밍
+  * 최범균 JSP 2.2
+  * 열혈강의 객체지향 디자인패턴
+  * jQuery 
+
+3. 공부해오기
+  PHP - 객체지향 + DB연동 
+  JSP - 책 읽어오기
+  디자인패턴 - 책 읽기
+  JavaScript
+  서버(APM / 톰캣) 관련 자료 읽기
+  source tree 설치 + php,jsp project 등록 후 commit

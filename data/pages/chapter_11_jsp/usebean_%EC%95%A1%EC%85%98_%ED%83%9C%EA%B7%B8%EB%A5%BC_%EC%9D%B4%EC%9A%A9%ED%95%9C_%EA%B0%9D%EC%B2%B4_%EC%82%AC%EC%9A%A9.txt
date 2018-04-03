@@ -1,0 +1,50 @@
+====== Chapter 11 <jsp:useBean> 액션 태그를 이용한 객체 사용 ======
+===== 01 자바 (JavaBean) =====
+
+자바빈(JavaBean)은 데이터를 표현하는 것을 목적으로 하는 자바 클래스로서, 다음과 같은 형태로 구성된다.
+
+	public class BeanClassName implements java.io.Serializable{
+		/* 값을 저장하는 필드 */
+		public BeanClassName(){
+		}
+		
+		/* BeanClassName의 기본 생성자 */
+		public BeanClass(){
+		}
+		
+		/* 필드의 값을 읽어오는 값 */
+		public String getValue(){
+			return value;
+		}
+		
+		/* 필드의 값을 변경하는 값 */
+		public void setValue(String value){
+			this.value = value;
+		}
+	}
+
+자바빈 규약에 따른 클래스를 자바빈이라고 부르며, JSP 프로그래밍에서 사용되는 자바빈 클래스는 위 예시 코드와 같이 데이터를 저장하는 필드, 데이터를 읽어올 때 사용하는 메서드, 값을 저장할 때 사용되는 메서드로 구성된다.
+
+자바빈은 프로퍼티, 지속성, 이벤트 등 다양한 특징을 갖는데, JSP 프로그래밍에서는 이 중에서 프로퍼티가 가장 많이 사용되며 이책에서는 프로퍼티에 대한 내용만 살펴보도록 하겠다.
+
+==== 1.1 자바빈 프로퍼티 ====
+
+===== 02 예제에서 사용할 자바빈 클래스 =====
+===== 03 <jsp:useBean> 태그를 이용한 자바 객체 사용 =====
+==== 3.1 <jsp:useBean> 액션 태그를 사용하여 객체 생성하기 ====
+<jsp:useBean> 액션 태그는 JSP 페이지에서 사용할 자바빈 객체를 지정해주는 기능을 한다. 기본 문법은 다음과 같다.
+
+  <jsp:useBean id="[빈이름]" class="[자바빈클래스이름]" scope="[범위]" />
+  
+<jsp:useBean> 액션 태그의 각 속성은 다음과 같다.
+  * id - JSP 페이지에서 자바빈 객체에 접근할 때 사용할 이름을 명시한다.
+  * class - 패키지 이름을 포함한 자바빈 클래스의 완전한 이름을 입력한다.
+  * scope - 자바빈 객체가 저장될 영역을 지장한다. page, request, session, application 중 하나를 값으로 갖는다. 기본값은 page이다.
+
+<jsp:useBean> 액션 태그의 class 속성 대신에 type 속성을 사용할 수도 있다. type 속성을 사용하면 지정한 영역에 객체가 존재한다고 가정한다. 존재하지 않을 경우 새 객체를 생성하는 대신 에러를 발생시킨다.
+
+==== 3.2 <jsp:getProperty> 액션 태그와 <jsp:setProperty> 액션 태그 ====
+==== 3.3 자바빈 프로퍼티 타입에 따른 값 매핑 ====
+자바빈 프로퍼티의 타입이 int인 경우를 생각해보자. 이 경우 <jsp:setProperty> 액션 태그는 값을 어떻게 처리할까?
+
+

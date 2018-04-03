@@ -1,0 +1,188 @@
+
+<h1 class="sectionedit1" id="chapter_15_표현_언어_expression_language">Chapter 15 표현 언어 (Expression Language)</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 15 표현 언어 (Expression Language)" [1-62] -->
+<h2 class="sectionedit2" id="표현_언어란">01 표현 언어란?</h2>
+<div class="level2">
+
+<p>
+표현 언어(Expression Language)는 JSTL(JSP Standard Tag Library) 1.0 규약에 소개된 내용으로서 JSP 2.0 버전부터 표현 언어가 포함되었고, JSP 2.1 버전부터 표현 언어와 관련된 규약을 별도 문서로 제공하고 있다. 
+</p>
+
+<p>
+표현 언어는 이름에서 알 수 있듯이 값을 표현하는데 사용되는 새로운 스크립트 언어로서 JSP의 기본 문법을 보오나하는 역할을 한다. 표현 언어는 다음과 같은 기능을 제공하고 있다.
+</p>
+<ul>
+<li class="level1"><div class="li"> JSP의 네 가지 기본 객체가 제공하는 영역의 속성 사용</div>
+</li>
+<li class="level1"><div class="li"> 집합 객체에 대한 접근 방법 제공</div>
+</li>
+<li class="level1"><div class="li"> 수치 연산, 관계 연산, 논리 연산자 제공</div>
+</li>
+<li class="level1"><div class="li"> 자바 클래스 메서드 호출 기능 제공</div>
+</li>
+<li class="level1"><div class="li"> 표현 언어만의 기본 객체 제공</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "01 표현 언어란?" [63-881] -->
+<h3 class="sectionedit3" id="표현_언어의_기본_문법">1.1 표현 언어의 기본 문법</h3>
+<div class="level3">
+
+<p>
+표현 언어는 다음과 같이 $와 표현식 그리고 괄호 (&#039;{&#039; 와 &#039;}&#039;)를 사용하여 값을 표현한다.
+</p>
+<pre class="code">${expr}</pre>
+
+<p>
+expr 부분에는 표현 언어가 정의한 문법에 따라 값을 표현하는 식이 온다. 표현 언어는 액션 태그나 18장에서 배울 커스텀 태그의 속성 값으로 사용할 수 있다. 예를 들어, 다음과 같은 형태로 사용이 가능하다.
+</p>
+<pre class="code">&lt;jsp:include page=&quot;/module/${skin.id}/header.jsp&quot; flush=&quot;true&quot;/&gt;</pre>
+
+<p>
+액션 태그나 커스텀 태그뿐만 아니라 비스크립트 요소 부분에서도 표현식처럼 값을 출력하기 위해 사용할 수 있다.
+</p>
+<pre class="code">&lt;b&gt;${sessionScope.member.id}&lt;/b&gt;님 환영합니다.</pre>
+
+<p>
+표현 언어는 JSP의 스크립트 요소(스크립틀릿, 표현식, 선언부)를 제외한 나머지 부분에서 사용될 수 있으며, 표현 언어를 통해서 표현식보다 편리하게 값을 출력할 수 있다.
+</p>
+
+<p>
+JSP 2.1 버전부터는 ${expr} 형식뿐만 아니라 #{expr}구문ㅇ르 새롭게 지원하고 있다. #{expr}형식은 JSF(JavaServer Faces)에서 사용되던 표현 언어 구문으로 JSP 2.1 버전에 새롭게 추가되었다. #{expr}과 ${expr}의 가장 큰 차이점은 실제로 EL의 값을 언제 생성하느냐에 있다.
+</p>
+
+<p>
+${expr} 형식의 EL은 ${expr} 구문을 분석할 때 곧바로 값을 계산한다. 예를 들어, 아래 코드를 보자.
+</p>
+<pre class="code">&lt;%
+	Member m = new Member();
+	m.setName(&quot;이름1&quot;);
+%&gt;</pre>
+<pre class="code">&lt;c:set var=&quot;m&quot; value=&quot;&lt;%=m%&gt;&quot;&gt;
+&lt;c:set var=&quot;name&quot; value=&quot;${m.name}&quot; /&gt;&lt;%-- 이 시점에 바로 값 계산 --%&gt;
+&lt;% m.setName(&quot;이름2&quot;); %&gt;
+${name} &lt;%-- name의 값은 &quot;이름1&quot; --%&gt;</pre>
+
+<p>
+아직 배우진 않았지만 &lt;c:set&gt; JSTL 태그는 EL 변수를 생성해주는 기능을 제공한다. 위 코드에서 name EL 변수의 값으로 ${m.name}을 지정했는데, m.name을 계산한 결과인(즉, m.getName()의 결과인) “이름1”을 name의 값으로 할당한다. 따라서, 그 뒤에 m.setName()으로 값을 변경하더라도 name 변수의 값을 변경되지 않는다.
+</p>
+
+<p>
+반면에 #{expr} 형식의 구문은 실제로 값이 사용될 때 값을 계산한다.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "1.1 표현 언어의 기본 문법" [882-3049] -->
+<h2 class="sectionedit4" id="표현_언어의_기본_객체">02 표현 언어의 기본 객체</h2>
+<div class="level2">
+
+<p>
+JSP는 웹 어플리케이션을 구현하는데 필요한 정보를 담고 있는 요청, 응답, 세션 등에 쉽게 접근할 수 있도록 request, session 등의 기본 객체를 제공하고 있다. EL(표현 언어)도 이와 마찬가지로 11개의 기본 객체를 제공함으로써 요청 파라미터나 세션 속성 값 등을 표현식에서 쉽게 사용할 수 있도록 하고 있다. EL이 제공하는 11개의 기본객체는 다음과 같다.
+</p>
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">기본 객체</th><th class="col1">설명</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">pageContext</td><td class="col1"> JSP의 page 기본 객체와 동일하다.</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">pageScope</td><td class="col1"> pageContext 기본 객체에 저장된 속성의 &lt;속성,값&gt; 매핑을 저장한 Map 객체</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">requestScope </td><td class="col1"> request 기본 객체에 저장된 속성의 &lt;속성,값&gt; 매핑을 저장한 Map 객체</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">sessionScope </td><td class="col1"> session 기본 객체에 저장된 속성의 &lt;속성,값&gt; 매핑을 저장한 Map 객체</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">applicationScope</td><td class="col1">application 기본 객체에 저장된 속성의 &lt;속성,값&gt; 매핑을 저장한 Map 객체</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">param </td><td class="col1"> 요청 파라미터의 &lt;파라미터이름, 값&gt; 매핑을 저장한 Map 객체, 파라미터 값을 타입은 String으로서, request.getParameter(이름)의 결과와 동일하다</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">paramValues</td><td class="col1">요청 파라미터의 &lt;파라미터이름, 값배열&gt; 매핑을 저장한 Map 객체. 값의 타입은 String[]</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">header</td><td class="col1">요청 정보의 &lt;헤더이름, 값&gt; 매핑을 저장한 Map 객체. request.getHeader(이름)의 결과와 동일하다.</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">headerValues</td><td class="col1"> 요청 정보의 &lt;헤더이름, 값 배열&gt; 매핑을 저장한 Map 객체. request.getHeaders(이름)의 결과와 동일하다.</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">cookie</td><td class="col1">&lt;쿠키 이름, Cookie&gt; 매핑을 저장한 Map 객체. request.getCookies()로 구한 Cookie 배열로부터 매핑을 생성한다.</td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">initParam</td><td class="col1"> 초기화 파라미터의&lt;이름, 값&gt; 매핑을 저장한 Map 객체, application.getInitParameter(이름)의 결과와 동일하다.</td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [3564-4962] -->
+</div>
+<!-- EDIT4 SECTION "02 표현 언어의 기본 객체" [3050-4963] -->
+<h2 class="sectionedit6" id="표현_언어의_기본">03 표현 언어의 기본</h2>
+<div class="level2">
+
+<p>
+EL도 일종의 스크립트 언어로서 자료 타입, 수치 연산자, 논리 연산자, 비교 연산자 등을 제공하고 있다. EL의 언어적인 측면과 규칙들을 숙지하지 않으면, 나중에 EL을 사용할 때 버그나 논리적인 오류들을 쉽게 찾을 수 없게 되므로 익히도록 하자.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "03 표현 언어의 기본" [4964-5328] -->
+<h3 class="sectionedit7" id="el의_데이터_타입">3.1 EL의 데이터 타입</h3>
+<div class="level3">
+
+<p>
+EL은 불리언 타입, 정수 타입, 실수 타입, 문자열 타입, 그리고 널 타입의 5가지 타입을 제공하고 있으며 각각의 표현 방식은 다음과 같다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 불리언 타입</div>
+</li>
+<li class="level1"><div class="li"> 정수 타입</div>
+</li>
+<li class="level1"><div class="li"> 실수 타입</div>
+</li>
+<li class="level1"><div class="li"> 문자열 타입</div>
+</li>
+<li class="level1"><div class="li"> 널 타입</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "3.1 EL의 데이터 타입" [5329-5641] -->
+<h3 class="sectionedit8" id="객체에_접근하기">3.2 객체에 접근하기</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT8 SECTION "3.2 객체에 접근하기" [5642-5678] -->
+<h3 class="sectionedit9" id="객체의_탐색">3.3 객체의 탐색</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT9 SECTION "3.3 객체의 탐색" [5679-5710] -->
+<h3 class="sectionedit10" id="수치_연산자">3.4 수치 연산자</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT10 SECTION "3.4 수치 연산자" [5711-5741] -->
+<h3 class="sectionedit11" id="비교_연산자">3.5 비교 연산자</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT11 SECTION "3.5 비교 연산자" [5742-5772] -->
+<h2 class="sectionedit12" id="표현_언어에서_객체의_메서드_호출">04 표현 언어에서 객체의 메서드 호출</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT12 SECTION "04 표현 언어에서 객체의 메서드 호출" [5773-5834] -->
+<h2 class="sectionedit13" id="표현_언어에서_클래스_정적_메서드_호출하기">05 표현 언어에서 클래스 정적 메서드 호출하기</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT13 SECTION "05 표현 언어에서 클래스 정적 메서드 호출하기" [5835-] -->

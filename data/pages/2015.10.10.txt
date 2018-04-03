@@ -1,0 +1,5 @@
+위키 문법요소 정리, 후보군 만들어 오기
+  * [[https://www.dokuwiki.org/wiki:syntax|도쿠 위키 문법]]
+  * [[https://www.mediawiki.org/wiki/Help:Formatting/ko| 미디어위키 문법]]
+  * [[http://hyacinth.byus.net/moniwiki/wiki.php/%EB%AA%A8%EB%8B%88%EC%9C%84%ED%82%A4%20%ED%8C%81#s-1|모니위키 문법]]
+  * [[https://help.github.com/articles/github-flavored-markdown/|마크다운 문법]]

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://velmont.cafe24.com/dokuwiki/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://velmont.cafe24.com/dokuwiki/feed.php">
+        <title>프로젝트 위키 wiki</title>
+        <description></description>
+        <link>http://velmont.cafe24.com/dokuwiki/</link>
+        <image rdf:resource="http://velmont.cafe24.com/dokuwiki/lib/tpl/dokuwiki/images/favicon.ico" />
+       <dc:date>2016-05-20T02:27:15+09:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:dokuwiki&amp;rev=1393540204&amp;do=diff"/>
+                <rdf:li rdf:resource="http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:syntax&amp;rev=1392589805&amp;do=diff"/>
+                <rdf:li rdf:resource="http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:welcome&amp;rev=1385049343&amp;do=diff"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="http://velmont.cafe24.com/dokuwiki/lib/tpl/dokuwiki/images/favicon.ico">
+        <title>프로젝트 위키</title>
+        <link>http://velmont.cafe24.com/dokuwiki/</link>
+        <url>http://velmont.cafe24.com/dokuwiki/lib/tpl/dokuwiki/images/favicon.ico</url>
+    </image>
+    <item rdf:about="http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:dokuwiki&amp;rev=1393540204&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2014-02-28T07:30:04+09:00</dc:date>
+        <title>DokuWiki</title>
+        <link>http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:dokuwiki&amp;rev=1393540204&amp;do=diff</link>
+        <description>DokuWiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable Formatting Syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional…</description>
+    </item>
+    <item rdf:about="http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:syntax&amp;rev=1392589805&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2014-02-17T07:30:05+09:00</dc:date>
+        <title>Formatting Syntax</title>
+        <link>http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:syntax&amp;rev=1392589805&amp;do=diff</link>
+        <description>DokuWiki supports some simple markup language, which tries to make the datafiles to be as readable as possible. This page contains all possible syntax you may use when editing the pages. Simply have a look at the source of this page by pressing “Edit this page”. If you want to try something, just use the playground page. The simpler markup is easily accessible via quickbuttons, too.</description>
+    </item>
+    <item rdf:about="http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:welcome&amp;rev=1385049343&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2013-11-22T00:55:43+09:00</dc:date>
+        <title>Welcome to your new DokuWiki</title>
+        <link>http://velmont.cafe24.com/dokuwiki/doku.php?id=wiki:welcome&amp;rev=1385049343&amp;do=diff</link>
+        <description>Congratulations, your wiki is now up and running. Here are a few more tips to get you started.
+
+Enjoy your work with DokuWiki,
+
+-- the developers
+
+Create your first pages
+
+Your wiki needs to have a start page. As long as it doesn't exist, this link will be red: 프로젝트 위키 대문 페이지.</description>
+    </item>
+</rdf:RDF>

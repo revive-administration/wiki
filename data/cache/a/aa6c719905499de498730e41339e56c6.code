@@ -1,0 +1,9 @@
+<span class="kw1">package</span> <span class="co2">Ch02</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> DatabaseFactoryImpl <span class="br0">&#123;</span>
+	<span class="kw1">private</span> Database db<span class="sy0">;</span>
+	<span class="kw1">public</span> Database getDatabase<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		db <span class="sy0">=</span> <span class="kw1">new</span> DatabaseImpl<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">return</span> db<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

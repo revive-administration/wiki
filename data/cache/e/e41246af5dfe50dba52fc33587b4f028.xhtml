@@ -1,0 +1,314 @@
+
+<h1 class="sectionedit1" id="장_채널_파이프라인과_코덱">4장 채널 파이프라인과 코덱</h1>
+<div class="level1">
+
+<p>
+채널 파이프라인은 채널에서 발생한 이벤트가 이동하는 통로다. 이 통로를 통해서 이동하는 이벤트를 처리하는 클래스를 이벤트 핸들러라고 하며 이벤트 핸들러를 상속받아서 구현한 구현체들을 코덱이라고 한다.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "4장 채널 파이프라인과 코덱" [1-337] -->
+<h2 class="sectionedit2" id="이벤트_실행">4.1 이벤트 실행</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "4.1 이벤트 실행" [338-370] -->
+<h2 class="sectionedit3" id="채널_파이프라인">4.2 채널 파이프라인</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "4.2 채널 파이프라인" [371-409] -->
+<h3 class="sectionedit4" id="채널_파이프라인의_구조">4.2.1 채널 파이프라인의 구조</h3>
+<div class="level3">
+
+<p>
+채널은 일반적인 소켓 프로그래밍에서 말하는 소켓과 같다고 보는데 이 소켓에서 발생한 이벤트는 채널 파이프라인을 따라 흐른다. 채널에서 발생한 이벤트들을 수신하고 처리하는 기능은 이벤트 핸들러가 수행한다. 
+</p>
+
+</div>
+<!-- EDIT4 SECTION "4.2.1 채널 파이프라인의 구조" [410-748] -->
+<h3 class="sectionedit5" id="채널_파이프라인의_동작">4.2.2 채널 파이프라인의 동작</h3>
+<div class="level3">
+
+<p>
+initChannel 메서드는 클라이언트 소켓 채널이 생성될 때 자동으로 호출되는데 이때 채널 파이프라인의 설정을 수행한다. 부트스트랩에 설정한 ChannelInitializer 클래스의 initChannel 메서드 본체는 부트스트랩이 초기화될 때 수행되며 이때 서버 소켓 채널과 채널 파이프라인이 연결된다. 
+</p>
+
+</div>
+<!-- EDIT5 SECTION "4.2.2 채널 파이프라인의 동작" [749-1170] -->
+<h2 class="sectionedit6" id="이벤트_핸들러">4.3 이벤트 핸들러</h2>
+<div class="level2">
+
+<p>
+네티는 비동기 호출을 지원하는 두 가지 패턴을 제공한다. 첫 번째는 퓨처 패턴이며 두 번째는 리액터 패턴의 구현체인 이벤트 핸들러다. 이벤트 핸들러는 네티의 소켓 채널에서 발생한 이벤트를 처리하는 인터페이스다. 소켓 채널의 이벤트를 인터페이스로 정의하고 이 인터페이스를 상속받은 이벤트 핸들러를 작성하여 채널 파이프라인에 등록한다. 채널 파이프라인으로 입력되는 이벤트를 이벤트 루프가 가로채어 이벤트에 해당하는 메서드를 수행하는 구조다. 
+</p>
+
+</div>
+<!-- EDIT6 SECTION "4.3 이벤트 핸들러" [1171-1824] -->
+<h3 class="sectionedit7" id="채널_인바운드_이벤트">4.3.1 채널 인바운드 이벤트</h3>
+<div class="level3">
+
+<p>
+네티는 소켓 채널에서 발생하는 이벤트를 인바운드 이벤트와 아웃바운드 이벤트로 추상화한다. 인바운드 이벤트는 소켓 채널에서 발생한 이벤트 중에서 연결 상대방이 어떤 동작을 취했을 때 발생한다. 예를들면 채널 활성화, 데이터 수신 등의 이벤트가 이에 해당한다.
+</p>
+
+</div>
+
+<h4 id="channelregistered_이벤트">channelRegistered 이벤트</h4>
+<div class="level4">
+
+<p>
+채널이 이벤트 루프에 등록되었을 때 발생한다. 이벤트 루프는 네티가 이벤트를 실행하는 스레드로써 부트 스트랩에 설정한 이벤트 루프다.
+</p>
+
+</div>
+
+<h4 id="channelactive_이벤트">channelActive 이벤트</h4>
+<div class="level4">
+
+<p>
+channelRegistered 이벤트 이후에 발생한다. 이는 채널이 생성되고 이벤트 루프에 등록된 이후에 네티 API를 사용하여 채널 입출력을 수행할 상태가 되었음을 알려주는 이벤트다. 서버 또는 클라이언트가 상대방에 연결한 직후에 한 번 수행할 작업을 처리하기에 적합하다.
+</p>
+
+</div>
+
+<h4 id="channelread_이벤트">channelRead 이벤트</h4>
+<div class="level4">
+
+<p>
+데이터가 수신되었음을 알려준다. 수신된 데이터는 네티의 ByteBuf 객체에 저장되어 있으며 이벤트 메서드의 두 번째 인자인 msg를 통해서 접근할 수 있다. 
+</p>
+
+</div>
+
+<h4 id="channelreadcomplete_이벤트">channelReadComplete 이벤트</h4>
+<div class="level4">
+
+<p>
+데이터 수신이 완료되었음을 알려준다. channelRead 이벤트는 채널에 데이터가 있을 때 발생하고 채널의 데이터를다 읽어서 더 이상 데이터가 없을 때 channelReadComplete 이벤트가 발생한다. 
+</p>
+
+</div>
+
+<h4 id="channelinactive_이벤트">channelInactive 이벤트</h4>
+<div class="level4">
+
+<p>
+채널이 비활성화 되었을 때 발생한다. 이후 입출력 작업을 수행할 수 없다.
+</p>
+
+</div>
+
+<h4 id="channelunregistered_이벤트">channelUnregistered 이벤트</h4>
+<div class="level4">
+
+<p>
+채널이 이벤트 루프에서 제거되었을 때 발생한다. 이후 이벤트를 처리할 수 없다.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "4.3.1 채널 인바운드 이벤트" [1825-3640] -->
+<h3 class="sectionedit8" id="아웃바운드_이벤트">4.2.3 아웃바운드 이벤트</h3>
+<div class="level3">
+
+<p>
+소켓 채널에서 발생한 이벤트 중에서 네티 사용자가 요청한 동작에 해당하는 이벤트를 말하며 연결 요청, 데이터 전송, 소켓 닫기 등이 이에 해당한다. 
+</p>
+
+</div>
+
+<h4 id="bind_이벤트">bind 이벤트</h4>
+<div class="level4">
+
+<p>
+서버 소켓 채널이 클라이언트의 연결을 대기하는 IP 포트가 설정되었을 때 발생한다. bind 이벤트에서는 서버 소켓 채널이 사용중인 SocketAddress 객체가 인수로 입력된다. 즉 서버 소켓 채널이 사용하는 IP와 포트정보를 확인할 수 있다.
+</p>
+
+</div>
+
+<h4 id="connect_이벤트">connect 이벤트</h4>
+<div class="level4">
+
+<p>
+클라이언트와 소켓 채널이 서버에 연결되었을 때 발생한다. connect이벤트에서는 원격지의 SocketAddress 정보와 로컬 SocketAddress 정보가 인수로 입력된다. 
+</p>
+
+</div>
+
+<h4 id="disconnect_이벤트">disconnect 이벤트</h4>
+<div class="level4">
+
+<p>
+클라이언트 소켓 채널의 연결이 끊어졌을 때 발생한다.
+</p>
+
+</div>
+
+<h4 id="close_이벤트">close 이벤트</h4>
+<div class="level4">
+
+<p>
+클라이언트 소켓 채널의 연결이 닫혔을 때 발생한다.
+</p>
+
+</div>
+
+<h4 id="write_이벤트">write 이벤트</h4>
+<div class="level4">
+
+<p>
+소켓 채널에 데이터가 기록되었을 때 발생한다.
+</p>
+
+</div>
+
+<h4 id="flush_이벤트">flush 이벤트</h4>
+<div class="level4">
+
+<p>
+소켓 채널에 대한 flush 메서드가 호출되었을 때 발생한다.
+</p>
+
+</div>
+<!-- EDIT8 SECTION "4.2.3 아웃바운드 이벤트" [3641-4831] -->
+<h3 class="sectionedit9" id="이벤트_이동_경로와_이벤트_메서드_실행">4.3.3 이벤트 이동 경로와 이벤트 메서드 실행</h3>
+<div class="level3">
+
+<p>
+ChannelHandlerContext 인터페이스의 fireChannelRead 메서드를 호출하면 네티는 채널 파이프라인에 channelRead 이벤트를 발생시킨다. 
+</p>
+
+</div>
+<!-- EDIT9 SECTION "4.3.3 이벤트 이동 경로와 이벤트 메서드 실행" [4832-5064] -->
+<h3 class="sectionedit10" id="코덱">4.3.4 코덱</h3>
+<div class="level3">
+
+<p>
+네티에서 인코더는 전송할 데이터를 전송 프로토콜에 맞추어 변환 작업을 수행하고 디코더는 반대의 작업을 수행한다.
+</p>
+
+</div>
+<!-- EDIT10 SECTION "4.3.4 코덱" [5065-5247] -->
+<h2 class="sectionedit11" id="코덱의_구조">4.4 코덱의 구조</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT11 SECTION "4.4 코덱의 구조" [5248-5280] -->
+<h3 class="sectionedit12" id="코덱의_실행_과정">4.4.1 코덱의 실행 과정</h3>
+<div class="level3">
+
+<p>
+네티의 코덱은 템플릿 메서드 패턴으로 구현되어있다. 
+</p>
+
+</div>
+<!-- EDIT12 SECTION "4.4.1 코덱의 실행 과정" [5281-5395] -->
+<h2 class="sectionedit13" id="기본_제공_코덱">4.5 기본 제공 코덱</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT13 SECTION "4.5 기본 제공 코덱" [5396-5432] -->
+<h3 class="sectionedit14" id="base64_코덱">base64 코덱</h3>
+<div class="level3">
+
+<p>
+Base 64 인코딩 데이터에 대한 송수신을 지원하는 코덱이다. Base64란 &#039;8비트 이진 데이터&#039;를 &#039;문자 코드에 영향을 받지 않는 공통 <abbr title="American Standard Code for Information Interchange">ASCII</abbr> 영역의 문자로 이루어진 일련의 문자열&#039;로 바꾸는 인코딩을 말한다.
+</p>
+
+</div>
+<!-- EDIT14 SECTION "base64 코덱" [5433-5721] -->
+<h3 class="sectionedit15" id="bytes_코덱">bytes 코덱</h3>
+<div class="level3">
+
+<p>
+바이트 배열 데이터에 대한 송수신을 지원하는 코덱이다.
+</p>
+
+</div>
+<!-- EDIT15 SECTION "bytes 코덱" [5722-5822] -->
+<h3 class="sectionedit16" id="compression_코덱">compression 코덱</h3>
+<div class="level3">
+
+<p>
+송수신 데이터의 압축을 지원하는 코덱이다. 
+</p>
+
+</div>
+<!-- EDIT16 SECTION "compression 코덱" [5823-5912] -->
+<h3 class="sectionedit17" id="http_코덱">http 코덱</h3>
+<div class="level3">
+
+<p>
+HTTP 프로토콜을 지원하는 코덱으로서 하위 패키지에서 다양한 송수신 방법을 지원한다.
+</p>
+
+</div>
+<!-- EDIT17 SECTION "http 코덱" [5913-6052] -->
+<h3 class="sectionedit18" id="marshalling_코덱">marshalling 코덱</h3>
+<div class="level3">
+
+<p>
+마샬링이란 객체를 네트워크를 통해서 송신 가능한 형태로 변환하는 과정이다. 
+</p>
+
+</div>
+<!-- EDIT18 SECTION "marshalling 코덱" [6053-6189] -->
+<h3 class="sectionedit19" id="protobuf_코덱">protobuf 코덱</h3>
+<div class="level3">
+
+<p>
+구글의 프로토콜 버퍼를 사용한 데이터 송수신을 지원하는 코덱이다.
+</p>
+
+</div>
+<!-- EDIT19 SECTION "protobuf 코덱" [6190-6309] -->
+<h3 class="sectionedit20" id="rtsp_코덱">rtsp 코덱</h3>
+<div class="level3">
+
+<p>
+RTSP는 오디오와 비디오 같은 실시간 데이터의 전달을 위해서 특수하게 만들어진 애플리케이션 레벨의 프로토콜이다.
+</p>
+
+</div>
+<!-- EDIT20 SECTION "rtsp 코덱" [6310-6488] -->
+<h3 class="sectionedit21" id="sctp_코덱">SCTP 코덱</h3>
+<div class="level3">
+
+<p>
+tcp가 아닌 sctp 전송 계층을 사용하는 코덱이다.
+</p>
+
+</div>
+<!-- EDIT21 SECTION "SCTP 코덱" [6489-6574] -->
+<h3 class="sectionedit22" id="spdy_코덱">SPDY 코덱</h3>
+<div class="level3">
+
+<p>
+구글의 SPDY 프로토콜을 지원하는 코덱이다. 
+</p>
+
+</div>
+<!-- EDIT22 SECTION "SPDY 코덱" [6575-6655] -->
+<h3 class="sectionedit23" id="string_코덱">string 코덱</h3>
+<div class="level3">
+
+<p>
+문자열의 송수신을 지원하는 코덱이다.
+</p>
+
+</div>
+<!-- EDIT23 SECTION "string 코덱" [6656-6733] -->
+<h3 class="sectionedit24" id="serialization_코덱">serialization 코덱</h3>
+<div class="level3">
+
+<p>
+자바의 객체를 네트워크로 전송할 수 있도록 직렬화와 역직렬화를 지원하는 코덱이다.
+</p>
+
+</div>
+<!-- EDIT24 SECTION "serialization 코덱" [6734-6881] -->
+<h2 class="sectionedit25" id="사용자_정의_코덱">4.6 사용자 정의 코덱</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT25 SECTION "4.6 사용자 정의 코덱" [6882-] -->

@@ -1,0 +1,154 @@
+
+<h1 class="sectionedit1" id="튜토리얼_-_배터리_콜렉터">튜토리얼 - 배터리 콜렉터</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "튜토리얼 - 배터리 콜렉터" [1-49] -->
+<h2 class="sectionedit2" id="강_11강">1강 ~ 11강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">배터리 파워를 획득하는 캐릭터와 파워를 얻게 해주는 배터리(PickUp) 제작 방식에 대해 학습한다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "1강 ~ 11강" [50-207] -->
+<h2 class="sectionedit3" id="강">12강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">파워를 얻게 해주는 로직 구축</div></li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "12강" [208-272] -->
+<h2 class="sectionedit4" id="강1">13강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">여기부터 자막이 없다-_-</div></li>
+  <li><div class="li">캐릭터의 파워를 점차 낮춰서 배터리를 먹지 않으면 죽도록 함</div></li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "13강" [273-416] -->
+<h2 class="sectionedit5" id="강2">14강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">파워에 따른 캐릭터의 스피드와 메터리얼을 바꿈</div></li>
+  <li><div class="li">스켈레탈 메시 : 메터리얼들을 소유하고 있음
+<ul  class="extlist">
+  <li><div class="li">여기서 <a href="/dokuwiki/doku.php?id=%EC%8A%A4%EC%BC%88%EB%A0%88%ED%83%88_%EB%A9%94%EC%8B%9C_%EC%95%A1%ED%84%B0" class="wikilink1" title="스켈레탈_메시_액터">스켈레탈 메시 액터</a>란? : <a href="https://docs.unrealengine.com/latest/KOR/Engine/Actors/SkeletalMeshActors/index.html" class="urlextern" title="https://docs.unrealengine.com/latest/KOR/Engine/Actors/SkeletalMeshActors/index.html" rel="nofollow">https://docs.unrealengine.com/latest/KOR/Engine/Actors/SkeletalMeshActors/index.html</a></div></li>
+</ul>
+</li>
+  <li><div class="li">메시의 메터리얼의 BodyColor이라는 파라미터의 색을 동적으로 바꿔준다</div></li>
+  <li><div class="li">그렇다. 그렇게 홍익인간이 되었다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "14강" [417-858] -->
+<h2 class="sectionedit6" id="강3">15강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">배터리를 꿀꺽할때 강려크한 파티클이 나타나도록 한다 (Spawn Emitter Attached)</div></li>
+  <li><div class="li">파워는 캐릭터의 심장이므로 캐릭터 심장의 Skeleton에서 bone 이름 (spine_02)를 복사해서 GetSocketLocation으로 가져온다 (Socket Name)</div></li>
+  <li><div class="li">즉 배터리에서 파티클이 만들어진 뒤 Beam의 TargetPoint가 캐릭터의 심장이 되는 것이다.</div></li>
+  <li><div class="li">UNLIMITED… P.O.W.E.R</div></li>
+  <li><div class="li"><a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC_-_%EB%B0%B0%ED%84%B0%EB%A6%AC_%EC%BD%9C%EB%A0%89%ED%84%B0&amp;media=kakaotalk_20170110_112131088.png" class="media" title="kakaotalk_20170110_112131088.png"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;tok=23e575&amp;media=kakaotalk_20170110_112131088.png" class="media" alt="" width="200" /></a></div></li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "15강" [859-1341] -->
+<h2 class="sectionedit7" id="강4">16강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">UMG를 가능하게 해보자 (본격적으로 변태의 냄새가 난다.)</div></li>
+  <li><div class="li">Build.cs에서 Dependency를 추가해준다.
+<ul  class="extlist">
+  <li><div class="li">디펜던시만 바꿔준다고 바로 사용 가능한게 아니라 언리얼에서 프로젝트를 regenerated 해주어야한다 (귀찬다..)</div></li>
+  <li><div class="li"><a href="https://answers.unrealengine.com/questions/241263/include-blueprintuserwidgeth-missing.html" class="urlextern" title="https://answers.unrealengine.com/questions/241263/include-blueprintuserwidgeth-missing.html" rel="nofollow">https://answers.unrealengine.com/questions/241263/include-blueprintuserwidgeth-missing.html</a></div></li>
+</ul>
+</li>
+  <li><div class="li">BatteryCollector.h에서 #include “EngineMinimal.h” → “Engine.h”로 변경해 줌으로써 더 많은 헤더파일들 참조가 가능하다
+<ul  class="extlist">
+  <li><div class="li">GEngine→DebugMessage가 안됐었는데 이거 때문인듯</div></li>
+</ul>
+</li>
+  <li><div class="li">위젯을 만들고 Viewport에 올리는 소스 (Blueprint/UserWidget.h 인클루드 되어있어야 함)</div></li>
+  <li><div class="li"><a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC_-_%EB%B0%B0%ED%84%B0%EB%A6%AC_%EC%BD%9C%EB%A0%89%ED%84%B0&amp;media=cc.png" class="media" title="cc.png"><img src="/dokuwiki/lib/exe/fetch.php?media=cc.png" class="media" alt="" /></a></div></li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "16강" [1342-2082] -->
+<h2 class="sectionedit8" id="강5">17강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">형변환도 퓨어 형변환이 있다.</div></li>
+  <li><div class="li">HUD의 ProgressBar 비율을 Bind 해주고</div></li>
+  <li><div class="li">GameMode의 HUD 변수에 HUD 위젯 클래스를 연결해준다.</div></li>
+  <li><div class="li">맵&amp;모드에서 BP_GameMode를 기본으로 설정해준다.</div></li>
+  <li><div class="li">BP_GameMode는 하나의 상시 액터처럼 작용하면서 HUD를 뷰포트에 계속 띄워주는 역할을 한다.</div></li>
+  <li><div class="li"><a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC_-_%EB%B0%B0%ED%84%B0%EB%A6%AC_%EC%BD%9C%EB%A0%89%ED%84%B0&amp;media=mini.png" class="media" title="mini.png"><img src="/dokuwiki/lib/exe/fetch.php?w=200&amp;tok=ab1325&amp;media=mini.png" class="media" alt="" width="200" /></a></div></li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "17강" [2083-2477] -->
+<h2 class="sectionedit9" id="강6">18강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">GameMode가 GameState를 들고 있는다.</div></li>
+  <li><div class="li">선택은 이렇게 쓰는 겁니다.</div></li>
+  <li><div class="li"><a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC_-_%EB%B0%B0%ED%84%B0%EB%A6%AC_%EC%BD%9C%EB%A0%89%ED%84%B0&amp;media=select.png" class="media" title="select.png"><img src="/dokuwiki/lib/exe/fetch.php?media=select.png" class="media" alt="" /></a></div></li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "18강" [2478-2606] -->
+<h2 class="sectionedit10" id="강7">19강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">SpawnVolume(배터리를 스폰하는 장치)의 스폰 타이밍을 게임 모드에 따라 컨트롤 할 수 있도록 설계한다.</div></li>
+  <li><div class="li">특정 클래스의 모든 액터를 가져오는 코드</div></li>
+  <li><div class="li"><a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC_-_%EB%B0%B0%ED%84%B0%EB%A6%AC_%EC%BD%9C%EB%A0%89%ED%84%B0&amp;media=getall.png" class="media" title="getall.png"><img src="/dokuwiki/lib/exe/fetch.php?media=getall.png" class="media" alt="" /></a></div></li>
+  <li><div class="li">해당 액터들을 리스트 변수에 Add 해 두어서 게임모드에서 관리할 수 있게 만듦</div></li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "19강" [2607-2963] -->
+<h2 class="sectionedit11" id="강8">20강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">새 플레이 스테이트 컨트롤하기</div></li>
+  <li><div class="li">인게임 상태에서만 배터리가 스폰되도록 설정</div></li>
+  <li><div class="li">게임 종료시의 캐릭터 CinematicMode 설정
+<ul  class="extlist">
+  <li><div class="li">PlayerController = UGamePlayStatics::GetPlayerController(this,0);</div></li>
+  <li><div class="li">PlayerController→SetCinematiceMode(true, false, false, true, true);</div></li>
+</ul>
+</li>
+  <li><div class="li">게임에 패배했을 때 Set simulate physics를 통해 Ragdoll 상태를 표현하도록 하자
+<ul  class="extlist">
+  <li><div class="li">캐릭터 → 메시 → 콜리전 프리셋 설정 → Collision Enalbled 설정을 해주어서, 물리영향은 받되 땅은 인지하도록 한다</div></li>
+  <li><div class="li">좀 더 자세한건 마지막 강의를 보자 </div></li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "20강" [2964-3610] -->
+<h2 class="sectionedit12" id="강9">21강</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">기대했는데 딱히 암것도 안함</div></li>
+  <li><div class="li">스폰 범위 지정해주고 파티클 폴리싱 해줌 끝</div></li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "21강" [3611-] -->

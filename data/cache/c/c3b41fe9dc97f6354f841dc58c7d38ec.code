@@ -1,0 +1,32 @@
+<span class="kw1">public</span> <span class="kw1">class</span> DaoProvider<span class="br0">&#123;</span>
+	<span class="co1">//싱글턴 패턴을 적용해서 DaoProvider 객체 구함</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw1">static</span> DaoProvider getInstance<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> instance<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="co1">//DBMS 타입별 DAO 객체</span>
+	<span class="kw1">private</span> MySQLDao mysqlDao <span class="sy0">=</span> <span class="kw1">new</span> MySQLDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">private</span> OracleDao oracleDao <span class="sy0">=</span> <span class="kw1">new</span> OracleDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">private</span> MSSQLDao mssqlDao <span class="sy0">=</span> <span class="kw1">new</span> MSSQLDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> dbms<span class="sy0">;</span>
+&nbsp;
+	<span class="co1">//DBMS 타입 설정</span>
+	<span class="kw4">void</span> setDbms<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> dbms<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">dbms</span> <span class="sy0">=</span> dbms<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="co1">//설정한 dbms 값에 따라 알맞은 DAO 객체 리턴</span>
+&nbsp;
+	<span class="kw1">public</span> Dao getDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">if</span><span class="br0">&#40;</span><span class="st0">&quot;oracle&quot;</span>.<span class="me1">equals</span><span class="br0">&#40;</span>dbms<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw1">return</span> oracleDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span><span class="st0">&quot;mysql&quot;</span>.<span class="me1">equals</span><span class="br0">&#40;</span>dbms<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw1">return</span> mysqlDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span><span class="st0">&quot;mssql&quot;</span>.<span class="me1">equals</span><span class="br0">&#40;</span>dbms<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw1">return</span> mssqlDao<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">return</span> <span class="kw2">null</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

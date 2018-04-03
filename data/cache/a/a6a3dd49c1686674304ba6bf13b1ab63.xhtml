@@ -1,0 +1,99 @@
+
+<h1 class="sectionedit1" id="chapter_09_옵서버_패턴">Chapter 09 옵서버 패턴</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 09 옵서버 패턴" [1-42] -->
+<h2 class="sectionedit2" id="여러_가지_방식으로_성적_출력하기">9.1 여러 가지 방식으로 성적 출력하기</h2>
+<div class="level2">
+
+<p>
+성적을 출력하는 기능, 예를 들어 성적 값을 출력하는 프로그램 코드를 작성해보자. 이러한 프로그램을 개발하려면 입력된 점수를 저장하는 ScoreRecord 클래스와 점수를 목록의 형태로 출력하는 DataSheetView 클래스가 필요하다. 그리고 성적이 입력된 경우, 즉 ScoreRecord 클래스의 addScore 메서드가 실행될 때 성적을 출력하려면 ScordRecord 클래스는 DataSheetView 객체를 참조해야 한다.
+</p>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=chapter_09_%EC%98%B5%EC%84%9C%EB%B2%84_%ED%8C%A8%ED%84%B4&amp;codeblock=0" title="조각 다운로드" class="mediafile mf_">코드 9-1</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">class</span> ScoreRecord<span class="br0">&#123;</span>
+	<span class="kw1">private</span> List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> scores <span class="sy0">=</span> <span class="kw1">new</span> ArrayList<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">private</span> DataSheetView dataSheetView<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setDataSheetView<span class="br0">&#40;</span>DataSheetView dataSheetView<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">dataSheetView</span> <span class="sy0">=</span> dataSheetView<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> addScore<span class="br0">&#40;</span><span class="kw4">int</span> score<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		scores.<span class="me1">add</span><span class="br0">&#40;</span>score<span class="br0">&#41;</span><span class="sy0">;</span>
+		dataSheetView.<span class="me1">update</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> getScoreRecord<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> scores<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> DataSheetView<span class="br0">&#123;</span>
+	<span class="kw1">private</span> ScoreRecord scoreRecord<span class="sy0">;</span>
+	<span class="kw1">private</span> <span class="kw4">int</span> viewCount<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> DataSheetView<span class="br0">&#40;</span>ScoreRecord scoreRecord, <span class="kw4">int</span> viewCount<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">scoreRecord</span> <span class="sy0">=</span> scoreRecord<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">viewCount</span> <span class="sy0">=</span> viewCount<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> update<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> record <span class="sy0">=</span> scoreRecord.<span class="me1">getScoreRecord</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		displayScores<span class="br0">&#40;</span>record, viewCount<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">private</span> <span class="kw4">void</span> displayScores<span class="br0">&#40;</span>List<span class="sy0">&lt;</span>Integer<span class="sy0">&gt;</span> record, <span class="kw4">int</span> viewCount<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;List of &quot;</span> <span class="sy0">+</span> viewCount <span class="sy0">+</span> <span class="st0">&quot; entries: &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>viewCount <span class="sy0">&amp;&amp;</span> i<span class="sy0">&lt;</span>record.<span class="me1">size</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>record.<span class="me1">get</span><span class="br0">&#40;</span>i<span class="br0">&#41;</span> <span class="sy0">+</span> <span class="st0">&quot; &quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>		
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>		
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Client<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ScoreRecord scoreRecord <span class="sy0">=</span> <span class="kw1">new</span> ScoreRecord<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		DataSheetView dataSheetView <span class="sy0">=</span> <span class="kw1">new</span> DataSheetView<span class="br0">&#40;</span>scoreRecord, <span class="nu0">3</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		scoreRecord.<span class="me1">setDataSheetView</span><span class="br0">&#40;</span>dataSheetView<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> index <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span> index<span class="sy0">&lt;=</span><span class="nu0">5</span><span class="sy0">;</span> index<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw4">int</span> score <span class="sy0">=</span> index <span class="sy0">*</span> <span class="nu0">10</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;Adding &quot;</span> <span class="sy0">+</span>score<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+			<span class="co1">//10 20 30 40 50을 추가함, 추가할 때마다 최대 3개의 점수만 출력함</span>
+			scoreRecord.<span class="me1">addScore</span><span class="br0">&#40;</span>score<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+</div>
+<!-- EDIT2 SECTION "9.1 여러 가지 방식으로 성적 출력하기" [43-2086] -->
+<h2 class="sectionedit3" id="문제점">9.2 문제점</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "9.2 문제점" [2087-2112] -->
+<h3 class="sectionedit4" id="성적을_다른_형태로_출력하는_경우">9.2.1 성적을 다른 형태로 출력하는 경우</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT4 SECTION "9.2.1 성적을 다른 형태로 출력하는 경우" [2113-2176] -->
+<h2 class="sectionedit5" id="옵서버_패턴">9.4 옵서버 패턴</h2>
+<div class="level2">
+
+<p>
+옵서버 패턴은 데이터의 변경이 발생했을 경우 상대 클래스나 객체에 의존하지 않으면서 데이터의 변경을 통보하고자 할 때 유용하다. 예를 들어 새로운 파일이 추가되거나 기존 파일이 삭제되었을 때 탐색기는 이를 즉시 표시할 필요가 있다. 탐색기를 복수 개 실행하는 상황이나 하나의 탐색기에서 파일 시스템을 변경했을 때는 다른 탐색기에 즉각적으로 이 변경을 통보해야 한다.
+</p>
+
+<p>
+<strong>Keypoint_</strong> 옵서버 패턴은 통보 대상 객체의 관리를 Subject 클래스와 Observer 인터페이스로 일반화한다. 그러면 데이터 변경을 통보하는 클래스는 통보 대상 클래스가 객체에 대한 의존성을 없앨 수 있다.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "9.4 옵서버 패턴" [2177-] -->

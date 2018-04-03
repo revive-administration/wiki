@@ -1,0 +1,45 @@
+=====코어=====
+
+====코어 개요====
+
+<code>
+- 코어는 에너지 결정체로, 이 에너지를 이용하여 기계의 성능을 향상시킬 수 있는 물질.
+- 장비의 등급에 따라 최대 3개의 코어를 결합시킬 수 있음.
+- 부대에 참여한 바디가 코어를 결합시킨 장비를 착용한 경우 코어의 옵션이 패시브스킬처럼 작용.
+- 코어에게 경험치 재료를 합성시켜 코어를 강화할 수 있음.
+- 코어 레벨이 충분할 경우, 다음 등급으로 승급시킬 수 있음.
+</code>
+
+====Core====
+^  Code  ^  Name  ^  Maker  ^  Type  ^  Grade  ^  Description  ^ OptionNumber  ^  EquipmentRestriction  ^  Order  ^
+|  Core1  |  공격력 코어  |  SACorp  |  Core  |  Normal  |  공격력 + 10  |  1  |  {AR, PI, SR, HM}  |  201  |
+|  Core2  |  방어력 코어  |  SACorp  |  Core  |  Normal  |  방어력 + 10  |  1  |  {GL}  |  202  |
+|  Core3  |  체력 코어  |  SACorp  |  Core  |  Normal  |  체력 + 50  |  1  |  {}  |  301  |
+|  Core4  |  게이지 코어  |  SACorp  |  Core  |  Normal  |  스킬게이지 증가량 + 10%  |  1  |  {AR}  |  302  |
+
+^  항목  ^  내용  ^
+|  Code  |  Core DB의 Code  |
+|  Name  |  아이템 이름  |
+|  Maker  |  아이템을 분류하기 위한 항목.  |
+|  Type  |  아이템 종류.  Core  |
+|  Grade  |  장비 등급. Normal, Rare, Unique, Legend, Epic, Extra  |
+|  Text  |  플레이어에게 보이는 아이템 텍스트  |
+|  OptionNumber  |  코어 착용 시 장비에 적용되는 특수 옵션 개수. EffectSet DB의 Code_i RowName이다.
+|  Order  |  인벤토리에서 아이템 정렬 순서  |
+
+----
+
+====코어 보유 정보====
+
+^  AccountID  ^  ItemID  ^  ItemCode    ^  CoreLevel  ^  CoreExp  ^  UsingEquipmentCode  ^
+|  KR30130    |  100001  |  RedCore     |  0          |  0        |   Item_7598   |
+|  KR30130    |  100002  |  RedCore     |  4          |  200      |  Item_7  |
+|  KR30130    |  100003  |  BlueCore    |  5          |  0        |  Item_333  |
+
+^  항목  ^  내용  ^
+|  AccountID  |  유저 계정 ID  |
+|  ItemID     |  아이템을 구별하는 고유한 ID  |
+|  ItemCode   |  코어 DB의 ItemCode  |
+|  CoreLevel  |  코어의 강화 단계. 0에서 시작해서 최대 5  |
+|  CoreExp    |  코어의 강화 경험치. 코어에 재료를 합성시키면 증가. 필요경험치 이상이 되면 필요경험치만큼 감소하고, CoreLevel 1 증가 |
+|  IsUsing    |  장비에 장착 중인지 여부.  |

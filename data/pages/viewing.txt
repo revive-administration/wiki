@@ -1,0 +1,13 @@
+====== Viewing ======
+  * (1) Viewing Transformation
+    * 카메라를 설치하는 것
+  * (2) Modeling Transformation
+    * 사진 찍은 물체를 적당한 위치에 두는 것
+  * (3) Projection Transformation
+    * 렌즈로 초점을 맞추는 것
+  * (4) Viewport Transformation
+    * 현상하는 것
+
+===== glMatrixMode() Operation =====
+  * GL_MODELVIEW : Viewing Transformation과 Modeling Transformation과 관련된 매트릭스라는 의미
+  * GL_PROJECTION : Projection Transformation과 관련된 매트릭스라는 의미

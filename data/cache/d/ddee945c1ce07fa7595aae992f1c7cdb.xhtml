@@ -1,0 +1,62 @@
+
+<p>
+&lt;grant&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 권한 설정 정보를 가진 노드</div>
+</li>
+<li class="level1"><div class="li"> name : 코드에서 사용할 이름</div>
+</li>
+<li class="level1"><div class="li"> default : 기본 권한 설정</div>
+<ul>
+<li class="level2"><div class="li"> guest : 모든 사용자</div>
+</li>
+<li class="level2"><div class="li"> member : 로그인 사용자</div>
+</li>
+<li class="level2"><div class="li"> manager : 관리자</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+&lt;title&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 권한 설정 화면에 표시될 이름</div>
+</li>
+</ul>
+
+<p>
+&lt;action&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 프론트엔드에서 요청할 수 있는 모듈의 특정 액션에 대한 정보</div>
+</li>
+<li class="level1"><div class="li"> name : 액션 이름</div>
+</li>
+<li class="level1"><div class="li"> type : 액션 메서드가 포함된 클래스 타입</div>
+</li>
+<li class="level1"><div class="li"> simple_setup_index : 이 속성이 true인 액션을 simple setup용으로 사용하며 응답은 설정을 위한 <abbr title="HyperText Markup Language">HTML</abbr> 마크업</div>
+</li>
+</ul>
+
+<p>
+&lt;permission&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 액션에 적용할 퍼미션 정보</div>
+</li>
+<li class="level1"><div class="li"> action : 액션 이름</div>
+</li>
+<li class="level1"><div class="li"> target : 적용할 퍼미션</div>
+<ul>
+<li class="level2"><div class="li"> 퍼미션은 권한과는 다른 개념으로 해당 액션에 필요한 최소한의 권한으로 이해</div>
+</li>
+<li class="level2"><div class="li"> 퍼미션은 액션 실행 전에 XE에 의해 체크됨</div>
+</li>
+<li class="level2"><div class="li"> guest, member, manager</div>
+</li>
+</ul>
+</li>
+</ul>

@@ -1,0 +1,56 @@
+======바디 시스템======
+
+=====캐릭터와 바디의 관계=====
+
+<code>
+LISA에서는 한 캐릭터에 해당하는 바디가 여러 개 있다.
+전투에 참여하는 것은 캐릭터가 아니라 바디이다.
+예를 들어 이즈미의 경우, "ASU요원 이즈미"라는 바디와 "에이스 파일럿 이즈미"라는 바디가 있다.
+그러면 부대에는 "이즈미"를 넣는 것이 아닌 "ASU요원 이즈미"나 "에이스 파일럿 이즈미"를 넣게 된다.
+</code>
+  
+<code>
+캐릭터와 바디는 포함관계가 아닌 대응관계이다.
+적군은 캐릭터없이 바디로만 구성되기 때문에 캐릭터와 대응되지 않는다.
+그렇기 때문에 아군도 바디가 전투에 나서야한다. 바디vs바디의 형태가 되어 코드의 재활용성이 높아진다.
+</code>
+    
+<code>
+같은 캐릭터에 해당하는 바디는 동시에 같은 부대에 편성할 수 없다.
+</code>
+
+=====Body=====
+^  Code  ^  Name  ^  Character  ^  BaseExSkill  ^  LinkSkill1  ^  LinkSkill2  ^  BodyP1  ^  BodyP2  ^  BodyP3  ^  AttributeTreeArray  ^  AI  ^
+|  Izumi1     |  ASU요원 이즈미  |  이즈미  |  Ex_1  |  Ex_2  |    |    |   |  |   {(Attribute_1, Attribute_2, Attribute_3),(),(Attribute_4),(Attribute_5, Attribute_6)}  |  |
+|  Izumi2     |  에이스 파일럿 이즈미  |  이즈미  |  Ex_4  |  Ex_5  |    |   |  |  |   {(Attribute_1, Attribute_7, Attribute_8),(Attribute_4),(Attribute_5, Attribute_9)}  |  |
+
+^  내용  ^  항목  ^
+|  Code  |  Body DB의 Code  |
+|  Name  |  바디 이름  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%BA%90%EB%A6%AD%ED%84%B0_%EB%B0%94%EB%94%94|Character]]  |  바디와 대응되는 Character Enum  |
+|  BaseExSkill  |  기본 Ex 스킬 이름  |
+|  LinkSkill1  |  베이스 ExSkill에 연계되는 첫번째 링크 스킬 이름  |
+|  LinkSkill2  |  두번째 링크 스킬 이름  |
+|  BodyP1,2,3  |  바디 패시브 이름 (최대 3개까지)  |
+|  AttributeTreeArray  |  바디가 보유한 특성 트리 구조체 배열  |
+|  AI  |  적군의 AI. 아군은 사용하지 않음.  |
+
+----
+
+
+=====바디 보유 정보=====
+
+^  Code  ^  Level  ^  Exp  ^  SelectedAttribute  ^  Suit  ^
+|  Lisa1     |  1      |  3231  |  {1, 0, 0, 0, 0, 0}  |  Suit_1  |
+|  Brek1     |  23     |  1121  |  {1, 1, 2, 0, 0, 0}  |  Suit_2  |
+|  Kinel1    |  30     |  0  |  {1, 1, 1, 1, 1, 1}  |  Suit_3  |
+
+^  항목  ^  내용  ^
+|  Code   |  바디 DB의 Code  |
+|  Level      |  바디의 Level. Level이 증가하면 활성화 가능한 바디 특성이 늘어남.  |
+|  Exp  |  바디의 현재 경험치. 전투가 끝나면 획득하고, 일정량을 넘으면 그만큼 경험치가 감소하고 레벨이 1 증가한다.  |
+|  SelectedAttribute  |  특성 트리 중 활성화된 특성이 위치한 엘리먼트 번호. 특성 트리가 개방되지 않은 트리는 0.  |
+|  Suit  |  바디가 착용 중인 기체 아이템의 id  |
+
+
+----

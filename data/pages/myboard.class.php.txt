@@ -1,0 +1,38 @@
+====== myboard.class.php ======
+===== 클래스 생성 =====
+
+  * myboard.class.php : XE의 모든 모듈 class 파일은 ModuleObject를 상속받아야 함
+  * myboard::moduleInstall() : XE 초기 설치, 쉬운 설치시에 호출 됨
+  * myboard::checkUpdate() : 모듈 업데이트 여부를 체크하기 위해 호출 됨
+  * myboard::moduleUpdate() : 모듈 업데이트시에 호출됨
+  * myboard::moduleUninstall() : 모듈 삭제시에 호출됨, 모듈이 쉬운 설치에 올라가 있을 때만 삭제가 가능
+
+===== 메뉴 타입으로 등록 =====
+
+**트리거 등록을 위한 $triggers 멤버 변수 추가**
+  * 트리거 정보를 가진 배열의 배열
+  * name : 사용할 트리거 이름
+  * module : 트리거 발생 시 실행할 모듈 이름
+  * type : 메서드가 포함된 클래스 타입
+  * func : 트리거 발생 시 실행할 메서드 이름
+  * position : 해당 트리거 이전/이후 실행인지 여부
+
+**moduleInstall() 메서드에 트리거 등록 추가**
+  * 멤버 변수 $triggers 배열을 순회하면서 트리거를 등록
+  * XE 설치 시에 우리 모듈이 modules안에 존재한다면 이 메서드가 실행
+  * ModuleController : 모듈과 관련된 조작 메서드를 가지고 있음
+  * ModuleController::insertTrigger() : 트리거를 등록하는 메서드
+
+**checkUpdate() 메서드에 트리거 확인 추가**
+  * $triggers를 순회하며 등록되었는지 확인
+  * 등록되지 않았다면 true를 반환하여 관리자 페이지에 모듈 업데이트가 나오도록 함
+  * ModuleModel : 모듈과 관련된 get 계열 메서드를 가지고 있음
+  * ModuleModle::getTrigger() : 트리거 정보를 받는 메서드
+
+**moduleUpdate() 메서드에 트리거 등록 추가**
+  * $triggers를 순회하며 등록되었는지 확인한 후 안되어 있다면 등록
+
+**moduleUninstall() 메서드에 트리거 등록 추가**
+  * $triggers를 순회하며 트리거를 제거
+  * 우리 모듈이 쉬운설치에 올라가 있다면 이 메서드를 통해 모듈을 삭제 가능
+  * ModuleController::deleteTrigger() : 트리거를 제거하는 메서드

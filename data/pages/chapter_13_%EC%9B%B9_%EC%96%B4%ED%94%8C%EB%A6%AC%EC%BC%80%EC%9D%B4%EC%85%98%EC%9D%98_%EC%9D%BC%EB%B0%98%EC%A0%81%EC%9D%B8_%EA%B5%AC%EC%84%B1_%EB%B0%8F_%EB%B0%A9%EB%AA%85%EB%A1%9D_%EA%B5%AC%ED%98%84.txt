@@ -1,0 +1,250 @@
+====== Chapter 13 웹 어플리케이션의 일반적인 구성 및 방명록 구현 ======
+
+===== 01 웹 어플리케이션의 전형적인 구성 요소 =====
+유사한 코드가 여러 파일에 중복해서 포함되어 있으면 향후 소프트웨어를 유지 보수하는데 더 많은 비용(즉, 개발 시간)이 발생하게 되고 심한 경우 일부 코드의 수정을 누락해서 심각한 문제가 발생할 수도 있다. 이런 문제를 완화시키기 위한 가장 좋은 방법은 중복된 코드를 별도의 클래스로 모으고 기능이 필요할 때마다 그 클래스를 사용하도록 하는 것이다. 예를 들어 중복된 DB 쿼리 실행 코드를 별도의 클래스에서 구현하고 해당 기능을 필요로 하는 각 JSP들은 클래스를 사용하는 방식으로 개발을 진행함으로써 동일한 코드가 여러 코드에 중복되지 않도록 할 수 있다.
+
+==== 1.1 웹 어플리케이션의 주요 구성 요소 ====
+웹 어플리케이션의 구성 요소를 설계하는 방법은 여러가지가 있는데, 가장 기본적인 구성 방법은 아래와 같다.
+{{ :kakaotalk_20140902_142748988.jpg?500 |}}
+
+위 그림에서 각 구성요소는 다음과 같은 역할을 하게 된다.
+  * Service 클래스 - 사용자의 요청을 처리하는 기능을 제공한다. 기능을 제공하기 위한 로직을 구현하고 있으며 DAO 클래스를 통해서 DB 연동을 처리한다. 가입 신청 처리, 글 목록 제공등의 기능을 구현한다. 
+  * DAO클래스 - DB와 관련된 CRUD 작업을 처리한다. Service 클래스들은 데이터를 DB에서 읽어오거나 DB에 데이터를 저장할 때 DAO 클래스를 사용한다.
+  * JSP(뷰) - Service 클래스가 실행한 결과를 화면에 출력해주거나 Service가 기능을 수행하는 데 필요한 데이터를 전달한다.
+  * MVC 프레임워크 - 사용자의 요청을 Service에 전달하고 Service의 실행 결과를 JSP와 같은 뷰에 전달한다. 스프링 MVC나 스트럿츠와 같은 프레임워크가 MVC 프레임워크에 해당된다.
+
+==== 1.2 데이터 접근 객체(Data Access Object)의 구현=====
+DAO는 Data Access Object의 약자로서 DAO 클래스는 이름 그대로 데이터에 접근할 때 사용되는 객체를 위한 클래스를 의미한다. 일반적으로 한 개의 DB 테이블당 한 개의 DAO 클래스를 작성한다. 각 DAO 클래스는 INSERT, SELECT, UPDATE, DELETE 쿼리를 실행해주는 메서드를 제공한다.
+
+DAO 클래스는 테이블로부터 데이터를 읽어와 자바 객체로 변환하거나 또는 자바 객체의 값을 테이블에 저장해주므로 테이블의 칼럼과 매핑되는 프로퍼티를 갖는 자바 클래스를 작성해주어야 한다.
+
+=== (1) DAO에서 Connection에 접근하는 방식 ====
+DAO가 쿼리를 실행하려면 Statement나 PreparedStatement가 필요한데, 이 두 객체는 Connection 객체로부터 구할 수 있다. 따라서 DAO 클래스는 Connection 객체에 접근할 수 있어야 하는데, Connection 객체를 구하는 방법에는 다음과 같이 세 가지 방식이 존재한다.
+  * DAO 클래스의 메서드에서 직접 Connection을 생성
+  * DAO 객체를 생성할 때 생성자에서 Connection을 전달받기
+  * DAO 클래스의 메서드 파라미터로 Connection을 전달받기
+
+첫 번째 방식은 DAO 클래스의 메서드에서 직접 Connection을 생성하는 방식이다. 이 방식의 단점은 메서드를 실행할 때마다 매번 Connection을 생성한다는 점이다. 만약 각 메서드가 다른 Connection객체를 사용하게 될 경우 한 트랜잭션으로 처리할 수 없게 된다.
+
+두 번째 방식은 DAO 객체를 생성할 때 Connection을 생성자로 전달하는 방식이다. 하나의 Connection 객체를 사용하기 때문에 JDBC 트랜잭션을 이용할 수 있다 하지만, 매번 새로운 DAO 객체를 생성해야 하는 단점이 있다.
+
+세 번째 방식은 DAO 메서드를 실행할 때 Connection을 전달하는 방식이다. 한 개의 Connection 객체를 사용하므로 JDBC 트랜잭션을 사용할 수 있으며 DAO 객체를 매번 실행하지 않아도 된다는 장점이 있다. 반면 앞의 두 코드에 비해 메서드 호출 코드가 다소 길어진다는 단점이 있다. 또한 실수로 한 트랜잭션으로 묶여 실행되어야 할 메서드에 서로 다른 Connection을 전달할 수도 있다는 점에 유의하여야 한다. 
+
+=== (2) 간단한 close() 및 rollback() 처리 코드를 위한 JdbcUtil ====
+
+==== 1.3 DAO 객체를 제공하는 DaoProvider =====
+DaoProvider의 일반적인 구현 코드는 다음과 같다.
+
+<file java DaoProvider.java>
+public class DaoProvider{
+	//싱글턴 패턴을 적용해서 DaoProvider 객체 구함
+	
+	public static DaoProvider getInstance(){
+		return instance;
+	}
+	
+	//DBMS 타입별 DAO 객체
+	private MySQLDao mysqlDao = new MySQLDao();
+	private OracleDao oracleDao = new OracleDao();
+	private MSSQLDao mssqlDao = new MSSQLDao();
+	
+	private String dbms;
+	
+	//DBMS 타입 설정
+	void setDbms(String dbms){
+		this.dbms = dbms;
+	}
+	
+	//설정한 dbms 값에 따라 알맞은 DAO 객체 리턴
+	
+	public Dao getDao(){
+		if("oracle".equals(dbms)){
+			return oracleDao();
+		}else if("mysql".equals(dbms)){
+			return mysqlDao();
+		}else if("mssql".equals(dbms)){
+			return mssqlDao();
+		}
+		return null;
+	}
+}
+</file>
+
+DAO 객체가 필요한 코드는 다음과 같이 DaoProvider 클래스를 이용해서 DAO 객체를 구한 뒤 필요한 기능을 수행하면 된다.
+
+  Dao dao = DaoProvider.getInstance().getDao();
+  dao.insert(object);
+
+DaoProvider 클래스는 setDbms() 메서드를 통해서 사용할 DBMS 타입을 전달받아야 올바른 타입의 DAO 객체를 리턴해 줄 수 있다. 즉, DaoProvider 클래스가 사용되기 전에 DaoProvider에 DBMS 타입을 전달해주어야 하는데, 초기화 서블릿을 사용하면 이를 손쉽게 처리할 수 있다. 아래 코드는 DaoProvider를 초기화 해주는 서블릿의 구현 예이다.
+
+	public class DaoProviderInit extends HttpServlet{
+		public void init(ServletConfig config) throws ServletException{
+			DaoProvider.getInstance().setDbms(config.getInitParameter("dbms"));
+		}
+	}
+
+DaoProvider를 초기화 해주는 서블릿 클래스를 작성했다면 web.xml 파일에 <load-on-startup> 태그를 이용해서 웹 어플리케이션이 시작될 때 DaoProviderInit 서블릿이 구동되도록 설정함으로써 DaoProvider의 초기화 작업을 수행할 수 있다.
+
+<file xml web.xml>
+<servlet>
+	<servlet-name>DaoProviderInit</servlet-name>
+	<servlet-class>mvjsp.chap13.dao.DaoProviderInit</servlet-class>
+	<init-param>
+		<param-name>dbms</param-name>
+		<param-value>mysql</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+</file>
+
+==== 1.4 서비스 클래스의 구현====
+DAO가 데이터에 접글할 때 사용되는 기능을 제공한다면 서비스 클래스는 사용자의 요청을 처리하기 위한 기능을 제공한다. 서비스 클래스는 주로 DAO를 통해서 데이터에 접근하고 기능을 수행하는데 필요한 로직을 수행한다. 예를 들어 게시글 조회 기능을 생각해보자. 게시글 조회기능은 다음과 같이 여러번의 데이터 접글을 수행한다.
+  1. DAO의 select() 메서드를 이용해서 테이블로부터 지정한 식별 값을 갖는 데이터를 읽어온다.
+    A. 데이터가 존재하지 않을 경우 익센셥을 발생한다.
+    B. 데이터가 존재할 경우 데이터 값을 갖는 Article 객체를 리턴한다.
+  2. Article 객체의 조회수 값을 1 증가시킨다.
+  3. DAO의 update() 메서드를 이용해서 변경된 조회수 값을 테이블에 반영한다.
+  
+이 경우 서비스 클래스는 다음과 같이 구현될 것이다.
+
+<file java ReadArticleService.java>
+public class ReadArticleService{
+	public Article read(int articleId){
+		Connection conn = null;
+		try{
+			conn = ...// Connection 구함
+			conn.setAutoCommit(false); //트랜잭션 시작
+			
+			//기능을 구현하는 데 필요한 DAO를 구한다.
+			ArticleDao articleDao = ArticleDaoProvider.getInstance().getDao();
+			if(article == null){
+				throw new ArticleNotFoundException(articleId);
+			}
+			article.increaseReadCount();
+			articleDao.updateReadCount(conn, article);
+			
+			conn.commit();
+			return article;
+		}catch(ArticleNotFoundException ex){
+			JdbcUtil.rollback(conn);
+			throw ex;
+		}catch(SQLException ex){
+			JdbcUtil.rollback(conn);
+			throw new ArticleServiceException("에러 발생 : "+ex.getMessage(), ex);
+			
+		}finally{
+			JdbcUtil.close(conn);
+		}
+	}
+}
+</file>
+
+한 개의 서비스 클래스는 한 개의 기능을 제공하는 것이 구현이나 유지 보수하는데 좋다. 
+
+JSP는 다음과 같이 서비스 클래스를 사용해서 필요한 기능을 사용자(웹 브라우저)에게 제공하게 된다.
+
+	<%
+		int messageId = Integer.parseInt(request.getParameter("messageId"));
+		ReadArticleService service = ReadArticleService.getInstance();
+		Article article = service.read(messageId);
+	%>
+	
+	글제목 : <%= article.getSubject() %> <br/>
+	조회수 : <%= article.getReadCount() %> <br/>
+
+=== (1) 서비스 클래스와 트랜잭션 처리 ===
+서비스 클래스가 제공하는 메서드에서 실행하는 코드가 하나의 트랜잭션 범위에서 처리되어야 한다면, 다음과 같이 메서드에서 로직을 실행하기 전에 Connection.setAutoCommit(false)를 실행해서 트랜잭션을 시작하고 모든 코드가 종료되면 트랜잭션을 커밋하면 된다.
+
+=== (2) 서비스 클래스의 익셉션 처리 ===
+서비스 클래스가 제공하는 메서드는 내부적으로 데이터베이스 처리 실패와 같은 익셉션이 발생한 경우, 서비스에 알맞은 익셉션을 생성해서 발생시켜 주는 편이 좋다. Expception이 발생되었다면 익셉션을 발생시켜 해당 메서드를 호출한 코드가 알 수 있도록 해주어야 한다.
+
+==== 1.4 싱글턴 패턴을 이용한 구성 요소 구현 ====
+
+한 개의 서비스 객체를 여러 번 사용하는 것과 매번 새로운 서비스 객체를 생성해서 사용하는 것과의 기능상 차이가 없다면, 배번 새로운 서비스 객체를 재사용하도록 구현해도 될 것이다. 
+
+public class ReadArticleService{
+	//유일한 객체를 정적 필드에 저장
+	private static ReadArticleService instnace = new ReadArticleService();
+	
+	// 유일한 객체에 접근할 수 있는 정적 메서드 정의
+	public static ReadArticleService getInstance(){
+		return instance;
+	}
+}
+
+==== 1.6 Connection을 제공해주는 ConnectionProvider ====
+Connection을 제공해주는 기능을 별도의 클래스로 분리해주는 것이 개발이나 유지 보수하는데 장점을 갖는다.
+
+<file java ConnectionProvider.java>
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionProvider{
+	public static Connection getConnection() throws SQLException{
+		return DriverManager.getConnection("jdbc:apache:commons:dbcp:/guestbook");
+	}
+}
+</file>
+
+===== 02 방명록 구현 =====
+==== 2.1 방명록을 구성하는 클래스의 구조 ====
+
+각 구성요소 중에서 서비스 관련 클래스들은 다음과 같은 기능을 제공한다.
+  * GetMessageListService - 요청한 페이지 번호에 포함된 메시지 목록을 구한다.
+  * WriteMessageService - 방명록에 메시지를 작성하는 기능을 제공한다.
+  * DeleteMesssageService - 작성한 메시지를 삭제하는 기능을 제공한다.
+
+DAO 관련 클래스들은 다음과 같은 기능을 제공한다.
+  * MessageDao - GUESTBOOK_MESSAGE 테이블에 대한 CRUD 기능을 정의한 추상 클래스. DELETE 쿼리와 같이 모든 DBMS에 공통으로 적용될 수 있는 기능은 구현도 함께 제공한다.
+  * MySQLMessageDao - MySQL에 알맞는 쿼리를 수행하는 MessageDao
+  * OracleMessageDao - 오라클에 알맞는 쿼리를 수행하는 MessagDao
+  * MessageDaoProvider - 설정한 DBMS 타입에 따라 알맞는 MessageDao 객체를 제공한다.
+  * MessageDaoProviderInit - 초기화 서블릿으로서 MessageDaoProvider에서 사용할 DBMS 타입을 설정한다.
+
+JDBC Connection 관련 클래스는 다음과 같다.
+  * ConnectionProvider - Connection을 제공한다.
+  * DBCPinit - DBCP 초기화 서블릿
+
+서비스 클래스는 ConnectionProvider와 DAO 관련 클래스를 이용해서 필요한 기능을 구현하게 된다. 예를 들어, ConnectionProvider와 MessageDaoProvider로부터 각각 Connection과 MessageDao를 구한 뒤 알맞는 메서드를 호출하는 방식으로 코드를 작성한다.
+
+==== 2.2 GUESTBOOK_MESSAGE 테이블과 Message 클래스 ====
+==== 2.3 MessageDao 클래스의 구현 ====
+MessageDao 클래스는 GUESTBOOK_MESSAGE 테이블에 대한 CRUD 쿼리를 실행해주는 메서드를 정의하고 있는 추상 클래스로서, 각 DBMS에 알맞은 쿼리를 실행하는 DAO 클래스는 MessageDao 클래스를 상속받도록 구현하였다.
+
+====2.4 MySQL에서의 DAO 구현 ====
+===(2)MySQLMessageDao 구현 ====
+===(3)MySQL DBCP 설정 파일 =====
+==== 2.5 MessageDaoProvider와 MessageDaoProviderInit 구현 ====
+다음으로 작성할 클래스는 설정한 DBMS 타입에 알맞은 MessageDao 객체를 제공해주는 MessageDaoProvider 클래스이다.
+==== 2.6 DBMS별 web.xml 파일 ====
+==== 2.7 서비스 클래스의 구현 ====
+각 DBMS별 MessageDao 구현 클래스와 DBMS에 알맞은 MessageDaoProvider 클래스를 구현했으므로 이제 이들 클래스를 이용해서 방명록 기능을 제공하는 서비스 클래스를 구현해보자.
+===(1) GetMessageListService 클래스의 구현 =====
+GetMessageListService는 요청한 페이지 번호에 해당하는 메시지 목록을 제공하는 기능을 제공하며, 다음과 같이 getMessageList() 메서드를 통해서 기능을 구현하고 있다. MessageListView 클래스는 요청한 페이지 번호, 요청한 페이지의 메시지 목록, 전체 메시지 개수, 페이지 개수, 페이지 당 보여줄 메시지 개수 등의 정보를 담는 클래스이다.
+
+GetMessageListService는 다음의 순서로 필요한 작업을 실행한다.
+  1. 전체 메시지 개수를 구한다 - MessageDao.selectCount() 호출
+  2. 요청한 페이지 번호에 해당하는 메시지의 시작 행과 끝 행을 구한다.
+  3. 시작 행과 끝 행에 포함된 메시지 목록을 구한다. - MessageDao.selectList() 실행
+  4. MessageViewList 객체를 리턴한다.
+  
+===(2) WriteMessageService 클래스의 구현 =====
+===(3) DeleteMessageService 클래스의 구현 =====
+메시지 삭제 기능을 제공하는 클래스이다.
+1. 지정한 번호에 해당하는 메시지를 검색한다.
+2. 메시지가 존재하지 않을 경우 익셉션 발생
+3. 메시지에 암호가 지정되어 있지 않을 경우 익셉션 발생
+4. 메시지의 메시지와 파라미터로 전달받은 암호가 다를 경우 익셉션 발생
+5. 메시지를 삭제 - MessageDao.delete()
+
+==== 2.8 클래스의 컴파일 정리 순서====
+
+==== 2.9 JSP에서 서비스 사용하기 ====
+모든 클래스에 대한 컴파일이 완료되었다면 이제 사용자가 요청한 기능을 실행하고 결과를 화면에 보여주는 JSP를 작성할 차례이다. JSP는 앞서 작성한 서비스 객체를 이용해서 필요한 기능을 수행하고, 서비스 객체의 실행 결과를 바탕으로 알맞은 화면을 사용자에게 제공하게 된다.
+=== (1) 메시지 목록을 보여주는 list.jsp===
+=== (2) 메시지 등록을 처리하는 write.jsp===
+list.jsp는 새로운 메시지를 입력할 수 있는 폼을 제공하고 있는데, 이 폼에 알맞은 값을 입력한 뒤 [메시지 남기기] 버튼을 클릭하면 writeMessage.jsp로 입력한 데이터를 전송한다. writeMessage.jsp는 전달받은 파라미터를 이용해서 Message 객체를 생성한 뒤, WriteMessageService를 이용해서 메시지를 기록하다. writeMessage.jsp는 다음과 같다.
+=== (3) 메시지 삭제 폼을 제공하는 confirmDeletion.jsp ===
+=== (4) 메시지 삭제 요청을 처리하는 deleteMessage.jsp ===
+메시지 삭제 폼에서 암호를 입력한 뒤 [메시지 삭제하기] 버튼을 클릭하면 삭제 요청이 deleteMessage.jsp에 전달된다. deleteMessage.jsp는 메시지 아이디와 삭제암호를 DeleteMessageService 객체의 deleteMessage()메서드에 전달해서 메시지 삭제를 시도한 뒤, 메시지 삭제 결과에 따라 알맞은 문구를 출력한다.

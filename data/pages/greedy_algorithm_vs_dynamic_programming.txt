@@ -1,0 +1,17 @@
+====== Greedy Algorithm vs Dynamic Programming ======
+===== 비교 =====
+  * Greedy Algorithm
+    * more efficient
+    * difficult proof
+    * 그리디는 순서와 랭킹이 중요하다.
+  * Dynamic Programming
+    * Optimal performance (powerful)
+    * Easy proof
+
+===== 예시 =====
+   * 0/1 Knapsack Problem : Find A<=S
+
+===== Backtrack in DFS =====
+go to parent at Dead Ends..DFS 스타일로 모든 leaf를 점검하라
+점검 기준 : Bounding Function (트리의 진형과 확장을 멈춤)
+그러나 답을 찾을 가능성 있는 트리는 계속 찾아나간다 -> 각 트리에 갈 때마다 if문을 하나 들어가서 검사하는 것, 최대한 빨리 많은 가지를 날려 버리면 90%를 날린다고 가정했을 때 시간복잡도는 의미가 없다. optimal은 그대로 유지하면서 계산량을 줄여나간다.

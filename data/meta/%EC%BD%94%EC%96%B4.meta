@@ -1,0 +1,10 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1478234574;s:8:"modified";i:1484379689;}s:7:"creator";s:9:"최윤수";s:4:"user";s:8:"dbstn003";s:11:"last_change";a:8:{s:4:"date";i:1484379689;s:2:"ip";s:14:"210.92.209.130";s:4:"type";s:1:"E";s:2:"id";s:6:"코어";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:-3;}s:11:"contributor";a:2:{s:8:"dbstn003";s:9:"최윤수";s:7:"velmont";s:6:"벨몽";}s:5:"title";s:6:"코어";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:6:"코어";s:5:"title";s:6:"코어";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:1;a:4:{s:3:"hid";s:13:"코어_개요";s:5:"title";s:13:"코어 개요";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:2;a:4:{s:3:"hid";s:4:"core";s:5:"title";s:4:"Core";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:3;a:4:{s:3:"hid";s:20:"코어_보유_정보";s:5:"title";s:20:"코어 보유 정보";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:517:"코어
+
+코어 개요
+
+
+- 코어는 에너지 결정체로, 이 에너지를 이용하여 기계의 성능을 향상시킬 수 있는 물질.
+- 장비의 등급에 따라 최대 3개의 코어를 결합시킬 수 있음.
+- 부대에 참여한 바디가 코어를 결합시킨 장비를 착용한 경우 코어의 옵션이 패시브스킬처럼 작용.
+- 코어에게 경험치 재료를 합성시켜 코어를 강화할 수 있음.
+- 코어 레벨이 충분할 경우, 다음 등급으로 승급시킬 수 있음.…";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1478234574;s:8:"modified";i:1484379689;}s:7:"creator";s:9:"최윤수";s:4:"user";s:8:"dbstn003";s:11:"last_change";a:8:{s:4:"date";i:1484379689;s:2:"ip";s:14:"210.92.209.130";s:4:"type";s:1:"E";s:2:"id";s:6:"코어";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:-3;}s:11:"contributor";a:2:{s:8:"dbstn003";s:9:"최윤수";s:7:"velmont";s:6:"벨몽";}}}

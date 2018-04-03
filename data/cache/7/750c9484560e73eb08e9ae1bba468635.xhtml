@@ -1,0 +1,55 @@
+
+<h1 class="sectionedit1" id="스킬_종류_skill의_type">스킬 종류 (Skill의 Type)</h1>
+<div class="level1">
+
+<p>
+소속 : 
+</p>
+
+<p>
+스킬은 3가지의 구조체로 이루어지며 세부 구분으로 6가지로 나누었다.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  구조체  </th><th class="col1 centeralign">  Type  </th><th class="col2 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign" rowspan="2">  ExSkill  </td><td class="col1 centeralign">  ExSkill  </td><td class="col2"> 버튼 조작에 의한 수동적 액티브 스킬. 일반적으로 바디마다 1개 소유(보스는 여러 개 소유). 명령 포인트(Order Point)를 소모하여 발동. 쿨타임 존재. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Order  </td><td class="col1"> 버튼 조작에 의한 수동적 액티브 스킬. 플레이어가 여러 개 소유하고 있음. 명령 포인트(Order Point)를 소모하여 발동. 쿨타임 존재. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  AutoSkill  </td><td class="col1 centeralign">  AutoSkill  </td><td class="col2"> 스킬 게이지에 의한 자동적 액티브 스킬. 바디마다 2개 소유(프론트스킬, 백스킬). 스킬 게이지(Skill Gauge)를 소모하여 발동. 쿨타임 없음. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign" rowspan="3">  PassiveSkill  </td><td class="col1 centeralign">  BodyPassive  </td><td class="col2"> 바디가 소유하는 일반 패시브 스킬 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  CharacterPassive  </td><td class="col1"> 캐릭터가 소유하는 일반 패시브 스킬 </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  PairPassive  </td><td class="col1"> 캐릭터가 소유하는 히든 패시브 스킬. 일반적으로 특정 캐릭터가 부대에 속할 시 적용. </td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [152-1150] -->
+<p>
+스킬은 아니지만 PassiveSkill과 같은 구조체를 사용하는 것들
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  구조체  </th><th class="col1 centeralign">  Type  </th><th class="col2 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign" rowspan="2">  PassiveSkill  </td><td class="col1 centeralign">  Attribute  </td><td class="col2 centeralign">  특성  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  ItemOption  </td><td class="col1 centeralign">  아이템 옵션  </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [1231-1356] -->
+</div>

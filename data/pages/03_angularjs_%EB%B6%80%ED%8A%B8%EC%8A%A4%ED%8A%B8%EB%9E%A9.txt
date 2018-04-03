@@ -1,0 +1,8 @@
+====== 03 AngularJS 부트스트랩 ======
+==== ng-app 지시자를 이용한 부트스트랩 ====
+ng-app 지시자를 추가함으로써 AngularJS가 웹 애플리케이션을 부트스트랩하게 된다. 최초에 AngularJS는 AngularJS스크립트가 실행되고 DOMContentLoaded 이벤트가 발생하여 document.readyState가 'complete'상태가 되면 HTML 페이지를 읽으면서 ng-app속성을 찾는다. 그리고 ng-app 속성을 발견하면 다음과 같은 부트스트랩 절차가 이뤄진다.
+  * 1. ng-app에 값으로 주어진 모듈을 로드한다.
+  * 2. 애플리케이션에 유일한 injector를 생성한다.
+  * 3. ng-app 지시자가 적용된 정적 DOM을 루트로 하여 컴파일한다. 컴파일 시 $rootScope를 전달하고 앞에서 얘기했듯이 해당 정적 DOM에 AngularJS가 적용되어 동적 DOM이 만들어지면 이를 브라우저가 렌더링하여 우리가 보는 뷰가 만들어진다.
+  
+==== 자바스크립트 API를 이용한 부트스트랩 ====

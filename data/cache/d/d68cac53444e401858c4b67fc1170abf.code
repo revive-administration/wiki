@@ -1,0 +1,23 @@
+<span class="kw4">void</span> queueFull<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+	<span class="coMULTI">/* allocate an array with twice the capacity */</span>
+	element<span class="sy0">*</span> newQueue<span class="sy0">;</span>
+	MALLOC<span class="br0">&#40;</span>newQueue<span class="sy0">,</span> <span class="nu0">2</span> <span class="sy0">*</span> capacity <span class="sy0">*</span> <span class="kw4">sizeof</span><span class="br0">&#40;</span><span class="sy0">*</span>queue<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+	<span class="coMULTI">/* copy from queue to to newQueue */</span>
+	<span class="kw4">int</span> start <span class="sy0">=</span> <span class="br0">&#40;</span>front<span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span> <span class="sy0">%</span> capacity<span class="sy0">;</span>
+	<span class="kw1">if</span><span class="br0">&#40;</span>start <span class="sy0">&lt;</span> <span class="nu0">2</span><span class="br0">&#41;</span>
+		<span class="coMULTI">/*no wrap around */</span>
+		copy<span class="br0">&#40;</span>queue<span class="sy0">+</span>start<span class="sy0">,</span> queue<span class="sy0">+</span>capacity<span class="sy0">,</span> newQueue<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">else</span><span class="br0">&#123;</span>
+		copy<span class="br0">&#40;</span>queue<span class="sy0">+</span>start<span class="sy0">,</span> queue<span class="sy0">+</span>capacity<span class="sy0">,</span> newQueue<span class="br0">&#41;</span><span class="sy0">;</span>
+		copy<span class="br0">&#40;</span>queue<span class="sy0">,</span> queue<span class="sy0">+</span>rear<span class="sy0">+</span><span class="nu0">1</span><span class="sy0">,</span> newQueue<span class="sy0">+</span>capacity<span class="sy0">-</span>start<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="coMULTI">/* switch to newQueue */</span>
+	front <span class="sy0">=</span> <span class="nu0">2</span> <span class="sy0">*</span> capacity <span class="sy0">-</span><span class="nu0">1</span><span class="sy0">;</span>
+	rear <span class="sy0">=</span> capacity <span class="sy0">-</span><span class="nu0">2</span><span class="sy0">;</span>
+	capacity <span class="sy0">*=</span><span class="nu0">2</span><span class="sy0">;</span>
+	<a href="http://www.opengroup.org/onlinepubs/009695399/functions/free.html"><span class="kw3">free</span></a><span class="br0">&#40;</span>queue<span class="br0">&#41;</span><span class="sy0">;</span>
+	queue <span class="sy0">=</span> newQueue<span class="sy0">;</span>
+<span class="br0">&#125;</span>

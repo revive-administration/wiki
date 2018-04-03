@@ -1,0 +1,23 @@
+====== 자주 쓰는 타입 변환 =====
+===== FText =====
+^ 값 타입 ^ 예시 ^
+|FString |FText::FromString(StringValue) |
+|Number (float & int) |FText::AsNumber(NumberValue)|
+
+  * 기타
+    * FText::AsDate(Value)
+    * FText::AsPercent(Value)
+    * FText::AsCurrency(Value)
+    * FText::AsTime(Value)
+
+===== FName =====
+^ 값 타입 ^ 예시 ^
+|FString | FName(*StringValue)|
+
+===== FString =====
+^값 타입 ^ 예시 ^
+|int32 | FString::FormatAsNumber(NumberValue)|
+|FName| NameValue.ToString() |
+
+===== 참고자료 =====
+  * StringConversions : FString to FName, FString to Int32, Float to FString : https://wiki.unrealengine.com/String_Conversions:_FString_to_FName,_FString_to_Int32,_Float_to_FString

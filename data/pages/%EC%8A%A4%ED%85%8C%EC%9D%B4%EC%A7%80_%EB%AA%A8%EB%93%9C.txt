@@ -1,0 +1,18 @@
+====== 게임 모드 ======
+
+==== 스테이지 ====
+==== 무한 ====
+===== GameMode ======
+  * GameState : 게임 상태
+    * PlayingNormal : 게임 중(일반)
+    * PlayingCannon : 게임 중(캐논)
+    * Victory : 승리
+    * Failed : 패배 
+  * Battery : 배터리(자원) 개수
+  * Score : 점수
+  * Timer : 시간  
+    
+===== GameInstance =====
+  * 스테이지 정보
+===== SaveGame =====
+  * 스테이지 클리어 여부

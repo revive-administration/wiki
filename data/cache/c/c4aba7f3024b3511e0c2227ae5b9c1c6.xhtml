@@ -1,0 +1,57 @@
+
+<h1 class="sectionedit1" id="메일">메일</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "메일" [1-21] -->
+<h3 class="sectionedit2" id="data">Data</h3>
+<div class="level3">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 필드 </th><th class="col1"> 타입 </th><th class="col2"> 정의 </th><th class="col3"> 비고 </th><th class="col4"> 예 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> ID </td><td class="col1"> bigint </td><td class="col2"> id값 </td><td class="col3"> Primary Key </td><td class="col4"> 34581 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> ItemType </td><td class="col1"> string </td><td class="col2"> 보상(?) Item 타입 </td><td class="col3"> 장비, 포션, 문서 등 </td><td class="col4"> 장비 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> ItemCode </td><td class="col1"> string </td><td class="col2"> 보상(?) Item id코드 </td><td class="col3 leftalign">  </td><td class="col4"> paper_2741 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> SendDate </td><td class="col1"> DateTime </td><td class="col2"> 해당 메일이 보낸 시각 </td><td class="col3 leftalign">  </td><td class="col4"> 2018-02-19 21:02:33 </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> ExpDate </td><td class="col1"> DateTime </td><td class="col2"> 해당 메일이 만료되는 시각 </td><td class="col3"> 유통기한 </td><td class="col4">2018-02-21 21:03:33 </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [37-455] -->
+</div>
+<!-- EDIT2 SECTION "Data" [22-457] -->
+<h3 class="sectionedit4" id="method">Method</h3>
+<div class="level3">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 헤더 </th><th class="col1"> 바디 </th><th class="col2"> Request </th><th class="col3"> Response </th><th class="col4"> 작동 여부 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> USERMAIL_SELECT_ALL </td><td class="col1"> 없음 </td><td class="col2"> USERMAIL_SELECT_ALL.token. </td><td class="col3"> USERMAIL. .[{“ID”:“1”,“ItemType”:“Equipment”, “ItemCode” : “Glove_27392”, “Content”:“새 보상 Test”,“SendDate”:“0001-01-01T00:00:00”,“ExpDate”:“0001-01-01T00:00:00”}, {“ID”:“2”,“ItemType”:“Equipement”, “ItemCode” : “Sword_3232”, “Content”:“새 보상 Test”,“SendDate”:“0001-01-01T00:00:00”,“ExpDate”:“0001-01-01T00:00:00”}] </td><td class="col4"> O </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> USERMAIL_SELECT_SINGLE </td><td class="col1"> 유저 ID 값 </td><td class="col2"> USERMAIL_SELECT_SINGLE.token.1 </td><td class="col3"> USERMAIL. .{“ID”:“1”,“ItemType”:“Equipment”, “ItemCode” : “Glove_27333”,“Content”:“새 보상 Test”,“SendDate”:“0001-01-01T00:00:00”,“ExpDate”:“0001-01-01T00:00:00”}</td><td class="col4"> O </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> USERMAIL_CREATE </td><td class="col1"> 메일 내용 </td><td class="col2 leftalign"> USERMAIL_CREATE.token.{“ItemType” : “REWARD”, “ItemCode” : “Glove_27333”,“Content”:“새 보상 Test”}  </td><td class="col3"> USERMAIL. .{“Result” : “Success”, “ID” : “3”} </td><td class="col4"> X </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> USERMAIL_DELETE </td><td class="col1"> 유저 ID 값, 메일 ID값 </td><td class="col2"> USERMAIL_DELETE.token.{“UID” : “33”, “MAIL_ID” : “5”} </td><td class="col3"> USERMAIL. .{“Result” : “Failed”, “ErrorCode”:“202”} </td><td class="col4"> X </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [475-1529] -->
+</div>
+<!-- EDIT4 SECTION "Method" [458-] -->

@@ -1,0 +1,39 @@
+====== 튜토리얼 - 시퀀서 ======
+  * 링크 : https://www.youtube.com/watch?v=uEnfMV-4afA&list=PLZlv_N0_O1gaiA_sfpjATUprVW7B9FcK1
+
+===== 1강 - Project Overview =====
+말그대로 간단한 프리뷰
+
+===== 2강 - 프로젝트 세팅 =====
+세팅충
+  * 인피니트 블레이드 세트 프로젝트에 추가
+  * http://purple-planet.com/drama 에서 음아을 다운로드 받음
+  * http://audacityteam.org/download 에서 변환 프로그램 다운로드
+  * 임포트 한 후 큐 생성
+  * InfinityBladeFireLands에서 Forge맵으로 이동
+
+===== 3강 - Sequencer Editor Intro =====
+  * 꿀팁들
+    * 마우스를 우클릭한 채로 W,A,S,D,Q,E로 자유롭게 이동이 가능하다
+  * ViewportType
+    * Default
+    * Cinematic
+  * G key -> GameMode
+  * Cinematics
+    * Level Sequence
+    * Master Sequence
+    * Matinee (Legacy)
+  * 플로우
+    * Master라는 Level Sequence를 만들고
+    * 그에 대한 샷들을 추가한다. 각 샷들은 Master 레벨 시퀀스에 속해진다.
+
+===== 4강 - Characters and Cameras =====
+  * 레벨 시퀀스에
+    * 캐릭터(애니메이션 포함) 추가
+    * 시네마틱 카메라 추가
+    * 애니메이팅 ㄱㄱ
+  * cinematic camera가 캐릭터를 쫓아서 애니메이션을 보여줌
+
+===== 5강 - Additional Characters =====
+  * Cinematic 카메라를 각 샷이 소유하게 함
+  * 

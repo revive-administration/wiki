@@ -1,0 +1,8 @@
+^  회사  ^  이름  ^  등급  ^  컨펌  ^
+|  eRam  |  [[N5Y]]  |  R  |    |
+|  eRam  |  [[N10Y]]  |  U  |    |
+|  SACorp  |  [[메이사]]  |  U  |    |
+|  SACorp  |  [[리겔]]  |  L  |    |
+|  SACorp  |  [[블러드 브류]]  |  L  |    |
+|  CCE  |  [[스타 그라인더]]  |  E  |    |
+|  BMmaker  |  [[Gut Driller]]  |  L  |    |

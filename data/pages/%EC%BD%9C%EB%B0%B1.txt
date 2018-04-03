@@ -1,0 +1,66 @@
+====== 콜백 ======
+===== 정의 =====
+호출될 함수를 알려 주어 다른 프로그램 또는 다른 모듈에서 함수를 호출하게 하는 방법. 일반적으로 운영 체제(OS)가 호출할 애플리케이션의 함수를 지정해 특정한 사건 또는 메시지가 발생했을 때 호출되도록 지정할 수 있다. 이런 함수를 콜백 함수라고 한다.
+
+출처 : [[http://terms.naver.com/entry.nhn?docId=1596925&cid=50373&categoryId=50373|[네이버 지식백과] 콜백 [call back]]]
+
+===== Java에서의 콜백 ======
+Java에서의 콜백(CallBack)은 간단히 말해서 **"호출자(Caller)가 피호출자(Callee)를 호출하는 것이 아니라   피호출자(Callee)가 호출자(Caller)를 호출하는 것"**을 말한다. 
+
+쉽게 말해서 어떤 일을 처리 할 때에 그 일이 끝났을 때, 다른일을 처리하는 메서드를 밖에서 구현 해놓았다가 필요시에 사용한다는 것이다. 보통 비동기 처리 시스템에서 많이 사용되는 기법이다
+
+==== 활용 예제 ====
+
+<file java CallBackTest.java>
+public class CallBackTest {
+
+        public void test() {
+                SomeClass someClass = new SomeClass(someCallBack);
+                someClass.doSome();
+        }
+
+        private CallBack someCallBack = new CallBack() {
+                @Override
+                public void callBackMethod(Object obj) {
+
+                        String result = (String) obj;
+
+                        System.out.println(result);
+
+                }
+        };
+
+}
+</file>
+
+
+<file java SomeClass.java>
+public class SomeClass {
+
+        private CallBack someCallBack;
+
+        public SomeClass(CallBack someCallBack) {
+                this.someCallBack = someCallBack;
+        }
+
+        public void doSome() {
+
+                // working...
+
+                String result = "Hello CallBack";
+
+                someCallBack.callBackMethod(result);
+
+        }
+}
+</file>
+
+<file java CallBack.java>
+public interface CallBack {
+
+        void callBackMethod(Object obj);
+
+}
+</file>
+
+코드의 재사용이 높지만, 잦은 사용은 복잡해진다는 단점이 있다.

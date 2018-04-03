@@ -1,0 +1,68 @@
+====== 프로젝트 네이밍 규칙 ======
+
+
+----
+===== 엔진 내 네이밍 규칙 =====
+==== CPP/BP ====
+기본적으로 CPP_ , BP_ 를 붙이고 시작하지만, 그 뒤의 이름은 PascalCase로 사용한다.
+
+예) CPP_AttackActorFactory, BPFL_ParticleManager
+
+^ 구분 ^ 사용첨자 ^ 종류 ^ 예시 ^
+| CPP | CPP_ | CPP로 작성하는 일반 클래스 | CPP_AttackActor |
+| BP | BP_ | BP로 작성하는 일반 클래스 | BP_CardActor |
+| CPPFL | CPPFL_ | FunctionLibrary 중 C++로 작성된 클래스 | CPPFL_SkilStructLibrary |
+| BLFL | BPFL_ | FunctionLibrary 중 Blueprint로 작성된 클래스 | BPFL_ParticleManager |
+| WB | WB_ | 위젯 블루프린트 클래스 | WB_Dialog |
+| BTTask | BTTask_ | 태스크 블루프린트 클래스 | BTTask_ThirdPersonAttack |
+| BTService | BTService | 서비스 블루프린트 클래스 | BTService_ThirdPersonService |
+| FTest | FTest | FunctionalTest 클래스 | FTest_CPPFL_SkillManager |
+| Model | M_ | 모델 데이터 클래스 (머터리얼과 첨자가 동일하지만 실제 사용은 UM_ 이 되므로 상관없다.) | M_UnitState |
+
+=== BPFL의 용도 구분 ===
+^ 구분 ^ 종류 ^ 예시 ^
+| StructLibrary | 구조체등의 정보를 담고 있는 클래스, 구조체의 보조 용도로만 사용 | CPPFL_EquipmentStructLibrary |
+| Manager | 게임의 로직수행을 위한 트리거를 담당하는 클래스 | CPPFL_EventManager |
+| Factory | 객체 생성을 담당하는 클래스 | CPPFL_AttackActorFactory |
+
+==== Assets ====
+SnakeCase를 사용하여 구분한다. 각각의 파일들은 Assets 폴더에 종류별로 보관한다.
+배경 이미지의 경우 Suffix로 BG를 명시해준다.
+확정 어셋이 아닐경우 Suffix로 Sample을 붙여주자.
+
+^구분^종류^주의사항^예시^
+| T  | 텍스쳐  | 사용하는 레벨, 기능을 명시한다  | T_Battle_HongKong_4_BG |
+| SPR | 스프라이트 | 사용하는 레벨, 기능을 명시한다 | SPR_Battle_Slot_Anchor_Down |
+| P | 파티클 | 범용적이므로 레벨은 명시하지 않고 특징만 명시한다. | P_Field_Card_Glow_1 |
+| M | 머터리얼 | 범용적이므로 레벨은 명시하지 않고 특징만 명시한다. | M_Character_Man_Sample |
+| Font | 폰트 어셋 | 폰트의 이름과 Online, Offline 여부를 구분한다 | Font_Nanum_Barun_Offline |
+
+----
+===== bool 관련 =====
+bool을 리터하는 변수는 bIsDead와 같이 앞에 b를 명시해 주어서 변수임을 알려주도록 하자. 함수의 경우는 일반적인 bool 함수의 형태를 따라가면 된다.
+
+^구분^ 예시 ^
+|bool 변수 | bool bIsDead = true; |
+|bool 함수 | bool IsDead(); |
+
+
+----
+===== 캐릭터 일람 =====
+
+
+^  번호  ^  한글 이름  ^  한글 약칭(한글 별명)  ^  영어 변수 이름  ^  영어 이름  ^  영어 성  ^  영어 별명  ^  링크  ^
+^  1  |  리사  |  ^  Lisa  |  Lisa  |  |  |  [[메인 캐릭터:리사]]  |
+^  2  |  류자링  |  ^  JiaLing  |  JiaLing  |  Liu  |  |  [[메인 캐릭터:류자링]]  |
+^  3  |  킬리언 넬슨  |  키넬(키넬)  ^  Kinel  |  Nelson  |  Killian  |  Kinel  |  [[메인 캐릭터:키넬]]  |
+^  4  |  황기원  |  ^  Giwon  |  Giwon  |  Hwang  |  |  [[메인 캐릭터:황기원]]  |
+^  5  |  브렉 쿠마시  |  브렉  ^  Brek  |  Brek  |  Kumasi  |  |  [[메인 캐릭터:브렉_쿠마시]]  |
+^  6  |  오리모토 사쿠야  |  사쿠야  ^  Sakuya  |  Sakuya  |  Orimoto  |  |  [[메인 캐릭터:오리모토_사쿠야]]  |
+^  7  |  엘리야  |  ^  Elias  |  Elias  |  |  |  [[메인 캐릭터:엘리야]]  |
+^  8  |  시릴 카우어  |  시릴  ^  Cyril  |  Cyril  |  Kaur  |  |  [[메인 캐릭터:시릴_카우어]]  |
+^  9  |  아니스 펠젤-슈타이거  |  아니스  ^  Annice  |  Annice  |  Pelzel-Steiger  |  |  [[메인 캐릭터:아니스 펠젤-슈타이거]]  |
+^  10  |  마를렌 하트  |  마를렌  ^  Marlene  |  Marlene  |  Hart  |  |  [[메인 캐릭터:마를렌 하트]]  |
+^  11  |  하즈가와 이즈미  |  이즈미  ^  Izumi  |  Izumi  |  Hazugawa  |  |  [[메인 캐릭터:하즈가와 이즈미]]  |
+^  12  |  강찬성  |  ^  Chanseong  |  Chanseong  |  Kang  |  |  [[메인 캐릭터:강찬성]]  |
+^  13  |  마리벨 맥도웰  |  마리벨(마리)  ^  Maribelle  |  Maribelle  |  McDowell  |  Mary  |  [[메인 캐릭터:마리벨 맥도웰]]  |
+
+----

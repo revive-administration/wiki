@@ -1,0 +1,235 @@
+
+<h1 class="sectionedit1" id="스토리_구조체">스토리 구조체</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "스토리 구조체" [1-32] -->
+<h2 class="sectionedit2" id="storychapter">StoryChapter</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">RowName</th><th class="col1">ChapterName</th><th class="col2">StoryNameList </th><th class="col3"> StoryStateMap </th><th class="col4"> IsOpen </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Chapter1 </td><td class="col1"> 챕터1 </td><td class="col2"> </td><td class="col3 leftalign">    </td><td class="col4 leftalign">   </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [58-153] --><div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 항목 </th><th class="col1"> 설명 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> StoryNameList </td><td class="col1"> 챕터에 속한 스토리이름 리스트 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> StoryStateMap </td><td class="col1"> 위의 리스트들에 대한 상태 (개발용) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> IsOpen </td><td class="col1"> 해당 챕터가 열려있는지 여부 </td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [155-359] -->
+</div>
+<!-- EDIT2 SECTION "StoryChapter" [33-359] -->
+<h2 class="sectionedit5" id="story">Story</h2>
+<div class="level2">
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  RowName  </th><th class="col1 centeralign">  FlowName  </th><th class="col2 centeralign">  StoryName  </th><th class="col3 centeralign">  Type  </th><th class="col4 centeralign">  OpenFieldList  </th><th class="col5 centeralign">  OpenStoryList  </th><th class="col6 centeralign">  RewardList  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Story_1  </td><td class="col1 centeralign">  프롤로그1  </td><td class="col2 centeralign">  ASU 4지부 테러사건  </td><td class="col3 centeralign">  VE_MainStory  </td><td class="col4 centeralign">  (Field_1_1)  </td><td class="col5 centeralign">  (Story_2)  </td><td class="col6 leftalign">  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Story_2  </td><td class="col1 centeralign">  프롤로그2  </td><td class="col2 centeralign">  강찬성, 417팀에 합류함  </td><td class="col3 centeralign">  VE_SubField  </td><td class="col4 leftalign">   </td><td class="col5 centeralign">  (Story_3)  </td><td class="col6 leftalign">  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Story_3  </td><td class="col1 centeralign">  메인 1-1  </td><td class="col2 centeralign">  엘리야 합류 빅토리아 항 소탕작전  </td><td class="col3 centeralign">  VE_SubStory  </td><td class="col4 leftalign"> (Field_1_2)  </td><td class="col5 centeralign">  (Story_4)  </td><td class="col6 leftalign">  </td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [377-820] --><div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  FlowName  </td><td class="col1 centeralign">  스토리의 흐름을 나타내주는 이름  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  StoryName  </td><td class="col1 centeralign">  스토리 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  MainStory/SubStory는 스토리 UI에서 볼 수 있는 스토리이며 MainField/SubField는 필드 진행 도중 특정 발판을 밟으면 발생하는 스토리  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  OpenFields  </td><td class="col1 centeralign">  스토리를 모두 본 경우 새로 열릴 필드의 RowName  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  OpenStoryList  </td><td class="col1 centeralign">  스토리를 모두 본 경우 새로 열릴 스토리의 RowName  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  RewardList  </td><td class="col1 centeralign">  스토리를 모두 본 경우 받을 수 있는 보상. 보상함으로 주어진다.  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [822-1409] -->
+</div>
+<!-- EDIT5 SECTION "Story" [360-1410] -->
+<h2 class="sectionedit8" id="pageinfo">PageInfo</h2>
+<div class="level2">
+
+<p>
+스토리 이벤트를 페이지 단위로 갖고 있음. 즉 Story의 StoryEventList를 Page단위로 자른것. <br/>
+
+기획은 작성할 일이 없으며 시스템상으로 만들어지는 구조체입니다.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> StoryEventList </th><th class="col1"> IsLastPage </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">                </td><td class="col1 leftalign">             </td>
+	</tr>
+</table></div>
+<!-- EDIT9 TABLE [1642-1706] --><div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 항목 </th><th class="col1"> 설명 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> StoryEventList </td><td class="col1"> 페이지 단위의 StoryEventList </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> IsLastPage </td><td class="col1"> 마지막 페이지인지 여부 (프로그래밍적으로 결정됨) </td>
+	</tr>
+</table></div>
+<!-- EDIT10 TABLE [1708-1870] -->
+</div>
+<!-- EDIT8 SECTION "PageInfo" [1411-1871] -->
+<h2 class="sectionedit11" id="storyevent">StoryEvent</h2>
+<div class="level2">
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  RowName  </th><th class="col1 centeralign">  EventType  </th><th class="col2 centeralign">  Effect  </th><th class="col3 centeralign">  Text  </th><th class="col4 centeralign">  Image  </th><th class="col5 centeralign">  Position  </th><th class="col6 centeralign">  Duration  </th><th class="col7 centeralign">  Sound  </th><th class="col8"> IsSoundLoop </th><th class="col9"> IsLastEvent </th><th class="col10 leftalign"> Label  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Story_1_1  </td><td class="col1 centeralign">  VE_Sound  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  Sound  </td><td class="col8 centeralign">  True  </td><td class="col9 centeralign">  False  </td><td class="col10 leftalign"> BGM  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Story_1_2  </td><td class="col1 centeralign">  VE_Title  </td><td class="col2 centeralign">  VE_None  </td><td class="col3">프롤로그\nASU 4지부 테러사건</td><td class="col4 centeralign">  Image  </td><td class="col5 centeralign">  VE_FullScreen  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Story_1_3  </td><td class="col1 centeralign">  VE_Delay  </td><td class="col2 centeralign">  VE_Time  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td><td class="col6 centeralign">  2  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Story_1_4  </td><td class="col1 centeralign">  VE_Effect  </td><td class="col2 centeralign">  VE_FadeOut  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td><td class="col6 centeralign">  1.5  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Story_1_5  </td><td class="col1 centeralign">  VE_Background  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  Image  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  Story_1_6  </td><td class="col1 centeralign">  VE_Character  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  Image  </td><td class="col5 centeralign">  VE_Left  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> 1 </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  Story_1_7  </td><td class="col1 centeralign">  VE_Character  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  Image  </td><td class="col5 centeralign">  VE_Right  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> 2 </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  Story_1_8  </td><td class="col1 centeralign">  VE_PageBackground  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  Image  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10 leftalign">  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  Story_1_9  </td><td class="col1 centeralign">  VE_Page  </td><td class="col2 centeralign">  VE_None  </td><td class="col3 leftalign">나는\n가끔\n눈물을 흘린다.  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10 leftalign">  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  Story_1_10  </td><td class="col1 centeralign">  VE_Sound  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  Sound  </td><td class="col8 centeralign">  False  </td><td class="col9 centeralign">  False  </td><td class="col10"> </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  Story_1_11  </td><td class="col1 centeralign">  VE_Page  </td><td class="col2 centeralign">  VE_None  </td><td class="col3 leftalign">눈물을\n흘리는\n그런 내가 좋다.  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  False  </td><td class="col10"> </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  Story_1_12  </td><td class="col1 centeralign">  VE_PageBackground  </td><td class="col2 centeralign">  VE_Remove  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">   False   </td><td class="col10"> </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  Story_1_13  </td><td class="col1 centeralign">  VE_Character  </td><td class="col2 centeralign">  VE_Remove  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">    False   </td><td class="col10 centeralign">  1  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 centeralign">  Story_1_14  </td><td class="col1 centeralign">  VE_Character  </td><td class="col2 centeralign">  VE_Remove  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 leftalign">  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">   False   </td><td class="col10 centeralign">  2  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 centeralign">  Story_1_15  </td><td class="col1 centeralign">  VE_Background  </td><td class="col2 centeralign">  VE_Add  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  CGImage  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  True  </td><td class="col10"> </td>
+	</tr>
+</table></div>
+<!-- EDIT12 TABLE [1894-3456] --><div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  EventType  </td><td class="col1 centeralign">  진행할 스토리이벤트의 타입. 타입별로 처리하는 방법이 다름.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Effect  </td><td class="col1 centeralign">  스토리이벤트 타입에 대해 어떤 효과를 나타낼지를 결정.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  Title, Page 이벤트의 경우 화면에 보일 텍스트.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Image  </td><td class="col1 centeralign">  Title, Background, PageBackground, Character 이벤트의 경우 나타낼 이미지.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Position  </td><td class="col1 centeralign">  Character, Add 이벤트의 경우 캐릭터를 놓을 위치. Left, Middle, Right  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  Duration  </td><td class="col1 centeralign">  시간이 필요한 경우에 쓰일 시간(초)  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  Sound  </td><td class="col1 centeralign">  Sound, Add 이벤트의 경우 재생시킬 배경음악 혹은 사운드  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  Replay  </td><td class="col1 centeralign">  Sound를 반복 재생시킬지 여부.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  Label  </td><td class="col1 centeralign">  이미지나 사운드에 Label을 부여하여 이후 관리 및 제거할 때 사용. 지정하지 않은 경우 이후 관리 및 제거 불가.  </td>
+	</tr>
+</table></div>
+<!-- EDIT13 TABLE [3458-4337] --><pre class="code">EventType에 따른 Effect
+
+- Title
+  - None : 화면에 검은 배경을 깔고 하얀 큰 포인트의 텍스트로 Text를 나타낸다.
+- Background
+  - Add : 화면의 배경이미지의 이미지를 변경시킨다.
+  - Remove : 화면의 배경이미지의 이미지를 비운다.
+- Character
+  - Add : 화면에 캐릭터 이미지를 배치한다.
+  - Remove : 지정한 label과 동일한 label을 가진 캐릭터 이미지를 제거한다. label을 지정하지 않으면 제거하지 않는다.
+- Text
+  - Add : 지정한 Text를 화면에 나타낸다.
+  - Remove : 화면에 표시된 모든 Text를 제거한다.
+- Effect
+  - FadeOut : 페이드 아웃을 지정한 시간동안 진행한다.
+  - FadeIn : 페이드 인을 지정한 시간동안 진행한다.
+  - Shake : 화면을 지정한 시간동안 좌우로 흔든다.
+  - ShakeVertical : 화면을 지정한 시간동안 위아래로 흔든다.
+- Delay
+  - Time : 지정한 시간동안 이벤트 진행을 멈춘다.
+  - Touch : 터치할 때까지 이벤트 진행을 멈춘다.</pre>
+<pre class="code">StoryEvent 진행 규칙
+- Story_n을 볼 때 Story_n_0부터 Story_n_1, Story_n_2, ... 순서대로 이벤트가 발생한다.
+- 이벤트는 Page이벤트까지 자동 진행된다.
+- Page이벤트가 발생하면 화면에 텍스트를 그리고 터치할 때까지 대기한다.
+- 화면을 터치하면 다음 Page이벤트까지 순차적으로 진행한다.
+- 마지막 이벤트까지 진행이 완료되면 스토리가 종료된다.</pre>
+
+</div>
+<!-- EDIT11 SECTION "StoryEvent" [1872-] -->

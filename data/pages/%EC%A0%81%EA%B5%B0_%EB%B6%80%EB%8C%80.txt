@@ -1,0 +1,46 @@
+======적군 부대======
+
+=====전투 부대 구조=====
+
+<code>
+전투 흐름 처리
+1. 전투 진입 시 타일과 대응된 EnemySquad 참조.
+2. 해당 EnemySquad가 보유한 Enemy들을 불러옴.
+3. 모든 Enemy가 사망한 경우, 전투 보상을 받고 전투가 종료된다.
+</code>
+
+----
+
+=====EnemySquad=====
+
+^  Code  ^  EnemyArray  ^  DropItemArray  ^  DropItemProbabilityArray ^  AverageDropGold  ^
+|  EnemySquad_1  |  {Enemy1, Enemy1, Enemy1, Enemy1}  |  {Material1, Material2, Material3}  |  {0.1, 0.1, 0.2}  |  2000  |
+|  EnemySquad_2  |  { , , Enemy1, }  |  {Material1}                        |  {0.5}            |  500  |
+|  EnemySquad_3  |  {Enemy3, , Enemy4, }  |  {Material4, Material5}             |  {0.3, 0.3}       |  10000  |
+
+^  항목  ^  내용  ^
+|  Code  |  EnemyCorps DB의 Code.  |
+|  EnemyArray  |  각 슬롯에 위치하는 적군에 대응되는 Enemy DB의 Code 배열. 빈칸은 적군이 없는 위치.  |
+|  DropItemArray  |  Item 배열, 전투 승리 시 얻을 수 있는 아이템  |
+|  DropItemProbabilityArray  |  float 배열, DropItemArray의 각 항목의 얻을 확률, 아이템을 못 얻을 확률은 1-(확률들)  |
+|  AverageDropGold  |  int값, 전투 승리 시 얻는 평균 골드량. 전투 승리 시 ±10% 내의 골드 획득  |
+
+----
+
+=====Enemy=====
+Body와 같은 구조체 사용
+^  Code  ^  Name  ^  Character  ^  BaseExSkill  ^  LinkSkill1  ^  LinkSkill2  ^  BodyP1  ^  BodyP2  ^  BodyP3  ^  AttributeTreeArray  ^  AI  ^
+|  Enemy1     |  특수요원 저격수  |  후방딜러  |  Skill502  |  Skill501  |    |    |    |  |
+|  Enemy2     |  특수요원 돌격수  |  탱커  |  Skill506  |  Skill503  |    |    |    |  |
+|  Enemy3     |  보보스  |  보스  |  Skill507  |  Skill509  |    |    |    |  |  |  Bobos_AI  |
+
+^  내용  ^  항목  ^
+|  Code  |  Enemy DB의 Code  |
+|  Name  |  적군 이름  |
+|  Character  |  적군의 역할군. 전방딜러, 후방딜러, 탱커, 힐러 등. AI를 결정짓는 요소로 사용.  |
+|  BaseExSkill  |  기본 Ex 스킬 이름  |
+|  LinkSkill1  |  베이스 ExSkill에 연계되는 첫번째 링크 스킬 이름  |
+|  LinkSkill2  |  두번째 링크 스킬 이름  |
+|  BodyP1,2,3  |  바디 패시브 이름 (최대 3개까지)  |
+|  AttributeTreeArray  |  바디가 보유한 특성 트리 구조체 배열  |
+|  AI  |  적군의 AI. 아군은 사용하지 않음.  |

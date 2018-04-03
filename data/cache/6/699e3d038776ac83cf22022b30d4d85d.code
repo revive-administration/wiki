@@ -1,0 +1,19 @@
+<span class="kw1">public</span> <span class="kw1">class</span> CallBackTest <span class="br0">&#123;</span>
+&nbsp;
+        <span class="kw1">public</span> <span class="kw4">void</span> test<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                SomeClass someClass <span class="sy0">=</span> <span class="kw1">new</span> SomeClass<span class="br0">&#40;</span>someCallBack<span class="br0">&#41;</span><span class="sy0">;</span>
+                someClass.<span class="me1">doSome</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+&nbsp;
+        <span class="kw1">private</span> CallBack someCallBack <span class="sy0">=</span> <span class="kw1">new</span> CallBack<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                @Override
+                <span class="kw1">public</span> <span class="kw4">void</span> callBackMethod<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> obj<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+&nbsp;
+                        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> result <span class="sy0">=</span> <span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#41;</span> obj<span class="sy0">;</span>
+&nbsp;
+                        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+                <span class="br0">&#125;</span>
+        <span class="br0">&#125;</span><span class="sy0">;</span>
+&nbsp;
+<span class="br0">&#125;</span>

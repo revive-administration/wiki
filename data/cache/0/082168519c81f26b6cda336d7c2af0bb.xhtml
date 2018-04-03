@@ -1,0 +1,154 @@
+
+<h1 class="sectionedit1" id="플레이어_캐릭터">플레이어 (캐릭터)</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "플레이어 (캐릭터)" [1-39] -->
+<h2 class="sectionedit2" id="캐릭터_정보">캐릭터 정보</h2>
+<div class="level2">
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "캐릭터 정보" [40-73] -->
+<h3 class="sectionedit3" id="캐릭터_이동_속도_cha_speed">* 캐릭터 이동 속도(Cha_speed)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">캐릭터 상태(통상, 자원 보유)에 따라 변화한다</div></li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "* 캐릭터 이동 속도(Cha_speed)" [74-189] -->
+<h3 class="sectionedit4" id="캐릭터_행동_범위_cha_actionrange">* 캐릭터 행동 범위(Cha_actionrange)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">캐릭터를 중심으로 원형 범위로 생성</div></li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "* 캐릭터 행동 범위(Cha_actionrange)" [190-298] -->
+<h3 class="sectionedit5" id="캐릭터_행동_cha_action_int">* 캐릭터 행동(Cha_action/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">건설 = 0, 채집 = 1, 내려놓기=2</div></li>
+</ul>
+
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">건설
+<ul  class="extlist">
+  <li><div class="li">캐릭터 행동 범위 내 오브젝트가 존재하지 않는 필드 터치</div></li>
+  <li><div class="li">캐릭터 건설 조건을 만족함</div></li>
+  <li><div class="li">건물 출력</div></li>
+</ul>
+</li>
+  <li  value="2" data-marker="2."><div class="li">채집
+<ul  class="extlist">
+  <li><div class="li">캐릭터 행동 범위 내 자원 오브젝트를 터치
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="2.1"><div class="li">캐릭터 상태가 운반 상태로 변화함</div></li>
+  <li  value="2" data-marker="2.2"><div class="li">캐릭터 자원 운반 여부가 T로 변화함</div></li>
+</ol>
+</li>
+</ul>
+</li>
+  <li  value="3" data-marker="3."><div class="li">내려놓기
+<ul  class="extlist">
+  <li><div class="li">캐릭터 자원을 운반 여부가 T인 경우, 내려놓기 기능이 활성화된다</div></li>
+  <li><div class="li">내려놓기 버튼을 터치
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="3.1"><div class="li">캐릭터가 위치한 자리에 즉각 자원을 내려놓는다</div></li>
+  <li  value="2" data-marker="3.2"><div class="li">내려놓은 자원은 자원 오브젝트 타입으로 처리된다 </div></li>
+</ol>
+</li>
+  <li><div class="li">자원을 내려놓으면 캐릭터 상태가 통상으로 변화한다</div></li>
+</ul>
+</li>
+</ol>
+
+</div>
+<!-- EDIT5 SECTION "* 캐릭터 행동(Cha_action/int)" [299-1122] -->
+<h3 class="sectionedit6" id="내려놓기_버튼_활성화_여부_putdown_vitalize_bool">* 내려놓기 버튼 활성화 여부(Putdown_vitalize/bool)</h3>
+<div class="level3">
+
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">캐릭터가 운반 상태(Cha_condition=2)일 경우, 활성화된다 (값 T)</div></li>
+  <li  value="2" data-marker="2."><div class="li">캐릭터가 운반 상태(Cha_condition=0, 1)가 아닐 경우, 비활성화되어 화면에 보이지 않는다 (값 F)</div></li>
+</ol>
+
+</div>
+<!-- EDIT6 SECTION "* 내려놓기 버튼 활성화 여부(Putdown_vitalize/bool)" [1123-1405] -->
+<h3 class="sectionedit7" id="캐릭터_건설_조건_cha_construct_bool">* 캐릭터 건설 조건(Cha_construct/bool)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">캐릭터 보유 자원량 수치가 1 이상인지 체크</div></li>
+  <li><div class="li">1 이상이면 T, 1 미만이면 F</div></li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "* 캐릭터 건설 조건(Cha_construct/bool)" [1406-1566] -->
+<h3 class="sectionedit8" id="캐릭터_상태_cha_condition_int">* 캐릭터 상태(Cha_Condition/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">사망 = 0, 통상 = 1, 운반 = 2</div></li>
+</ul>
+
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">사망
+<ul  class="extlist">
+  <li><div class="li">캐릭터 오브젝트에 몬스터 오브젝트가 닿으면 사망 처리 </div></li>
+  <li><div class="li">캐릭터 사망 시 게임 진행 종료</div></li>
+</ul>
+</li>
+  <li  value="2" data-marker="2."><div class="li">통상
+<ul  class="extlist">
+  <li><div class="li">캐릭터 기본 상태</div></li>
+</ul>
+</li>
+  <li  value="3" data-marker="3."><div class="li">운반
+<ul  class="extlist">
+  <li><div class="li">캐릭터의 이동 속도가 하락한다</div></li>
+  <li><div class="li">캐릭터의 자원 소유 여부에 따라 상태가 전환된다
+<ul  class="extlist">
+  <li><div class="li">자원을 소유했을 시(값 T), 운반 상태</div></li>
+  <li><div class="li">자원을 소유하지 않았을 시(값F), 통상 상태</div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+<!-- EDIT8 SECTION "* 캐릭터 상태(Cha_Condition/Int)" [1567-2094] -->
+<h3 class="sectionedit9" id="채집_시간_cha_time">* 채집 시간(Cha_time)</h3>
+<div class="level3">
+
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">단위 sec</div></li>
+  <li  value="2" data-marker="2."><div class="li">1초</div></li>
+</ol>
+
+</div>
+<!-- EDIT9 SECTION "* 채집 시간(Cha_time)" [2095-2155] -->
+<h3 class="sectionedit10" id="자원_소유_여부_cha_possess_bool">* 자원 소유 여부 (Cha_possess/bool)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">자원 소유 시 T, 자원 미소유 시 F</div></li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "* 자원 소유 여부 (Cha_possess/bool)" [2156-2256] -->
+<h3 class="sectionedit11" id="소유_자원량_cha_possessamount">* 소유 자원량 (Cha_possessamount)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">캐릭터가 보유얀 자원의 수량</div></li>
+  <li><div class="li">정수</div></li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "* 소유 자원량 (Cha_possessamount)" [2257-] -->

@@ -1,0 +1,6 @@
+====== 검토해볼 문제들 ======
+  * 0/1 Knapsack
+  * Subset Sum
+  * N-Queens
+  * Vertex Coloring
+  * TND

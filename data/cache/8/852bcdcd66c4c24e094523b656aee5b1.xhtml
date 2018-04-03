@@ -1,0 +1,169 @@
+
+<h1 class="sectionedit1" id="적군">적군</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "적군" [1-20] -->
+<h2 class="sectionedit2" id="전투_부대_구조">전투 부대 구조</h2>
+<div class="level2">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A0%81%EA%B5%B0&amp;media=%EC%A0%81%EA%B5%B0_%EB%B6%80%EB%8C%80_%EA%B5%AC%EC%A1%B0.png" class="media" title="적군_부대_구조.png"><img src="/dokuwiki/lib/exe/fetch.php?w=700&amp;tok=d1a6ac&amp;media=%EC%A0%81%EA%B5%B0_%EB%B6%80%EB%8C%80_%EA%B5%AC%EC%A1%B0.png" class="media" alt="" width="700" /></a>
+</p>
+<pre class="code">- EnemyCorpsSet은 EnemyCorpsNumber(시퀀스의 개수와 동일, 최대 3)만큼 EnemyCorps와 대응.
+- EnemyCorps는 Enemy Code배열(최대 5개)과 AI Code배열(최대 5개) 보유.</pre>
+<pre class="code">전투 흐름 처리
+1. 전투 진입 시 타일과 대응된 EnemyCorpsSet 참조.
+2. EnemyCorps DB에서 (EnemyCorpsSet의 Code)_i의 RowName을 가지는 EnemyCorps 참조. i=현재 시퀀스, 초기값 1
+3. 해당 EnemyCorps가 보유한 Enemy들을 불러오고, AI 배열의 같은 앨리먼트인 성분과 대응.
+4. 모든 Enemy가 사망한 경우, 다음 시퀀스가 존재하는 지 판정.
+5. 존재하면 i를 1 증가시켜 2~4 반복.
+6. 존재하지 않으면 전투 보상을 받고 전투가 종료된다.</pre>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "전투 부대 구조" [21-840] -->
+<h2 class="sectionedit3" id="enemycorpsset">EnemyCorpsSet</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  EnemyCorpsNumber  </th><th class="col2 centeralign">  DropItemArray  </th><th class="col3 rightalign">  DropItemProbabilityArray </th><th class="col4 centeralign">  AverageDropGold  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  EnemyCorpsSet1  </td><td class="col1 centeralign">  3  </td><td class="col2 centeralign">  {Material1, Material2, Material3}  </td><td class="col3 centeralign">  {0.1, 0.1, 0.2}  </td><td class="col4 centeralign">  2000  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  EnemyCorpsSet2  </td><td class="col1 centeralign">  1  </td><td class="col2 centeralign">  {Material1}                        </td><td class="col3 centeralign">  {0.5}            </td><td class="col4 centeralign">  500  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  EnemyCorpsSet3  </td><td class="col1 centeralign">  2  </td><td class="col2 centeralign">  {Material4, Material5}             </td><td class="col3 centeralign">  {0.3, 0.3}       </td><td class="col4 centeralign">  10000  </td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [866-1245] --><div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  내용  </th><th class="col1 centeralign">  항목  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  EnemyCorpsSet DB의 Code  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  EnemyCorpsNumber  </td><td class="col1 centeralign">  EnemyCorps 개수(시퀀스 개수와 동일)  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  DropItemArray  </td><td class="col1 centeralign">  Item 배열, 전투 승리 시 얻을 수 있는 아이템  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  DropItemProbabilityArray  </td><td class="col1 centeralign">  float 배열, DropItemArray의 각 항목의 얻을 확률, 아이템을 못 얻을 확률은 1-(확률들)  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  AverageDropGold  </td><td class="col1 centeralign">  int값, 전투 승리 시 얻는 평균 골드량. 전투 승리 시 ±10% 내의 골드 획득  </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1247-1731] --><hr />
+
+</div>
+<!-- EDIT3 SECTION "EnemyCorpsSet" [841-1738] -->
+<h2 class="sectionedit6" id="enemycorps">EnemyCorps</h2>
+<div class="level2">
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  EnemyArray  </th><th class="col2 centeralign">  AIArray  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  EnemyCorpsSet1_1  </td><td class="col1 centeralign">  {Enemy1, Enemy1, Enemy1, Enemy1, Enemy1}  </td><td class="col2 centeralign">  {AI1, AI1, AI1, AI1, AI1}  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  EnemyCorpsSet1_2  </td><td class="col1 centeralign">  { , , Enemy1, , }  </td><td class="col2 centeralign">  { , , AI2, , }  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  EnemyCorpsSet1_3  </td><td class="col1 centeralign">  {Enemy3, , Enemy4, , Enemy5}  </td><td class="col2 centeralign">  {AI1, , AI2, , AI3}  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1761-2040] --><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  EnemyCorps DB의 Code.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  EnemyArray  </td><td class="col1 centeralign">  각 슬롯에 위치하는 적군에 대응되는 Enemy DB의 Code 배열. 빈칸은 적군이 없는 위치.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  AIArray  </td><td class="col1 centeralign">  EnemyArray의 같은 앨리먼트와 대응되는 적군의 AI.  </td>
+	</tr>
+</table></div>
+<!-- EDIT8 TABLE [2042-2316] --><hr />
+
+</div>
+<!-- EDIT6 SECTION "EnemyCorps" [1739-2323] -->
+<h2 class="sectionedit9" id="enemy">Enemy</h2>
+<div class="level2">
+
+<p>
+Body와 같은 구조체 사용
+</p>
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Character  </th><th class="col3 centeralign">  DefType  </th><th class="col4 centeralign">  BodyHp  </th><th class="col5 centeralign">  BodyShield  </th><th class="col6 centeralign">  FrontSkill  </th><th class="col7 centeralign">  BackSkill  </th><th class="col8 centeralign">  ExSkillNumber  </th><th class="col9 centeralign">  BPassiveSkill  </th><th class="col10 centeralign">  BodyAttribute  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Enemy1     </td><td class="col1 centeralign">  특수요원 저격수  </td><td class="col2 centeralign">  Enemy  </td><td class="col3 centeralign">  노멀  </td><td class="col4 centeralign">  200  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">    FrSkill502  </td><td class="col7 centeralign">  BaSkill501  </td><td class="col8 centeralign">  0  </td><td class="col9 centeralign">  2  </td><td class="col10 centeralign">  0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Enemy2     </td><td class="col1 centeralign">  특수요원 돌격수  </td><td class="col2 centeralign">  Enemy  </td><td class="col3 centeralign">  기계  </td><td class="col4 centeralign">  150  </td><td class="col5 centeralign">  100  </td><td class="col6 centeralign">  FrSkill506  </td><td class="col7 centeralign">  BaSkill506  </td><td class="col8 centeralign">  2  </td><td class="col9 centeralign">  2  </td><td class="col10 centeralign">  0  </td>
+	</tr>
+</table></div>
+<!-- EDIT10 TABLE [2372-2784] --><div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  내용  </th><th class="col1 centeralign">  항목  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  Enemy DB의 Code  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  적군 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Character  </td><td class="col1 centeralign">  적군은 Enemy로 고정.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  DefType  </td><td class="col1 centeralign">  바디의 방어 타입 Enum. 상성 계수 판별 시 사용. 노멀, 기계, 사이킥 등  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  BodyHp  </td><td class="col1 centeralign">  바디의 기본 Hp, 전투에서는 이 값과 장비에 의한 값이 합쳐져서 사용  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  BodyShield  </td><td class="col1 centeralign">  바디의 기본 Shield, 전투에서는 이 값과 장비에 의한 값이 합쳐져서 사용  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  FrontSkill  </td><td class="col1 centeralign">  공격적인 액티브 스킬, 전방에 위치할 경우 이 스킬이 발동  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  BackSkill  </td><td class="col1 centeralign">  수비적인 액티브 스킬, 후방에 위치할 경우 이 스킬이 발동  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  ExSkillNumber  </td><td class="col1 centeralign">  AI에 따라 사용, 명령 포인트를 소모하여 발동시킬 수 있는 엑스트라 스킬 보유 개수. 0 이상.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  BPassiveSkillNumber  </td><td class="col1 centeralign">  바디가 보유한 바디 패시브 스킬 개수.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  BodyAttributeNumber  </td><td class="col1 centeralign">  적군은 0으로 고정.  </td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [2786-3738] -->
+</div>
+<!-- EDIT9 SECTION "Enemy" [2324-] -->

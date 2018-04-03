@@ -1,0 +1,58 @@
+<span class="kw1">import</span> <span class="co2">java.util.*</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.io.*</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Address <span class="kw1">implements</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+serializable"><span class="kw3">Serializable</span></a><span class="br0">&#123;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> tel<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> address<span class="sy0">;</span>
+	<span class="kw1">private</span> <span class="kw4">int</span> gender<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> Address<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> tel, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> address, <span class="kw4">int</span> gender<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">ssn</span> <span class="sy0">=</span> ssn<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">name</span> <span class="sy0">=</span> name<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">tel</span> <span class="sy0">=</span> tel<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">address</span> <span class="sy0">=</span> address<span class="sy0">;</span>
+		<span class="kw1">this</span>.<span class="me1">gender</span> <span class="sy0">=</span> gender<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setSsn<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">ssn</span> <span class="sy0">=</span> ssn<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getSsn<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> ssn<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setName<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">name</span> <span class="sy0">=</span> name<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getName<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> name<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setTel<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> tel<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">tel</span> <span class="sy0">=</span> tel<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getTel<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> tel<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setAddress<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> address<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">address</span> <span class="sy0">=</span> address<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getAddress<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> address<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setGender<span class="br0">&#40;</span><span class="kw4">int</span> gender<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">gender</span> <span class="sy0">=</span> gender<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">int</span> getGender<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> gender<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

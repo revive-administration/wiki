@@ -1,0 +1,61 @@
+====== 용도별 분류 및 네이밍 규칙 ======
+그래픽 리소스는 다음과 같이 분류됩니다. \\
+캐릭터는 스토리용/바디용으로 나뉘며 초안 작업이 필요한 경우 스토리용으로 먼저 작업해본뒤 원안으로 정하기 때문에 \\
+바디용 리소스는 별도의 초안이 필요하지 않습니다. \\
+리소스 전달시에는 psd 파일이나 png 파일형식으로 부탁드립니다.
+
+===== 스토리용 리소스 =====
+^ 종류 ^ 접두사 ^ 예시 ^
+| 초안 | Story_Draft | Story_Draft_Brooklyn.psd |
+| 원안 | Story_Orig | Story_Orig_Liu.psd |
+| 최종 이미지 | Story_Final |Story_Final_Liu_01.psd |
+
+==== 초안 (Story_Draft) ====
+처음 컨셉을 잡기 위해 필요한 러프 이미지를 말합니다.
+
+
+\\ \\
+==== 원안 (Story_Orig) ====
+컨셉이 확정된 참고용 이미지를 말합니다. 실제로 사용하지는 않습니다. (예시 - 강찬성 원안)
+
+{{:story_orig_chanseong.png?100|}}
+\\ \\
+==== 최종 이미지(Story_Final) ====
+원안을 바탕으로 만들어진 실제 사용을 위한 이미지입니다.
+최종이미지는 여러장일 수 있으며 스토리의 비중에 따라 개수가 다릅니다. 
+
+(추후 예시)
+\\ \\
+
+===== 바디용 리소스 =====
+바디용 리소스는 일반용과 전투용으로 나뉩니다. 네이밍의 편의를 위해 일반용은 Body, 전투용은 Battle이라는 접두사를 사용합니다.
+  * 네이밍 방법 : 접두사(용도) + 바디이름 + 캐릭터이름 + 번호(선택) 
+
+^ 종류 ^ 접두사 ^ 예시 ^
+| 바디용 원안 | Body_Orig | Body_Orig_ASU_Sakuya.psd |
+| 전투용 원안 | Battle_Orig | Battle_Orig_ASU_Sakuya.psd |
+| 바디 최종 이미지 | Body_Final |Body_Final_ASU_Sakuya_01.psd |
+| 전투 최종 이미지 | Battle_Final | Battle_Final_ASU_Sakuya_01.psd |
+| 전투 Live2D 이미지 | Battle_Live2D | Battle_Live2D_ASU_Liu.psd |
+
+==== 원안 (Body_Orig / Battle_Orig)  ====
+바디마다 컨셉이 다르기 때문에 원안으로 컨셉을 잡고 진행합니다. (예시 - ASU 사쿠야 전투 원안)
+
+{{:battle_orig_asu_sakuya_01.png?200|}}
+\\ \\
+==== 최종 이미지(바디) (Body_Final) ====
+바디용 최종이미지 입니다. 일반적인 서있는 자세를 기본으로 합니다. (예시 - ASU 류자링 바디 최종)
+
+{{:body_normal_asu_liu_01.png?100|}}
+\\ \\
+==== 최종 이미지(전투) (Battle_Final) ====
+전투용 최종이미지 입니다. 좀더 동적인 포즈를 갖습니다. (예시 - ASU 류자링 전투 최종) \\
+전투용 이미지는 2개 이상일 수 있는데 아직은 미정입니다.
+
+{{:body_battle_asu_liu_01.png?200|}}
+
+// // 
+==== Live2D용 (Battle_Live2D) ====
+라이브 2D용으로 리소스들을 분리한 이미지 입니다. (예시 - ASU 류자링 Live2D용)
+
+{{:bunli.png?200|}}

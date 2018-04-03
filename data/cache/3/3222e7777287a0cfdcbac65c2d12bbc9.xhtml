@@ -1,0 +1,113 @@
+
+<h3 class="sectionedit1" id="적군">적군</h3>
+<div class="level3">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A0%81%EA%B5%B0_%EC%BA%90%EB%A6%AD%ED%84%B0&amp;media=tmzh123123123djjjjjjjjjjjjjjjj.png" class="media" title="tmzh123123123djjjjjjjjjjjjjjjj.png"><img src="/dokuwiki/lib/exe/fetch.php?media=tmzh123123123djjjjjjjjjjjjjjjj.png" class="mediacenter" alt="" /></a>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "적군" [1-62] -->
+<h3 class="sectionedit2" id="적군_타입_enemy_type_int">적군 타입(Enemy_type/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">일반=0, 보스=1</div></li>
+  <li><div class="li">일반
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">일반 타입의 적군</div></li>
+  <li  value="2" data-marker="2."><div class="li">체력, 공격력 수치가 낮음~보통</div></li>
+  <li  value="3" data-marker="3."><div class="li">최종 스테이지를 제외한 곳에서 등장</div></li>
+</ol>
+</li>
+  <li><div class="li">보스
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">보스 타입의 적군</div></li>
+  <li  value="2" data-marker="2."><div class="li">체력, 공격력 수치가 높음</div></li>
+  <li  value="3" data-marker="3."><div class="li">최종 스테이지에서 등장
+</div></li>
+</ol>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "적군 타입(Enemy_type/Int)" [63-390] -->
+<h3 class="sectionedit3" id="적군_스탯_enemy_stat_int">적군 스탯(Enemy_stat/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">스테이지 진행에 따라 적군 스탯이 변화한다</div></li>
+  <li><div class="li">완만하게 난이도가 상승하는 형식이기에, 스탯 변화가 가파르지 않다
+<ul  class="extlist">
+  <li><div class="li">스탯 항목
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">공격력(Enemy_attack/int)
+<ul  class="extlist">
+  <li><div class="li">적군의 공격력 수치. 정수</div></li>
+</ul>
+</li>
+  <li  value="2" data-marker="2."><div class="li">체력(Enemy_hp/int)
+<ul  class="extlist">
+  <li><div class="li">적군의 체력 수치. 정수</div></li>
+</ul>
+</li>
+  <li  value="3" data-marker="3."><div class="li">공격 범위(Enemy_range/int)
+<ul  class="extlist">
+  <li><div class="li">유닛 가장자리에서부터 원형 범위 설정. 정수</div></li>
+</ul>
+</li>
+  <li  value="4" data-marker="4."><div class="li">이동속도(Enemy_speed/float)
+<ul  class="extlist">
+  <li><div class="li">적군의 이동 속도. 실수</div></li>
+</ul>
+</li>
+  <li  value="5" data-marker="5."><div class="li">공격 속도(Enemy_attackspeed/float)
+<ul  class="extlist">
+  <li><div class="li">적군의 공격 속도. 실수</div></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "적군 스탯(Enemy_stat/int)" [391-1044] -->
+<h3 class="sectionedit4" id="적군_행동_enemy_action_int">적군 행동(Enemy_action/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">이동=0 공격=1 사망=2</div></li>
+  <li><div class="li">이동
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">기본 이동</div></li>
+  <li  value="2" data-marker="2."><div class="li">AI에 따라 공격 장소로 이동한다</div></li>
+</ol>
+</li>
+  <li><div class="li">공격
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">공격 범위 내에 공격 대상이 있을 경우, 공격 행동을 취한다</div></li>
+</ol>
+</li>
+  <li><div class="li">사망
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">적군 캐릭터의 체력 수치가 0이 될 경우 사망한다</div></li>
+  <li  value="2" data-marker="2."><div class="li">사망으로 처리되면 사망 애니메이션이 출력되며, 
+사망 상태인 적군 오브젝트는 2초 후에 페이드 아웃 되며 사라진다
+</div></li>
+</ol>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "적군 행동(Enemy_action/Int)" [1045-1573] -->
+<h3 class="sectionedit5" id="적군_ai_enemy_aitype_int">적군 AI(Enemy_aitype/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">아군 넥서스 타격</div></li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "적군 AI(Enemy_aitype/Int)" [1574-] -->

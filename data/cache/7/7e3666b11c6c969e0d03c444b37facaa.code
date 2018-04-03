@@ -1,0 +1,1 @@
+minimum = <span class="kw1">if</span> x<span class="sy0">&lt;</span>y <span class="kw1">then</span> x <span class="kw1">else</span> y <span class="kw1">end</span>

@@ -1,0 +1,17 @@
+<span class="kw1">package</span> <span class="co2">Ch02</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.sql.*</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Business <span class="br0">&#123;</span>
+	Database db <span class="sy0">=</span> <span class="kw1">new</span> Database<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+connection"><span class="kw3">Connection</span></a> con <span class="sy0">=</span> db.<span class="me1">getConnection</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> insert<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> id, <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> code, <span class="kw4">int</span> quality<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> query <span class="sy0">=</span> <span class="st0">&quot;insert into product values ( &quot;</span> <span class="sy0">+</span> id <span class="sy0">+</span> <span class="st0">&quot;, &quot;</span><span class="sy0">+</span>code<span class="sy0">+</span><span class="st0">&quot;, &quot;</span><span class="sy0">+</span>quality<span class="sy0">+</span><span class="st0">&quot;)&quot;</span><span class="sy0">;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+statement"><span class="kw3">Statement</span></a> stmt <span class="sy0">=</span> con.<span class="me1">createStatement</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			stmt.<span class="me1">executeUpdate</span><span class="br0">&#40;</span>query<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+sqlexception"><span class="kw3">SQLException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

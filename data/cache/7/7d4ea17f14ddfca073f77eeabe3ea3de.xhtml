@@ -1,0 +1,50 @@
+
+<h1 class="sectionedit1" id="파티클_시스템">파티클 시스템</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "파티클 시스템" [1-34] -->
+<h2 class="sectionedit2" id="핵심_파티클_개념">핵심 파티클 개념</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "핵심 파티클 개념" [35-70] -->
+<h3 class="sectionedit3" id="이미터_파티클_시스템_이미터_액터">이미터, 파티클 시스템, 이미터 액터</h3>
+<div class="level3">
+
+<p>
+파티클 시스템의 성분을 모두 말해보자면 모듈, 이미터, 파티클 시스템, 이미터 액터라고 할 수 있습니다.
+</p>
+
+<ul  class="extlist">
+  <li><div class="li">모듈 : 파티클의 행위를 정의하며 이미터 안에 놓입니다.</div></li>
+  <li><div class="li">이미터 : 이펙트에 대해 특정 유형 파티클을 내뿜는 데 사용되는 것으로, 몇이든 사용 가능하며, 파티클 시스템 안에 놓입니다.</div></li>
+  <li><div class="li">파티클 시스템 : 콘텐츠 브라우저에서 볼 수 잇는 애셋으로 이미터 액터에 의해 레퍼런싱 가능한 것입니다.</div></li>
+  <li><div class="li">이미터 액터란 레벨에 놓을 수 있는 오브젝트로, 씬에서 파티클이 실제 어디 어떻게 쓰이는지를 제어하는 것입니다.</div></li>
+</ul>
+
+</div>
+
+<h4 id="이미터_유형">이미터 유형</h4>
+<div class="level4">
+
+<p>
+모든 이미터는 유형을 막론하고 스프라이트 이미터로 시작합니다. 그 후 다양한 이미터 Type Data 모듈을 이미터에 추가하여 그 유형을 다른 것으로 바꿉니다.
+</p>
+
+<ul  class="extlist">
+  <li><div class="li">Sprite Emitters 스프라이트 이미터 : 파티클은 항상 카메라를 향하는 폴리곤형 스프라이트로 방출됩니다. 연기, 불 등 다양한 이펙트에 좋습니다.</div></li>
+  <li><div class="li">AnimTrail Data : 애니메이션 스켈레톤의 소켓에서부터 흔적을 만드는 데 사용됩니다.</div></li>
+  <li><div class="li">Beam Data : 레이저, 번갯줄기 비슷한 효과를 내는 빔을 만드는 데 사용됩니다.</div></li>
+  <li><div class="li">GPU Sprites : 대량의 실행시간 계산이 GPU에 전해지는 특수 파티클 유형입니다. 이로써 가능한 파티클의 수치가 CPU 파티클일 때는 천 단위에서 GPU 파티클에서는 타겟 시스템의 GPU 유형에 따라 십만단위로 증폭됩니다.</div></li>
+  <li><div class="li">Mesh Data : 이러한 이미터 유형은 스프라이트 시리즈가 아니라 폴리곤 메시를 내뿜습니다. 돌사태, 잔해와 같은 효과에 좋습니다.</div></li>
+  <li><div class="li">Ribbon Data : 꼬리에 꼬리를 무는 파티클 굴비를 엮어, 움직이는 이미터 뒤에 흔적을 남기는 리본을 만듭니다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "이미터, 파티클 시스템, 이미터 액터" [71-2082] -->
+<h3 class="sectionedit4" id="레벨_오브_디테일_lod">레벨 오브 디테일 (LOD)</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT4 SECTION "레벨 오브 디테일 (LOD)" [2083-] -->

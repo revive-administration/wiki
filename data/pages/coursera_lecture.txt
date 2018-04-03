@@ -1,0 +1,4 @@
+  * [[Lecture 1.1 Programming Paradigms]]
+  * [[Lecture 1.2 - Elements of Programming]]
+  * [[Lecture 1.3 - Evaluation Strategies and Termination]]
+  * [[Lecture 2.1 - Higher-Order Functinos]]

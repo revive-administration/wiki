@@ -1,0 +1,25 @@
+======SkillEffect======
+
+^  Code  ^  EffectType ^ StatusEffect ^ StateEffect ^  InstantEffect  ^  BuffCode  ^  ValueType  ^  Value  ^  ConditionNumber  ^  BuffLabel  ^
+|  AutoSkill_1_1_1 | VE_Instant | VE_None | VE_None | VE_AddBuff | Buff_Atkup_20% | VE_DurationTime |  10  |  0  |  1  |
+|  AutoSkill_2_1_1 | VE_Instant | VE_None | VE_None | VE_RemoveAllState |  | VE_None |  0  |  0  |  |
+|  AutoSkill_3_1_1 | VE_Instant | VE_None | VE_None | VE_AddBuff | Buff_Provoke  | VE_DurationTime |  10  |  0  |  provoke  |
+|  AutoSkill_4_1_1 | VE_Instant | VE_None | VE_None | VE_AddBuff |Buff_Misfire  | VE_DurationTime |  10  |  0  |  3  |
+|  AutoSkill_5_1_1 | VE_Instant | VE_None | VE_None | VE_AddBuff | Buff_S.Disabling  | VE_DurationTime |  8  |  0  |  2  |
+|  AutoSkill_6_1_1 | VE_Instant | VE_None | VE_None | VE_AddBuff | Buff_PassiveEffect_100%  | VE_DurationTime |  10  |  0  |  4  |
+|  AutoSkill_6_2_1 | VE_Instant | VE_None | VE_None | VE_ExplosionAttack | | VE_Fixed |  40  |  0  |  |
+|  AutoSkill_7_1_1 | VE_Instant | VE_None | VE_None | VE_Heal | | VE_Percent |  0.1  |  0  |  |
+|  AutoSkill_7_1_2 | VE_Instant | VE_None | VE_None | VE_AddBuff | Buff_DefUp_20  | VE_DurationTime |  10  |  0  |  |
+|  AutoSkill_7_2_1 | VE_Instant | VE_None | VE_None | VE_AddBuff |Buff_DefDown_10  | VE_DurationTime |  5  |  0  |  |
+
+^  항목  ^  내용  ^
+|  Code  |  Effect DB의 Code  |
+|  EffectType  |  Status,State,Instant Type 여부  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%84%B0%EC%8A%A4_%EC%9D%B4%ED%8E%99%ED%8A%B8_statuseffect|StatusType]]  |  |
+|  StateType  |  | 
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%9D%B8%EC%8A%A4%ED%84%B4%ED%8A%B8_%EC%9D%B4%ED%8E%99%ED%8A%B8_instanteffect|InstantEffect]]  |  효과에 대한 Enum. 공격, HP회복, 이동 등도 포함됨  |
+|  BuffCode  |  걸어줄 버프의 코드  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EA%B0%92_%ED%83%80%EC%9E%85_valuetype|ValueType]]  |  값의 타입 None, Fixed, AtkPlus, AtkPercent, DefPlus, DefPercent, DurationTime 등  |
+|  Value  |   효과 수치  |
+|  ConditionNumber  |  발동 조건식 개수   |
+|  BuffLabel  |  레이블이 동일하면 스킬 중첩이 되지 않고 시간이 초기화됨. 레이블이 없으면 중첩 검증을 시행하지 않음 |

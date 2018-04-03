@@ -1,0 +1,11 @@
+====== 조건 대상 (Target) ======
+소속 : 
+
+^  Target  ^  설명  ^
+|  All  | 모든 개체 |
+|  Ally  | 아군 |
+|  Enemy  | 적군 |
+|  Self  | 스킬 발동자, 버프 소유자 |
+|  Target  | 스킬 혹은 버프의 대상 |
+|  Selected  | ExSkill에 의해 Targeting된 개체 |
+|  Probability  | ~% 확률로 발동하는 스킬 혹은 버프에 사용. 이 경우 Float 컬럼만 사용한다. |

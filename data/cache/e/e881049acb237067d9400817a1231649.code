@@ -1,0 +1,37 @@
+<span class="kw1">public</span> <span class="kw1">class</span> ElevatorManager<span class="br0">&#123;</span>
+	<span class="kw1">private</span> List<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span> controllers<span class="sy0">;</span>
+	<span class="kw1">private</span> SchedulingStrategyID strategyID<span class="sy0">;</span>
+	<span class="kw1">public</span> ElevatorManager<span class="br0">&#40;</span><span class="kw4">int</span> controllerCount, SchedulingStrategyID strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		controllers <span class="sy0">=</span> <span class="kw1">new</span> ArrayList<span class="sy0">&lt;</span>ElevatorController<span class="sy0">&gt;</span><span class="br0">&#40;</span>controllerCount<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>controllerCount<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			ElevatorController controller <span class="sy0">=</span> <span class="kw1">new</span> ElevatorController<span class="br0">&#40;</span>i<span class="sy0">+</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			controllers.<span class="me1">add</span><span class="br0">&#40;</span>controller<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">this</span>.<span class="me1">strategyID</span> <span class="sy0">=</span> starategyID<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> setStrategyID<span class="br0">&#40;</span>SchedulingStrategyID strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">strategyID</span> <span class="sy0">=</span> strategyID<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw4">void</span> requestElevator<span class="br0">&#40;</span><span class="kw4">int</span> destination, Direction direction<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="co1">//주어진 전략 ID에 해당되는 ElevatorScheduler를 사용함</span>
+		ElevatorScheduler scheduler <span class="sy0">=</span> SchedulerFactory.<span class="me1">getSchedulerID</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>scheduler<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw4">int</span> selectedElevator <span class="sy0">=</span> scheduler.<span class="me1">selectElevator</span><span class="br0">&#40;</span><span class="kw1">this</span>, destination, direction<span class="br0">&#41;</span><span class="sy0">;</span>
+		controllers.<span class="me1">get</span><span class="br0">&#40;</span>selectedElevator<span class="br0">&#41;</span>.<span class="me1">getoFloor</span><span class="br0">&#40;</span>destination<span class="br0">&#41;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>	
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Client<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ElevatorManager emWithResponseTimeScheduler <span class="sy0">=</span> <span class="kw1">new</span> ElevatorManager<span class="br0">&#40;</span><span class="nu0">2</span>, SchedulingStrategyID.<span class="me1">RESPONSE_TIME</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		emWithResponseTimeScheduler.<span class="me1">requestElevator</span><span class="br0">&#40;</span><span class="nu0">10</span>, Direction.<span class="me1">UP</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		ElevatorManager emWithThroughputScheduler <span class="sy0">=</span> <span class="kw1">new</span> ElevatorManager<span class="br0">&#40;</span><span class="nu0">2</span>, SchedulingStrategyID.<span class="me1">THORUGHPUT</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		emWithThroughputScheduler.<span class="me1">requestElevator</span><span class="br0">&#40;</span><span class="nu0">10</span>, Direction.<span class="me1">UP</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		ElevatorManager emWithDynamicScheduler <span class="sy0">=</span> <span class="kw1">new</span> ElevatorManager<span class="br0">&#40;</span><span class="nu0">2</span>, SchedulingStrategyID.<span class="me1">DYNAMIC</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		emWithDynamicScheduler.<span class="me1">requestElevator</span><span class="br0">&#40;</span><span class="nu0">10</span>, Direction.<span class="me1">UP</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

@@ -1,0 +1,162 @@
+
+<h1 class="sectionedit1" id="버프">버프</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "버프" [1-20] -->
+<h2 class="sectionedit2" id="버프의_종류">버프의 종류</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "버프의 종류" [21-48] -->
+<h3 class="sectionedit3" id="스탯">스탯</h3>
+<div class="level3">
+<pre class="code">- 개체에게 스탯이 걸리면 스탯에 대한 내용을 BuffSlot에 등록.
+- 일정 시간동안 특정 개체에게 일정한 효과 부여.
+- 버프 스킬 발동자가 버프를 소유. 버프 소유자와 효과 대상자가 다를 수 있음.
+- 상태 이상 해제 스킬로 해제되지 않음.
+- 일정 시간이 흐르거나, 버프 스킬을 발동시킨 개체 사망 시 해제된다.</pre>
+
+</div>
+<!-- EDIT3 SECTION "스탯" [49-484] -->
+<h3 class="sectionedit4" id="상태">상태</h3>
+<div class="level3">
+<pre class="code">- 개체에게 상태에 걸리면 상태에 대한 내용을 BuffSlot에 등록.
+- 일정 시간동안 특정 개체에게 일정한 효과 부여.
+- 버프 소유자와 효과 대상자는 같음.
+- 상태 이상 해제 스킬로 해제 가능, 특정 상태들은 DefType에 따라 면역 가능.
+- 일정 시간이 흐르거나, 상태가 걸린 개체 사망 시 해제된다.</pre>
+
+</div>
+<!-- EDIT4 SECTION "상태" [485-897] -->
+<h3 class="sectionedit5" id="탄창">탄창</h3>
+<div class="level3">
+<pre class="code">- 개체에게 탄창이 걸리면 탄창에 대한 내용을 BuffSlot에 등록.
+- 총알 강화 스킬에 의해 재장전된 총알을 사용하는 동안 스킬 발동자에게 일정한 효과 부여.
+- 버프 소유자와 효과 대상자는 다를 수 있음.
+- 상태 이상 해제 스킬로 해제되지 않음.
+- 새롭게 재장전을 시작할 경우 해제된다.
+  - 탄알을 모두 사용하여 재장전하는 경우
+  - 총알 강화 스킬을 다시 사용하여 강제로 재장전하는 경우</pre>
+
+</div>
+<!-- EDIT5 SECTION "탄창" [898-1443] -->
+<h2 class="sectionedit6" id="buffskill_passiveskill과_같은_구조체">BuffSkill(PassiveSkill과 같은 구조체)</h2>
+<div class="level2">
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  CheckTime1  </th><th class="col4 centeralign">  Target1  </th><th class="col5 centeralign">  Sel.Cond.1  </th><th class="col6 centeralign">  Sel.Number1  </th><th class="col7 centeralign">  EffectNumber1  </th><th class="col8 centeralign">  C.Number1  </th><th class="col9 centeralign">  CheckTime2  </th><th class="col10 centeralign">  Target2  </th><th class="col11 centeralign">  Sel.Cond.2  </th><th class="col12 centeralign">  Sel.Number2  </th><th class="col13 centeralign">  EffectNumber2  </th><th class="col14 centeralign">  C.Number2  </th><th class="col15 centeralign">  BuffIcon  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Buff_1  </td><td class="col1"> 버프1 </td><td class="col2 leftalign"> VE_Status  </td><td class="col3"> VE_UseSkill </td><td class="col4"> VE_Owner </td><td class="col5"> VE_None </td><td class="col6 centeralign">  1  </td><td class="col7 centeralign">  1  </td><td class="col8 centeralign">  0  </td><td class="col9"> VE_None </td><td class="col10"> VE_None </td><td class="col11"> VE_None </td><td class="col12 centeralign">  0  </td><td class="col13 centeralign">  0  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  Buff_1_icon  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Buff_2  </td><td class="col1"> 버프2 </td><td class="col2 leftalign"> VE_State  </td><td class="col3"> VE_NormalAttack </td><td class="col4"> VE_Owner </td><td class="col5"> VE_None </td><td class="col6 centeralign">  1  </td><td class="col7 centeralign">  1  </td><td class="col8 centeralign">  0  </td><td class="col9"> VE_None </td><td class="col10"> VE_None </td><td class="col11"> VE_None </td><td class="col12 centeralign">  0  </td><td class="col13 centeralign">  0  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  Buff_2_icon  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Buff_3  </td><td class="col1"> 노림수 </td><td class="col2 leftalign"> VE_State  </td><td class="col3"> VE_Always </td><td class="col4"> VE_Owner </td><td class="col5"> VE_None </td><td class="col6 centeralign">  1  </td><td class="col7 centeralign">  1  </td><td class="col8 centeralign">  0  </td><td class="col9"> VE_None </td><td class="col10"> VE_None </td><td class="col11"> VE_None </td><td class="col12 centeralign">  0  </td><td class="col13 centeralign">  0  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  Buff_3_icon  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Buff_4  </td><td class="col1"> 고속 탄창 </td><td class="col2 leftalign"> VE_Magazine  </td><td class="col3"> VE_NormalAttack </td><td class="col4"> VE_Owner </td><td class="col5"> VE_None </td><td class="col6 centeralign">  1  </td><td class="col7 centeralign">  1  </td><td class="col8 centeralign">  0  </td><td class="col9"> VE_None </td><td class="col10"> VE_None </td><td class="col11"> VE_None </td><td class="col12 centeralign">  0  </td><td class="col13 centeralign">  0  </td><td class="col14 centeralign">  0  </td><td class="col15 leftalign">    </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Buff_provoke  </td><td class="col1"> 도발 </td><td class="col2 leftalign"> VE_State  </td><td class="col3"> VE_Always </td><td class="col4 rightalign">  VE_Opposite </td><td class="col5"> VE_None </td><td class="col6 centeralign">  5  </td><td class="col7 centeralign">  1  </td><td class="col8 centeralign">  0  </td><td class="col9"> VE_None </td><td class="col10"> VE_None </td><td class="col11"> VE_None </td><td class="col12 centeralign">  0  </td><td class="col13 centeralign">  0  </td><td class="col14 centeralign">  0  </td><td class="col15 leftalign">    </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1498-2482] --><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  Buff DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  버프 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  Buff의 타입. Status, State, Magazine 가능  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  CheckTime  </td><td class="col1"> Condition이 True인지 False인지 판정해서 효과를 적용시키는 시점 Enum </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Target  </td><td class="col1 centeralign">  효과피적용자의 대상 분류. AllUnit, Ally, Enemy, Self, None, Bullet  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  SelectionCondition  </td><td class="col1 centeralign">  Target 내에서 선별기준 Enum.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  SelectionNumber  </td><td class="col1 centeralign">  SelectionCondition에 해당하는 개체 중 고르는 개수.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  EffectNumber  </td><td class="col1 centeralign">  Effect의 개수.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  C.Number  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  BuffIcon  </td><td class="col1 centeralign">  버프 아이콘 이미지  </td>
+	</tr>
+</table></div>
+<!-- EDIT8 TABLE [2484-3117] --><pre class="code">CheckTime=&#039;항상 적용&#039; 상세내용
+- 모든 Condition이 만족되면 효과가 적용된다.
+- 모든 Condition이 만족되어 효과가 적용되고 있다가, Condition이 만족되지 않게 되면 효과가 사라진다.</pre>
+
+</div>
+<!-- EDIT6 SECTION "BuffSkill(PassiveSkill과 같은 구조체)" [1444-3365] -->
+<h2 class="sectionedit9" id="effect">Effect</h2>
+<div class="level2">
+<div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  StatusEffect  </th><th class="col2 centeralign">  EffectType  </th><th class="col3 centeralign">  ValueType  </th><th class="col4 centeralign">  Value  </th><th class="col5 centeralign">  ConditionNumber  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Buff_1_1_1  </td><td class="col1 centeralign">  VE_Atk  </td><td class="col2 centeralign">  VE_None  </td><td class="col3 centeralign">     VE_Percent  </td><td class="col4 centeralign">  0.1  </td><td class="col5 centeralign">  0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Buff_2_1_1  </td><td class="col1 centeralign">  VE_PassiveEffect  </td><td class="col2 centeralign">  VE_None  </td><td class="col3 centeralign">     VE_Percent  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Buff_3_1_1  </td><td class="col1 centeralign">  VE_None  </td><td class="col2 centeralign">  VE_S.Disabling  </td><td class="col3 centeralign">     VE_None  </td><td class="col4 centeralign">  0  </td><td class="col5 centeralign">  0  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Buff_4_1_1  </td><td class="col1 centeralign">  VE_AttackWeight  </td><td class="col2 centeralign">  VE_None  </td><td class="col3 centeralign">     VE_Fixed  </td><td class="col4 centeralign">  500  </td><td class="col5 centeralign">  1  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Buff_4_1_2  </td><td class="col1 centeralign">  VE_None  </td><td class="col2 centeralign">  VE_Misfire  </td><td class="col3 centeralign">     VE_None  </td><td class="col4 centeralign">  0  </td><td class="col5 centeralign">  0  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  Buff_provoke_1  </td><td class="col1 centeralign">  VE_AttackWeight  </td><td class="col2 centeralign">  VE_None  </td><td class="col3 centeralign">    VE_Fixed  </td><td class="col4 centeralign">  500  </td><td class="col5 centeralign">  0  </td>
+	</tr>
+</table></div>
+<!-- EDIT10 TABLE [3384-3929] --><pre class="code">버프의 Effect 규칙
+- 단순한 스테이터스 증감의 경우 StatusType 사용
+- 그 외의 경우 Effect 사용
+- BuffCode : 효과 적용 시 버프 보유자에게 추가적으로 걸릴 버프의 코드
+- ValueType : DurationTime은 사용하지 않음
+- ConditionNumber : 버프의 Effect에서 Condition은 해당 버프의 Effect가 적용되기 위한 조건으로 사용.
+- Label : 사용 안 함</pre>
+
+</div>
+<!-- EDIT9 SECTION "Effect" [3366-4360] -->
+<h2 class="sectionedit11" id="condition">Condition</h2>
+<div class="level2">
+<div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Target  </th><th class="col2 centeralign">  Position  </th><th class="col3 centeralign">  Slot  </th><th class="col4 centeralign">  Buff  </th><th class="col5 centeralign">  Action  </th><th class="col6 centeralign">  Weapon  </th><th class="col7 centeralign">  DefType  </th><th class="col8 centeralign">  Subject  </th><th class="col9 centeralign">  LogicSymbol1  </th><th class="col10 centeralign">  Float  </th><th class="col11 centeralign">  LogicSymbol2  </th><th class="col12 centeralign">  Number  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Buff_4_1_1_C1  </td><td class="col1 centeralign">  Enemy  </td><td class="col2 centeralign">  None  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  None  </td><td class="col5 centeralign">  None  </td><td class="col6 centeralign">  None  </td><td class="col7 centeralign">  None  </td><td class="col8 centeralign">  Hp 낮은 순위  </td><td class="col9 centeralign">  ==  </td><td class="col10 centeralign">  1  </td><td class="col11 centeralign">  None  </td><td class="col12 centeralign">  0  </td>
+	</tr>
+</table></div>
+<!-- EDIT12 TABLE [4382-4665] -->
+</div>
+<!-- EDIT11 SECTION "Condition" [4361-] -->

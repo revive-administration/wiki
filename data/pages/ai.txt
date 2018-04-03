@@ -1,0 +1,34 @@
+======AI======
+
+AI는 SquadAI와 UnitAI의 두 종류가 존재.
+
+SquadAI : 주로 Ex스킬 사용을 위한, 부대마다 1개만 존재하는 AI. 일정 시간마다 각 부대원의 큐에 Action을 더함.
+
+UnitAI : 주로 유닛의 이동을 위한, 유닛마다 1개씩 존재하는 AI. 일정 시간마다 자신의 큐에 Action을 더함.
+
+
+=====AI=====
+
+SquadAI
+
+^  CheckTime  ^  Condition  ^  Subject  ^  ActionList  ^
+|  VE_EverySecond  |  EP 15 이상, 후방에 아군 3명 이상  |  Enemy_1  |  (Move,VE_Front),(Attack,SkillAttack,ExSkill_1)  |
+|  VE_EverySecond  |  EP 20 이상, 전방에 아군 2명 이상  |  Enemy_2  |  (Attack,SkillAttack,ExSkill_2)  |
+|  VE_SkillAttackEnd  |  Ep 10 이상  |  Enemy_3  |  (Attack,SkillAttack,ExSkill_3)  |
+
+UnitAI
+
+^  CheckTime  ^  Condition  ^  Subject  ^  ActionList  ^
+|  VE_Hit  |  자신이 체력 20퍼 이하  |    |  (Move,VE_Back)  |
+|  VE_EverySecond  |  체력 10퍼 이하 아군 존재  |    |  (Move,VE_Front)  |
+
+
+=====Action=====
+
+^  SlotState  ^  AttackState  ^  ExSkill  ^  Direction  ^  SwapWeapon  ^
+|  Move  |  |  |  VE_Opposite  |  |
+|  Move  |  |  |  VE_Front  |  |
+|  Attack  |  NormalAttack  |  |  |  |
+|  Attack  |  SkillAttack  |  ExSkill구조체  |  |  |
+|  SwapWeapon  |    |    |  |  VE_Opposite  |
+|  SwapWeapon  |    |    |  |  VE_Main  |

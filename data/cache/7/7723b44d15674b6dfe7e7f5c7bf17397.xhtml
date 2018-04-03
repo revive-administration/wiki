@@ -1,0 +1,95 @@
+
+<p>
+참조 사이트 : <a href="http://elinux.org/RPi_Ruby_on_Rails" class="urlextern" title="http://elinux.org/RPi_Ruby_on_Rails"  rel="nofollow">http://elinux.org/RPi_Ruby_on_Rails</a> <br/>
+
+<a href="http://arubystory.blogspot.kr/2013/11/tutorial-saying-hello-world-with-ruby.html" class="urlextern" title="http://arubystory.blogspot.kr/2013/11/tutorial-saying-hello-world-with-ruby.html"  rel="nofollow">http://arubystory.blogspot.kr/2013/11/tutorial-saying-hello-world-with-ruby.html</a>
+</p>
+
+<p>
+SSH 정보 velmont.iptime.org 포트 1022
+</p>
+
+<p>
+우선 레일즈를 설치할 폴더로 들어간다.
+</p>
+<pre class="code">cd /var/www/rails/</pre>
+
+<p>
+레일즈 프로젝트를 설치한다.
+</p>
+<pre class="code">rails new 프로젝트이름</pre>
+
+<p>
+프로젝트를 만드는데 성공하면 해당 프로젝트 폴더로 들어간다
+</p>
+<pre class="code">cd 프로젝트이름</pre>
+
+<p>
+DB를 넣어주자
+</p>
+<pre class="code">rake db:migrate</pre>
+
+<p>
+nohup rails server &amp; 를 쳐서 서버에 접속되는지 확인한다.
+</p>
+<pre class="code">sudo nohup rails server &amp;
+
+접속경로 : http://velmont.iptime.org:3000</pre>
+
+<p>
+이제 컨트롤러를 만들 시간이다. 아래 명령어를 입력해보자
+</p>
+<pre class="code">rails generate controller pages</pre>
+
+<p>
+컨트롤러를 건드려보자
+</p>
+<pre class="code">cd app/controllers/</pre>
+
+<p>
+nano 에디터로 수정하자
+</p>
+<pre class="code">sudo nano pages_controller.rb</pre>
+
+<p>
+즐거운 루비 타이핑을 시전하자
+</p>
+<pre class="code">class PagesController &lt; ApplicationController 
+  def home 
+    puts &quot;Honey, I&#039;m home!&quot; 
+  end 
+end
+
+다 수정한담에 ctrl+o(저장)를 누르면 아래에 저장 경로가 뜨는데 그냥 Enter 쳐주면 된다
+그리고 ctrl+x(나가기)를 눌러 빠져나온다. </pre>
+
+<p>
+app/views/pages/ 로 들어가보자
+</p>
+<pre class="code">cd /var/www/rails/프로젝트폴더/app/views/pages/</pre>
+
+<p>
+home.html.erb 라는 파일을 만들고 편집하자
+</p>
+<pre class="code">nano home.html.erb</pre>
+
+<p>
+내용을 자유롭게 써본다
+</p>
+<pre class="code">&lt;h1&gt;Hello Devil Monsters!&lt;/h1&gt;</pre>
+
+<p>
+config 파일을 수정하자
+</p>
+<pre class="code">cd /var/www/rails/프로젝트폴더/config
+nano routes.rb</pre>
+
+<p>
+routes.rb 내용 안쪽 아무데나 요걸 써준다
+</p>
+<pre class="code">root to: &#039;pages#home&#039;</pre>
+
+<p>
+velmont.iptime.org:3000에 접속하여 되는지 확인해보자
+</p>
+<pre class="code">http://velmont.iptime.org:3000</pre>

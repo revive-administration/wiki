@@ -1,0 +1,8 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1494921934;s:8:"modified";i:1495437391;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:8:{s:4:"date";i:1495437391;s:2:"ip";s:11:"39.7.50.246";s:4:"type";s:1:"E";s:2:"id";s:6:"기체";s:4:"user";s:9:"soyagok11";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:-1;}s:11:"contributor";a:1:{s:9:"soyagok11";s:9:"소야곡";}s:5:"title";s:6:"기체";s:11:"description";a:2:{s:15:"tableofcontents";a:4:{i:0;a:4:{s:3:"hid";s:6:"기체";s:5:"title";s:6:"기체";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:15:"플레이어블";s:5:"title";s:15:"플레이어블";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:19:"블랙_퍼레이드";s:5:"title";s:19:"블랙 퍼레이드";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:9:"프시케";s:5:"title";s:9:"프시케";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:291:"기체
+
+플레이어블
+ASU 제식 기체 (가칭)ASU 프로토타입
+블랙 퍼레이드
+블랙 퍼레이드 일반병 통상 기체 (가칭)블랙 퍼레이드 일반병 주력 기체 (가칭)블랙 퍼레이드 특수작전반 기체 (가칭)
+프시케
+프시케 지원형 로봇 (가칭)";}s:8:"relation";a:2:{s:10:"references";a:6:{s:17:"asu_제식_기체";b:1;s:19:"asu_프로토타입";b:1;s:43:"블랙_퍼레이드_일반병_통상_기체";b:1;s:43:"블랙_퍼레이드_일반병_주력_기체";b:1;s:42:"블랙_퍼레이드_특수작전반_기체";b:1;s:26:"프시케_지원형_로봇";b:1;}s:10:"firstimage";s:0:"";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1494921934;s:8:"modified";i:1495437391;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:8:{s:4:"date";i:1495437391;s:2:"ip";s:11:"39.7.50.246";s:4:"type";s:1:"E";s:2:"id";s:6:"기체";s:4:"user";s:9:"soyagok11";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:-1;}s:11:"contributor";a:1:{s:9:"soyagok11";s:9:"소야곡";}}}

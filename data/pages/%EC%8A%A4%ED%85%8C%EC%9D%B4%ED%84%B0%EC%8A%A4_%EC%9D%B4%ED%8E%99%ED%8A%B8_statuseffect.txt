@@ -1,0 +1,28 @@
+======= 스테이터스 이펙트(StatusEffect) ======
+소속 : CPPFL_SkillStructLibrary
+
+  플로트는 연산 이후 최종값에 반올림하여 정숫값으로 사용한다.
+  이 결과가 1 미만일 경우, 0으로 한다.
+
+^ 타입 ^  StatusEffect  ^  설명  ^   퍼센트 연산 여부  ^
+|  | None |  없음  |  |
+| float | Atk |  공격력   |  O  |
+| float | Pierce |  관통   |  O  |
+| float | Balance |  균형    |  O  |
+| float | CriticalRate |  치명타 확률    |  O  |
+| float | CriticalDamageAmp |  치명타 대미지 증폭비율    |  O  |
+| int32 | AtkCount |  공격 회수   |  X  |
+| float | ReloadTime |  재장전 시간    |  O  |
+| float | Def |  방어력    |  O  |
+| int32 | MaxWeight |  무게 상한    |  X  |
+| int32 | MaxBullet |  최대 탄창    |  X  |
+| float | MaxHp |  HP 최대량    |  O  |  
+| float | MaxEnergy |  에너지 최대량    |  O  |
+| float | BulletInterval |  발사 인터벌   |  X  |
+| float | BulletTravelSpeed |  총알 속도    |  X  |
+| float | OrderPointGauge |  명령 포인트 게이지    |  X  |
+| float | PassiveEffect |  패시브 효과    |  O  |
+| float | AttackWeight |  공격비중    |  O  |
+| float | HitWeight |   피격비중    |  O  |
+| float | GoldReceivingRate |  골드 수급률    |  O  |
+| float | ItemReceivingProbability |  아이템 드랍 확률    |  O  |

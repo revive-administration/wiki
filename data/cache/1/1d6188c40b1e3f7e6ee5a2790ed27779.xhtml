@@ -1,0 +1,66 @@
+
+<h1 class="sectionedit1" id="자동화_테크니컬_가이드">자동화 테크니컬 가이드</h1>
+<div class="level1">
+
+<p>
+자동화 테스트는 크게 <strong>Simple</strong>과 <strong>Complex</strong> 두 가지로 나뉜다.
+</p>
+
+</div>
+<!-- EDIT1 SECTION "자동화 테크니컬 가이드" [1-129] -->
+<h2 class="sectionedit2" id="자동화_테스트의_구조와_실행">자동화 테스트의 구조와 실행</h2>
+<div class="level2">
+
+<p>
+모든 자동화 테스트는 FAutomationTestBase 클래스에서 파생되는데, 여기서 명령어 집합을 수행하는 범용 함수성을 정의한다. 새로운 자동화 테스트 셋업시 사용되는 FAutomationTestBase 클래스의 중요 함수는 다음과 같다.
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 멤버 함수 </th><td class="col1"></td>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> GetTests() </td><td class="col1"> 명령어 목록을 RunTest()에 전달할 파라미터로 하나씩 채운다 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> RunTest() </td><td class="col1"> 전달된 명령어 문자열을 사용하여 테스트 로직을 돌린다. </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [464-678] -->
+</div>
+<!-- EDIT2 SECTION "자동화 테스트의 구조와 실행" [130-679] -->
+<h2 class="sectionedit4" id="폴더_구조">폴더 구조</h2>
+<div class="level2">
+
+<p>
+현재 규칙은 모든 자동화 테스트를 연관성이 있는 모듈 내 Private\Tests 디렉토리에 넣는 것이다. 테스트가 특정 클래스에 일대일로 대응되면, 테스트 파일 이름을 [ClassFilename]Test.cpp 으로 지어주면 된다.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "폴더 구조" [680-971] -->
+<h2 class="sectionedit5" id="테스트_만들기">테스트 만들기</h2>
+<div class="level2">
+
+<p>
+각 자동화 테스트 선언은 특수 매크로를 사용합니다. 매크로는 테스트가 단순 테스트냐 복잡 테스트냐에 따라 달라지지만, 각 매크로가 필요로 하는 파라미터는 동일합니다.
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 파라미터 </th><th class="col1"> 설명 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> TClass </td><td class="col1"> 테스트의 클래스 이름 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> PrettyName </td><td class="col1 leftalign"> UI에 나타날 계층구조식 테스트 이름을 나타내는 문자열  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> TFlags </td><td class="col1"> 자동화 테스트 요건/동작을 나타내는 EAutomationTestFlags이다 </td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [1236-1487] -->
+</div>
+<!-- EDIT5 SECTION "테스트 만들기" [972-] -->

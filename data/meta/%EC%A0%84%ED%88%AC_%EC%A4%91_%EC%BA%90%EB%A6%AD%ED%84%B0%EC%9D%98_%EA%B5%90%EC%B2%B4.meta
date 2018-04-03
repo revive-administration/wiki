@@ -1,0 +1,6 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1473221996;s:8:"modified";i:1473242981;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:7:{s:4:"date";i:1473242981;s:2:"ip";s:15:"219.255.207.100";s:4:"type";s:1:"E";s:2:"id";s:30:"전투_중_캐릭터의_교체";s:4:"user";s:9:"soyagok11";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:9:"soyagok11";s:9:"소야곡";}s:5:"title";s:30:"전투 중 캐릭터의 교체";s:11:"description";a:2:{s:15:"tableofcontents";a:1:{i:0;a:4:{s:3:"hid";s:30:"전투_중_캐릭터의_교체";s:5:"title";s:30:"전투 중 캐릭터의 교체";s:4:"type";s:2:"ul";s:5:"level";i:1;}}s:8:"abstract";s:290:"전투 중 캐릭터의 교체
+전투중인 부대원과 1:1 대응되는 서포터끼리 서로 교체할 수 있다.
+
+교체할때의 특징은 다음과 같다.
+* 이하, 전투중이던 부대원 : 교체대상
+** 이하, 교체를 통해 전투에 투입되는 서포터 : 교체결과";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1473221996;s:8:"modified";i:1473242981;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:7:{s:4:"date";i:1473242981;s:2:"ip";s:15:"219.255.207.100";s:4:"type";s:1:"E";s:2:"id";s:30:"전투_중_캐릭터의_교체";s:4:"user";s:9:"soyagok11";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:9:"soyagok11";s:9:"소야곡";}}}

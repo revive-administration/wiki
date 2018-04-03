@@ -1,0 +1,165 @@
+
+<h1 class="sectionedit1" id="chapter_9">Chapter 9</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 9" [1-24] -->
+<h2 class="sectionedit2" id="처리기_스케줄링의_유형">9.1 처리기 스케줄링의 유형</h2>
+<div class="level2">
+
+<p>
+처리기 스케줄링의 목적을 한마디로 표현하면 “응답 시간이나 처리량, 효율성을 증대시키기 위해 처리기가 다음에 실행할 프로세스를 선택하는 것”이라고 할 수 있다. 
+</p>
+
+<p>
+&lt;스케줄링의 유형&gt;
+</p>
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">유형</th><th class="col1">설명</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">장기(long-term) </td><td class="col1"> 스케줄링 프로세스가 CPU에 의해 실행될 수 있는 자격을 부여할지 여부를 결정</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">중기(medium-term) </td><td class="col1"> 스케줄링 프로세스 이미지 전부 혹은 일부가 주 메모리에 올라올 수 있는 자격을 부여할지 여부를 결정</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">단기(short-term) </td><td class="col1"> 스케줄링CPU에 의해 실행될 다음번 프로세스로 어떤 프로세스를 선택할지를 결정</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> 입출력(I/O) </td><td class="col1"> 스케줄링대기 중인 입출력 요구 중 해당 입출력 장치가 다음번에 어떤 요구를 처리할지를 결정</td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [323-904] -->
+</div>
+<!-- EDIT2 SECTION "9.1 처리기 스케줄링의 유형" [25-905] -->
+<h3 class="sectionedit4" id="단기_스케줄링">단기 스케줄링</h3>
+<div class="level3">
+
+<p>
+단기 스케줄러가 호출되는 시점은 매우 다양한데, 현재 실행 중인 프로세스가 자발적으로 CPU를 놓거나, 또는 자신의 CPU 시간 할당량을 모두 소진한 후 운영체제에 의해 강제적으로 CPU를 뺏기는 경우에 주로 호출된다. 스케줄러의 요구조건을 만족시키기 위해 단기 스케줄러는 다음의 사건이 발생할 때마다 단기 스케줄러를 호출한다. 그러면 단기 스케줄러는 현재 프로세스로부터 CPU를 뺏은 후 실행할 다음 프로세스를 골라 실행시켜 준다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 클록(타이머) 인터럽트</div>
+</li>
+<li class="level1"><div class="li"> 입출력 인터럽트</div>
+</li>
+<li class="level1"><div class="li"> 운영체제 시스템 호출</div>
+</li>
+<li class="level1"><div class="li"> 신호(signal) (예를들면, 세마포어)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "단기 스케줄링" [906-1663] -->
+<h2 class="sectionedit5" id="스케줄링_알고리즘">9.2 스케줄링 알고리즘</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT5 SECTION "9.2 스케줄링 알고리즘" [1664-1705] -->
+<h3 class="sectionedit6" id="단기_스케줄링_평가_기준들">단기 스케줄링 평가 기준들</h3>
+<div class="level3">
+
+<p>
+단기 스케줄링의 주된 목적은 시스템의 전체 성능을 높이기 위해 처리기 시간을 프로세스들에게 효율적으로 분배하는 것이다. 일반적으로 어떤 단기 스케줄링 방식의 효율성을 평가할 때에는 다양한 평가 기준들이 동원된다. 어떤 스케줄러가 어떤 한 측면에서 우수한 성능을 보였다고 해도 다른 어떤 면에서는 뒤쳐질 수 있기 때문이다. 
+</p>
+
+<p>
+스케줄러에 대한 평가는 크게 2로 나누어 볼 수 있다. 첫번째는 사용자 중심의 관점에서 평가할 것인가 아니면 시스템 중심의 관점에서 평가할 것이냐 이다. 
+</p>
+
+<p>
+사용자 중심의 관점은 모든 시스템에서 반드시 고려해야 할 척도인 반면, 단일 사용자 시스템에서는 시스템 중심의 관점이 그리 중요하지 않을 수 있다. 응답 속도가 적정 수준을 유지해 주기만 하면 된다.
+</p>
+
+<p>
+두 번재 측면으로는 성능 중심의 관점에서 평가할 것인가 아니면 성능과 관련 없는 다른 척도로 평가할 것인가이다. 
+</p>
+
+<p>
+&lt;사용자 중심의 성능 관련 평가 척도&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 반환 시간(turnaround time) : 프로세스가 시스템으로 진입한 후부터 종료할 때까지 걸린 시간을 의미한다. 일괄 작업의 성능을 측정하기에 적당한 척도이다.</div>
+</li>
+<li class="level1"><div class="li"> 응답 시간(response time) : 대화형 프로세스가 시스템에 요구를 한 후 이에 대한 시스템으로부터의 첫 번째 응답이 올 때까지의 시간을 의미한다. 프로세스는 사용자에게 실행 결과를 출력해주는 사이에 시스템에 또 다른 요청을 하는 경우가 종종 있다. </div>
+</li>
+<li class="level1"><div class="li"> 완료 기한(deadline) : 만약 프로세스가 완료되어야 하는 시점에 기한이 있다면 스케줄러는 다른 평가 척도가 다소 희생당하는 한이 있더라도 완료 기한을 만족시킬 수 있는 프로세스의 수를 최대화하는 방향으로 설계되어야 한다.</div>
+</li>
+</ul>
+
+<p>
+&lt;사용자 중심의 기타 평가척도&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 예측 가능성(predictability) : 같은 작업이라면 실행될 때마다 동일한 기간 동안 실행되어야 하고, 시스템의 부하 정도에 상관없이 동일한 비용으로 실행되어야 한다. 만약 실행될 때마다 응답 시간이나 반환 시간이 많이 차이난다면 사용자들은 시스템을 신뢰하지 못하게 될 것이다. 만약 그렇다면 시스템에 가해지는 부하의 시간에 따른 편차가 크기 때문일 것이다. 이런 경우 시스템 튜닝을 통해 성능 불안정 문제를 해소해야 할 필요가 있다.</div>
+</li>
+</ul>
+
+<p>
+&lt;시스템 중심의 성능 관련 평가 척도&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 처리량(throughput) : 처리량을 중시하는 스케줄러는 단위 시간 내에 완료될 수 있는 프로세스의 수를 최대화하는 정책을 사용해야 한다. 이는 처리해야 할 작업의 양에 관련된 척도로써 각 프로세스 실행 시간의 길고 짧음에 따라 크게 좌우되기는 한다. 하지만 스케줄링 정책에 따라 처리기 이용률이 많이 차이 나므로 어떤 스케줄링의 정책을 채용하느냐가 처리량에 큰 영향을 미친다. </div>
+</li>
+<li class="level1"><div class="li"> 처리기 이용률(processor utilization) : 처리기 이용률이란 전체 시간 중에 처리기가 바쁘게 실행을 한 시간의 비율을 의미한다.</div>
+</li>
+</ul>
+
+<p>
+&lt;시스템 중심의 기타 척도&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> 공정성</div>
+</li>
+<li class="level1"><div class="li"> 우선순위의 부여(enforcing priority)</div>
+</li>
+<li class="level1"><div class="li"> 균형 있는 자원(balancing resources)</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "단기 스케줄링 평가 기준들" [1706-5247] -->
+<h3 class="sectionedit7" id="우선순위-기반_스케줄링">우선순위-기반 스케줄링</h3>
+<div class="level3">
+
+<p>
+우선순위만을 고려하는 순수-우선순위 기반 스케줄링 방식의 문제점은 기아 상태(starvation)가 발생할 확률이 높다는 것이다.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "우선순위-기반 스케줄링" [5248-5456] -->
+<h3 class="sectionedit8" id="다양한_스케줄링_정책들">다양한 스케줄링 정책들</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 선택함수(selection function) : 다음번 실행을 위해 준비</div>
+</li>
+<li class="level1"><div class="li"> 결정 모드(decision mode) 큐에서 대기 중인 프로세스 중 하나를 고를 때 사용하는 알고리즘을 함수 형태로 표현한 것 하는 것</div>
+<ul>
+<li class="level2"><div class="li"> 비선점 모드(Nonpreemptive) : 프로세스가 일단 실행 상태에 진입하면 종료되거나 자발적으로 CPU를 놓을 때까지는 CPU를 빼앗기지 않는다.</div>
+</li>
+<li class="level2"><div class="li"> 선점 모드 : 실행중인 프로세스더라도 비자발적으로 준비 큐로 이동될 수 있다.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+&lt;다양한 단기-스케줄링 알고리즘들&gt;
+</p>
+<ul>
+<li class="level1"><div class="li"> FCFS(First-come-first-served) : 시스템에 들어와 가장 오랫동안 기다린 프로세스를 선택한다.</div>
+</li>
+<li class="level1"><div class="li"> 라운드 로빈(Round-robin) : 준비 큐에 있는 프로세스들을 돌아가며 순서대로 선택한다. 한번 스케줄링 되면 시간 할당량만큼만 실행된 후 강제로 CPU를 뺏어 다음 프로세스를 실행시킨다.</div>
+</li>
+<li class="level1"><div class="li"> SPN(Shortest process next) : 예상되는 프로세스 서비스 시간이 가장 짧은 프로세스를 다음번 프로세스로 선택한다. 한번 실행되면 강제로 선점되지 않는 비선점 모드로 동작한다.</div>
+</li>
+<li class="level1"><div class="li"> SRT(Shortest remaining time) : 남아있는 예상 처리 시간이 가장 짧은 프로세스를 다음번 프로세스로 선택한다. 만약 남아있는 예상 처리 시간이 더 짧은 프로세스가 준비상태가 되면 현재 실행 중인 프로세스는 즉각 선점된다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "다양한 스케줄링 정책들" [5457-] -->

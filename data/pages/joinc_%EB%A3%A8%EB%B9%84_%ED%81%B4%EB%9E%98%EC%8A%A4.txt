@@ -1,0 +1,31 @@
+====== Joinc 루비 클래스 ======
+원문 : http://www.joinc.co.kr/modules/moniwiki/wiki.php/Site/Ruby/Tutorial02
+
+===== 1. class =====
+
+===== 2. 클래스 정의 =====
+==== 2.2 루비 클래스 ====
+구성요소
+  - Class Variable : 클래스가 가지는 변수
+  - Instance Variable : 인스턴스마다 가지는 변수
+  - Method : 데이터를 조작하는 일을 한다.
+
+==== 2.3 Object-specific classes ====
+루비는 특정 객체로부터 클래스를 만드는 것을 허용한다.
+
+==== 2.4 Mixin Modules ====
+클래스는 모듈을 포함할 수 있다. 클래스는 모듈에 있는 메서드를 "인스턴스 메서드" 처럼 사용할 수 있다. 슈퍼클래스의 메서드를 그대로 사용할 수 있는 것과 동일한 효과를 얻을 수 있다.
+
+<file ruby ruby 2.4-1>
+module SillyModule
+  def hello
+    "Hello"
+  end
+end
+class SillyClass
+  include SillyModule
+end
+s = SillyClass.net
+s.hello 
+end
+</file>

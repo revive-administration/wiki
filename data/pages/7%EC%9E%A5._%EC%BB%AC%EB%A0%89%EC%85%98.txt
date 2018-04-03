@@ -1,0 +1,11 @@
+====== 7장. 컬렉션 ======
+===== 7.1 컬렉션 프레임워크 개요 ======
+  * IntStream
+    * https://blog.naver.com/treasure4me/220733759249
+  * Stream
+    * http://multifrontgarden.tistory.com/128
+  * Collect
+    * 스트림은 요소들을 필터링 또는 매핑한 후 요소들을 수집하는 최종 메서드인 collect()를 제공하고 있다. 이 메서드를 이용하면 필요한 요소만 컬렉션으로 담을 수 있고, 요소들을 그루핑한 후 집계(리덕션)할 수 있다.
+    * collect() 메서드는 단순히 요소를 수집하는 기능 이외에 컬렉션의 요소들을 그룹핑 해서 Map 객체를 생성하는 기능도 제공한다. collect()를 호출할 시 Collections의 groupingBy 또는 groupingByConcurrent 메서드가 리턴하는 Collector를 매개값으로 대입하면 된다. groupingBy는 스레드에 안전하지 않은 Map을 생성하지만 groupingBYConcurrent는 스레드에 안전한 ConcurrentMap을 생성한다.
+  * RandomAccess
+    * http://enjoyjava.tistory.com/entry/Random-Access%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC

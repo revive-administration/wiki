@@ -1,0 +1,14 @@
+====== 데이터 처리 ======
+  * **1) 유닛 정보 (Unit Info)**
+    * 아군 정보(Ally Info)
+      * Ally Base, Ally Body
+    * 적군 정보(Enemy Info)
+      * Enemy Base, Enemy Set
+  * **2) 전투 정보 (Battle Info)**
+    * 전투 포지션 정보(Position Revision)
+    * 단일 공격 확률 정보 (Single Attack Chance)
+    * 다중 공격 확률 정보 (Splash Attack Chance)
+    * 무기 정보 (Weapon)
+    * 전투 단계 정보 (Battle Phase)
+  * **3) 스토리 정보 (Story Info)**
+    * 스토리 정보(Story) //임시 DT

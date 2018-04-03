@@ -1,0 +1,14 @@
+====== 플레이어 데이터 ======
+^  컬럼명  ^  의미  ^  예  ^  용도  ^  비고  ^
+|  ID  |  고유한 아이디 값 (숫자)  |  3356  | | |
+|  GID  |  구글 계정 아이디  |  velmont  | | |
+|  Nickname  |  닉네임  |  벨몽이  | | | 
+|  Crystal  |  재화  | | | |
+|  Dust  |  보조 재화  | | | | 
+|  SkinDetail  |  스킨 정보  | | | |
+|  PurchaseDetail  |  구매 정보  | | | |
+|  CardsData01  | | | | |
+|  LastLogin  |  최근 로그인 일자  | | | |
+|  RankedMMR  | | | | |
+|  UnRankedMMR  | | | | |
+|  AttendanceCount  |  한달 출석 횟수  |  3  | | |

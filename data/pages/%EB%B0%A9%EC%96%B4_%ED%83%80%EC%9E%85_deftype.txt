@@ -1,0 +1,11 @@
+====== 방어 타입 (DefType) ======
+소속 : CPPFL_EquipmentStructLibrary
+
+방어 방식의 타입. 타입에 따라 방어 메커니즘이 상이하다. [[데미지 계산식]] 참고.
+
+^ 구분 ^ 설명 ^
+| Default | 일반 물리 계열의 방어 |
+| Machinery | 기계 계열의 방어 |
+| Magic | 마법 계열 방어 |
+| Energy | 에너지 계열 방어 |
+| Psychic | 초능력 계열 방어 |

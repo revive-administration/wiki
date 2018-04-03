@@ -1,0 +1,5 @@
+====== 유저 정보 ======
+
+^ UserSrl ^ AccountId ^ AccountType ^ 메일 주소 ^ 닉네임 ^ 점수 ^
+| 1 | 9e8ed5239 | FaceBook | velmont@naver.com | 김벨몽 | 1480 |
+| 2 | 8ef0d23kg | Google | soyagok@gmail.com | 김벼리 | 12393 |

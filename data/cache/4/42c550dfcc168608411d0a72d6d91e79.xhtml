@@ -1,0 +1,120 @@
+
+<h1 class="sectionedit1" id="특성_시스템">특성 시스템</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "특성 시스템" [1-30] -->
+<h2 class="sectionedit2" id="특성_개요">특성 개요</h2>
+<div class="level2">
+<pre class="code">- 특성 연구를 통해 캐릭터의 AttributeLevel을 올릴 수 있음.
+- 캐릭터의 AttributeLevel에 따라 바디의 특성 트리 개방.
+- ex) 캐릭터의 AttributeLevel이 2라면, 그에 해당하는 바디들은 2단계 특성 트리까지 사용 가능</pre>
+
+</div>
+<!-- EDIT2 SECTION "특성 개요" [31-339] -->
+<h2 class="sectionedit3" id="특성_트리">특성 트리</h2>
+<div class="level2">
+<pre class="code">- 각 특성 트리는 여러 개의 특성으로 이루어짐.
+- 개방된 특성 트리가 있다면 유저는 여러 개의 특성 중 하나를 골라 바디에게 적용 시킬 수 있음.
+- 특성 선택은 수시로 변경할 수 있음</pre>
+
+</div>
+<!-- EDIT3 SECTION "특성 트리" [340-623] -->
+<h2 class="sectionedit4" id="특성">특성</h2>
+<div class="level2">
+<pre class="code">- 특성은 패시브 스킬과 같은 원리로 작용.
+- 항상 적용되는 특성이 있는가 하면, 특정 조건 만족 시 발동하는 특성도 있음.</pre>
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%B9%EC%84%B1_%EC%8B%9C%EC%8A%A4%ED%85%9C&amp;media=%ED%8A%B9%EC%84%B1%ED%8A%B8%EB%A6%AC0.png" class="media" title="특성트리0.png"><img src="/dokuwiki/lib/exe/fetch.php?w=400&amp;tok=79f210&amp;media=%ED%8A%B9%EC%84%B1%ED%8A%B8%EB%A6%AC0.png" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%ED%8A%B9%EC%84%B1_%EC%8B%9C%EC%8A%A4%ED%85%9C&amp;media=%ED%8A%B9%EC%84%B1%ED%8A%B8%EB%A6%AC.png" class="media" title="특성트리.png"><img src="/dokuwiki/lib/exe/fetch.php?w=800&amp;tok=78f543&amp;media=%ED%8A%B9%EC%84%B1%ED%8A%B8%EB%A6%AC.png" class="media" alt="" width="800" /></a>
+</p>
+<pre class="code">특성 트리 구조
+- 바디가 특성 보유.
+- 특성은 다음 규칙을 통해 위치하는 단계를 정함.
+  - 바디의 AttributeTreeArray의 n번 앨리먼트인 AttributeTree는 특성 n+1단계에 해당.
+  - AttributeTree의 Length에 따라 특성 버튼 배치.
+- 특성을 활성화시키면 바디 보유 정보의 SelectedAttribute의 (활성화시킨 특성 트리 단계-1)번째 엘리먼트에 해당 특성의 Index를 저장</pre>
+
+</div>
+<!-- EDIT4 SECTION "특성" [624-1341] -->
+<h2 class="sectionedit5" id="attribute">Attribute</h2>
+<div class="level2">
+
+<p>
+PassiveSkill과 같은 구조체 사용
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  Removable  </th><th class="col4 centeralign">  Description……………….  </th><th class="col5 centeralign">  CheckTime1  </th><th class="col6 centeralign">  Target1  </th><th class="col7 centeralign">  Sel.Cond.1  </th><th class="col8 centeralign">  Sel.Number1  </th><th class="col9 centeralign">  EffectNumber1  </th><th class="col10 centeralign">  C.Number1  </th><th class="col11 centeralign">  CheckTime2  </th><th class="col12 centeralign">  Target2  </th><th class="col13 centeralign">  Sel.Cond.2  </th><th class="col14 centeralign">  Sel.Number2  </th><th class="col15 centeralign">  EffectNumber2  </th><th class="col16 centeralign">  C.Number2  </th><th class="col17 centeralign">  BuffIcon  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Att_Izumi_ASU_1  </td><td class="col1 centeralign">  공격력 소폭 상승  </td><td class="col2 centeralign">  Attribute  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 공격력 + 5  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_None  </td><td class="col12 centeralign">  VE_None  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Att_Izumi_ASU_2  </td><td class="col1 centeralign">  공격력 대폭 상승  </td><td class="col2 centeralign">  Attribute  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 공격력 + 15  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_None  </td><td class="col12 centeralign">  VE_None  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Att_Izumi_ASU_3  </td><td class="col1 centeralign">  공격력 초대폭 상승  </td><td class="col2 centeralign">  Attribute  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 공격력 + 30  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_None  </td><td class="col12 centeralign">  VE_None  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Att_Izumi_Ranger_1  </td><td class="col1 centeralign">  관통률 소폭 상승  </td><td class="col2 centeralign">  Attribute  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 관통률 + 5%  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_None  </td><td class="col12 centeralign">  VE_None  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Att_Izumi_Ranger_2  </td><td class="col1 centeralign">  튼튼데스네  </td><td class="col2 centeralign">  Attribute  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 최대 Hp + 100, 방어력 + 100  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  2  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_None  </td><td class="col12 centeralign">  VE_None  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17"></td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  Att_Izumi_Ranger_3  </td><td class="col1 centeralign">  대단한 회복력  </td><td class="col2 centeralign">  Attribute  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 일반 공격 시마다 체력 20 회복  </td><td class="col5 centeralign">  VE_NormalAttack  </td><td class="col6 centeralign">  VE_Self  </td><td class="col7 centeralign">  VE_None  </td><td class="col8 centeralign">  1  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  0  </td><td class="col11 centeralign">  VE_None  </td><td class="col12 centeralign">  VE_None  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  0  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17"></td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [1403-2934] --><div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  Attribute DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  특성 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype" rel="nofollow">Type</a>  </td><td class="col1 centeralign">  타입 Enum. Attribute  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Removable  </td><td class="col1 centeralign">  면역, 해제 가능 여부. 패시브 스킬, 특성은 무조건 False  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 특성 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime" rel="nofollow">CheckTime</a>  </td><td class="col1 centeralign">  Condition이 True인지 False인지 판정해서 효과를 적용시키는 시점 Enum  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target" rel="nofollow">Target</a>  </td><td class="col1 centeralign">  대상 분류. AllUnit, Ally, Enemy, Self, Bullet, None  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition" rel="nofollow">SelectionCondition</a>  </td><td class="col1 centeralign">  Target 내에서 선별기준 Enum.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  SelectionNumber  </td><td class="col1 centeralign">  SelectionCondition에 해당하는 개체 중 고르는 개수.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  EffectNumber  </td><td class="col1 centeralign">  Effect의 개수.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  C.Number  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  BuffIcon  </td><td class="col1 centeralign">  특성 아이콘 이미지로 사용. 전투 시 버프 아이콘은 보이지 않음.  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [2936-4182] -->
+</div>
+<!-- EDIT5 SECTION "Attribute" [1342-] -->

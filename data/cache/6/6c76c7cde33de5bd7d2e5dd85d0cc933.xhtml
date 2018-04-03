@@ -1,0 +1,563 @@
+
+<h1 class="sectionedit1" id="스킬_구조체">스킬 구조체</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "스킬 구조체" [1-30] -->
+<h2 class="sectionedit2" id="스킬_구조">스킬 구조</h2>
+<div class="level2">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%8A%A4%ED%82%AC_%EA%B5%AC%EC%A1%B0%EC%B2%B4&amp;media=%EC%8A%A4%ED%82%AC_%EA%B5%AC%EC%A1%B0.png" class="media" title="스킬_구조.png"><img src="/dokuwiki/lib/exe/fetch.php?w=500&amp;tok=eec37a&amp;media=%EC%8A%A4%ED%82%AC_%EA%B5%AC%EC%A1%B0.png" class="media" alt="" width="500" /></a>
+</p>
+<pre class="code">- Skill은 대상 그룹의 개수에 따라 여러 개의 EffectSet을 가진다. PassiveSkill들은 Condition도 가진다.
+- EffectSet은 대상 그룹에게 적용시킬 여러 개의 Effect와 Condition을 가진다.
+- Effect는 효과의 내용 및 수치와 Condition을 가진다.
+- ex) 적군 중 랜덤한 1명에게 1000의 대미지로 공격하고 10초간 출혈을 걸며, 자신의 Hp를 50 회복하는 스킬.
+  - &#039;적군 중 랜덤한 1명&#039;과 &#039;자신&#039;이라는 2개의 대상 그룹이 존재하므로 2개의 EffectSet을 가짐.
+  - &#039;적군 중 랜덤한 1명&#039;을 지정한 EffectSet은 &#039;1000의 대미지를 입힘&#039;이라는 Effect와 &#039;10초간 출혈&#039;이라는 Effect를 가짐.
+  - &#039;자신&#039;을 지정한 EffectSet은 &#039;Hp 50 회복&#039;이라는 Effect를 가짐.
+- 여러 Effect가 같은 대상에게 적용되는 경우가 있어서 이렇게 변경.</pre>
+<hr />
+
+</div>
+<!-- EDIT2 SECTION "스킬 구조" [31-981] -->
+<h2 class="sectionedit3" id="스킬_발동_처리">스킬 발동 처리</h2>
+<div class="level2">
+<pre class="code">ExSkill 발동 처리
+1. 시간 흐름, 적 처치로 인해 OrderPoint 증가.
+2. 플레이어가 UI조작으로 사용할 EX스킬 버튼을 누름.
+3. EffectSet DB에서 RowName이 (ExSkill DB의 RowName)_a인 행을 참조. (a=1~EffectSetNumber)
+4. EffectSet으로 스킬 대상을 결정하고 Condition DB에서 RowName이 (EffectSet DB의 RowName)_Cb인 행이 참인지 판정. (b=1~ConditionNumber)
+5. True인 EffectSet의 경우 Effect DB에서 RowName이 (EffectSet DB의 RowName)_c인 행을 참조. (c=1~EffectNumber)
+6. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_Cd인 행이 참인지 판정. (d=1~ConditionNumber)
+7. True인 Effect들을 체크.
+8. True인 EffectSet마다 스킬 발동 후 EffectSet의 ApplyTime(초)만큼 시간이 흘렀을 때 True였던 Effect들 효과 적용.</pre>
+<pre class="code">AutoSkill 발동 처리
+1. 시간 흐름, 일반 공격, 피격으로 인해 SkillGauge 증가.
+2. SkillGauge가 100이 되는 순간 개체의 Poisition에 따라 사용될 Skill이 결정됨.
+3. EffectSet DB에서 RowName이 (AutoSkill DB의 RowName)_a인 행을 참조. (a=1~EffectSetNumber)
+4. EffectSet으로 스킬 대상을 결정하고 Condition DB에서 RowName이 (EffectSet DB의 RowName)_Cb인 행이 참인지 판정. (b=1~ConditionNumber)
+5. True인 EffectSet의 경우 Effect DB에서 RowName이 (EffectSet DB의 RowName)_c인 행을 참조. (c=1~EffectNumber)
+6. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_Cd인 행이 참인지 판정. (d=1~ConditionNumber)
+7. True인 Effect들을 체크.
+8. True인 EffectSet마다 스킬 발동 후 EffectSet의 ApplyTime(초)만큼 시간이 흘렀을 때 True였던 Effect들 효과 적용.</pre>
+<pre class="code">PassiveSkill 발동 처리
+1. 전투 중 CheckTime에 해당할 때 전투에 참여 중인 바디들이 보유한 같은 CheckTime을 갖는 PassiveSkill 검사.
+2. 해당하는 PassiveSkill마다 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_Ce인 행이 참인지 판정. (e=1~ConditionNumber)
+3. True인 경우 EffectSet DB에서 RowName이 (PassiveSkill DB의 RowName)_f인 행을 참조. (f=1~EffectSetNumber)
+4. EffectSet으로 스킬 대상을 결정하고 Condition DB에서 RowName이 (EffectSet DB의 RowName)_Cg인 행이 참인지 판정. (g=1~ConditionNumber)
+5. True인 EffectSet의 경우 Effect DB에서 RowName이 (EffectSet DB의 RowName)_h인 행을 참조. (h=1~EffectNumber)
+6. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (Effect DB의 RowName)_Ci인 행이 참인지 판정. (i=1~ConditionNumber)
+7. True인 Effect들을 체크.
+8. True인 EffectSet마다 스킬 발동 후 EffectSet의 ApplyTime(초)만큼 시간이 흘렀을 때 True였던 Effect들 효과 적용.</pre>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "스킬 발동 처리" [982-3846] -->
+<h2 class="sectionedit4" id="exskill">ExSkill</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  EffectSetNumber  </th><th class="col4 centeralign">  Text  </th><th class="col5 centeralign">  OrderPoint  </th><th class="col6 centeralign">  CooldownTime  </th><th class="col7 centeralign">  Targeting  </th><th class="col8 centeralign">  EndTime  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  ExSkill1  </td><td class="col1 centeralign">  EX:돌격 명령  </td><td class="col2 centeralign">  ExSkill  </td><td class="col3 centeralign">  2  </td><td class="col4 leftalign"> 부대원들이 전방으로 이동하며, 4초간 부동 상태를 부여한다. 10초간 아군의 소총 공격의 데미지가 100% 증가한다.  </td><td class="col5 centeralign">  2  </td><td class="col6 centeralign">  10  </td><td class="col7 centeralign">  False  </td><td class="col8 centeralign">  2.8  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  ExSkill2  </td><td class="col1 centeralign">  EX:전술 폭격  </td><td class="col2 centeralign">  ExSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 이즈미가 부대에 포함되지 않았을 때에만 활성화된다. 전열의 적들에게 120의 피해를 입힌다.  </td><td class="col5 centeralign">  4  </td><td class="col6 centeralign">  14.5  </td><td class="col7 centeralign">  False  </td><td class="col8 centeralign">  3.1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  ExSkill3  </td><td class="col1 centeralign">  EX:집중 공격  </td><td class="col2 centeralign">  ExSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 적 1체를 선택한다. 아군이 선택한 적을 공격할 확률이 50% 증가한다.  </td><td class="col5 centeralign">  2  </td><td class="col6 centeralign">  10  </td><td class="col7 centeralign">  True  </td><td class="col8 centeralign">  5.0  </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [3865-4610] --><div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  ExSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  스킬 타입 Enum. ExSkill  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  EffectSetNumber  </td><td class="col1 centeralign">  EffectSet의 개수  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  OrderPoint  </td><td class="col1 centeralign">  사용 시 필요 및 소모되는 명령 포인트 양.   </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  CooldownTime  </td><td class="col1 centeralign">  사용 후 다음 사용까지 기다려야 하는 개별 쿨타임. 이와 별개로 글로벌 쿨타임도 있음.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  Targeting  </td><td class="col1 centeralign">  적군 타겟팅 조작 필요 여부. True, False  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  EndTime  </td><td class="col1 centeralign">  스킬 발동 후 스킬 종료까지 걸리는 시간(초). 스킬이 종료되어야 리로딩 및 일반 공격이 재개된다.  </td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [4612-5282] -->
+</div>
+<!-- EDIT4 SECTION "ExSkill" [3847-5283] -->
+<h2 class="sectionedit7" id="autoskill">AutoSkill</h2>
+<div class="level2">
+<div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  EffectSetNumber  </th><th class="col4 centeralign">  Text  </th><th class="col5 centeralign">  SkillGauge  </th><th class="col6 centeralign">  ActionCancel  </th><th class="col7 centeralign">  EndTime  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  FrSkill1  </td><td class="col1 centeralign">  저격  </td><td class="col2 centeralign">  FrontSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> Hp가 가장 낮은 적 1명에게 220%의 대미지를 준다. 적이 전방에 있으면 최고 대미지를 입히고, 후방에 있으면 최소 대미지를 입힌다.  </td><td class="col5 centeralign">  100  </td><td class="col6 centeralign">  True  </td><td class="col7 centeralign">  2.1  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  FrSkill2  </td><td class="col1 centeralign">  산탄  </td><td class="col2 centeralign">  FrontSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 전방에 위치한 모든 적에게 80%의 대미지를 주고 후방으로 이동시킨 뒤 5초간 이동불가 부여  </td><td class="col5 centeralign">  100  </td><td class="col6 centeralign">  True  </td><td class="col7 centeralign">  1.9  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  FrSkill3  </td><td class="col1 centeralign">  수류탄 투척  </td><td class="col2 centeralign">  FrontSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 후방에 위치한 모든 적에게 80%의 대미지를 주고 스킬 게이지를 20 낮춘다.  </td><td class="col5 centeralign">  80  </td><td class="col6 centeralign">  False  </td><td class="col7 centeralign">  1.1  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  BaSkill1  </td><td class="col1 centeralign">  부상 치료  </td><td class="col2 centeralign">  BackSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> Hp가 가장 낮은 아군 2명의 Hp를 150 회복한다.  </td><td class="col5 centeralign">  80  </td><td class="col6 centeralign">  False  </td><td class="col7 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  BaSkill2  </td><td class="col1 centeralign">  치얼~업  </td><td class="col2 centeralign">  BackSkill  </td><td class="col3 centeralign">  2  </td><td class="col4 leftalign"> 20초 동안 전방에 위치한 모든 아군의 리로드시간 30% 감소, 10초 동안 전방에 위치한 모든 적군의 리로드시간 30% 증가  </td><td class="col5 centeralign">  80  </td><td class="col6 centeralign">  False  </td><td class="col7 centeralign">  2.1  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  BaSkill3  </td><td class="col1 centeralign">  겁주기  </td><td class="col2 centeralign">  BackSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 20초 동안 모든 적군의 공격력 30% 감소  </td><td class="col5 centeralign">  90  </td><td class="col6 centeralign">  False  </td><td class="col7 centeralign">  2.3  </td>
+	</tr>
+</table></div>
+<!-- EDIT8 TABLE [5304-6534] --><div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  AutoSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  스킬 타입 Enum. FrontSkill, BackSkill  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  EffectSetNumber  </td><td class="col1 centeralign">  EffectSet의 개수  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  SkillGauge  </td><td class="col1 centeralign">  스킬 발동 시 소모되는 스킬 게이지  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  ActionCancel  </td><td class="col1 centeralign">  스킬 게이지가 다 찼을 때 일반 공격&amp;리로딩을 취소하고 발동할 지 여부. False라면 일시정지하고 발동한다.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  EndTime  </td><td class="col1 centeralign">  스킬 발동 후 스킬 종료까지 걸리는 시간(초).  </td>
+	</tr>
+</table></div>
+<!-- EDIT9 TABLE [6537-7096] --><pre class="code">ActionCancel 상세내용
+- 개체의 스킬 게이지가 100이 되면 ActionCancel 여부에 따라 처리가 나뉘어짐.
+1. ActionCancel이 True
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 취소(현재 탄알수가 0이 됨).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 취소(행동 게이지가 0이 됨).
+  - 위의 처리를 한 후 스킬이 발동되며 EndTime(초)만큼 지날 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - EndTime(초)만큼 지났으면 리로딩 시작.
+2. ActionCancel이 False
+  - 개체가 일반 공격 중(현재 탄알수가 0 초과)인 경우 일반 공격 정지(현재 탄알수 고정).
+  - 개체가 리로딩 중(현재 탄알수가 0)인 경우 리로딩 정지(행동 게이지 고정).
+  - 위의 처리를 한 후 스킬이 발동되며 EndTime(초)만큼 지날 때까지 일반 공격 및 리로딩, 무기 교체를 하지 못함.
+  - EndTime(초)만큼 지났으면 일반 공격이나 리로딩 재개.</pre>
+
+</div>
+<!-- EDIT7 SECTION "AutoSkill" [5284-8169] -->
+<h2 class="sectionedit10" id="passiveskill">PassiveSkill</h2>
+<div class="level2">
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  EffectSetNumber  </th><th class="col4 centeralign">  Text  </th><th class="col5 centeralign">  ConditionNumber  </th><th class="col6 centeralign">  CheckTime  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  CPSkill1  </td><td class="col1 centeralign">  세포재생  </td><td class="col2 centeralign">  CPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 스킬 사용 시 Hp가 30% 이하라면 Hp 50 회복  </td><td class="col5 centeralign">  1  </td><td class="col6 centeralign">  스킬 사용 시  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  CPSkill2  </td><td class="col1 centeralign">  강인한 체력  </td><td class="col2 centeralign">  CPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 최대 Hp + 100, 방어력 + 100  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  항상 적용  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  CPSkill3  </td><td class="col1 centeralign">  카리스마  </td><td class="col2 centeralign">  CPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 모든 적의 공격력 - 10%  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  항상 적용  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  BPSkill1  </td><td class="col1 centeralign">  공격력 상승  </td><td class="col2 centeralign">  BPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 공격력 + 10%  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">      항상 적용  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  BPSkill2  </td><td class="col1 centeralign">  아몰랑  </td><td class="col2 centeralign">  BPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 리로드 완료 시 10% 확률로 쉴드 100 회복  </td><td class="col5 centeralign">   1   </td><td class="col6 centeralign">  리로드 완료 시  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  BPSkill3  </td><td class="col1 centeralign">  더몰랑  </td><td class="col2 centeralign">  BPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 골드 획득량 + 10%  </td><td class="col5 centeralign">   0   </td><td class="col6 centeralign">  항상 적용  </td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [8193-9015] --><div class="table sectionedit12"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  PassiveSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  스킬 타입 Enum. CPassiveSkill, BPassiveSkill  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  EffectSetNumber  </td><td class="col1 centeralign">  EffectSet의 개수  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  ConditionNumber  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  CheckTime  </td><td class="col1 centeralign">  ConditionSet이 True인지 False인지 판정하는 시점 Enum  </td>
+	</tr>
+</table></div>
+<!-- EDIT12 TABLE [9017-9407] -->
+</div>
+<!-- EDIT10 SECTION "PassiveSkill" [8170-9408] -->
+<h2 class="sectionedit13" id="pairpassiveskill">PairPassiveSkill</h2>
+<div class="level2">
+<div class="table sectionedit14"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  EffectSetNumber  </th><th class="col4 centeralign">  Text  </th><th class="col5 centeralign">  ConditionNumber  </th><th class="col6 centeralign">  CheckTime  </th><th class="col7 centeralign">  PairCharacter  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  PPSkill1  </td><td class="col1 centeralign">  친한 친구  </td><td class="col2 centeralign">  PPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 스킬 사용 시 출혈 상태인 경우 Hp 50 회복  </td><td class="col5 centeralign">   1   </td><td class="col6 centeralign">  스킬 사용 시  </td><td class="col7 centeralign">  {Izumi}  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  PPSkill2  </td><td class="col1 centeralign">  질긴 악연  </td><td class="col2 centeralign">  PPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 최대 Hp + 100, 방어력 + 100  </td><td class="col5 centeralign">   0   </td><td class="col6 centeralign">  항상 적용  </td><td class="col7 centeralign">  {Izumi, Lisa}  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  PPSkill3  </td><td class="col1 centeralign">  부자 사랑  </td><td class="col2 centeralign">  PPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 모든 적의 공격력 - 10%  </td><td class="col5 centeralign">   0   </td><td class="col6 centeralign">  항상 적용  </td><td class="col7 centeralign">  {Brek}  </td>
+	</tr>
+</table></div>
+<!-- EDIT14 TABLE [9436-9969] --><div class="table sectionedit15"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  PassiveSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  스킬 타입 Enum. PPassiveSkill  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  EffectSetNumber  </td><td class="col1 centeralign">  EffectSet의 개수  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  ConditionNumber  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  CheckTime  </td><td class="col1 centeralign">  ConditionSet이 True인지 False인지 판정하는 시점 Enum  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  PairCharacter  </td><td class="col1 centeralign">  해당 캐릭터가 부대에 속해 있어야만 이 스킬이 적용된다. Character Enum 배열. 비어 있으면 제한 없는 스킬.  </td>
+	</tr>
+</table></div>
+<!-- EDIT15 TABLE [9971-10510] --><pre class="code">PairCharacter 상세내용
+- PairCharacter에 포함된 캐릭터가 부대에 속해있지 않으면 효과가 적용되지 않음.
+- 효과를 받다가 PairCharacter에 포함된 캐릭터가 전투불능이 된 경우, 효과 해제.</pre>
+<hr />
+
+</div>
+<!-- EDIT13 SECTION "PairPassiveSkill" [9409-10771] -->
+<h2 class="sectionedit16" id="effectset">EffectSet</h2>
+<div class="level2">
+<div class="table sectionedit17"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Target  </th><th class="col2 centeralign">  SelectionCondition  </th><th class="col3 centeralign">  Number  </th><th class="col4 centeralign">  EffectNumber  </th><th class="col5 centeralign">  ConditionNumber  </th><th class="col6 centeralign">  AnimType  </th><th class="col7 centeralign">  BulletAnim  </th><th class="col8 centeralign">  EffectAnim  </th><th class="col9 centeralign">  ApplyTime  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  FrSkill1_1  </td><td class="col1 centeralign">  Enemy  </td><td class="col2 centeralign">  Hp가 가장 낮음  </td><td class="col3 centeralign">  1  </td><td class="col4 centeralign">  2  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Bullet  </td><td class="col7 centeralign">  FrSkill1_1_Bullet  </td><td class="col8 centeralign">  FrSkill1_1_Effect  </td><td class="col9 centeralign">  0.7  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  FrSkill2_1  </td><td class="col1 centeralign">  Enemy  </td><td class="col2 centeralign">  전방에 위치  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  3  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Bullet  </td><td class="col7 centeralign">  FrSkill2_1_Bullet  </td><td class="col8 centeralign">  FrSkill2_1_Effect  </td><td class="col9 centeralign">  1.1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  FrSkill3_1  </td><td class="col1 centeralign">  Enemy  </td><td class="col2 centeralign">  후방에 위치  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  2  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  FullShot  </td><td class="col7 leftalign">    </td><td class="col8 centeralign">  FrSkill3_1_Effect  </td><td class="col9 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  BaSkill1_1  </td><td class="col1 centeralign">  Ally   </td><td class="col2 centeralign">  Hp가 가장 낮음  </td><td class="col3 centeralign">  2  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Nonbullet  </td><td class="col7 leftalign">    </td><td class="col8 centeralign">  BaSkill1_1_Effect  </td><td class="col9 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  BaSkill2_1  </td><td class="col1 centeralign">  Ally   </td><td class="col2 centeralign">  전방에 위치  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Nonbullet  </td><td class="col7 leftalign">    </td><td class="col8 centeralign">  BaSkill2_1_Effect  </td><td class="col9 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  BaSkill2_2  </td><td class="col1 centeralign">  Enemy   </td><td class="col2 centeralign">  전방에 위치  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Nonbullet  </td><td class="col7 leftalign">    </td><td class="col8 centeralign">  BaSkill2_2_Effect  </td><td class="col9 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  BaSkill3_1  </td><td class="col1 centeralign">  Enemy   </td><td class="col2 centeralign">  모든  </td><td class="col3 centeralign">  5  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Nonbullet  </td><td class="col7 leftalign">    </td><td class="col8 centeralign">  BaSkill3_1_Effect  </td><td class="col9 centeralign">  0  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  CPSkill1_1  </td><td class="col1 centeralign">  Self   </td><td class="col2 centeralign">  사용 안 함     </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  1  </td><td class="col6 centeralign">  Nonbullet  </td><td class="col7 leftalign">  </td><td class="col8 centeralign">  CPSkill1_1_Effect  </td><td class="col9 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  CPSkill2_1  </td><td class="col1 centeralign">  Self   </td><td class="col2 centeralign">  사용 안 함     </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  2  </td><td class="col5 centeralign">  0  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  0  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  CPSkill3_1  </td><td class="col1 centeralign">  Enemy  </td><td class="col2 centeralign">  모든           </td><td class="col3 centeralign">  5  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  0  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  BPSkill1_1  </td><td class="col1 centeralign">  Self   </td><td class="col2 centeralign">  사용 안 함  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  0  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  BPSkill2_1  </td><td class="col1 centeralign">  Self   </td><td class="col2 centeralign">  사용 안 함  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 centeralign">  Nonbullet  </td><td class="col7 leftalign">    </td><td class="col8 centeralign">  BPSkill2_1_Effect  </td><td class="col9 centeralign">  0.4  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  BPSkill3_1  </td><td class="col1 centeralign">  None  </td><td class="col2 centeralign">  사용 안 함  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td><td class="col5 centeralign">  0  </td><td class="col6 leftalign">  </td><td class="col7 leftalign">  </td><td class="col8 leftalign">  </td><td class="col9 centeralign">  0  </td>
+	</tr>
+</table></div>
+<!-- EDIT17 TABLE [10793-12316] --><div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  EffectSet DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Target  </td><td class="col1 centeralign">  대상 분류. AllUnit, Ally, Enemy, Self, None  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  SelectionCondition  </td><td class="col1 centeralign">  Target 내에서 선별기준 Enum.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Number  </td><td class="col1 centeralign">  SelectionCondition에 해당하는 개체 중 고르는 개수.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  EffectNumber  </td><td class="col1 centeralign">  Effect의 개수.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  ConditionNumber  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  AnimType  </td><td class="col1 centeralign">  Bullet(투사체가 날라가는 스킬), Nonbullet(대상에게 이펙트만 나타나는 스킬), FullShot(화면 전체에 이펙트가 재생되는 스킬)  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  BulletAnim  </td><td class="col1 centeralign">  투사체 애니메이션  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  EffectAnim  </td><td class="col1 centeralign">  투사체가 터질 때 애니메이션, 대상 이펙트 애니메이션, 화면 전체 이펙트 애니메이션  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  ApplyTime  </td><td class="col1 centeralign">  스킬 발동 후 효과 적용까지 걸리는 시간(초).  </td>
+	</tr>
+</table></div>
+<!-- EDIT18 TABLE [12318-13125] --><pre class="code">Number 참고사항
+- SelectionCondition이 &#039;Hp가 가장 낮음&#039;이고, Number가 2라면 현재 Hp가 가장 낮은 개체와 두 번째로 낮은 개체 선택
+- SelectionCondition이 &#039;전방에 위치&#039;이고, Number가 2라면 전방에 위치한 개체 중 2개 랜덤하게 선택.
+- SelectionCondition이 &#039;전방에 위치&#039;이고, Number가 0이라면 전방에 위치한 모든 개체 선택.
+- Number보다 남아있는 개체가 적은 경우 동일한 개체가 중복 선택되지 않음.</pre>
+<hr />
+
+</div>
+<!-- EDIT16 SECTION "EffectSet" [10772-13649] -->
+<h2 class="sectionedit19" id="effect">Effect</h2>
+<div class="level2">
+<div class="table sectionedit20"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Context  </th><th class="col2 centeralign">  Value  </th><th class="col3 centeralign">  DurationTime  </th><th class="col4 centeralign">  ConditionNumber  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  FrSkill1_1_1  </td><td class="col1 centeralign">  퍼센트 대미지 Max  </td><td class="col2 centeralign">  2.2  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  FrSkill1_1_2  </td><td class="col1 centeralign">  퍼센트 대미지 Min  </td><td class="col2 centeralign">  2.2  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  FrSkill2_1_1  </td><td class="col1 centeralign">  퍼센트 대미지  </td><td class="col2 centeralign">  0.8  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  FrSkill2_1_2  </td><td class="col1 centeralign">  후방으로 넉백  </td><td class="col2 centeralign">  0  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  FrSkill2_1_3  </td><td class="col1 centeralign">  전후방 이동 불가  </td><td class="col2 centeralign">  0  </td><td class="col3 centeralign">  5  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  FrSkill3_1_1  </td><td class="col1 centeralign">  퍼센트 대미지  </td><td class="col2 centeralign">  0.8  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  FrSkill3_2_1  </td><td class="col1 centeralign">  스킬 게이지 감소  </td><td class="col2 centeralign">  20  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  BaSkill1_1_1  </td><td class="col1 centeralign">  Hp 회복  </td><td class="col2 centeralign">  150  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  BaSkill2_1_1  </td><td class="col1 centeralign">  리로드 시간 감소  </td><td class="col2 centeralign">  0.3  </td><td class="col3 centeralign">  20  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  BaSkill2_2_1  </td><td class="col1 centeralign">  리로드 시간 증가  </td><td class="col2 centeralign">  0.3  </td><td class="col3 centeralign">  10  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  BaSkill3_1_1  </td><td class="col1 centeralign">  공격력 감소  </td><td class="col2 centeralign">  0.3  </td><td class="col3 centeralign">  20  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  CPSkill1_1_1  </td><td class="col1 centeralign">  Hp 회복  </td><td class="col2 centeralign">  50  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  CPSkill2_1_1  </td><td class="col1 centeralign">  최대 Hp 증가  </td><td class="col2 centeralign">  100  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 centeralign">  CPSkill2_1_2  </td><td class="col1 centeralign">  방어력 증가  </td><td class="col2 centeralign">  100  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 centeralign">  CPSkill3_1_1  </td><td class="col1 centeralign">  공격력 퍼센트 감소  </td><td class="col2 centeralign">  0.1  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 centeralign">  BPSkill1_1_1  </td><td class="col1 centeralign">  공격력 퍼센트 증가  </td><td class="col2 centeralign">  0.1  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 centeralign">  BPSkill2_1_1  </td><td class="col1 centeralign">  쉴드 회복  </td><td class="col2 centeralign">  100  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 centeralign">  BPSkill3_1_1  </td><td class="col1 centeralign">  골드 획득량 증가  </td><td class="col2 centeralign">  0.1  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  0  </td>
+	</tr>
+</table></div>
+<!-- EDIT20 TABLE [13668-14875] --><div class="table sectionedit21"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  Effect DB의 Code  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Context  </td><td class="col1 centeralign">  효과 내용 Enum  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Value  </td><td class="col1 centeralign">  효과 수치  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  DurationTime  </td><td class="col1 centeralign">  버프 지속 시간. 버프가 아니라면 0  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  ConditionNumber  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+</table></div>
+<!-- EDIT21 TABLE [14877-15120] --><hr />
+
+</div>
+<!-- EDIT19 SECTION "Effect" [13650-15127] -->
+<h2 class="sectionedit22" id="condition">Condition</h2>
+<div class="level2">
+<div class="table sectionedit23"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Target  </th><th class="col2 centeralign">  Position  </th><th class="col3 centeralign">  Slot  </th><th class="col4 centeralign">  Buff  </th><th class="col5 centeralign">  Action  </th><th class="col6 centeralign">  Weapon  </th><th class="col7 centeralign">  Subject  </th><th class="col8 centeralign">  LogicSymbol1  </th><th class="col9 centeralign">  Float  </th><th class="col10 rightalign">  LogicSymbol2</th><th class="col11 centeralign">  Number  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  FrSkill1_1_1_C1  </td><td class="col1 centeralign">  AttackTarget  </td><td class="col2 centeralign">  Front  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  None  </td><td class="col5 centeralign">  None  </td><td class="col6 centeralign">  None  </td><td class="col7 centeralign">  None  </td><td class="col8 centeralign">  None  </td><td class="col9 centeralign">  0  </td><td class="col10 centeralign">  None  </td><td class="col11 centeralign">  0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  FrSkill1_1_2_C1  </td><td class="col1 centeralign">  AttackTarget  </td><td class="col2 centeralign">  Back  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  None  </td><td class="col5 centeralign">  None  </td><td class="col6 centeralign">  None  </td><td class="col7 centeralign">  None  </td><td class="col8 centeralign">  None  </td><td class="col9 centeralign">  0  </td><td class="col10 centeralign">  None  </td><td class="col11 centeralign">  0  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  CPSkill1_1_C1  </td><td class="col1 centeralign">  Self  </td><td class="col2 centeralign">  None  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  None  </td><td class="col5 centeralign">  None  </td><td class="col6 centeralign">  None  </td><td class="col7 centeralign">  Hp  </td><td class="col8 centeralign">  ≤  </td><td class="col9 centeralign">  0.3  </td><td class="col10 centeralign">  None  </td><td class="col11 centeralign">  0  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  BPSkill2_C1  </td><td class="col1 centeralign">  Probability  </td><td class="col2 centeralign">  None  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  None  </td><td class="col5 centeralign">  None  </td><td class="col6 centeralign">  None  </td><td class="col7 centeralign">  None  </td><td class="col8 centeralign">  None  </td><td class="col9 centeralign">  100  </td><td class="col10 centeralign">  None  </td><td class="col11 centeralign">  0  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  PPSkill1_1_C1  </td><td class="col1 centeralign">  Self  </td><td class="col2 centeralign">  None  </td><td class="col3 centeralign">  0  </td><td class="col4 centeralign">  출혈  </td><td class="col5 centeralign">  None  </td><td class="col6 centeralign">  None  </td><td class="col7 centeralign">  None  </td><td class="col8 centeralign">  None  </td><td class="col9 centeralign">  0  </td><td class="col10 centeralign">  None  </td><td class="col11 centeralign">  0  </td>
+	</tr>
+</table></div>
+<!-- EDIT23 TABLE [15149-15867] --><div class="table sectionedit24"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  Condition DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Target  </td><td class="col1 centeralign">  조건 검사 대상 범위. AllUnit, Ally, Enemy, Attacker, AttackTarget, Self, Probability  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Position  </td><td class="col1 centeralign">  대상이 위치한 영역. None, Front, Back  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Slot  </td><td class="col1 centeralign">  대상이 위치한 슬롯 번호. 0~5  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Buff  </td><td class="col1 centeralign">  걸렸는 지 판별할 상태이상. 출혈, 파괘, 침묵 등  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  Action  </td><td class="col1 centeralign">  하고 있는 지 판별할 행위. 일반 공격 중, 스킬 발동 중, 이동 중 등  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  Weapon  </td><td class="col1 centeralign">  착용한 무기의 Kind  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  Subject  </td><td class="col1 centeralign">  수치적으로 판별할 항목. Hp, Shield, Atk, Def, Balance 등  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  LogicSymbol1  </td><td class="col1 centeralign">  Subject와 Float을 비교할 부등호. &lt;, &gt;, ≤, ≥, =, !=  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  Float  </td><td class="col1 centeralign">  비교할 수치.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  LogicSymbol2  </td><td class="col1 centeralign">  Target 내에서 Position~Float까지의 조건을 모두 만족하는 개체 수와 Number를 비교할 부등호. &lt;, &gt;, ≤, ≥, =, !=  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  Number  </td><td class="col1 centeralign">  비교할 개체 수.  </td>
+	</tr>
+</table></div>
+<!-- EDIT24 TABLE [15869-16794] --><pre class="code">Target이 Probability인 경우
+- 일정 확률로 발생한다는 조건에 사용.
+- Target을 Probability로 지정하고 확률을 Float에 입력. (50%확률이면 500을 입력)
+- 무작위로 0~1000의 숫자를 검출.
+- 무작위 숫자가 Float이하인 경우 True. 초과인 경우 False.</pre>
+<pre class="code">FrSkill1_1_1_C1 : 스킬 대상이 전방에 위치한 경우
+FrSkill1_1_2_C1 : 스킬 대상이 후방에 위치한 경우
+CPSkill1_1_C1   : 자신의 Hp가 30% 이하인 경우
+BPSkill2_C1     : 10% 확률로 판별
+PPSkill1_1_C1   : 자신이 출혈에 걸려있는 경우</pre>
+<hr />
+
+</div>
+<!-- EDIT22 SECTION "Condition" [15128-] -->

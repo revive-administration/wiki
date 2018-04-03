@@ -1,0 +1,69 @@
+====== 퀘스트 ======
+
+=====Quest=====
+
+^  RowName  ^  Name    ^  QuestType  ^  QuestConditionList  ^  RewardList  ^  Date  ^
+|  Quest_0  |  튜토리얼 완료  |  VE_NormalQuest  |  |  |
+|  Quest_1  |  적군 진지 점령  |  VE_NormalQuest  |  |  |
+|  Quest_2  |  잔류 적군 소탕  |  VE_DayQuest  |  |  |
+|  Quest_3  |  돌격병 제거  |  VE_FieldQuest  |  |  |
+|  Quest_4  |  이벤트:사탕 1000개 모으기  |  VE_EventQuest  |  |  |  2017.12.31. 23:59:59:0  |
+
+^  항목  ^  설명  ^
+|  Name  |  퀘스트 창에 보일 이름  |
+|  QuestType  |  퀘스트 종류  |
+|  QuestConditionList  |  퀘스트 클리어를 위해 만족시켜야하는 조건 리스트  |
+|  RewardList  |  퀘스트 클리어 시 받는 보상 리스트  |
+|  Date  |  Date구조체. EventQuest가 삭제되는 날짜  |
+
+
+^  QuestType  ^  설명  ^
+|  VE_NormalQuest  |  퀘스트 생성 후 조건이 만족되면 보상을 주고 삭제되는 퀘스트  |
+|  VE_DayQuest  |  하루 첫 접속 시 삭제 및 생성되고, 조건이 만족되면 보상을 주는 퀘스트  |
+|  VE_EventQuest  |  퀘스트 생성 후 조건이 만족되면 보상을 주고 삭제되며, 특정 기간이 되면 자동으로 삭제되는 퀘스트  |
+|  VE_FieldQuest  |  필드 접속 시 생성되며, 필드 클리어 시 조건을 만족하면 보상을 주고 삭제, 조건을 만족하지 못 하면 보상을 주지 않고 삭제되는 퀘스트  |
+
+=====QuestCondition=====
+
+^  QuestConditionType  ^  Discription  ^  Code  ^  Int  ^
+|  VE_StoryRead  |  튜토리얼 완료하기  |  Story_1  |  0  |
+|  VE_StoryAchieve  |  스토리 2-1까지 완료하기  |  Story_10  |  0  |
+|  VE_FieldClear  |  필드 2-1 3번 클리어  |  Field_10  |  3  |
+|  VE_FieldAchieve  |  필드 2-1까지 완료하기  |  Field_10  |  0  |
+|  VE_KillMonster  |  필드 2-1에서 돌격병 10명 제거하기  |  Enemy_10  |  10  |
+|  VE_LevelUp  |  아무 바디 레벨업 3번 하기  |  None  |  3  |
+|  VE_LevelAchieve  |  ASU요원 리사 레벨 10 달성하기  |  Lisa_1  |  10  |
+|  VE_GetItem  |  철상자 3개 얻기  |  Item_10  |  3  |
+|  VE_ItemNumberAchieve  |  철상자 3개 보유하기  |  Item_10  |  3  |
+
+^  항목  ^  설명  ^
+|  QuestConditionType  |  조건 종류  |
+|  Discription  |  퀘스트 창에 보여질 조건 설명  |
+|  Code  |  조건에 사용될 각종 RowName  |
+|  Int  |  조건에 사용될 수치  |
+
+
+^  QuestConditionType  ^  설명  ^
+|  VE_StoryRead  |  해당 스토리 읽기. 퀘스트를 받고 읽어야 만족. 주로 서브퀘스트, 이벤트퀘스트 용. None이면 아무 스토리 읽어도 됨.  |
+|  VE_StoryAchieve  |  해당 스토리까지 진행하기. 스토리 진행도로 판별하기 때문에 퀘스트를 받기 전에 읽어도 만족. 주로 메인퀘스트 용.  |
+|  VE_FieldClear  |  해당 필드 n번 클리어하기. 퀘스트를 받고 클리어해야 만족. None이면 아무 필드 클리어해도 됨.  |
+|  VE_FieldAchieve  |  해당 필드까지 진행하기. 필드 클리어 정보로 판별하기 때문에 퀘스트를 받기 전에 클리어해도 만족.  |
+|  VE_KillMonster  |  특정 적군 n명 제거하기. 같은 적군이라도 필드마다 RowName이 다르니 설명에 어느 필드 적군인지 적어줘야함. None이면 아무 적군 제거해도 됨.  |
+|  VE_LevelUp  |  특정 바디 레벨업 n번 하기. None이면 아무 바디가 레벨업해도 카운팅.  |
+|  VE_LevelAchieve  |  특정 바디 레벨 n 달성하기. None이면 아무 바디가 레벨 달성해도 됨.  |
+|  VE_GetItem  |  특정 아이템 n개 얻기. None이면 아무 아이템 얻어도 됨.  |
+|  VE_ItemNumberAchieve  |  특정 아이템 n개 보유하기. None이면 보유한 모든 아이템의 개수로 판정.  |
+|  VE_MakeEquipment  |  특정 장비를 n번 제작하기. None이면 아무 장비를 제작해도 됨.  |
+|  VE_DecompositionEquipment  |  특정 장비를 n번 분해하기. None이면 아무 장비를 분해해도 됨.  |
+
+조건 만족 체크 시점
+
+  - 퀘스트 생성 시
+  - 스토리 완료 시(스토리 보상 받은 후 체크)
+  - 필드 클리어 시(필드 보상 받은 후 체크)
+  - 배틀 종료 시(배틀 보상 받은 후 체크)
+  - 아이템 분해 시(분해 완료 후 체크)
+  - 코어 강화 시(강화 완료 후 체크)
+  - 연구 완료 시(연구 완료 처리 후 체크)
+  - 그날 첫 실행 시
+  - 등등

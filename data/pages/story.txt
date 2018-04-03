@@ -1,0 +1,98 @@
+======스토리 구조체======
+===== StoryChapter =====
+^RowName^ChapterName^StoryNameList ^ StoryStateMap ^ IsOpen ^
+| Chapter1 | 챕터1 | |    |   |
+
+^ 항목 ^ 설명 ^
+| StoryNameList | 챕터에 속한 스토리이름 리스트 |
+| StoryStateMap | 위의 리스트들에 대한 상태 (개발용) |
+| IsOpen | 해당 챕터가 열려있는지 여부 |
+=====Story=====
+
+^  RowName  ^  FlowName  ^  StoryName  ^  Type  ^  OpenFieldList  ^  OpenStoryList  ^  RewardList  ^
+|  Story_1  |  프롤로그1  |  ASU 4지부 테러사건  |  VE_MainStory  |  (Field_1_1)  |  (Story_2)  |  |
+|  Story_2  |  프롤로그2  |  강찬성, 417팀에 합류함  |  VE_SubField  |   |  (Story_3)  |  |
+|  Story_3  |  메인 1-1  |  엘리야 합류 빅토리아 항 소탕작전  |  VE_SubStory  | (Field_1_2)  |  (Story_4)  |  |
+
+^  항목  ^  설명  ^
+|  FlowName  |  스토리의 흐름을 나타내주는 이름  |
+|  StoryName  |  스토리 이름  |
+|  Type  |  MainStory/SubStory는 스토리 UI에서 볼 수 있는 스토리이며 MainField/SubField는 필드 진행 도중 특정 발판을 밟으면 발생하는 스토리  |
+|  OpenFields  |  스토리를 모두 본 경우 새로 열릴 필드의 RowName  |
+|  OpenStoryList  |  스토리를 모두 본 경우 새로 열릴 스토리의 RowName  |
+|  RewardList  |  스토리를 모두 본 경우 받을 수 있는 보상. 보상함으로 주어진다.  |
+
+===== PageInfo =====
+스토리 이벤트를 페이지 단위로 갖고 있음. 즉 Story의 StoryEventList를 Page단위로 자른것. \\
+기획은 작성할 일이 없으며 시스템상으로 만들어지는 구조체입니다.
+
+^ StoryEventList ^ IsLastPage ^
+|                |             |
+
+^ 항목 ^ 설명 ^
+| StoryEventList | 페이지 단위의 StoryEventList |
+| IsLastPage | 마지막 페이지인지 여부 (프로그래밍적으로 결정됨) |
+
+=====StoryEvent=====
+
+^  RowName  ^  EventType  ^  Effect  ^  Text  ^  Image  ^  Position  ^  Duration  ^  Sound  ^ IsSoundLoop ^ IsLastEvent ^ Label  ^
+|  Story_1_1  |  VE_Sound  |  VE_Add  |  |  |  |  |  Sound  |  True  |  False  | BGM  |
+|  Story_1_2  |  VE_Title  |  VE_None  |프롤로그\nASU 4지부 테러사건|  Image  |  VE_FullScreen  |  |  |  |  False  | |
+|  Story_1_3  |  VE_Delay  |  VE_Time  |  |  |  |  2  |  |  |  False  | |
+|  Story_1_4  |  VE_Effect  |  VE_FadeOut  |  |  |  |  1.5  |  |  |  False  | |
+|  Story_1_5  |  VE_Background  |  VE_Add  |  |  Image  |  VE_None  |  |  |  |  False  | |
+|  Story_1_6  |  VE_Character  |  VE_Add  |  |  Image  |  VE_Left  |  |  |  |  False  | 1 |
+|  Story_1_7  |  VE_Character  |  VE_Add  |  |  Image  |  VE_Right  |  |  |  |  False  | 2 |
+|  Story_1_8  |  VE_PageBackground  |  VE_Add  |  |  Image  |  VE_None  |  |  |  |  False  |  |
+|  Story_1_9  |  VE_Page  |  VE_None  |나는\n가끔\n눈물을 흘린다.  |  |  VE_None  |  |  |  |  False  |  |
+|  Story_1_10  |  VE_Sound  |  VE_Add  |  |  |  VE_None  |  |  Sound  |  False  |  False  | |
+|  Story_1_11  |  VE_Page  |  VE_None  |눈물을\n흘리는\n그런 내가 좋다.  |  |  VE_None  |  |  |  |  False  | |
+|  Story_1_12  |  VE_PageBackground  |  VE_Remove  |  |  |  VE_None  |  |  |  |   False   | |
+|  Story_1_13  |  VE_Character  |  VE_Remove  |  |  |  |  |  |  |    False   |  1  |
+|  Story_1_14  |  VE_Character  |  VE_Remove  |  |  |  |  |  |  |   False   |  2  |
+|  Story_1_15  |  VE_Background  |  VE_Add  |  |  CGImage  |  VE_None  |  |  |  |  True  | |
+
+^  항목  ^  설명  ^
+|  EventType  |  진행할 스토리이벤트의 타입. 타입별로 처리하는 방법이 다름.  |
+|  Effect  |  스토리이벤트 타입에 대해 어떤 효과를 나타낼지를 결정.  |
+|  Text  |  Title, Page 이벤트의 경우 화면에 보일 텍스트.  |
+|  Image  |  Title, Background, PageBackground, Character 이벤트의 경우 나타낼 이미지.  |
+|  Position  |  Character, Add 이벤트의 경우 캐릭터를 놓을 위치. Left, Middle, Right  |
+|  Duration  |  시간이 필요한 경우에 쓰일 시간(초)  |
+|  Sound  |  Sound, Add 이벤트의 경우 재생시킬 배경음악 혹은 사운드  |
+|  Replay  |  Sound를 반복 재생시킬지 여부.  |
+|  Label  |  이미지나 사운드에 Label을 부여하여 이후 관리 및 제거할 때 사용. 지정하지 않은 경우 이후 관리 및 제거 불가.  |
+
+
+<code>
+EventType에 따른 Effect
+
+- Title
+  - None : 화면에 검은 배경을 깔고 하얀 큰 포인트의 텍스트로 Text를 나타낸다.
+- Background
+  - Add : 화면의 배경이미지의 이미지를 변경시킨다.
+  - Remove : 화면의 배경이미지의 이미지를 비운다.
+- Character
+  - Add : 화면에 캐릭터 이미지를 배치한다.
+  - Remove : 지정한 label과 동일한 label을 가진 캐릭터 이미지를 제거한다. label을 지정하지 않으면 제거하지 않는다.
+- Text
+  - Add : 지정한 Text를 화면에 나타낸다.
+  - Remove : 화면에 표시된 모든 Text를 제거한다.
+- Effect
+  - FadeOut : 페이드 아웃을 지정한 시간동안 진행한다.
+  - FadeIn : 페이드 인을 지정한 시간동안 진행한다.
+  - Shake : 화면을 지정한 시간동안 좌우로 흔든다.
+  - ShakeVertical : 화면을 지정한 시간동안 위아래로 흔든다.
+- Delay
+  - Time : 지정한 시간동안 이벤트 진행을 멈춘다.
+  - Touch : 터치할 때까지 이벤트 진행을 멈춘다.
+</code>
+
+<code>
+StoryEvent 진행 규칙
+- Story_n을 볼 때 Story_n_0부터 Story_n_1, Story_n_2, ... 순서대로 이벤트가 발생한다.
+- 이벤트는 Page이벤트까지 자동 진행된다.
+- Page이벤트가 발생하면 화면에 텍스트를 그리고 터치할 때까지 대기한다.
+- 화면을 터치하면 다음 Page이벤트까지 순차적으로 진행한다.
+- 마지막 이벤트까지 진행이 완료되면 스토리가 종료된다.
+</code>

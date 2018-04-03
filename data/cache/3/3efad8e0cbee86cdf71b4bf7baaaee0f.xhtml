@@ -1,0 +1,188 @@
+
+<h1 class="sectionedit1" id="퀘스트">퀘스트</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "퀘스트" [1-25] -->
+<h2 class="sectionedit2" id="quest">Quest</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  RowName  </th><th class="col1 centeralign">  Name    </th><th class="col2 centeralign">  QuestType  </th><th class="col3 centeralign">  QuestConditionList  </th><th class="col4 centeralign">  RewardList  </th><th class="col5 centeralign">  Date  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Quest_0  </td><td class="col1 centeralign">  튜토리얼 완료  </td><td class="col2 centeralign">  VE_NormalQuest  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Quest_1  </td><td class="col1 centeralign">  적군 진지 점령  </td><td class="col2 centeralign">  VE_NormalQuest  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Quest_2  </td><td class="col1 centeralign">  잔류 적군 소탕  </td><td class="col2 centeralign">  VE_DayQuest  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Quest_3  </td><td class="col1 centeralign">  돌격병 제거  </td><td class="col2 centeralign">  VE_FieldQuest  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Quest_4  </td><td class="col1 centeralign">  이벤트:사탕 1000개 모으기  </td><td class="col2 centeralign">  VE_EventQuest  </td><td class="col3 leftalign">  </td><td class="col4 leftalign">  </td><td class="col5 centeralign">  2017.12.31. 23:59:59:0  </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [43-479] --><div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  퀘스트 창에 보일 이름  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  QuestType  </td><td class="col1 centeralign">  퀘스트 종류  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  QuestConditionList  </td><td class="col1 centeralign">  퀘스트 클리어를 위해 만족시켜야하는 조건 리스트  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  RewardList  </td><td class="col1 centeralign">  퀘스트 클리어 시 받는 보상 리스트  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Date  </td><td class="col1 centeralign">  Date구조체. EventQuest가 삭제되는 날짜  </td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [481-818] --><div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  QuestType  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  VE_NormalQuest  </td><td class="col1 centeralign">  퀘스트 생성 후 조건이 만족되면 보상을 주고 삭제되는 퀘스트  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  VE_DayQuest  </td><td class="col1 centeralign">  하루 첫 접속 시 삭제 및 생성되고, 조건이 만족되면 보상을 주는 퀘스트  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  VE_EventQuest  </td><td class="col1 centeralign">  퀘스트 생성 후 조건이 만족되면 보상을 주고 삭제되며, 특정 기간이 되면 자동으로 삭제되는 퀘스트  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  VE_FieldQuest  </td><td class="col1 centeralign">  필드 접속 시 생성되며, 필드 클리어 시 조건을 만족하면 보상을 주고 삭제, 조건을 만족하지 못 하면 보상을 주지 않고 삭제되는 퀘스트  </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [821-1440] -->
+</div>
+<!-- EDIT2 SECTION "Quest" [26-1441] -->
+<h2 class="sectionedit6" id="questcondition">QuestCondition</h2>
+<div class="level2">
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  QuestConditionType  </th><th class="col1 centeralign">  Discription  </th><th class="col2 centeralign">  Code  </th><th class="col3 centeralign">  Int  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  VE_StoryRead  </td><td class="col1 centeralign">  튜토리얼 완료하기  </td><td class="col2 centeralign">  Story_1  </td><td class="col3 centeralign">  0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  VE_StoryAchieve  </td><td class="col1 centeralign">  스토리 2-1까지 완료하기  </td><td class="col2 centeralign">  Story_10  </td><td class="col3 centeralign">  0  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  VE_FieldClear  </td><td class="col1 centeralign">  필드 2-1 3번 클리어  </td><td class="col2 centeralign">  Field_10  </td><td class="col3 centeralign">  3  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  VE_FieldAchieve  </td><td class="col1 centeralign">  필드 2-1까지 완료하기  </td><td class="col2 centeralign">  Field_10  </td><td class="col3 centeralign">  0  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  VE_KillMonster  </td><td class="col1 centeralign">  필드 2-1에서 돌격병 10명 제거하기  </td><td class="col2 centeralign">  Enemy_10  </td><td class="col3 centeralign">  10  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  VE_LevelUp  </td><td class="col1 centeralign">  아무 바디 레벨업 3번 하기  </td><td class="col2 centeralign">  None  </td><td class="col3 centeralign">  3  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  VE_LevelAchieve  </td><td class="col1 centeralign">  ASU요원 리사 레벨 10 달성하기  </td><td class="col2 centeralign">  Lisa_1  </td><td class="col3 centeralign">  10  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  VE_GetItem  </td><td class="col1 centeralign">  철상자 3개 얻기  </td><td class="col2 centeralign">  Item_10  </td><td class="col3 centeralign">  3  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  VE_ItemNumberAchieve  </td><td class="col1 centeralign">  철상자 3개 보유하기  </td><td class="col2 centeralign">  Item_10  </td><td class="col3 centeralign">  3  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1468-2199] --><div class="table sectionedit8"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  QuestConditionType  </td><td class="col1 centeralign">  조건 종류  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Discription  </td><td class="col1 centeralign">  퀘스트 창에 보여질 조건 설명  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  조건에 사용될 각종 RowName  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Int  </td><td class="col1 centeralign">  조건에 사용될 수치  </td>
+	</tr>
+</table></div>
+<!-- EDIT8 TABLE [2201-2421] --><div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  QuestConditionType  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  VE_StoryRead  </td><td class="col1 centeralign">  해당 스토리 읽기. 퀘스트를 받고 읽어야 만족. 주로 서브퀘스트, 이벤트퀘스트 용. None이면 아무 스토리 읽어도 됨.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  VE_StoryAchieve  </td><td class="col1 centeralign">  해당 스토리까지 진행하기. 스토리 진행도로 판별하기 때문에 퀘스트를 받기 전에 읽어도 만족. 주로 메인퀘스트 용.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  VE_FieldClear  </td><td class="col1 centeralign">  해당 필드 n번 클리어하기. 퀘스트를 받고 클리어해야 만족. None이면 아무 필드 클리어해도 됨.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  VE_FieldAchieve  </td><td class="col1 centeralign">  해당 필드까지 진행하기. 필드 클리어 정보로 판별하기 때문에 퀘스트를 받기 전에 클리어해도 만족.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  VE_KillMonster  </td><td class="col1 centeralign">  특정 적군 n명 제거하기. 같은 적군이라도 필드마다 RowName이 다르니 설명에 어느 필드 적군인지 적어줘야함. None이면 아무 적군 제거해도 됨.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  VE_LevelUp  </td><td class="col1 centeralign">  특정 바디 레벨업 n번 하기. None이면 아무 바디가 레벨업해도 카운팅.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  VE_LevelAchieve  </td><td class="col1 centeralign">  특정 바디 레벨 n 달성하기. None이면 아무 바디가 레벨 달성해도 됨.  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  VE_GetItem  </td><td class="col1 centeralign">  특정 아이템 n개 얻기. None이면 아무 아이템 얻어도 됨.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  VE_ItemNumberAchieve  </td><td class="col1 centeralign">  특정 아이템 n개 보유하기. None이면 보유한 모든 아이템의 개수로 판정.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  VE_MakeEquipment  </td><td class="col1 centeralign">  특정 장비를 n번 제작하기. None이면 아무 장비를 제작해도 됨.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  VE_DecompositionEquipment  </td><td class="col1 centeralign">  특정 장비를 n번 분해하기. None이면 아무 장비를 분해해도 됨.  </td>
+	</tr>
+</table></div>
+<!-- EDIT9 TABLE [2424-4017] -->
+<p>
+조건 만족 체크 시점
+</p>
+
+<ol start="1"  class="extlist">
+  <li  value="1" data-marker="1."><div class="li">퀘스트 생성 시</div></li>
+  <li  value="2" data-marker="2."><div class="li">스토리 완료 시(스토리 보상 받은 후 체크)</div></li>
+  <li  value="3" data-marker="3."><div class="li">필드 클리어 시(필드 보상 받은 후 체크)</div></li>
+  <li  value="4" data-marker="4."><div class="li">배틀 종료 시(배틀 보상 받은 후 체크)</div></li>
+  <li  value="5" data-marker="5."><div class="li">아이템 분해 시(분해 완료 후 체크)</div></li>
+  <li  value="6" data-marker="6."><div class="li">코어 강화 시(강화 완료 후 체크)</div></li>
+  <li  value="7" data-marker="7."><div class="li">연구 완료 시(연구 완료 처리 후 체크)</div></li>
+  <li  value="8" data-marker="8."><div class="li">그날 첫 실행 시</div></li>
+  <li  value="9" data-marker="9."><div class="li">등등</div></li>
+</ol>
+
+</div>
+<!-- EDIT6 SECTION "QuestCondition" [1442-] -->

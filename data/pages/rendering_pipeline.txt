@@ -1,0 +1,12 @@
+====== Rendering Pipeline ======
+  * 1. Pixel Data / Vertex Data
+    * 3차원 공간의 임의의 점 X는 위치정보 (x,y,z)를 가지고 색상정보도 가질 것이다 이것이 바로 Vertex Data와 Pixel Data이다.
+  * 2. Display Lists
+    * 미리 그려 놓은 그림들의 목록이다. 자주 사용되는 물체를 미리 그려놓고 필요할 때 빨리 그려낼 수 있는데 이것이 바로 Display Lists이다.
+  * 4. Per-Vertex Operations
+    * Vertices를 Primitives로 바꿔준다.
+    * Illumination, Texture도 이곳에서 처리한다
+  * 6. Pixel Operation
+    * Vertex Data들이 작업을 거치는동안 Pixel Data는 Pixel Operation 과정을 거치는데 시스템 메모리 상에 존재하는 Pixel들은 우선 Unpacking을 거친다. 이때 수많은 포맷들 중 하나의 형태로 풀어진다. 그런 다음 각종 처리(Scaling, Biasing, Pixel Mapping)을 거치게 된다. 그런 다음 그 결과물은 Texture Memory에 저장이 되거나 Rasterization Step으로 보내지게 된다.
+  * 8. Rasterization
+    * '인쇄하기' 지금까지 모은 도형 정보와 픽셀 정보를 Fragment로 인쇄한다. Fragment는 화면에 보여질 각각의 픽셀에 대응되는 것으로 생상과 깊이 값을 가진다.

@@ -1,0 +1,23 @@
+====== 로우 네임 규칙 ======
+===== 캐릭터&바디 =====
+^ 구분 ^ 앞첨자 ^ 예시 ^
+| Character | 없음 | JiaLing |
+| Body | Body_ | Body_Kinel_SpecialForce |
+
+===== 아이템 =====
+^ 구분 ^ 앞첨자 ^ 예시 ^
+| Weapon | Weapon_ | Weapon_SACorp_Alnitak |
+| Gloves | Gloves_ | Gloves_CCE_GoodGloves |
+
+===== 스킬 =====
+^ 구분 ^ 앞첨자 ^ 예시 ^
+| AutoSkill | Auto_ | Auto_HappyMorning |
+| AutoSkillCondition | AutoC_ | AutoC_HappyMorning_1 |
+| AutoSkillEffect | AutoE_ | AutoE_HappyMorning_A_1 |
+| AutoSkillEffectCondition | AutoEC_ | AutoEC_HappyMorning_A_1_1 |
+| ExSkill | Ex_ | Ex_OppressionFire |
+| BuffSkill | Buff_ | Buff_Oppression | 
+| BodyPassive | BP_ | BP_BuckShot |
+| BodyPassiveEffect | BPE_ | BPE_BuckShot_A_1 |
+| CharacterPassive | CP_ | CP_JiaLing |
+| PairPassive | PP_ | PP_Kinel_1 |

@@ -1,0 +1,63 @@
+
+<h1 class="sectionedit1" id="장_배열과_구조">2장 배열과 구조</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "2장 배열과 구조" [1-36] -->
+<h2 class="sectionedit2" id="배열">2.1 배열</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "2.1 배열" [37-59] -->
+<h3 class="sectionedit3" id="추상_데이터_타입">2.1.1 추상 데이터 타입</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="adt_array">ADT Array</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Objects : index의 각 값에 대하여 집합 item에 속한 한 값이 존재하는 &lt;index.value&gt;쌍의 집합. index는 1차원 또는 다차원의 유한 순서 집합이다. 예를 들면, 1차원의 경우 {0, … , ㅜ-1}과 2차원 배열 {(0,0),(0,1),….(2,0),(2,1),(2,2)} 등이다.</div>
+</li>
+<li class="level1"><div class="li"> Functions : 모든 A ← Array, i←index, x←item, j,size←integer</div>
+<ul>
+<li class="level2"><div class="li"> Array Create(j,list) ::= return j차원의 배열, 여기서는 list는 i번째 원소가 i번재 차원의 크기인 j-tuple이며 item들은 정의되지 않았음.</div>
+</li>
+<li class="level2"><div class="li"> Item Retrieve(Ami) ::= if(i←index) return 배열A의 인덱스 i값과 관련된 항목. else return 에러.</div>
+</li>
+<li class="level2"><div class="li"> Array Store(A,i,x) ::= if(i←index) return 새로운 쌍 &lt;i,x&gt;가 삽입된 배열 A. else return 에러.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "2.1.1 추상 데이터 타입" [60-884] -->
+<h3 class="sectionedit4" id="c언어에서의_배열">2.1.2 C언어에서의 배열</h3>
+<div class="level3">
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=2%EC%9E%A5_%EB%B0%B0%EC%97%B4%EA%B3%BC_%EA%B5%AC%EC%A1%B0&amp;codeblock=0" title="조각 다운로드" class="mediafile mf_c">pro2.1.c</a></dt>
+<dd><pre class="code file c"><span class="co2">#include&lt;stdio.h&gt;</span>
+<span class="co2">#define MAX_SIZE 100</span>
+&nbsp;
+<span class="kw4">float</span> sum<span class="br0">&#40;</span><span class="kw4">float</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw4">int</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw4">float</span> input<span class="br0">&#91;</span>MAX_SIZE<span class="br0">&#93;</span><span class="sy0">,</span> answer<span class="sy0">;</span>
+<span class="kw4">void</span> main<span class="br0">&#40;</span><span class="kw4">void</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+	<span class="kw4">int</span> i<span class="sy0">;</span>
+	<span class="kw1">for</span><span class="br0">&#40;</span>i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>MAX_SIZE<span class="sy0">;</span>i<span class="sy0">++</span><span class="br0">&#41;</span>
+		input<span class="br0">&#91;</span>i<span class="br0">&#93;</span> <span class="sy0">=</span> i<span class="sy0">;</span>
+	answer <span class="sy0">=</span> sum<span class="br0">&#40;</span>input<span class="sy0">,</span> MAX_SIZE<span class="br0">&#41;</span><span class="sy0">;</span>
+	<a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span class="kw3">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;The sum is : %f<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> answer<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw4">float</span> sum<span class="br0">&#40;</span><span class="kw4">float</span> list<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="kw4">int</span> n<span class="br0">&#41;</span><span class="br0">&#123;</span>
+	<span class="kw4">int</span> i<span class="sy0">;</span>
+	<span class="kw4">float</span> tempsum <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+	<span class="kw1">for</span><span class="br0">&#40;</span>i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>n<span class="sy0">;</span>i<span class="sy0">++</span><span class="br0">&#41;</span>
+		tempsum <span class="sy0">+=</span> list<span class="br0">&#91;</span>i<span class="br0">&#93;</span><span class="sy0">;</span>
+	<span class="kw1">return</span> tempsum<span class="sy0">;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+</div>
+<!-- EDIT4 SECTION "2.1.2 C언어에서의 배열" [885-] -->

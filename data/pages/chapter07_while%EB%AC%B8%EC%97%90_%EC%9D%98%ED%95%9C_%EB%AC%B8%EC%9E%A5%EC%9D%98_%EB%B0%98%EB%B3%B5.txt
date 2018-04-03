@@ -1,0 +1,23 @@
+====== Chapter07 while문에 의한 문장의 반복 =======
+프로그래밍을 잘하는 법 => 인내심을 갖고 긴 텀으로 공부하기 / 지속적인 스터디, 세미나 관심
+
+<file C ex7-3.c>
+int main(void)
+{
+  for(int num=0; num<3; num++)
+    printf("Hi");
+}
+</file>
+<file C ex7-3-2.c>
+int main(void)
+{
+  int num;
+  for(int num=0; num<3; num++)
+    printf("Hi");
+}
+</file>
+아직도 일부 C 컴파일러는 for문의 ‘초기식‘ 위치에서의 변수선언을 허용하지 않고 있다(최근 표준에서는 이를 허용한다.) 따라서 2번째 코드와 같은 작성을 해야 모든 C 컴파일러에서 컴파일이 가능하다.
+
+구구단 예제
+
+break는 가장 가까운 반복문을 빠져나오는 것, continue와의 비교

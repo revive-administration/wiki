@@ -1,0 +1,52 @@
+
+<h1 class="sectionedit1" id="장_junit_마스터하기">3장 JUnit 마스터하기</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "3장 JUnit 마스터하기" [1-41] -->
+<h2 class="sectionedit2" id="컨트롤러_컴포넌트_소개">3.1 컨트롤러 컴포넌트 소개</h2>
+<div class="level2">
+
+<p>
+Core Java EE 패턴에 따르면 컴포넌트로서의 컨트롤러는 &#039;클라이언트와 상호작용하며, 각 요청 처리를 제어하고 관리&#039;한다. 그리고 표현 계층과 비즈니스 계층 패턴 모두에 사용된다. 일반적으로 컨트롤러는 다음과 같은 일들을 처리한다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 요청 수락</div>
+</li>
+<li class="level1"><div class="li"> 요청에 따른 공통 연산 수행</div>
+</li>
+<li class="level1"><div class="li"> 적절한 요청 핸들러 선택</div>
+</li>
+<li class="level1"><div class="li"> 핸들러가 관련 비즈니스 로직을 수행할 수 있도록 요청 라우팅(routing)</div>
+</li>
+<li class="level1"><div class="li"> 오류나 예외 처리를 위한 최상위 핸들러 제공</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "3.1 컨트롤러 컴포넌트 소개" [42-662] -->
+<h3 class="sectionedit3" id="인터페이스_설계하기">3.1.1 인터페이스 설계하기</h3>
+<div class="level3">
+
+<p>
+컨트롤러의 설명을 곰곰히 들여다보면 필수 객체 네 개가 드러나는데, 바로 요청, 응답, 요청 핸들러, 컨트롤러이다. 요청하고, 요청 핸들러에 전달하고, 응답 객체를 반환한다. 이 요구사항에 맞춰 아래와 같은 간단한 인터페이스를 작성해보았다.
+</p>
+<pre class="code">public interface Request{
+	String getName();
+}
+
+public interface Response{
+
+}
+
+public interface RequestHandler{
+	Response process(Request request) throws Exception;
+}
+
+public interface Controller{
+	Response processRequest(Request request);
+	void addHandler(Request request, RequestHandler requestHandler);
+}</pre>
+
+</div>
+<!-- EDIT3 SECTION "3.1.1 인터페이스 설계하기" [663-] -->

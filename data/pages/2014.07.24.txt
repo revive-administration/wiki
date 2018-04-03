@@ -1,0 +1,5 @@
+====== 2014.07.24 ======
+  * 삼각형, 피라미드, 마름모 만들기
+  * 참고사이트 : http://www.joinc.co.kr/modules/moniwiki/wiki.php/Site/Ruby/Tutorial01#s-4
+  * 루비마인 등록 : http://pastebin.com/7AHaVGnD
+  * 루비기본 API: http://api.rubyonrails.org/

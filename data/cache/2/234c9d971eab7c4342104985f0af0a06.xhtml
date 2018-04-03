@@ -1,0 +1,115 @@
+
+<h1 class="sectionedit1" id="다이나믹_프로그래밍">다이나믹 프로그래밍</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "다이나믹 프로그래밍" [1-43] -->
+<h2 class="sectionedit2" id="다이나믹_프로그래밍1">다이나믹 프로그래밍</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "다이나믹 프로그래밍" [44-84] -->
+<h3 class="sectionedit3" id="개관">개관</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">큰 문제를 작은 문제로 나누어 푸는 알고리즘</div></li>
+  <li><div class="li">두 가지 속성을 만족해야 다이나믹 프로그래밍으로 문제를 풀 수 있다.
+<ul  class="extlist">
+  <li><div class="li">1. Overlapping Subproblem</div></li>
+  <li><div class="li">2. Optimal(최적의) Substructure</div></li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "개관" [85-339] -->
+<h3 class="sectionedit4" id="optimal_substructure">Optimal Substructure</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">문제의 정답을 작은 정답에서 구할 수 있다.</div></li>
+  <li><div class="li">Optimal Substructure을 만족하기 때문에 같은 문제는 구할 때마다 정답이 같다.</div></li>
+  <li><div class="li">따라서 정답을 한번 구했으면 정답을 메모해놓는다.</div></li>
+  <li><div class="li">Memoization이라고 한다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Optimal Substructure" [340-644] -->
+<h3 class="sectionedit5" id="다이나믹_프로그래밍의_풀이">다이나믹 프로그래밍의 풀이</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">1. Top-down</div></li>
+  <li><div class="li">2. Bottom-up</div></li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "다이나믹 프로그래밍의 풀이" [645-727] -->
+<h3 class="sectionedit6" id="top-down">Top-down</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">1. 문제를 작은 문제로 나눈다.</div></li>
+  <li><div class="li">2. 작은 문제를 푼다.</div></li>
+  <li><div class="li">3. 작은 문제를 풀었으니 문제를 푼다.</div></li>
+  <li><div class="li">재귀 호출</div></li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Top-down" [728-897] -->
+<h3 class="sectionedit7" id="bottom-up">Bottom-up</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">1. 문제를 크기가 작은 문제부터 차례대로 푼다.</div></li>
+  <li><div class="li">2. 문제의 크기를 조금씩 크게 만들면서 문제를 점점 푼다.</div></li>
+  <li><div class="li">3. 작은 문제를 풀면서 왔기 때문에 큰 문제는 항상 풀 수 있다.</div></li>
+  <li><div class="li">4. 그러다보면, 언젠간 풀어야 하는 문제를 풀 수 있다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Bottom-up" [898-1233] -->
+<h2 class="sectionedit8" id="문제_풀이_전략">문제 풀이 전략</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT8 SECTION "문제 풀이 전략" [1234-1266] -->
+<h3 class="sectionedit9" id="다이나믹_문제_풀이_전략">다이나믹 문제 풀이 전략</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">문제에서 구하려고 하는 답을 문장으로 나타낸다.</div></li>
+  <li><div class="li">예) N번째 피보나치 수</div></li>
+  <li><div class="li">이제 그 문장에 나와있는 변수의 개수만큼 메모하는 배열을 만든다.</div></li>
+  <li><div class="li">문제를 작은 문제로 나누고, 수식을 이용해서 문제를 표현해야 한다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "다이나믹 문제 풀이 전략" [1267-1607] -->
+<h2 class="sectionedit10" id="문제_풀이">문제 풀이</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">1로 만들기</div></li>
+  <li><div class="li">2xn 타일링</div></li>
+  <li><div class="li">1,2,3 더하기</div></li>
+  <li><div class="li">쉬운 계단 수</div></li>
+  <li><div class="li">오르막 수</div></li>
+  <li><div class="li">스티커</div></li>
+  <li><div class="li">포도주 시식</div></li>
+  <li><div class="li">가장 긴 증가하는 부분수열</div></li>
+  <li><div class="li">가장 큰 증가하는 부분수열</div></li>
+  <li><div class="li">가장 긴 감소하는 부분수열</div></li>
+  <li><div class="li">가장 긴 바이토닉 부분수열</div></li>
+  <li><div class="li">연속합 1,2</div></li>
+  <li><div class="li">계단 오르기</div></li>
+  <li><div class="li">제곱수의 합</div></li>
+  <li><div class="li">타일 채우기</div></li>
+  <li><div class="li">파도반 수열</div></li>
+  <li><div class="li">합분해</div></li>
+  <li><div class="li">암호코드</div></li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "문제 풀이" [1608-] -->

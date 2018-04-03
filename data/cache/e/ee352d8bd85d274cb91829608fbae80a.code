@@ -1,0 +1,3 @@
+<span class="kw1">def</span> square<span class="br0">&#40;</span>x<span class="br0">&#41;</span>   <span class="co1"># x라는 인수를 가진 square 메서드를 정의</span>
+  x<span class="sy0">*</span>x           <span class="co1"># x 제곱값 반환</span>
+<span class="kw1">end</span>             <span class="co1"># 메서드 끝</span>

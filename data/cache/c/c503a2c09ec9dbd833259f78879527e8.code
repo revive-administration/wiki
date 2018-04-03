@@ -1,0 +1,74 @@
+<span class="kw1">public</span> <span class="kw1">interface</span> Command<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw4">void</span> execute<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#123;</span>
+	<span class="kw1">private</span> Command theCommand<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#40;</span>Command theCommand<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		setCommand<span class="br0">&#40;</span>theCommand<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> setCommand<span class="br0">&#40;</span>Command newCommand<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">theCommand</span> <span class="sy0">=</span> newCommand<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> pressed<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		theCommand.<span class="me1">execute</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Lamp<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> turnOn<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;Lamp On&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> LampOnCommand <span class="kw1">implements</span> Command<span class="br0">&#123;</span>
+	<span class="kw1">private</span> Lamp theLamp<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> LampOnCommand<span class="br0">&#40;</span>Lamp theLamp<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">theLamp</span> <span class="sy0">=</span> theLamp<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> execute<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		theLamp.<span class="me1">turnOn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Alarm<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> Start<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;Alarming..&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> AlarmOnCommand <span class="kw1">implements</span> Command<span class="br0">&#123;</span>
+	<span class="kw1">private</span> Alarm theAlarm<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> AlarmOnCommand<span class="br0">&#40;</span>Alarm theAlarm<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">theAlarm</span> <span class="sy0">=</span> theAlarm<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> execute<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		theAlarm.<span class="me1">start</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Client<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		Lamp lamp <span class="sy0">=</span> <span class="kw1">new</span> Lamp<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		Command lampOnCommand <span class="sy0">=</span> <span class="kw1">new</span> LampOnCommand<span class="br0">&#40;</span>lamp<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a> button1 <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#40;</span>lampOnCommand<span class="br0">&#41;</span><span class="sy0">;</span>
+		button1.<span class="me1">pressed</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		Alarm alarm <span class="sy0">=</span> <span class="kw1">new</span> Alarm<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		Command alarmOnCommand <span class="sy0">=</span> <span class="kw1">new</span> AlarmOnCommand<span class="br0">&#40;</span>alarm<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a> button2 <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+button"><span class="kw3">Button</span></a><span class="br0">&#40;</span>alarmOnCommand<span class="br0">&#41;</span><span class="sy0">;</span>
+		button2.<span class="me1">pressed</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		button2.<span class="me1">setCommand</span><span class="br0">&#40;</span>lampOnCommand<span class="br0">&#41;</span><span class="sy0">;</span>
+		button2.<span class="me1">pressed</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

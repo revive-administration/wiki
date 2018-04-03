@@ -1,0 +1,89 @@
+<span class="kw1">package</span> <span class="co2">Ch04</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">import</span> <span class="co2">java.util.*</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> SortedByAgeData <span class="kw1">extends</span> Data <span class="br0">&#123;</span>
+	<span class="kw1">private</span> Data data<span class="sy0">;</span>
+&nbsp;
+	<span class="co1">//생성된 객체가 원본인지 복사본인지 구별하기 위한 신홋값</span>
+	<span class="kw4">boolean</span> flag <span class="sy0">=</span> <span class="kw2">false</span><span class="sy0">;</span>
+&nbsp;
+	<span class="co1">//주소록 객체를 저장하기 위한 Vector</span>
+	<span class="kw1">protected</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+vector"><span class="kw3">Vector</span></a> addresses<span class="sy0">;</span>
+&nbsp;
+	<span class="co1">//하위 클래스를 위한 Default 생성자</span>
+	<span class="kw1">public</span> SortedByAgeData<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span><span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> SortedByAgeData<span class="br0">&#40;</span>Address _addresses<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		addresses <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+vector"><span class="kw3">Vector</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>_address.<span class="me1">length</span><span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			addresses.<span class="me1">addElement</span><span class="br0">&#40;</span>_addresses<span class="br0">&#91;</span>i<span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="co1">//원본을 이용하여 객ㅊ를 생성한다.</span>
+	<span class="kw1">public</span> SortedByAgeData<span class="br0">&#40;</span>Data data<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="co1">//복사되는 객체</span>
+		<span class="kw1">this</span>.<span class="me1">data</span> <span class="sy0">=</span> <span class="br0">&#40;</span>Data<span class="br0">&#41;</span>data.<span class="me1">myClone</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		flag <span class="sy0">=</span> <span class="kw2">true</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="co1">//나이순으로 주소록을 정렬</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> sort<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+vector"><span class="kw3">Vector</span></a> _addresses <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+vector"><span class="kw3">Vector</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw4">int</span> size <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">if</span><span class="br0">&#40;</span>flag<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			size <span class="sy0">=</span> data.<span class="me1">getSize</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span>
+			size <span class="sy0">=</span> addresses.<span class="me1">size</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssns<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span>size<span class="br0">&#93;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>size<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			Address add <span class="sy0">=</span> getAddress<span class="br0">&#40;</span>i<span class="br0">&#41;</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn <span class="sy0">=</span> add.<span class="me1">getSsn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			ssns<span class="br0">&#91;</span>i<span class="br0">&#93;</span> <span class="sy0">=</span> ssn<span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<span class="co1">//나이순으로 ssn을 정렬하여</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+arrays"><span class="kw3">Arrays</span></a>.<span class="me1">sort</span><span class="br0">&#40;</span>ssns<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="co1">//정렬된 ssn을 기준으로 주소록을 정렬시킴</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;</span>size<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn <span class="sy0">=</span> ssns<span class="br0">&#91;</span>i<span class="br0">&#93;</span><span class="sy0">;</span>
+			<span class="kw1">for</span><span class="br0">&#40;</span><span class="kw4">int</span> j<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> j<span class="sy0">&lt;</span>size<span class="sy0">;</span> j<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+				Address add <span class="sy0">=</span> getAddress<span class="br0">&#40;</span>j<span class="br0">&#41;</span><span class="sy0">;</span>
+				<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> _ssn <span class="sy0">=</span> add.<span class="me1">getSsn</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">if</span><span class="br0">&#40;</span>ssn.<span class="me1">equals</span><span class="br0">&#40;</span>_ssn<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+					_addresses.<span class="me1">add</span><span class="br0">&#40;</span>i,add<span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="br0">&#125;</span>
+			<span class="br0">&#125;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		addresses <span class="sy0">=</span> _addresses<span class="sy0">;</span>
+		flag <span class="sy0">=</span> <span class="kw2">false</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+	<span class="kw1">public</span> <span class="kw4">int</span> getSize<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw4">int</span> size <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+		<span class="kw1">if</span><span class="br0">&#40;</span>flag<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			add <span class="sy0">=</span> data.<span class="me1">getAddress</span><span class="br0">&#40;</span>index<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span>
+			add <span class="sy0">=</span> <span class="br0">&#40;</span>Address<span class="br0">&#41;</span>addresses.<span class="me1">elementAt</span><span class="br0">&#40;</span>index<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<span class="kw1">return</span> add<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> getName<span class="br0">&#40;</span><span class="kw4">int</span> index<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		Address add <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+		<span class="kw1">if</span><span class="br0">&#40;</span>flag<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			add <span class="sy0">=</span> data.<span class="me1">getAddress</span><span class="br0">&#40;</span>index<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span><span class="br0">&#123;</span>
+			add<span class="sy0">=</span><span class="br0">&#40;</span>Address<span class="br0">&#41;</span>addresses.<span class="me1">elementAt</span><span class="br0">&#40;</span>index<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name <span class="sy0">=</span> add.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">return</span> name<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

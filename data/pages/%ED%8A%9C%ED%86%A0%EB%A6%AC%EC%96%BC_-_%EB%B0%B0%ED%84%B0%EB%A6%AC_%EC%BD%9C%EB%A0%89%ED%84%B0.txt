@@ -1,0 +1,66 @@
+====== 튜토리얼 - 배터리 콜렉터 ======
+===== 1강 ~ 11강 =====
+  * 배터리 파워를 획득하는 캐릭터와 파워를 얻게 해주는 배터리(PickUp) 제작 방식에 대해 학습한다.
+=====  12강 =====
+  * 파워를 얻게 해주는 로직 구축
+
+===== 13강 =====
+  * 여기부터 자막이 없다-_-
+  * 캐릭터의 파워를 점차 낮춰서 배터리를 먹지 않으면 죽도록 함
+
+===== 14강 =====
+  * 파워에 따른 캐릭터의 스피드와 메터리얼을 바꿈
+  * 스켈레탈 메시 : 메터리얼들을 소유하고 있음
+    * 여기서 [[스켈레탈 메시 액터]]란? : https://docs.unrealengine.com/latest/KOR/Engine/Actors/SkeletalMeshActors/index.html
+  * 메시의 메터리얼의 BodyColor이라는 파라미터의 색을 동적으로 바꿔준다
+  * 그렇다. 그렇게 홍익인간이 되었다.
+
+===== 15강 =====
+  * 배터리를 꿀꺽할때 강려크한 파티클이 나타나도록 한다 (Spawn Emitter Attached)
+  * 파워는 캐릭터의 심장이므로 캐릭터 심장의 Skeleton에서 bone 이름 (spine_02)를 복사해서 GetSocketLocation으로 가져온다 (Socket Name)
+  * 즉 배터리에서 파티클이 만들어진 뒤 Beam의 TargetPoint가 캐릭터의 심장이 되는 것이다.
+  * UNLIMITED... P.O.W.E.R
+  * {{:kakaotalk_20170110_112131088.png?200|}}
+
+===== 16강 =====
+  * UMG를 가능하게 해보자 (본격적으로 변태의 냄새가 난다.)
+  * Build.cs에서 Dependency를 추가해준다.
+    * 디펜던시만 바꿔준다고 바로 사용 가능한게 아니라 언리얼에서 프로젝트를 regenerated 해주어야한다 (귀찬다..)
+    * https://answers.unrealengine.com/questions/241263/include-blueprintuserwidgeth-missing.html
+  * BatteryCollector.h에서 #include "EngineMinimal.h" -> "Engine.h"로 변경해 줌으로써 더 많은 헤더파일들 참조가 가능하다
+    * GEngine->DebugMessage가 안됐었는데 이거 때문인듯
+  * 위젯을 만들고 Viewport에 올리는 소스 (Blueprint/UserWidget.h 인클루드 되어있어야 함)
+  * {{:cc.png?|}}
+
+===== 17강 =====
+  * 형변환도 퓨어 형변환이 있다.
+  * HUD의 ProgressBar 비율을 Bind 해주고
+  * GameMode의 HUD 변수에 HUD 위젯 클래스를 연결해준다.
+  * 맵&모드에서 BP_GameMode를 기본으로 설정해준다.
+  * BP_GameMode는 하나의 상시 액터처럼 작용하면서 HUD를 뷰포트에 계속 띄워주는 역할을 한다.
+  * {{:mini.png?200|}}
+
+===== 18강 =====
+  * GameMode가 GameState를 들고 있는다.
+  * 선택은 이렇게 쓰는 겁니다.
+  * {{:select.png|}}
+
+===== 19강 =====
+    * SpawnVolume(배터리를 스폰하는 장치)의 스폰 타이밍을 게임 모드에 따라 컨트롤 할 수 있도록 설계한다.
+    * 특정 클래스의 모든 액터를 가져오는 코드
+    * {{:getall.png|}}
+    * 해당 액터들을 리스트 변수에 Add 해 두어서 게임모드에서 관리할 수 있게 만듦
+
+===== 20강 =====
+  * 새 플레이 스테이트 컨트롤하기
+  * 인게임 상태에서만 배터리가 스폰되도록 설정
+  * 게임 종료시의 캐릭터 CinematicMode 설정
+    * PlayerController = UGamePlayStatics::GetPlayerController(this,0);
+    * PlayerController->SetCinematiceMode(true, false, false, true, true);
+  * 게임에 패배했을 때 Set simulate physics를 통해 Ragdoll 상태를 표현하도록 하자
+    * 캐릭터 -> 메시 -> 콜리전 프리셋 설정 -> Collision Enalbled 설정을 해주어서, 물리영향은 받되 땅은 인지하도록 한다
+    * 좀 더 자세한건 마지막 강의를 보자 
+
+===== 21강 =====
+  * 기대했는데 딱히 암것도 안함
+  * 스폰 범위 지정해주고 파티클 폴리싱 해줌 끝

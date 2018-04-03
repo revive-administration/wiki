@@ -1,0 +1,41 @@
+====== 튜토리얼 - 멀티플레이 ======
+  * 링크 : https://www.youtube.com/watch?v=abmzWUWxy1U&index=1&list=PLZlv_N0_O1gYqSlbGQVKsRg6fpxWndZqZ&t=3s
+  * 강사 : Wes Bunn
+  * 총 24개 강좌
+===== 1. 프로젝트 개요 =====
+안봐도됨, 그냥 개략적인 설명
+===== 2. 프로젝트 설정 =====
+  * 프로젝트 진행을 위한 전반적인 세팅 (귀찮다..)
+  * 캐릭터, 폴더 구조, 위젯 등 프로젝트에 필요한 애셋 생성
+  * **스켈레톤 리타게팅을 통한 애니메이션 설정**
+
+===== 3. 게임 인스턴스 =====
+  * GameInfoInstance(GameInstance)에 커스텀 이벤트로 위젯 띄우기 노가다 작업 (귀찮다..)
+  * Host와 Guest로 나누어서 이벤트를 진행한다
+    * Host는 Lobby를 만들고, Guest는 Lobby에 참여한다.
+  * Host 메뉴에서 Lobby를 만들때의 리플리케이션 설정
+    * Replicated : 변수가 바뀔때마다 알림 - 리플리케이션은 결국 로컬의 변경사항을 알리는 것
+    * **RepNotify** : 변수가 바뀔때마다 함수도 만들어짐
+  * 세션 만들기 (Create Session)
+    * OpenLevel의 숨겨진 비밀 -> OpenLevel 함수에서 고오급 아래 버튼을 누르면 Options 를 설정할 수 있다.
+    * 리슨 서버가 뭐더라?
+  * 그밖의 각종 네트워크 에러를 대비한 에러 처리 (귀찮다..)
+
+
+===== 4. PlayerInfo =====
+  * PlayerInfo 구조체를 만들시에 캐릭터의 경우 변수 타입을 캐릭터 레퍼런스가 아닌 캐릭터 클래스로 한다 (왜지?)
+  * 작업한 PlayerInfo구조체를 SaveGame의 변수로 설정해둔다.
+  * Arena01 레벨의 월드 세팅에서 GameMode Override를 GameplayGM으로 설정한다
+    * 추가적으로 SelectedGameMode에서 Default Pawn과 PlayerController Class도 설정해준다.
+    * 썸네일 사진 찍어주기
+    * Arena02도 같은 작업 반복
+  * 로비에 캐릭터 4명씩 마주보도록 배치한다
+  * 로비의 경우 LobbyGameMode, LobbyPC로 설정한다
+  * 플레이어 들이 떨어지지 않도록 Blocking Volume 세팅
+  * MainMenu 레벨을 시전하고 턴을 종료한다.
+
+===== 5. 메인 메뉴 설정 =====
+  * 간단하게 메인메뉴 위젯을 만들고 각각의 메뉴들과 연결
+
+===== 6. Host Menu Design =====
+  * 5강과 비슷한 호스트 메뉴 위젯을 디자인 함

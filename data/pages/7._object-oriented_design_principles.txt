@@ -1,0 +1,18 @@
+====== 7. Object-Oriented design principles ======
+===== Software design principles ====
+==== SOLID 원칙 ====
+  * 단일 책임 원칙(The single-responsibility principle) - SRP
+    * 클래스는 변경되어야 할 이유가 한개뿐이다.
+    * Cohesion(응집도) and Coupling(결합도)
+      * Cohesion - How closely related are the different responsibilities of a module
+      * Coupling - How much one module relies on another
+      * Goal is low coupling and high cohesion
+  * 개방 폐쇄 원칙(The open-closed principle) - OCP
+    * 소프트웨어는 확장에 열려있고 변경에 닫혀있어야 한다.
+  * 리스코프 치환원칙 (The Liskov substitution principle) - LSP
+    * 서브타입은 베이스타입으로 대체 가능해야한다 
+  * 의존성 역전의 원칙 (The dependency inversion principle) - DIP
+    * High-level modules는 로우레벨 모듈에 의존해서는 안된다 각각은 추상성에 의존해야한다
+    * 추상화는 구체적이여서는 안된다. 디테일은 추상화에 의존해야한다.
+  * 인터페이스 분리의 원칙 (The interface segregation principle) - ISP
+    * 클라이언트는 그들이 사용하지 않는 메서드에 의존해서는 안된다.

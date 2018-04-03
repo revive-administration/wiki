@@ -1,0 +1,17 @@
+====== 초기 환경설정 ======
+  * 라라벨 익히기 : [라라벨 메뉴얼 링크](https://laravel.kr/)
+    * 라라벨에 명시된 홈스테드 환경 대신 XAMPP를 사용한다
+      * XAMPP 설치
+      * SYMPHONY 설치
+      * XAMPP + SYMPHONY 환경 구성 [참조링크](https://www.codementor.io/magarrent/how-to-install-laravel-5-xampp-windows-du107u9ji)
+    * 라라벨 튜토리얼 : http://l5.appkr.kr/
+  * INDEX 꾸미기
+  * MYSQL 연습
+    * [MYSQL 튜토리얼1](http://www.w3big.com/ko/mysql/default.html)
+    * [MYSQL 튜토리얼2](https://www.w3schools.com/sql/)
+  * PHP STORM 설치
+    * 졸업하기 전에 라이센스 타가자
+    * laravel 플러그인 설치
+  * SQLYog설치(community 버전)
+  * C:\WINDOWS\System32\drivers\etc\hosts 파일 수정
+  * apache/conf/extra/vhosts.conf 수정

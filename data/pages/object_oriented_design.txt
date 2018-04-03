@@ -1,0 +1,125 @@
+====== Object Oriented Design ======
+===== OOP Technique Example : Responsibility Driven Design =====
+  * OOP = a set of interacting objects
+  * Each object is a component that has responsibility in a community
+  * System is divided into various activities that the system has to perform. Then, those activities(responsibilities) are distributes among objects in the system.
+  * After completing a list of responsibilities, we need to decide a set of objects and determine which responsibilities should be assigned to which object
+  * Responsibilities in an object should be closely related
+
+===== Design Process =====
+  * Specification
+  * Software System Design
+
+===== Development Process =====
+==== 1. Initial Description ====
+  * We need to clarify the ambiguities in the description
+
+==== 2. Refine Specification ====
+  * Because of the ambiguity in the specification, the major tool we will use to uncover the desired behavior is to walk through application scenarios
+    * Pretend we had already a working application. Walk through the various uses of the system
+    * Establish the "look and feel" of the system
+    * Make sure we have uncovered all the intended uses.
+    * Develop descriptive documentation
+    * Create the high level software design
+  * Other authors use the "use-cases" for this process of developing scenarios
+
+==== 3. Identification of Components ====
+  * Component
+    * an abstract design entity with which we can associate responsibilities for different tasks
+    * must have a small well defined set of responsibilities
+    * should interact with other components to the minimal extent possible
+
+==== 4. Identification of Components Responsibilities ====
+  * CRC Cards
+    * Components are most easily described using CRC cards
+  * Characteristics of Components
+    * Behavior and State
+      * Behavior
+        * the set of actions a component can perform
+      * State
+        * all the information (data values) held within a component
+      * It is common for behavior to change state
+    * Instances and Classes
+      * There are likely many instances of recipe, but they will all behave in the same way
+      * We say the behavior is common to the class Recipe
+    * Coupling and Cohesion
+      * Cohesion
+        * the degree to which the tasks assigned to a component seem to form a meaningful unit.
+        * Want to maximize cohesion
+      * Coupling
+        * the degree to which the ability to fulfill a certain responsibility depends upon the actions of another component
+        * Want to minimize coupling
+    * Interface and Implementation
+      * We have characterized software components by what they can do
+      * The user of a software component need only know what it does, not how it does.
+
+=== Public and Private View ===
+  * Public View
+    * those features (data or behavior) that other components can see and use
+  * Private View
+    * those features that are used only within the component
+
+==== 5. Formalize the Interface====
+  * Formalize the channels of communication between the components
+    * The general structure of each component is identified
+    * Components with only one behavior may be made into functions
+    * Components with many behaviors are probably more easily implemented as classes
+    * Names are given to each of the responsibilities - these will eventually be mapped on to procedure names
+    * Function parameters should be identified
+    * Information is assigned to each component and accounted for
+    * Scenarios are replayed in order to ensure all data is available
+
+=== The selection of names ===
+  * should be evocative in the context of the problem
+  * should be short
+  * should be pronounceable (read them out load)
+  * names should be consistent within the project
+  * avoid digits within a name
+
+===== 6. Design =====
+  * Transform description into SW layout
+  * Design data structures in each component
+  * Transform behavior description into algorithms
+
+===== 7. Implementing Components ====
+  * implement the desired activities in each component
+  * Unit testing : Subsystems are validate individually
+    * Identify necessary conditions for correct functioning
+    * Test input values to verify that SW component will perform correctly when presented with legal input values
+
+===== 8. Integration of Components
+  * Components are slowly integrated into completed system, using stubs as ye unimplemented parts
+  * Stubs
+    * simple dummy routines with no behavior or wit very limited behavior
+  * Errors discovered during integration cause reinvestigation of validation techniques performed at the subsystem level
+
+===== 9. Maintenance and Evolution =====
+  * Software Maintenance
+    * Activities subsequent to the delivery of the initial working version of SW system
+  * Software does not remain fixed after the first working version is released
+    * Errors or bugs can be discovered. Must be corrected 
+    * Requirements may change. Say as a result of government regulations, or standardization among similar products 
+    * Hardware may change
+    * Users expectations may change. Greater functionality, more features. Often as a result of competition from similar products 
+    * Better documentation may be required
+  * Good Desion
+    * Recognized the inevitability of changes and plans an accommodation from the very beginning
+
+=== Prepare for Change! ===
+  * User requirements change with experience, hardware changes, government regulation change.
+    * Try to predict the most likely sources of change, and isolate the effect. Common changes include interfaces, file formats, communication protocols
+    * Isolate interfaces to hardware that is likely to change
+    * Reduce dependency of one software component on another
+    * Keep accurate record of the reasoning behind every major decision in the design documentation
+
+==== Common Design Flaws ====
+  * Direct modification
+    * Components that make direct modification of data values in other components are a direct violation of encapsulation
+  * Too Much Responsibility
+    * Components with too much responsibility are difficult to understand and to use
+  * No Responsibility
+    * Components with no responsibility serve no purpose
+  * Components with unused responsibility
+    * Usually the result of designing software components without thinking about how they will be use
+  * Misleading Names
+    * Names should be short and unambiguously indicate what the responsibilities of the component involve

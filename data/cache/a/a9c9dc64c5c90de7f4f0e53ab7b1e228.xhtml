@@ -1,0 +1,194 @@
+
+<h1 class="sectionedit1" id="템플릿_시스템과_데이터_바인딩">04 템플릿 시스템과 데이터 바인딩</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "04 템플릿 시스템과 데이터 바인딩" [1-60] -->
+<h3 class="sectionedit2" id="템플릿의_이해">템플릿의 이해</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT2 SECTION "템플릿의 이해" [61-90] -->
+<h3 class="sectionedit3" id="angularjs의_템플릿">AngularJS의 템플릿</h3>
+<div class="level3">
+
+<p>
+AngularJS도 클라이언트 측의 템플릿 시스템을 제공한다. 하지만 Mustache와 같은 템플릿 시스템과 다른 특징이 있다. AngularJS에서는 템플릿이 <abbr title="HyperText Markup Language">HTML</abbr> 그 자체다. Mustache는 별도의 문자열을 작성한 후 그 문자열과 데이터를 조합하여 DOM을 생성한다. 반면 AngularJS는 DOM 자체를 템플릿으로 사용한다. 이 DOM에는 <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, 그리고 AngularJS에서 제공하는 특정한 요소나 속성인 지시자가 포함된다. 다음은 템플릿 작성 시 사용되는 AngularJS의 기능이다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 지시자 : 기본 HTML을 확장하거나 새로 추가한 요소나 속성이다. ng-repeat, ng-app 등이 지시자에 해당한다. 또한 사용자가 만든 재사용할 수 있는 위젯과 같은 지시자도 여기에 해당한다.</div>
+</li>
+<li class="level1"><div class="li"> 마크업 : 기본 <abbr title="HyperText Markup Language">HTML</abbr> 마크업과 이중 중괄호 - <a href="/dokuwiki/lib/exe/fetch.php?media=%ED%91%9C%ED%98%84%EC%8B%9D" class="media mediafile mf_ wikilink2" title="표현식">표현식</a></div>
+</li>
+<li class="level1"><div class="li"> 필터 : 사용자에게 보여주는 데이터의 형식을 필터 처리한다.</div>
+</li>
+<li class="level1"><div class="li"> 폼 컨트롤 : 입력 상자의 유효성 검사를 위해 AngularJS가 폼 태그를 확장했다. 폼 태그를 사용하게 되면 자동으로 폼 컨트롤을 사용한다.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="이중_중괄호와_angularjs_표현식">이중 중괄호와 AngularJS 표현식</h4>
+<div class="level4">
+
+</div>
+<!-- EDIT3 SECTION "AngularJS의 템플릿" [91-1332] -->
+<h3 class="sectionedit4" id="데이터_바인딩의_이해">데이터 바인딩의 이해</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT4 SECTION "데이터 바인딩의 이해" [1333-1373] -->
+<h3 class="sectionedit5" id="반복적인_데이터_표현을_위한_템플릿_반복_지시자">반복적인 데이터 표현을 위한 템플릿(반복 지시자)</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> &lt;any ng-repeat=“변수명 in 표현식”&gt;</div>
+<ul>
+<li class="level2"><div class="li"> 변수명은 주어진 배열의 요소를 반복문 내부에서 참조할 때 사용한다. 표현식은 $scope 내의 배열과 같은 순환할 대상을 가리킨다</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> &lt;any ng-repeat=“(key 변수명, value 변수명) in 표현식”&gt;</div>
+<ul>
+<li class="level2"><div class="li"> 자바 스크립트 객체같은 데이터를 순환할 때 사용한다. key 변수명은 반복문 내부에서 객체의 key를 참조할 변수명이고 value 변수명은 마찬가지로 참조하는 value의 변수명이다.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> &lt;any ng-repeat=“변수명 in 표현식 track by 표현식”&gt;</div>
+<ul>
+<li class="level2"><div class="li"> 배열 요소와 생성되는 DOM 요소를 연결할 때 사용하는 고유한 값을 지정할 수 있다.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+ng-repeat를 적용한 <abbr title="HyperText Markup Language">HTML</abbr> 요소는 배열 요소의 개수만큼 <abbr title="HyperText Markup Language">HTML</abbr> 요소를 생성한다. 그리고 해당 <abbr title="HyperText Markup Language">HTML</abbr> 요소에는 별도의 scope 영역이 생성되는데 해당 scope 영역에서만 사용할 수 있는 특별한 속성을 제공한다. s
+</p>
+<ul>
+<li class="level1"><div class="li"> $index - 배열 요소의 인덱스다. (0부터 length-1 까지)의 숫자형을 반환한다.</div>
+</li>
+<li class="level1"><div class="li"> $first - 배열 요소의 첫 번째 요소이면 값이 true 아니면 false 이다.</div>
+</li>
+<li class="level1"><div class="li"> $middle - 배열 요소가 첫 번째와 마지막 요소 사이에 있으면 true 아니면 false이다.</div>
+</li>
+<li class="level1"><div class="li"> $last</div>
+</li>
+<li class="level1"><div class="li"> $even - 배열 요소의 인덱스가 짝수이면 true 아니면 false이다.</div>
+</li>
+<li class="level1"><div class="li"> $odd</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "반복적인 데이터 표현을 위한 템플릿(반복 지시자)" [1374-2822] -->
+<h3 class="sectionedit6" id="조건적인_데이터_표현을_위한_템플릿_조건_지시자">조건적인 데이터 표현을 위한 템플릿(조건 지시자)</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT6 SECTION "조건적인 데이터 표현을 위한 템플릿(조건 지시자)" [2823-2900] -->
+<h3 class="sectionedit7" id="비즈니스_로직_처리를_위한_템플릿_컨트롤러_지시자">비즈니스 로직 처리를 위한 템플릿(컨트롤러 지시자)</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT7 SECTION "비즈니스 로직 처리를 위한 템플릿(컨트롤러 지시자)" [2901-2981] -->
+<h3 class="sectionedit8" id="폼과_유효성_검사를_위한_템플릿_폼_입력_지시자">폼과 유효성 검사를 위한 템플릿(폼/입력 지시자)</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="텍스트_타입_사용법">텍스트 타입 사용법</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ng-model : 바인딩 대상이 되는 모델명</div>
+</li>
+<li class="level1"><div class="li"> name : 폼에서 사용하는 이름</div>
+</li>
+<li class="level1"><div class="li"> ng-required : 필수 입력 여부</div>
+</li>
+<li class="level1"><div class="li"> ng-minlength : 입력박스에 입력되는 값의 최소 글자 수</div>
+</li>
+<li class="level1"><div class="li"> ng-maxlength : 입력박스에 입력되는 값의 최대 글자 수</div>
+</li>
+<li class="level1"><div class="li"> ng-pattern : 입력된 값과 비교될 정규표현식이며 /정규표현식/ 과 같은 값이 요구된다.</div>
+</li>
+<li class="level1"><div class="li"> ng-change : 사용자의 입력이 발생될 때 실행될 표현식</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="formcontroller와_ngmodelcontroller">FormController와 NgModelController</h4>
+<div class="level4">
+
+<p>
+AngularJS는 표준 <abbr title="HyperText Markup Language">HTML</abbr> 태그 또한 AngularJS 지시자로 만들 수 있다. 즉, &lt;form&gt; 태그도 지시자로 간주하고 확장할 수 있다. 
+</p>
+
+</div>
+
+<h4 id="체크박스_타입_사용법">체크박스 타입 사용법</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> ng-model : 바인딩 대상이 되는 모델명</div>
+</li>
+<li class="level1"><div class="li"> name : 폼에서 사용하는 이름</div>
+</li>
+<li class="level1"><div class="li"> ng-true-value : 체크박스를 체크했을 때 바인딩될 모델에 대입할 값</div>
+</li>
+<li class="level1"><div class="li"> ng-false-value : 체크박스의 체크를 해제했을 때 바인딩된 모델에 대입할 값</div>
+</li>
+<li class="level1"><div class="li"> ng-required : 필수 입력 여부</div>
+</li>
+<li class="level1"><div class="li"> ng-change : 사용자의 입력이 발생할 때 실행될 표현식</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="css_클래스로_유효성_검증_결과_표현하기">CSS 클래스로 유효성 검증 결과 표현하기</h4>
+<div class="level4">
+
+<p>
+AngularJS는 컨트롤 요소의 유효성 검증 결과의 요소를 <abbr title="Cascading Style Sheets">CSS</abbr> 클래스로 알아서 추가해 준다. 가령 특정 텍스트 타입의 입력 요소가 필수 입력 요소인데 해당 입력 요소에 값이 주어지지 않으면 AngularJS는 ng-invalid <abbr title="Cascading Style Sheets">CSS</abbr> 클래스를 해당 입력 요소에 추가한다. 그런데 값이 입력되면 ng-invalid <abbr title="Cascading Style Sheets">CSS</abbr> 클래스는 없어지고 ng-valid <abbr title="Cascading Style Sheets">CSS</abbr> 클래스가 추가된다. 이처럼 ng-required나 ng-pattern과 같은 유혀성 검사를 위한 속성이 &lt;input&gt; 요소와 같은 컨트롤 요소에 사용되고 유효성 검증에 성공하면 ng-valid <abbr title="Cascading Style Sheets">CSS</abbr> 클래스가, 실패하면 NG-INVALID <abbr title="Cascading Style Sheets">CSS</abbr> 클래스가 자동으로 추가되는 것이다.
+</p>
+
+<p>
+그뿐만 아니라 해당 입력 요소에 사용자 입력이 없으면 ng-pristine <abbr title="Cascading Style Sheets">CSS</abbr> 클래스가 추가되고 사용자 입력이 발생하면 ng-dirty <abbr title="Cascading Style Sheets">CSS</abbr> 클래스가 추가된다. 
+</p>
+
+</div>
+
+<h4 id="이벤트_처리를_위한_템플릿_이벤트_처리_지시자">이벤트 처리를 위한 템플릿(이벤트 처리 지시자)</h4>
+<div class="level4">
+
+<p>
+ng-change 지시자와 ng-blur 지시자를 제외한 다른 이벤트 지시자는 모든 요소에서 사용할 수 있다. 다음은 이벤트 지시자의 사용 방법이다.
+</p>
+<pre class="code">&lt;ANY ng-이벤트명=&quot;표현식&quot;&gt;
+  ...
+&lt;/ANY&gt;</pre>
+
+</div>
+
+<h4 id="css_클래스_스타일을_동적으로_처리하기_위한_템플릿_클래스_지시자_스타일_지시자">CSS 클래스/스타일을 동적으로 처리하기 위한 템플릿 (클래스 지시자/스타일 지시자)</h4>
+<div class="level4">
+
+<p>
+AngularJS에서는 ng-class 지시자를 이용해 템플릿에서 <abbr title="Cascading Style Sheets">CSS</abbr> 클래스를 동적으로 처리할 수 있다. ng-class의 사용법을 살펴보자
+</p>
+<pre class="code">&lt;ANY ng-class=&quot;표현식&quot;&gt;
+  ...
+&lt;/ANY&gt;
+
+또는
+
+&lt;ANY class=&quot;ng-class: 표현식;&quot;&gt;
+   ...
+&lt;/ANY&gt;</pre>
+
+<p>
+ng-class는 앞에서 본 바와 같이 태그의 속성 또는 class 속성의 값으로 ng-class: 표현식 과 같이 사용할 수 있다. 표현식의 결괏값은 <abbr title="Cascading Style Sheets">CSS</abbr> 클래스 이름을 스페이스로 구분한 문자열이나, <abbr title="Cascading Style Sheets">CSS</abbr> 클래스 이름들로 구성된 배열이거나, <abbr title="Cascading Style Sheets">CSS</abbr> 클래스 이름이 속성 이름이고 true/flase를 값으로 하는 객체여야 한다. 객체일 경우 특정 <abbr title="Cascading Style Sheets">CSS</abbr> 클래스 이름의 값이 true일 때에 해당 <abbr title="Cascading Style Sheets">CSS</abbr> 클래스가 요소에 적용된다. 예제를 통해 살펴보자. 
+</p>
+
+</div>
+<!-- EDIT8 SECTION "폼과 유효성 검사를 위한 템플릿(폼/입력 지시자)" [2982-] -->

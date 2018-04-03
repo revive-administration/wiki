@@ -1,0 +1,7 @@
+====== Illumination & Shading ====== 
+  * http://web.cse.ohio-state.edu/~whmin/courses/cse5542-2013-spring/11-illumination.pdf
+  * Illumination (Lighting)
+    * Model the interaction of light with surface points to determine their final color and brightness.
+    * OpenGL computes illumination at vertices
+  * Shading
+    * Apply the lighting model at a set of points across the entire surface

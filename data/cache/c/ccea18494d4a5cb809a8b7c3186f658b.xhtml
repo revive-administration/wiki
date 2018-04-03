@@ -1,0 +1,51 @@
+
+<h1 class="sectionedit1" id="greedy_algorithm_vs_dynamic_programming">Greedy Algorithm vs Dynamic Programming</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Greedy Algorithm vs Dynamic Programming" [1-54] -->
+<h2 class="sectionedit2" id="비교">비교</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Greedy Algorithm</div>
+<ul>
+<li class="level2"><div class="li"> more efficient</div>
+</li>
+<li class="level2"><div class="li"> difficult proof</div>
+</li>
+<li class="level2"><div class="li"> 그리디는 순서와 랭킹이 중요하다.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Dynamic Programming</div>
+<ul>
+<li class="level2"><div class="li"> Optimal performance (powerful)</div>
+</li>
+<li class="level2"><div class="li"> Easy proof</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "비교" [55-269] -->
+<h2 class="sectionedit3" id="예시">예시</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 0/1 Knapsack Problem : Find A⇐S</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "예시" [270-327] -->
+<h2 class="sectionedit4" id="backtrack_in_dfs">Backtrack in DFS</h2>
+<div class="level2">
+
+<p>
+go to parent at Dead Ends..DFS 스타일로 모든 leaf를 점검하라
+점검 기준 : Bounding Function (트리의 진형과 확장을 멈춤)
+그러나 답을 찾을 가능성 있는 트리는 계속 찾아나간다 → 각 트리에 갈 때마다 if문을 하나 들어가서 검사하는 것, 최대한 빨리 많은 가지를 날려 버리면 90%를 날린다고 가정했을 때 시간복잡도는 의미가 없다. optimal은 그대로 유지하면서 계산량을 줄여나간다.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Backtrack in DFS" [328-] -->

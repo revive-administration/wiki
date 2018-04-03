@@ -1,0 +1,189 @@
+
+<h1 class="sectionedit1" id="프로젝트_네이밍_규칙">프로젝트 네이밍 규칙</h1>
+<div class="level1">
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "프로젝트 네이밍 규칙" [1-51] -->
+<h2 class="sectionedit2" id="엔진_내_네이밍_규칙">엔진 내 네이밍 규칙</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT2 SECTION "엔진 내 네이밍 규칙" [52-91] -->
+<h3 class="sectionedit3" id="cpp_bp">CPP/BP</h3>
+<div class="level3">
+
+<p>
+기본적으로 CPP_ , BP_ 를 붙이고 시작하지만, 그 뒤의 이름은 PascalCase로 사용한다.
+</p>
+
+<p>
+예) CPP_AttackActorFactory, BPFL_ParticleManager
+</p>
+<div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 구분 </th><th class="col1"> 사용첨자 </th><th class="col2"> 종류 </th><th class="col3"> 예시 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> CPP </td><td class="col1"> CPP_ </td><td class="col2"> CPP로 작성하는 일반 클래스 </td><td class="col3"> CPP_AttackActor </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> BP </td><td class="col1"> BP_ </td><td class="col2"> BP로 작성하는 일반 클래스 </td><td class="col3"> BP_CardActor </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> CPPFL </td><td class="col1"> CPPFL_ </td><td class="col2"> FunctionLibrary 중 C++로 작성된 클래스 </td><td class="col3"> CPPFL_SkilStructLibrary </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> BLFL </td><td class="col1"> BPFL_ </td><td class="col2"> FunctionLibrary 중 Blueprint로 작성된 클래스 </td><td class="col3"> BPFL_ParticleManager </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> WB </td><td class="col1"> WB_ </td><td class="col2"> 위젯 블루프린트 클래스 </td><td class="col3"> WB_Dialog </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> BTTask </td><td class="col1"> BTTask_ </td><td class="col2"> 태스크 블루프린트 클래스 </td><td class="col3"> BTTask_ThirdPersonAttack </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> BTService </td><td class="col1"> BTService </td><td class="col2"> 서비스 블루프린트 클래스 </td><td class="col3"> BTService_ThirdPersonService </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> FTest </td><td class="col1"> FTest </td><td class="col2"> FunctionalTest 클래스 </td><td class="col3"> FTest_CPPFL_SkillManager </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> Model </td><td class="col1"> M_ </td><td class="col2"> 모델 데이터 클래스 (머터리얼과 첨자가 동일하지만 실제 사용은 UM_ 이 되므로 상관없다.) </td><td class="col3"> M_UnitState </td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [268-1102] -->
+</div>
+
+<h4 id="bpfl의_용도_구분">BPFL의 용도 구분</h4>
+<div class="level4">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 구분 </th><th class="col1"> 종류 </th><th class="col2"> 예시 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> StructLibrary </td><td class="col1"> 구조체등의 정보를 담고 있는 클래스, 구조체의 보조 용도로만 사용 </td><td class="col2"> CPPFL_EquipmentStructLibrary </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Manager </td><td class="col1"> 게임의 로직수행을 위한 트리거를 담당하는 클래스 </td><td class="col2"> CPPFL_EventManager </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Factory </td><td class="col1"> 객체 생성을 담당하는 클래스 </td><td class="col2"> CPPFL_AttackActorFactory </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1134-1489] -->
+</div>
+<!-- EDIT3 SECTION "CPP/BP" [92-1490] -->
+<h3 class="sectionedit6" id="assets">Assets</h3>
+<div class="level3">
+
+<p>
+SnakeCase를 사용하여 구분한다. 각각의 파일들은 Assets 폴더에 종류별로 보관한다.
+배경 이미지의 경우 Suffix로 BG를 명시해준다.
+확정 어셋이 아닐경우 Suffix로 Sample을 붙여주자.
+</p>
+<div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">구분</th><th class="col1">종류</th><th class="col2">주의사항</th><th class="col3">예시</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> T  </td><td class="col1 leftalign"> 텍스쳐  </td><td class="col2 leftalign"> 사용하는 레벨, 기능을 명시한다  </td><td class="col3"> T_Battle_HongKong_4_BG </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> SPR </td><td class="col1"> 스프라이트 </td><td class="col2"> 사용하는 레벨, 기능을 명시한다 </td><td class="col3"> SPR_Battle_Slot_Anchor_Down </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> P </td><td class="col1"> 파티클 </td><td class="col2"> 범용적이므로 레벨은 명시하지 않고 특징만 명시한다. </td><td class="col3"> P_Field_Card_Glow_1 </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> M </td><td class="col1"> 머터리얼 </td><td class="col2"> 범용적이므로 레벨은 명시하지 않고 특징만 명시한다. </td><td class="col3"> M_Character_Man_Sample </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> Font </td><td class="col1"> 폰트 어셋 </td><td class="col2"> 폰트의 이름과 Online, Offline 여부를 구분한다 </td><td class="col3"> Font_Nanum_Barun_Offline </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [1740-2318] --><hr />
+
+</div>
+<!-- EDIT6 SECTION "Assets" [1491-2324] -->
+<h2 class="sectionedit8" id="bool_관련">bool 관련</h2>
+<div class="level2">
+
+<p>
+bool을 리터하는 변수는 bIsDead와 같이 앞에 b를 명시해 주어서 변수임을 알려주도록 하자. 함수의 경우는 일반적인 bool 함수의 형태를 따라가면 된다.
+</p>
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">구분</th><th class="col1"> 예시 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0">bool 변수 </td><td class="col1"> bool bIsDead = true; </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">bool 함수 </td><td class="col1"> bool IsDead(); </td>
+	</tr>
+</table></div>
+<!-- EDIT9 TABLE [2547-2634] --><hr />
+
+</div>
+<!-- EDIT8 SECTION "bool 관련" [2325-2641] -->
+<h2 class="sectionedit10" id="캐릭터_일람">캐릭터 일람</h2>
+<div class="level2">
+<div class="table sectionedit11"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  번호  </th><th class="col1 centeralign">  한글 이름  </th><th class="col2 centeralign">  한글 약칭(한글 별명)  </th><th class="col3 centeralign">  영어 변수 이름  </th><th class="col4 centeralign">  영어 이름  </th><th class="col5 centeralign">  영어 성  </th><th class="col6 centeralign">  영어 별명  </th><th class="col7 centeralign">  링크  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<th class="col0 centeralign">  1  </th><td class="col1 centeralign">  리사  </td><td class="col2 leftalign">  </td><th class="col3 centeralign">  Lisa  </th><td class="col4 centeralign">  Lisa  </td><td class="col5 leftalign">  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EB%A6%AC%EC%82%AC" class="wikilink1" title="메인_캐릭터:리사">리사</a>  </td>
+	</tr>
+	<tr class="row2">
+		<th class="col0 centeralign">  2  </th><td class="col1 centeralign">  류자링  </td><td class="col2 leftalign">  </td><th class="col3 centeralign">  JiaLing  </th><td class="col4 centeralign">  JiaLing  </td><td class="col5 centeralign">  Liu  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EB%A5%98%EC%9E%90%EB%A7%81" class="wikilink1" title="메인_캐릭터:류자링">류자링</a>  </td>
+	</tr>
+	<tr class="row3">
+		<th class="col0 centeralign">  3  </th><td class="col1 centeralign">  킬리언 넬슨  </td><td class="col2 centeralign">  키넬(키넬)  </td><th class="col3 centeralign">  Kinel  </th><td class="col4 centeralign">  Nelson  </td><td class="col5 centeralign">  Killian  </td><td class="col6 centeralign">  Kinel  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%ED%82%A4%EB%84%AC" class="wikilink1" title="메인_캐릭터:키넬">키넬</a>  </td>
+	</tr>
+	<tr class="row4">
+		<th class="col0 centeralign">  4  </th><td class="col1 centeralign">  황기원  </td><td class="col2 leftalign">  </td><th class="col3 centeralign">  Giwon  </th><td class="col4 centeralign">  Giwon  </td><td class="col5 centeralign">  Hwang  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%ED%99%A9%EA%B8%B0%EC%9B%90" class="wikilink1" title="메인_캐릭터:황기원">황기원</a>  </td>
+	</tr>
+	<tr class="row5">
+		<th class="col0 centeralign">  5  </th><td class="col1 centeralign">  브렉 쿠마시  </td><td class="col2 centeralign">  브렉  </td><th class="col3 centeralign">  Brek  </th><td class="col4 centeralign">  Brek  </td><td class="col5 centeralign">  Kumasi  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EB%B8%8C%EB%A0%89_%EC%BF%A0%EB%A7%88%EC%8B%9C" class="wikilink1" title="메인_캐릭터:브렉_쿠마시">브렉_쿠마시</a>  </td>
+	</tr>
+	<tr class="row6">
+		<th class="col0 centeralign">  6  </th><td class="col1 centeralign">  오리모토 사쿠야  </td><td class="col2 centeralign">  사쿠야  </td><th class="col3 centeralign">  Sakuya  </th><td class="col4 centeralign">  Sakuya  </td><td class="col5 centeralign">  Orimoto  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EC%98%A4%EB%A6%AC%EB%AA%A8%ED%86%A0_%EC%82%AC%EC%BF%A0%EC%95%BC" class="wikilink1" title="메인_캐릭터:오리모토_사쿠야">오리모토_사쿠야</a>  </td>
+	</tr>
+	<tr class="row7">
+		<th class="col0 centeralign">  7  </th><td class="col1 centeralign">  엘리야  </td><td class="col2 leftalign">  </td><th class="col3 centeralign">  Elias  </th><td class="col4 centeralign">  Elias  </td><td class="col5 leftalign">  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EC%97%98%EB%A6%AC%EC%95%BC" class="wikilink1" title="메인_캐릭터:엘리야">엘리야</a>  </td>
+	</tr>
+	<tr class="row8">
+		<th class="col0 centeralign">  8  </th><td class="col1 centeralign">  시릴 카우어  </td><td class="col2 centeralign">  시릴  </td><th class="col3 centeralign">  Cyril  </th><td class="col4 centeralign">  Cyril  </td><td class="col5 centeralign">  Kaur  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EC%8B%9C%EB%A6%B4_%EC%B9%B4%EC%9A%B0%EC%96%B4" class="wikilink1" title="메인_캐릭터:시릴_카우어">시릴_카우어</a>  </td>
+	</tr>
+	<tr class="row9">
+		<th class="col0 centeralign">  9  </th><td class="col1 centeralign">  아니스 펠젤-슈타이거  </td><td class="col2 centeralign">  아니스  </td><th class="col3 centeralign">  Annice  </th><td class="col4 centeralign">  Annice  </td><td class="col5 centeralign">  Pelzel-Steiger  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EC%95%84%EB%8B%88%EC%8A%A4_%ED%8E%A0%EC%A0%A4-%EC%8A%88%ED%83%80%EC%9D%B4%EA%B1%B0" class="wikilink1" title="메인_캐릭터:아니스_펠젤-슈타이거">아니스 펠젤-슈타이거</a>  </td>
+	</tr>
+	<tr class="row10">
+		<th class="col0 centeralign">  10  </th><td class="col1 centeralign">  마를렌 하트  </td><td class="col2 centeralign">  마를렌  </td><th class="col3 centeralign">  Marlene  </th><td class="col4 centeralign">  Marlene  </td><td class="col5 centeralign">  Hart  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EB%A7%88%EB%A5%BC%EB%A0%8C_%ED%95%98%ED%8A%B8" class="wikilink1" title="메인_캐릭터:마를렌_하트">마를렌 하트</a>  </td>
+	</tr>
+	<tr class="row11">
+		<th class="col0 centeralign">  11  </th><td class="col1 centeralign">  하즈가와 이즈미  </td><td class="col2 centeralign">  이즈미  </td><th class="col3 centeralign">  Izumi  </th><td class="col4 centeralign">  Izumi  </td><td class="col5 centeralign">  Hazugawa  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%ED%95%98%EC%A6%88%EA%B0%80%EC%99%80_%EC%9D%B4%EC%A6%88%EB%AF%B8" class="wikilink1" title="메인_캐릭터:하즈가와_이즈미">하즈가와 이즈미</a>  </td>
+	</tr>
+	<tr class="row12">
+		<th class="col0 centeralign">  12  </th><td class="col1 centeralign">  강찬성  </td><td class="col2 leftalign">  </td><th class="col3 centeralign">  Chanseong  </th><td class="col4 centeralign">  Chanseong  </td><td class="col5 centeralign">  Kang  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EA%B0%95%EC%B0%AC%EC%84%B1" class="wikilink1" title="메인_캐릭터:강찬성">강찬성</a>  </td>
+	</tr>
+	<tr class="row13">
+		<th class="col0 centeralign">  13  </th><td class="col1 centeralign">  마리벨 맥도웰  </td><td class="col2 centeralign">  마리벨(마리)  </td><th class="col3 centeralign">  Maribelle  </th><td class="col4 centeralign">  Maribelle  </td><td class="col5 centeralign">  McDowell  </td><td class="col6 centeralign">  Mary  </td><td class="col7 centeralign">  <a href="/dokuwiki/doku.php?id=%EB%A9%94%EC%9D%B8_%EC%BA%90%EB%A6%AD%ED%84%B0:%EB%A7%88%EB%A6%AC%EB%B2%A8_%EB%A7%A5%EB%8F%84%EC%9B%B0" class="wikilink1" title="메인_캐릭터:마리벨_맥도웰">마리벨 맥도웰</a>  </td>
+	</tr>
+</table></div>
+<!-- EDIT11 TABLE [2673-4322] --><hr />
+
+</div>
+<!-- EDIT10 SECTION "캐릭터 일람" [2642-] -->

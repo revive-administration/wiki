@@ -1,0 +1,92 @@
+
+<h1 class="sectionedit1" id="콜백">콜백</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "콜백" [1-21] -->
+<h2 class="sectionedit2" id="정의">정의</h2>
+<div class="level2">
+
+<p>
+호출될 함수를 알려 주어 다른 프로그램 또는 다른 모듈에서 함수를 호출하게 하는 방법. 일반적으로 운영 체제(<abbr title="Operating System">OS</abbr>)가 호출할 애플리케이션의 함수를 지정해 특정한 사건 또는 메시지가 발생했을 때 호출되도록 지정할 수 있다. 이런 함수를 콜백 함수라고 한다.
+</p>
+
+<p>
+출처 : <a href="http://terms.naver.com/entry.nhn?docId=1596925&amp;cid=50373&amp;categoryId=50373" class="urlextern" title="http://terms.naver.com/entry.nhn?docId=1596925&amp;cid=50373&amp;categoryId=50373"  rel="nofollow">[네이버 지식백과] 콜백 [call back]</a>
+</p>
+
+</div>
+<!-- EDIT2 SECTION "정의" [22-518] -->
+<h2 class="sectionedit3" id="java에서의_콜백">Java에서의 콜백</h2>
+<div class="level2">
+
+<p>
+Java에서의 콜백(CallBack)은 간단히 말해서 <strong>“호출자(Caller)가 피호출자(Callee)를 호출하는 것이 아니라   피호출자(Callee)가 호출자(Caller)를 호출하는 것”</strong>을 말한다. 
+</p>
+
+<p>
+쉽게 말해서 어떤 일을 처리 할 때에 그 일이 끝났을 때, 다른일을 처리하는 메서드를 밖에서 구현 해놓았다가 필요시에 사용한다는 것이다. 보통 비동기 처리 시스템에서 많이 사용되는 기법이다
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Java에서의 콜백" [519-1028] -->
+<h3 class="sectionedit4" id="활용_예제">활용 예제</h3>
+<div class="level3">
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=%EC%BD%9C%EB%B0%B1&amp;codeblock=0" title="조각 다운로드" class="mediafile mf_java">CallBackTest.java</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">class</span> CallBackTest <span class="br0">&#123;</span>
+&nbsp;
+        <span class="kw1">public</span> <span class="kw4">void</span> test<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                SomeClass someClass <span class="sy0">=</span> <span class="kw1">new</span> SomeClass<span class="br0">&#40;</span>someCallBack<span class="br0">&#41;</span><span class="sy0">;</span>
+                someClass.<span class="me1">doSome</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+&nbsp;
+        <span class="kw1">private</span> CallBack someCallBack <span class="sy0">=</span> <span class="kw1">new</span> CallBack<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                @Override
+                <span class="kw1">public</span> <span class="kw4">void</span> callBackMethod<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> obj<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+&nbsp;
+                        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> result <span class="sy0">=</span> <span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#41;</span> obj<span class="sy0">;</span>
+&nbsp;
+                        <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+                <span class="br0">&#125;</span>
+        <span class="br0">&#125;</span><span class="sy0">;</span>
+&nbsp;
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=%EC%BD%9C%EB%B0%B1&amp;codeblock=1" title="조각 다운로드" class="mediafile mf_java">SomeClass.java</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">class</span> SomeClass <span class="br0">&#123;</span>
+&nbsp;
+        <span class="kw1">private</span> CallBack someCallBack<span class="sy0">;</span>
+&nbsp;
+        <span class="kw1">public</span> SomeClass<span class="br0">&#40;</span>CallBack someCallBack<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                <span class="kw1">this</span>.<span class="me1">someCallBack</span> <span class="sy0">=</span> someCallBack<span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+&nbsp;
+        <span class="kw1">public</span> <span class="kw4">void</span> doSome<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+&nbsp;
+                <span class="co1">// working...</span>
+&nbsp;
+                <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> result <span class="sy0">=</span> <span class="st0">&quot;Hello CallBack&quot;</span><span class="sy0">;</span>
+&nbsp;
+                someCallBack.<span class="me1">callBackMethod</span><span class="br0">&#40;</span>result<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+        <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+<dl class="file">
+<dt><a href="/dokuwiki/doku.php?do=export_code&amp;id=%EC%BD%9C%EB%B0%B1&amp;codeblock=2" title="조각 다운로드" class="mediafile mf_java">CallBack.java</a></dt>
+<dd><pre class="code file java"><span class="kw1">public</span> <span class="kw1">interface</span> CallBack <span class="br0">&#123;</span>
+&nbsp;
+        <span class="kw4">void</span> callBackMethod<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+object"><span class="kw3">Object</span></a> obj<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+<span class="br0">&#125;</span></pre>
+</dd></dl>
+
+<p>
+코드의 재사용이 높지만, 잦은 사용은 복잡해진다는 단점이 있다.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "활용 예제" [1029-] -->

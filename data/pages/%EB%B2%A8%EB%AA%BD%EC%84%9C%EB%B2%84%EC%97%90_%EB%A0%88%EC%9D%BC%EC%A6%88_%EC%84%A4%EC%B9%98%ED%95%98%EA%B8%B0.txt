@@ -1,0 +1,76 @@
+참조 사이트 : http://elinux.org/RPi_Ruby_on_Rails \\
+http://arubystory.blogspot.kr/2013/11/tutorial-saying-hello-world-with-ruby.html
+
+SSH 정보 velmont.iptime.org 포트 1022
+
+우선 레일즈를 설치할 폴더로 들어간다.
+
+  cd /var/www/rails/
+  
+레일즈 프로젝트를 설치한다.
+
+  rails new 프로젝트이름
+  
+프로젝트를 만드는데 성공하면 해당 프로젝트 폴더로 들어간다
+
+  cd 프로젝트이름
+  
+DB를 넣어주자
+  
+  rake db:migrate
+  
+nohup rails server & 를 쳐서 서버에 접속되는지 확인한다.
+
+  sudo nohup rails server &
+  
+  접속경로 : http://velmont.iptime.org:3000
+
+이제 컨트롤러를 만들 시간이다. 아래 명령어를 입력해보자
+
+  rails generate controller pages
+  
+컨트롤러를 건드려보자
+  
+  cd app/controllers/
+  
+nano 에디터로 수정하자
+
+  sudo nano pages_controller.rb
+  
+  
+즐거운 루비 타이핑을 시전하자
+
+  class PagesController < ApplicationController 
+    def home 
+      puts "Honey, I'm home!" 
+    end 
+  end
+  
+  다 수정한담에 ctrl+o(저장)를 누르면 아래에 저장 경로가 뜨는데 그냥 Enter 쳐주면 된다
+  그리고 ctrl+x(나가기)를 눌러 빠져나온다. 
+  
+app/views/pages/ 로 들어가보자
+
+  cd /var/www/rails/프로젝트폴더/app/views/pages/
+
+home.html.erb 라는 파일을 만들고 편집하자
+
+  nano home.html.erb
+
+내용을 자유롭게 써본다
+
+  <h1>Hello Devil Monsters!</h1>
+
+config 파일을 수정하자
+
+  cd /var/www/rails/프로젝트폴더/config
+  nano routes.rb
+  
+routes.rb 내용 안쪽 아무데나 요걸 써준다
+
+  root to: 'pages#home'
+  
+  
+velmont.iptime.org:3000에 접속하여 되는지 확인해보자
+
+  http://velmont.iptime.org:3000

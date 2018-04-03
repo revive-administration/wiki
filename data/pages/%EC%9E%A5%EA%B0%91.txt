@@ -1,0 +1,45 @@
+=====기체=====
+
+====기체 개요====
+
+<code>
+- 체력, 방어력 스탯 보유.
+- 무기 2~3개 보유.
+- 바디마다 1개만 착용 가능.
+</code>
+
+====Suit====
+^  Code  ^  Name  ^  Maker  ^  Type  ^  Grade  ^  Def  ^  MaxHp  ^  Shield  ^  WeaponList  ^  Description  ^  CharRestriction  ^
+|  Suit1  |  SACorp 건틀릿  |  SACorp  |  Suit  |  Normal  |  100  |  100  |  False  |  (Weapon_1, Weapon_2)  |  SACorp에서 만든 구식 장갑.  |  (VE_Lisa, VE_Kinel)  |
+|  Suit2  |  SACorp 넌틀릿  |  SACorp  |  Suit  |  Rare  |  120  |  60  |  True  |  (Weapon_3, Weapon_4)  |  SACorp에서 만든 구식 장갑.  |  (VE_Lisa, VE_Kinel)  |
+|  Suit3  |  SACorp 던틀릿  |  SACorp  |  Suit  |  Unique  |  180  |  100  |  True  |  (Weapon_5, Weapon_6, Weapon_7)  |  SACorp에서 만든 구식 장갑.  |  (VE_Brek, VE_Hwang)  |
+|  Suit4  |  SACorp 런틀릿  |  SACorp  |  Suit  |  Legendary  |  200  |  200  |  True  |  (Weapon_8, Weapon_9, Weapon_10)  |  SACorp에서 만든 구식 장갑.  |  (VE_Brek, VE_Hwang)  |
+
+^  항목  ^  내용  ^
+|  Code  |  Suit DB의 Code  |
+|  Name  |  아이템 이름  |
+|  Maker  |  아이템을 분류하기 위한 항목.  |
+|  Type  |  아이템 종류.  Suit  |
+|  Grade  |  장비 등급. Normal, Rare, Unique, Legend, Epic, Extra  |
+|  Def  |  방어력  |
+|  MaxHp  |  최대 Hp  |
+|  Shield  |  실드 여부  |
+|  WeaponList  |  기체가 보유한 무기 리스트  |
+|  Description  |  플레이어에게 보이는 아이템 텍스트  |
+|  CharRestriction  |  캐릭터 착용 제한  |
+
+----
+
+=====장비 보유 정보=====
+
+^  AccountID  ^  ItemID  ^  ItemCode     ^  Option1  ^  Option2  ^  Option3  ^
+|  KR30130    |  000001  |  Suit_1    |  |  |  |
+|  KR30130    |  000002  |  Suit_2    |  Option_1  |  |  |
+|  KR30130    |  000003  |  Suit_2  |  Option_2  |  Option_3  |  |
+|  KR30130    |  000004  |  Suit_3  |  Option_4  |  Option_5  |  Option_6  |
+
+^  항목  ^  내용  ^
+|  AccountID  |  유저 계정 ID  |
+|  ItemID     |  아이템을 구별하는 고유한 ID  |
+|  ItemCode   |  장비 DB의 ItemCode  |
+|  Option  |  등급에 따라 추가되는 옵션. 등급이 올라갈 때 추가로 1개가 생김. 노멀 0개, 레어 1개, 유니크 2개, 레전드 3개  |

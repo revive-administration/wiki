@@ -1,0 +1,10 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1473226047;s:8:"modified";i:1476842621;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:7:{s:4:"date";i:1476842621;s:2:"ip";s:15:"210.206.246.149";s:4:"type";s:1:"E";s:2:"id";s:16:"스쿼드_스킬";s:4:"user";s:9:"soyagok11";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:9:"soyagok11";s:9:"소야곡";}s:5:"title";s:16:"스쿼드 스킬";s:11:"description";a:2:{s:15:"tableofcontents";a:6:{i:0;a:4:{s:3:"hid";s:16:"스쿼드_스킬";s:5:"title";s:16:"스쿼드 스킬";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:6:"개요";s:5:"title";s:6:"개요";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:23:"스쿼드_스킬_개괄";s:5:"title";s:23:"스쿼드 스킬 개괄";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:36:"스쿼드_스킬의_쿨타임_계산";s:5:"title";s:36:"스쿼드 스킬의 쿨타임 계산";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:4;a:4:{s:3:"hid";s:40:"스쿼드_스킬의_무기_타입_제한";s:5:"title";s:40:"스쿼드 스킬의 무기 타입 제한";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:43:"스쿼드_스킬의_제한_및_예외사항";s:5:"title";s:43:"스쿼드 스킬의 제한 및 예외사항";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:328:"스쿼드 스킬
+
+개요
+스쿼드 스킬은 바디가 소유하고 있는 액티브 스킬이다.효과가 명백히 사용자 측에 유리하다.스쿼드 스킬 리스트
+스쿼드 스킬 개괄
+
+----------
+
+스쿼드 스킬의 쿨타임 계산
+스쿼드 스킬은 초기 대기시간과 재사용 대기시간을 가진다.";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1473226047;s:8:"modified";i:1476842621;}s:7:"creator";s:9:"소야곡";s:4:"user";s:9:"soyagok11";s:11:"last_change";a:7:{s:4:"date";i:1476842621;s:2:"ip";s:15:"210.206.246.149";s:4:"type";s:1:"E";s:2:"id";s:16:"스쿼드_스킬";s:4:"user";s:9:"soyagok11";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:9:"soyagok11";s:9:"소야곡";}}}

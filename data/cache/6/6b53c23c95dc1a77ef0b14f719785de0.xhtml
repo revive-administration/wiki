@@ -1,0 +1,98 @@
+
+<h1 class="sectionedit1" id="튜토리얼_-_멀티플레이">튜토리얼 - 멀티플레이</h1>
+<div class="level1">
+
+<ul  class="extlist">
+  <li><div class="li">링크 : <a href="https://www.youtube.com/watch?v=abmzWUWxy1U&amp;index=1&amp;list=PLZlv_N0_O1gYqSlbGQVKsRg6fpxWndZqZ&amp;t=3s" class="urlextern" title="https://www.youtube.com/watch?v=abmzWUWxy1U&amp;index=1&amp;list=PLZlv_N0_O1gYqSlbGQVKsRg6fpxWndZqZ&amp;t=3s" rel="nofollow">https://www.youtube.com/watch?v=abmzWUWxy1U&amp;index=1&amp;list=PLZlv_N0_O1gYqSlbGQVKsRg6fpxWndZqZ&amp;t=3s</a></div></li>
+  <li><div class="li">강사 : Wes Bunn</div></li>
+  <li><div class="li">총 24개 강좌</div></li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "튜토리얼 - 멀티플레이" [1-198] -->
+<h2 class="sectionedit2" id="프로젝트_개요">1. 프로젝트 개요</h2>
+<div class="level2">
+
+<p>
+안봐도됨, 그냥 개략적인 설명
+</p>
+
+</div>
+<!-- EDIT2 SECTION "1. 프로젝트 개요" [199-274] -->
+<h2 class="sectionedit3" id="프로젝트_설정">2. 프로젝트 설정</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">프로젝트 진행을 위한 전반적인 세팅 (귀찮다..)</div></li>
+  <li><div class="li">캐릭터, 폴더 구조, 위젯 등 프로젝트에 필요한 애셋 생성</div></li>
+  <li><div class="li"><strong>스켈레톤 리타게팅을 통한 애니메이션 설정</strong></div></li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "2. 프로젝트 설정" [275-526] -->
+<h2 class="sectionedit4" id="게임_인스턴스">3. 게임 인스턴스</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">GameInfoInstance(GameInstance)에 커스텀 이벤트로 위젯 띄우기 노가다 작업 (귀찮다..)</div></li>
+  <li><div class="li">Host와 Guest로 나누어서 이벤트를 진행한다
+<ul  class="extlist">
+  <li><div class="li">Host는 Lobby를 만들고, Guest는 Lobby에 참여한다.</div></li>
+</ul>
+</li>
+  <li><div class="li">Host 메뉴에서 Lobby를 만들때의 리플리케이션 설정
+<ul  class="extlist">
+  <li><div class="li">Replicated : 변수가 바뀔때마다 알림 - 리플리케이션은 결국 로컬의 변경사항을 알리는 것</div></li>
+  <li><div class="li"><strong>RepNotify</strong> : 변수가 바뀔때마다 함수도 만들어짐</div></li>
+</ul>
+</li>
+  <li><div class="li">세션 만들기 (Create Session)
+<ul  class="extlist">
+  <li><div class="li">OpenLevel의 숨겨진 비밀 → OpenLevel 함수에서 고오급 아래 버튼을 누르면 Options 를 설정할 수 있다.</div></li>
+  <li><div class="li">리슨 서버가 뭐더라?</div></li>
+</ul>
+</li>
+  <li><div class="li">그밖의 각종 네트워크 에러를 대비한 에러 처리 (귀찮다..)</div></li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "3. 게임 인스턴스" [527-1349] -->
+<h2 class="sectionedit5" id="playerinfo">4. PlayerInfo</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">PlayerInfo 구조체를 만들시에 캐릭터의 경우 변수 타입을 캐릭터 레퍼런스가 아닌 캐릭터 클래스로 한다 (왜지?)</div></li>
+  <li><div class="li">작업한 PlayerInfo구조체를 SaveGame의 변수로 설정해둔다.</div></li>
+  <li><div class="li">Arena01 레벨의 월드 세팅에서 GameMode Override를 GameplayGM으로 설정한다
+<ul  class="extlist">
+  <li><div class="li">추가적으로 SelectedGameMode에서 Default Pawn과 PlayerController Class도 설정해준다.</div></li>
+  <li><div class="li">썸네일 사진 찍어주기</div></li>
+  <li><div class="li">Arena02도 같은 작업 반복</div></li>
+</ul>
+</li>
+  <li><div class="li">로비에 캐릭터 4명씩 마주보도록 배치한다</div></li>
+  <li><div class="li">로비의 경우 LobbyGameMode, LobbyPC로 설정한다</div></li>
+  <li><div class="li">플레이어 들이 떨어지지 않도록 Blocking Volume 세팅</div></li>
+  <li><div class="li">MainMenu 레벨을 시전하고 턴을 종료한다.</div></li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "4. PlayerInfo" [1350-2122] -->
+<h2 class="sectionedit6" id="메인_메뉴_설정">5. 메인 메뉴 설정</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">간단하게 메인메뉴 위젯을 만들고 각각의 메뉴들과 연결</div></li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "5. 메인 메뉴 설정" [2123-2239] -->
+<h2 class="sectionedit7" id="host_menu_design">6. Host Menu Design</h2>
+<div class="level2">
+
+<ul  class="extlist">
+  <li><div class="li">5강과 비슷한 호스트 메뉴 위젯을 디자인 함</div></li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "6. Host Menu Design" [2240-] -->

@@ -1,0 +1,23 @@
+<span class="kw1">public</span> <span class="kw1">enum</span> SchedulingStarategyID<span class="br0">&#123;</span>RESPONSE_TIME, THROUGHPUT, DYNAMIC<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> SchedulerFactory<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> ElevatorScheduler getScheduler<span class="br0">&#40;</span>SchedulingStrategyID strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		ElevatorScheduler scheduler <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+		<span class="kw1">switch</span><span class="br0">&#40;</span>strategyID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw1">case</span> RESPONSE_TIME<span class="sy0">:</span> <span class="co1">//대기 시간 최소화 전략</span>
+				scheduler <span class="sy0">=</span> <span class="kw1">new</span> ResponseTimeScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">break</span><span class="sy0">;</span>
+			caseTHROUGHPUT<span class="sy0">:</span>
+				scheduler <span class="sy0">=</span> <span class="kw1">new</span> ThroughputScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">break</span><span class="sy0">;</span>
+			<span class="kw1">case</span> DYNAMIC<span class="sy0">:</span>
+				<span class="kw4">int</span> hour <span class="sy0">=</span> Clalendar.<span class="me1">getInstance</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">get</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+calendar"><span class="kw3">Calendar</span></a>.<span class="me1">HOUR_OF_DAY</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">if</span><span class="br0">&#40;</span>hour<span class="sy0">&lt;</span><span class="nu0">12</span><span class="br0">&#41;</span>
+					scheduler <span class="sy0">=</span> <span class="kw1">new</span> ResponseTimeScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">else</span>
+					scheduler <span class="sy0">=</span> <span class="kw1">new</span> ThroughputScheduler<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw1">break</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">return</span> scheduler<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

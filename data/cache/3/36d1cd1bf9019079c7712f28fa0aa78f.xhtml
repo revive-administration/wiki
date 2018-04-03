@@ -1,0 +1,161 @@
+
+<h1 class="sectionedit1" id="data_abstraction_with_cclass">Data Abstraction with C++ : class</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Data Abstraction with C++ : class" [1-48] -->
+<h2 class="sectionedit2" id="data_abstraction">Data Abstraction</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Data Abstraction</div>
+<ul>
+<li class="level2"><div class="li"> Creating classes with appropriate functionality, which hide the unnecessary details</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Data Encapsulation</div>
+<ul>
+<li class="level2"><div class="li"> Implementation is encapsulated by the interface and the only way to get to the implementation legally is through the interface</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Information Hiding</div>
+<ul>
+<li class="level2"><div class="li"> Implementation is hidden from user</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Data Abstraction" [49-409] -->
+<h2 class="sectionedit3" id="internal_and_external_views">Internal and External Views</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Data Abstraction</div>
+<ul>
+<li class="level2"><div class="li"> Separation of interface and implementation</div>
+</li>
+<li class="level2"><div class="li"> Interface : the outside, or service view, describes what an object does</div>
+</li>
+<li class="level2"><div class="li"> Implementation : the inside view describes how it does</div>
+</li>
+<li class="level2"><div class="li"> A Service View</div>
+<ul>
+<li class="level3"><div class="li"> The ability to characterize an object by the service it provides, without knowing how it performs its task</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Internal and External Views" [410-796] -->
+<h2 class="sectionedit4" id="classbehavior_and_state">Class : Behavior and State</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Class </div>
+<ul>
+<li class="level2"><div class="li"> Fundamental unit of data abstraction in C++</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Behavior (method)</div>
+<ul>
+<li class="level2"><div class="li"> The actions that an instance can perform in response to a request</div>
+</li>
+<li class="level2"><div class="li"> Implemented by methods</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> State (variable)</div>
+<ul>
+<li class="level2"><div class="li"> The data that an object must maintain in order to successfully complete its behavior</div>
+</li>
+<li class="level2"><div class="li"> Stored in instance variables (also known as data members, or data fields).</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "Class : Behavior and State" [797-1213] -->
+<h2 class="sectionedit5" id="methods_member_function">Methods (member function)</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Name</div>
+<ul>
+<li class="level2"><div class="li"> will be matched to a message to determine when the method should be executed</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Signature</div>
+<ul>
+<li class="level2"><div class="li"> the combination of return type and argument types</div>
+</li>
+<li class="level2"><div class="li"> Methods with the same name can be distinguished by different signatures</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Body</div>
+<ul>
+<li class="level2"><div class="li"> the code that will be executed when the method is invoked in response to a message</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Methods (member function)" [1214-1591] -->
+<h2 class="sectionedit6" id="message_passing">Message Passing</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Differences : message &amp; a function call</div>
+<ul>
+<li class="level2"><div class="li"> A message is always given to some object, called the receiver</div>
+</li>
+<li class="level2"><div class="li"> The action performed in response is determined by the receiver, different receivers can do different actions in response to the same message</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "Message Passing" [1592-1879] -->
+<h2 class="sectionedit7" id="ensuring_reliability_of_abstractions_class_invariants_and_assertions">Ensuring reliability of abstractions class invariants and assertions</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Class invariant(변함없는)</div>
+<ul>
+<li class="level2"><div class="li"> Every class might have conditions that must always be true inside an object</div>
+</li>
+<li class="level2"><div class="li"> Add the condition to ensure that member function code checks these conditions</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> In C/C++, we use assert macro : assert(e)</div>
+<ul>
+<li class="level2"><div class="li"> If e is true, just continue</div>
+</li>
+<li class="level2"><div class="li"> If e is false, the program is stopped with and error message indicating the failure of the assertion</div>
+</li>
+<li class="level2"><div class="li"> can be used to implement programs that are more reliable</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "Ensuring reliability of abstractions class invariants and assertions" [1880-2411] -->
+<h2 class="sectionedit8" id="copy_constructor">Copy Constructor</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> A copy constructor is called whenever a new object is created from an existing object with the same type</div>
+</li>
+<li class="level1"><div class="li"> Typical contstructor</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "Copy Constructor" [2412-] -->

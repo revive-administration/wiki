@@ -1,0 +1,21 @@
+======= 인스턴트 이펙트 (InstantEffect) ======
+소속 : CPPFL_SkillStructLibrary
+
+^  InstantEffect  ^  설명  ^
+| None |  없음  |
+| WeaponAttack |  무기의 공격 타입으로 공격  |
+| BulletAttack |  실탄계 공격  |
+| ExplosionAttack |  폭발계 공격  |
+| PhotonAttack |  광학계 공격  |
+| TrueAttack | 상성, 명중, 치명, 피해감소를 무시하고 표기 대미지만큼 HP와 쉴드를 차감하는 공격. 공격 비율에는 영향받음. |
+| Heal |  Hp 회복  |
+| HealEnergy |  에너지 회복  |
+| ChargeAllEnergy |  Energy 풀회복  |
+| RemoveAllState |  모든 상태 해제  |
+| RemoveAllBuff |  모든 이로운 상태 해제  |
+| RemoveAllDebuff |  모든 해로운 상태 해제  |
+| MoveBack |  후방으로 이동  |
+| MoveFront |  전방으로 이동  |
+| KnockBack |  후방으로 빠르게 강제 이동  |
+| MoveOpposite |  현재 위치의 반대로 이동. 전방이면 후방으로, 후방이면 전방으로  |
+| AddBuff |  버프 등록  |

@@ -1,0 +1,18 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1513830395;s:8:"modified";i:1514535060;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:8:{s:4:"date";i:1514535060;s:2:"ip";s:15:"123.140.248.194";s:4:"type";s:1:"E";s:2:"id";s:2:"br";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:3;}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}s:5:"title";s:2:"BR";s:11:"description";a:2:{s:15:"tableofcontents";a:7:{i:0;a:4:{s:3:"hid";s:2:"br";s:5:"title";s:2:"BR";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:6:"개요";s:5:"title";s:6:"개요";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:6:"개발";s:5:"title";s:6:"개발";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:6:"기획";s:5:"title";s:6:"기획";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:9:"시스템";s:5:"title";s:9:"시스템";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:9:"컨텐츠";s:5:"title";s:9:"컨텐츠";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:6;a:4:{s:3:"hid";s:9:"사운드";s:5:"title";s:9:"사운드";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:180:"BR
+
+개요
+
+
+
+「게임 재개」
+
+개발
+초기 환경설정개발 환경기존 소스 분석연구
+기획
+
+시스템
+전투
+컨텐츠
+스토리등장인물
+사운드
+trunks theme";}s:8:"relation";a:3:{s:5:"media";a:1:{s:11:"icrsoft.gif";b:1;}s:10:"references";a:7:{s:19:"초기_환경설정";b:1;s:13:"개발_환경";b:1;s:20:"기존_소스_분석";b:0;s:9:"br:연구";b:1;s:6:"전투";b:0;s:9:"스토리";b:0;s:12:"등장인물";b:0;}s:10:"firstimage";s:11:"icrsoft.gif";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1513830395;s:8:"modified";i:1514535060;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:8:{s:4:"date";i:1514535060;s:2:"ip";s:15:"123.140.248.194";s:4:"type";s:1:"E";s:2:"id";s:2:"br";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:3;}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}}}

@@ -1,0 +1,98 @@
+======프로그래밍======
+
+  * JAVA
+    * JAVA Basic
+      * [[Effective Java]] 
+      * [[카이 호스트만의 코어 자바8]]     
+    * JSP
+      * [[최범균의 JSP 2.2 웹프로그래밍]]
+    * SPRING
+      * [[토비의 스프링 3.1]]
+      * [[Spring.io project]]
+    * 디자인 패턴
+      * [[디자인 패턴]]
+      * [[열혈강의 Java 디자인 패턴]]
+      * [[Java언어로 배우는 디자인 패턴 입문]]
+      * [[Java 객체지향 디자인 패턴]]
+    * 리팩토링
+      * [[자바코딩, 이럴 땐 이렇게]]
+      * [[Intro to refactoring]]
+    * JUnit
+      * [[JUnit in Action]]
+
+  * C/C++
+    * [[윤성우 열혈강의 C/C++]]
+
+  * Apache
+    * [[Apache HTTP Server]]
+  * PHP
+    * PHP Basic
+      * [[성공적인 웹 프로그래밍 PHP와 MySQL]]
+    * [[XE]]
+      * [[모듈 만들기 - 걸음마]]
+    * Laravel 
+      * [[Laravel Manual]]
+      * [[라라벨로 배우는 실전 PHP 웹 프로그래밍]]
+
+  * JavaScript
+    * [[JavaScript Basic]]
+    * [[jQuery]]  
+    * [[JSON]]
+    * Angular JS
+      * [[시작하세요! Angular JS 프로그래밍]]
+      * [[AngularJS로 하는 웹 애플리케이션 개발]]
+    * Node.js
+      * [[ 모던 웹을 위한 Node.js 프로그래밍 ]]
+      * [[ Node.js, MongoDB와 AngularJS를 이용한 웹 개발 ]]
+
+  * Ruby
+    * Ruby Basic
+      * [[The Ruby Programming Language]]
+      * [[Ruby Warrior]]
+      * [[Joinc 루비 클래스]]
+      * [[Programming Ruby]]
+    * Ruby on Rails
+      * [[레일즈와 함께하는 애자일 웹 개발]]
+
+  * PYTHON
+    * [[PYTHON Basic]]
+    * [[파이썬을 이용한 머신러닝, 딥러닝 실전 개발 입문]]
+
+  * SCALA
+    * [[트위터 스칼라 학교]]
+    * [[Coursera Lecture]]
+
+  * XML
+    * [[XML 실습]]
+
+  * UML
+    * [[객체지향 CBD 실전 프로젝트]]
+
+  * 실시간 웹
+    * [[모던 웹을 위한 실시간 사용자 경험 프로그래밍]]
+
+  * 자료구조
+    * [[알고리즘 기반 자료구조]]
+    * [[열혈 C 자료구조]]
+    * [[C로 배우는 쉬운 자료구조]]
+
+  * 알고리즘
+    * [[쉽게 배우는 알고리즘]]
+    * [[알고리즘 (김대원 교수님)]]
+
+  * 빅데이터
+    * [[실전 예제로 살펴보는 집단지성 프로그래밍]]
+
+  * 자기계발
+    * [[프로그래머가 되는 방법]]
+
+  * [[오류LOG]]
+
+  * 프로그래밍 전반
+    * [[No Silver Bullet]]
+    * [[휴먼 ICT 소프트웨어 공학]]
+
+  * 컴퓨터 통신
+    * [[캄퓨터 네트워킹]]
+    * [[HTTP 완벽 가이드]]
+    * [[자바 네트워크 소녀 Netty]]

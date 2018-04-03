@@ -1,0 +1,160 @@
+====== 6. Architectural Design ======
+==== Software Architecture ====
+  * Architectural design
+    * 일반적으로 하드웨어 시스템 또는 소프트웨어 시스템 개발의 초기 단계에서 시스템의 개념적인 구조 없이 논리적인 시방을 결정하는 작업
+    * An early stage of the system design process : All architecture is software design, but not all design is software architecture
+    * Represents the link between specification and design processes
+    * Often carried out in parallel with some specification activities
+  * Architecture focuses on issues that will be defficult/impossible to change once the system is built
+  * Architectural model
+    * Output of the architectural design
+    * describes how the system is organized as a set of communicating systems.
+
+==== Architecture vs Design ====
+  * Architecture 
+    * non-functional requirements
+  * Design
+    * functional requirements
+
+==== Definition : Architectural Design ====
+  * SEI
+    * The software architecture of a program or computing system is the structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them.
+  * ANSI/IEEE Std
+    * Architecture is the fundamental organization of a system, embodied in its components, their relationships to each other and the environment, and the principles governing its design and evolution.
+  * 위키백과
+    * 소프트웨어 구성요소와 그들이 지니고 있는 특성 중에 외부에 드러나는 요소의 특성과 구성요소들 간의 관계를 표현하는 시스템의 구조나 구조체
+  * Garlan and Shaw
+    * Software architecture goes beyond the algorithms and data structures of the computation; designing and specifying the overall system structure emerges as a new kind of problem. Structural issues include gross organization and global control structure; protocols for communication, synchronization, and data access; assignment of functionality to design elements; physical distribution; composition of design elements; scaling and performance; and selection among design alternatives.
+
+==== Architecture Defines Structure
+  * Decomposition(분해) of system into components/modules/subsystems
+  * Architecture defines
+    * Component interfaces
+    * Component communications and dependencies
+    * Component responsibilities
+
+==== Externally visible vs Internal properties ====
+Externally visible properties are what assumption(추정) other elements can make of an element
+  * Provided services
+  * Performance
+  * Fault handling
+  * Shared resource usage
+SA intentionally(의도적으로) abstracts away internal properties of elements(to better encounter complexity)
+
+==== Software Architecture vs System Architecture ====
+  * architect has more freedom in software than hardware
+
+==== Advantages of explicit(명쾌한,분병한) architecture ====
+  * Stakeholder communication
+  * System analysis
+    * whether the system can meet its non-functional requirements is possible
+  * Large-scale reuse
+
+==== Architectural representations ===
+  * Non-standard Models
+    * Simple, informal block diagrams showing entities and relationships
+      * the most frequently used method for documenting software architectures
+      * lack semantics
+      * do not show the types of relationships between entities nor the visible properties of entities in the architecture.
+    * ADL (Architecture Description Language)
+    * UML (Unified Modeling Language)
+
+==== An ADL Example (in ACME) ====
+	System simple_cs = {
+		Component client = {Port send-request}
+		Component server = {Port receive-request}
+		Connector rpc = {Rolse{caller,callee}}
+		Attachments : {client.send-request to rpc.caller;
+			server.receive-requiest to rpc.callee}
+	}
+==== ADL - Pros&Cons ====
+  * Pros
+    * ADLs represent a formal way of representing architecture
+    * ADLs are intended to be both human and machine readable
+  * Cons
+    * There is not universal agreement on what ADLs should represent
+
+==== Architecture reuse ====
+  * Similarity 
+    * Systems in the same domain often have similar architectures that reflect domain concepts.
+  * Application product lines
+    * are built around a core architecture with variants that satisfy particular customer requirements
+  * Architectural patterns or styles
+    * These capture the essence of an architecture and can be instantiated in different ways.
+
+===== 6.2 Architectural views =====
+  * A software architecture represents a complex design artifact
+  * Many possible views of the architecture
+==== Component and Connector (C&C) ====
+  * Elements viewed as run time entities called components
+    * Component is a unit that has identity in executing system
+  * Connectors provide means of interaction between components
+
+==== Module view ====
+  * A system is a collection of code units, that is, they do not represent runtime entities
+  * Elements are modules (class, package, function, procedure, method,..)
+  * Relationship between them is code based
+    * Depends on how code of a module interacts with another module
+    * Example of relationships
+
+==== Allocation view ====
+  * Focuses on how sw units are allocated to resources like hardware, file system, people
+  * Specifies relationship between sw elements and execution units in the environment
+  * Expose structural properties like which process runs on which processor, which file resides where, ...
+
+==== 4+1 view model of software architecture ====
+  * Philippe Kruchten
+  * Logical view
+    * shows the key abstractions in the system as objects or object classes
+  * Processes view
+    * shows how, at run-time, the system is composed of interacting processes
+  * Development view
+    * shows how the software is decomposed(분해되다) for development
+  * Physical view
+    * shows the system hardware and how software components are distributed across the processors in the system
+  * Use cases or scenarios
+
+===== 6.3 Architectural patterns =====
+  * Patterns
+    * means of representing, sharing and reusing knowledge
+  * An architectural pattern
+    * a stylized description of good design practice
+    * has been tried and tested in different environments
+  * Patterns should include information aobut
+    * when they are and
+    * when they are not useful
+  * Represntaion
+    * tabular(표로정리된) and graphical descriptions
+
+==== The Model-View-Controller(MVC) pattern ====
+  * Description : Separates presentation and interaction from the system data. The system is structured into three logical components that interact with each other. The Model component manages the system data and associated operations on that data. The View component defines and manages how the data is presented to the user. The Controller component manages user interaction and passes these interactions to the View and the Model
+  * Model
+    * Encapsulates application state
+    * Notifies view of state changes
+  * Views 
+    * Renders model
+    * Requests model updates
+    * Sends user events to controller
+  * Controller 
+    * Maps user actions to model updates
+    * Selects view
+
+==== 6.3.1 Layered architecture ====
+  * Used to model the interfacing of sub-systems.
+  * Organises the system into a set of layers (or abstract machines) each of which provide a set of services
+  * Incremental development of sub-systems in different layers
+    * When a layer interface changes, only the adjacent layer is affected
+  * Disadvantages
+    * Providing a clean separation between layers is often difficult and a high-level layer may have to interact directly with lower-level layers rather than through the later immediately below it. Performance can be a problem because of multiple levels of interpretation of a service request as it is processed at each layer
+
+==== 6.3.3 Client-Server architecture
+  * Distributed system model which shows how data and processing is distributed across a range of components
+  * Set of stand-alone servers which provide specific services such as printing, data management, etc.
+  * Set of clients which call on these services
+  * Network which allows clients to access servers
+
+==== 6.3.4 Pipe and filter architecture ====
+  * Functional transformations process their inputs to produce outputs
+  * UNIX shell
+  * Variants of this approach are very coommon
+  * Not really suitable for interactive systems.

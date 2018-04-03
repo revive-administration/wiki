@@ -1,0 +1,38 @@
+=====재료=====
+
+====재료 개요====
+
+<code>
+- 연구나 생산 시 필요 및 소모되는 아이템.
+- 전투 보상, 필드 보상 혹은 재료 가챠, 물체 해석을 통해 얻을 수 있음.
+- 인벤토리에서 바로 사용 불가.
+- 보유할 수 있는 개수 제한은 없으며, 여러 개를 보유할 경우 하나의 묶음으로 표현.
+</code>
+
+====Material====
+^  Code  ^  Name  ^  Sort  ^  Type  ^  Grade  ^  Description  ^  Order  ^
+|  Sand  |  모래  |  홍콩  |  Material  |  Normal  |  홍콩의 모래다.  |  601  |
+|  Iron  |  철  |  미국  |  Material  |  Rare  |  정제된 철. Made in USA.  |  602  |
+|  SpiderWeb  |  거미줄  |  한국  |  Material  |  Rare  |  한국 집거미의 거미줄.  |  603  |
+|  SpiritStone  |  영혼석  |  중국  |  Material  |  Unique  |  중국의 귀신을 봉인한 영혼석.  |  604  |
+
+^  항목  ^  내용  ^
+|  Code  |  Material DB의 Code  |
+|  Name  |  아이템 이름  |
+|  Sort  |  아이템을 분류하기 위한 항목.  |
+|  Type  |  아이템 종류.  Material  |
+|  Grade  |  아이템 등급. Normal, Rare, Unique, Legend, Epic, Extra  |
+|  Description  |  플레이어에게 보이는 아이템 텍스트  |
+|  Order  |  인벤토리에서 아이템 정렬 순서  |
+
+----
+
+====재료 보유 정보====
+
+^  AccountID  ^  ItemCode  ^  Number  ^
+|  KR30130    |  Sand     |  99      |
+
+^  항목  ^  내용  ^
+|  AccountID  |  유저 계정 ID  |
+|  ItemCode   |  재료 DB의 ItemCode  |
+|  Number     |  보유하고 있는 개수  |

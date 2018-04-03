@@ -1,0 +1,100 @@
+====== Intro to refactoring ======
+
+=====1. Introduction =====
+Focused more on how refactoring and unit testing is supported by tools currently available. By applying multiple iterations of refactoring on the program its design will improve considerably and new features will be easier to add.
+
+===== 2. What Is Refactoring? =====
+==== 2.1 Definition ====
+Refactoring :
+A change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its observable behavior.
+
+==== 2.2 Hitory ====
+Although the methodology can be used with almost every programming language, object-oriented languages make things easier. This is specially ture for the more complex refactorings, which rely heavily on objects, inheritance and polymorphism.
+
+==== 2.3 Why Refactoring matters ====
+About 50% of all programming effort in most enterpises goes into maintaining software. Refactoring will help to improve the design, make the code easier to understand and maintain.
+
+===== 3. Unit Testing =====
+"Software features that can't be demonstrated by automated tests simply don exist"
+
+It is not component testing, which is interested whether the application behaves generally the way it was specified it should. See for further information about the difference.
+
+==== 3.1 Why testing is important ====
+Whether you like Extreme Programming or not, tests have been proven to be the methodology to ultimately control if the changes you just made to your code introduced bugs. Because refactoring is all about changing code, testing is a must.
+
+==== 3.2 The JUnit Framework ====
+
+=== 3.2.3 Assertions ===
+  * assertEquals
+  * assertFalse
+  * assertNotNull
+  * assertNotSame
+  * assertNull
+  * assertSame
+  * assertTrue
+  * fail
+
+===== 4. Refactoring a concrete example =====
+==== 4.1 The starting point ====
+==== 4.2 Comments of the program ====
+Rule 1: When you find you have to add a feature to a program, and the program's code is not structured in a convenient way to add the feature, first refactor the program to make it easy to add the feature, then add the feature.
+
+===== 5. Steps in refactoring the concrete example =====
+==== 5.1 Creating Unit Tests ====
+the goal is to keep the observable behavior of a program, even if we change its underlying structure. So a fundamental thing to have are solid tests.
+
+Rule2 : Before you start refactoring, check that you have a solid suite of tests. These tests must be self-checking.
+
+==== 5.2 Decomposing the statement() method  ====
+===== 6 Bad Smells in Code =====
+Refactoring is centainly not(only) about aesthetics, about beautiful code - so a somewhat solid tem had to be found by Martin Fowler to describe when refactorign should be applied:
+
+"If it stinks, change it"
+
+==== 6.1 Duplicated Code ====
+==== 6.2 Long Method and Large Class ====
+==== 6.3 Long Parameter List ====
+Long parameter lists are hard to understand and usually deliver too much information to the method. With objects, you can always ask another object to get the needed information for you. Using Replace Parameter with Method may be a solution to separate a parameter logically from the others. Alternatively you could pass a special parameter object(a Value Object or Transfer Object)
+
+==== 6.4 Feature Envy ====
+==== 6.5 Data Clumps ====
+It is frequent that the same set of variables are spotted together in various places of the code. Use Extract Class to group together those variables in their own class.
+
+==== 6.6 Speculative Generality ====
+Sometimes you're implementing handling for special cases that are probably never used. The result are methods which are only called by their own tests and thus only add to the complexity of maintenance and understanding. Replace unnecessary delegation with the code of the delegate(Inline Class), Collapse the Hierarchy if there are abstract classes not doing much. Purge unused parameters, rename methods, fields and classes to achieve sensible names.
+
+==== 6.7 Temporary Field ====
+Temporary variables can be replaced with the expression used to the set the variable(Inline Temp).
+
+==== 6.8 Message chains ====
+If you have code like the following snippet, you should consider getting the target object directly
+
+==== 6.9 Inappropriate Intimacy ====
+
+Some classes know too much about other classes and should therefore be broken up(use Move Method and Move Field, or extract common code into another class). Subclasses are an example for this misbehavior, because they always know too much about their parent. You can replace the inheritance with delegation in this case.
+
+====6.10 Comments ====
+Rule 3 : When you feel the need to write a comment, first try to refactor the code so that any comment becomes superfluous.
+
+===== 7. Principles =====
+==== 7.1 Why should You Refactor? ====
+The following points give you a broad overview why you should consider refactoring for your own projects. These points highlight the strengths of refactoring.
+
+  * Improving the design of software
+  * Refactoring makes software easier to understand
+  * Refactoring helps you find bugs
+  * Refactoring helps you program faster
+
+==== 7.2 When ? ====
+  * Refactor when you add function : Adding features to code you don't fully understand is easier when you refactor.
+  * Refactor when you need to fix a bug
+  * Refactor as you do a code review
+
+===== 8 Problems =====
+There are areas where you should take care that refactoring does not make things worse instead of better.
+  * Database : Because application using databases are tightly coupled to the data model in the database, refactoring the application alone is not enough. Refactoring databases although is not easy if you have to do it by hand. A possible solution is an intermediate layer which takes care of persistence and can be refactor without problems.
+  * Changing interfaces : It is disturbing that refactoring generally changes interfaces. If people rely on frozen interfaces you published, their code won't work anymore after you refactored them. To avoid this, you can arrange it that the old interface calls the new one(but don't copy-paste methods because of the resulting code duplication) and thus the old and new interfaces run in parallel. In Java, mark the old interface as deprecated.
+
+There are situations when you shouldn't refactor. If for example the existing code base is just a mess, is full of bugs and does not work even rudimentary, you should consider a total rewrite. Another time refactoring should be avoided is when you are close to a deadline. The productivity gain would only appear after the deadline and thus be too late.
+
+===== 11 Conclusion =====

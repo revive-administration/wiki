@@ -1,0 +1,75 @@
+
+<h1 class="sectionedit1" id="chapter_10">Chapter 10</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 10" [1-25] -->
+<h2 class="sectionedit2" id="멀티프로세서와_멀티코어_스케줄링">10.1 멀티프로세서와 멀티코어 스케줄링</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> 약결합(loosely-coupled) 또는 분산(distributed) 멀티프로세서, 또는 클러스터(cluster) : 서로 독립적으로 동작하는 개별 시스템들의 모음 구조라고 할 수 있다. 각 처리기들은 자신만의 주 메모리와 입출력 채널들을 독립적으로 가지고 있다.</div>
+</li>
+<li class="level1"><div class="li"> 특수 기능 처리기</div>
+</li>
+<li class="level1"><div class="li"> 강결합 멀티프로세싱(tightly-coupled multiprocessing) : 주 메모리를 공유하는 여러개의 처리기들이 한 시스템 내에 모여 있는 구조를 의미한다. 이처리기들은 운영체제에 의해 통합 관리된다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "10.1 멀티프로세서와 멀티코어 스케줄링" [26-680] -->
+<h3 class="sectionedit3" id="동기화_단위_granularity">동기화 단위(granularity)</h3>
+<div class="level3">
+
+<p>
+멀티프로세서 시스템의 구조를 다른 시스템들과 비교한다거나 멀티프로세서 시스템만의 특성을 표현하기에 적당한 척도가 바로 프로세스 간 동기화 단위 또는 동기화 횟수라고 할 수 있다 왜냐하면 동기화 단위의 크기에 따라 시스템 전체의 병렬성 정도가 달라지기 때문이다. 
+</p>
+
+</div>
+<!-- EDIT3 SECTION "동기화 단위(granularity)" [681-1090] -->
+<h3 class="sectionedit4" id="프로세스_스케줄링">프로세스 스케줄링</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT4 SECTION "프로세스 스케줄링" [1091-1126] -->
+<h3 class="sectionedit5" id="쓰레드_스케줄링">쓰레드 스케줄링</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> 부하 공유(Load sharing) : 프로세스들은 어떤 특정 처리기에 고정되어 할당되지 않는다. 실행 준비 완료 쓰레드들이 들어가는 전역 큐가 있어서 처리기들은 휴지(idle) 상태가 되면 이 큐에서 쓰레드 하나를 골라 실행시킨다. 여기서 부하 공유라는 용어는 부하 균형(load balancing)과는 다른 의미이다. </div>
+</li>
+<li class="level1"><div class="li"> 갱(Gang) 스케줄링 : 서로 관련이 있는 쓰레드들을 하나의 쓰레드 그룹으로 묶은 후 이 스레드 그룹을 역시 그룹으로 묶여진 처리기들 상에서 일대일 방식으로 실행될 수 있도록 하는 방식이다.</div>
+</li>
+<li class="level1"><div class="li"> 전용(Dedicated) 처리기 할당 : 이 방식은 부하 공유 방식과 완전히 반대되는 개념이다. 따라서 쓰레드를 어떤 특정 처리기에 고정 할당하는 순간 사실상 스케줄링이 이루어지는 셈이 된다. 한 응용프로그램에는 그 응용프로그램을 구성하는 쓰레드 개수만큼의 처리기가 할당되며 프로그램 실행이 끝날 때까지 바귀지 않는다. 프로그램이 종료되면 할당되었었던 처리기들은 다시 전역 처리기 풀로 반환되어 다른 프로그램들이 사용할 수 있도록 한다.</div>
+</li>
+<li class="level1"><div class="li"> 동적(Dynamic) 스케줄링 : 한 프로세스 내의 쓰레드 개수가 실행 도중 변경될 수 있다.</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="부하_공유">부하 공유</h4>
+<div class="level4">
+
+</div>
+<!-- EDIT5 SECTION "쓰레드 스케줄링" [1127-2545] -->
+<h2 class="sectionedit6" id="실시간_스케줄링">10.2 실시간 스케줄링</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT6 SECTION "10.2 실시간 스케줄링" [2546-2584] -->
+<h3 class="sectionedit7" id="실시간_운영체제의_특성">실시간 운영체제의 특성</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Determinism</div>
+</li>
+<li class="level1"><div class="li"> Responsiveness</div>
+</li>
+<li class="level1"><div class="li"> User Control</div>
+</li>
+<li class="level1"><div class="li"> Reliability</div>
+</li>
+<li class="level1"><div class="li"> Fail-soft</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "실시간 운영체제의 특성" [2585-] -->

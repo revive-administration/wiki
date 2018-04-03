@@ -1,0 +1,33 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1407402638;s:8:"modified";i:1407838675;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:7:{s:4:"date";i:1407838675;s:2:"ip";s:15:"165.194.113.163";s:4:"type";s:1:"E";s:2:"id";s:27:"chapter_08_커맨드_패턴";s:4:"user";s:7:"velmont";s:3:"sum";s:23:"[8.4 커맨드 패턴] ";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}s:5:"title";s:27:"Chapter 08 커맨드 패턴";s:11:"description";a:2:{s:15:"tableofcontents";a:7:{i:0;a:4:{s:3:"hid";s:27:"chapter_08_커맨드_패턴";s:5:"title";s:27:"Chapter 08 커맨드 패턴";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:23:"만능_버튼_만들기";s:5:"title";s:27:"8.1 만능 버튼 만들기";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:9:"문제점";s:5:"title";s:13:"8.2 문제점";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:60:"버튼을_눌렀을_때_다른_기능을_실행하는_경우";s:5:"title";s:66:"8.2.1 버튼을 눌렀을 때 다른 기능을 실행하는 경우";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:4;a:4:{s:3:"hid";s:73:"버튼을_누르는_동작에_따라_다른_기능을_실행하는_경우";s:5:"title";s:79:"8.2.2 버튼을 누르는 동작에 따라 다른 기능을 실행하는 경우";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:9:"해결책";s:5:"title";s:13:"8.3 해결책";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:6;a:4:{s:3:"hid";s:16:"커맨드_패턴";s:5:"title";s:20:"8.4 커맨드 패턴";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:460:"Chapter 08 커맨드 패턴
+
+8.1 만능 버튼 만들기
+
+
+package Ch08;
+
+class Lamp {
+	public void turnOn() {
+		System.out.println("Lamp on");
+	}
+}
+
+class Button {
+	private Lamp theLamp;
+
+	public Button(Lamp theLamp) {
+		this.theLamp = theLamp;
+	}
+
+	public void pressed() {
+		theLamp.turnOn();
+	}
+}
+
+public class Client {
+	public static void main(String[] args) {
+		Lamp lamp = new Lamp();
+		Button lampButton = new Button(lamp);
+		lampButton.pressed();
+	}
+
+}";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1407402638;s:8:"modified";i:1407838675;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:7:{s:4:"date";i:1407838675;s:2:"ip";s:15:"165.194.113.163";s:4:"type";s:1:"E";s:2:"id";s:27:"chapter_08_커맨드_패턴";s:4:"user";s:7:"velmont";s:3:"sum";s:23:"[8.4 커맨드 패턴] ";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}}}

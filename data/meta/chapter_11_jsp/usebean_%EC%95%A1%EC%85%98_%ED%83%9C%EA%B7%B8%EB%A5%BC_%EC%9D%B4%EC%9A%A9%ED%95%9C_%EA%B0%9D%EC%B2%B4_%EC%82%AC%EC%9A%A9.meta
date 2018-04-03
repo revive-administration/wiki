@@ -1,0 +1,24 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1408422039;s:8:"modified";i:1408424382;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:7:{s:4:"date";i:1408424382;s:2:"ip";s:14:"165.194.48.224";s:4:"type";s:1:"E";s:2:"id";s:63:"chapter_11_jsp:usebean_액션_태그를_이용한_객체_사용";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}s:5:"title";s:65:"Chapter 11 <jsp:useBean> 액션 태그를 이용한 객체 사용";s:11:"description";a:2:{s:15:"tableofcontents";a:8:{i:0;a:4:{s:3:"hid";s:62:"chapter_11_jspusebean_액션_태그를_이용한_객체_사용";s:5:"title";s:65:"Chapter 11 <jsp:useBean> 액션 태그를 이용한 객체 사용";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:15:"자바_javabean";s:5:"title";s:20:"01 자바 (JavaBean)";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:22:"자바빈_프로퍼티";s:5:"title";s:26:"1.1 자바빈 프로퍼티";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:3;a:4:{s:3:"hid";s:42:"예제에서_사용할_자바빈_클래스";s:5:"title";s:45:"02 예제에서 사용할 자바빈 클래스";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:4;a:4:{s:3:"hid";s:51:"jspusebean_태그를_이용한_자바_객체_사용";s:5:"title";s:57:"03 <jsp:useBean> 태그를 이용한 자바 객체 사용";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:5;a:4:{s:3:"hid";s:60:"jspusebean_액션_태그를_사용하여_객체_생성하기";s:5:"title";s:67:"3.1 <jsp:useBean> 액션 태그를 사용하여 객체 생성하기";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:6;a:4:{s:3:"hid";s:60:"jspgetproperty_액션_태그와_jspsetproperty_액션_태그";s:5:"title";s:70:"3.2 <jsp:getProperty> 액션 태그와 <jsp:setProperty> 액션 태그";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:7;a:4:{s:3:"hid";s:50:"자바빈_프로퍼티_타입에_따른_값_매핑";s:5:"title";s:54:"3.3 자바빈 프로퍼티 타입에 따른 값 매핑";s:4:"type";s:2:"ul";s:5:"level";i:3;}}s:8:"abstract";s:617:"Chapter 11 <jsp:useBean> 액션 태그를 이용한 객체 사용
+
+01 자바 (JavaBean)
+
+자바빈(JavaBean)은 데이터를 표현하는 것을 목적으로 하는 자바 클래스로서, 다음과 같은 형태로 구성된다.
+public class BeanClassName implements java.io.Serializable{
+	/* 값을 저장하는 필드 */
+	public BeanClassName(){
+	}
+	
+	/* BeanClassName의 기본 생성자 */
+	public BeanClass(){
+	}
+	
+	/* 필드의 값을 읽어오는 값 */
+	public String getValue(){
+		return value;
+	}
+	
+	/* 필드의 값을 변경하는 값 */
+	public void setValue(String value){
+		this.value = value;
+	}
+}…";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:8:"relation";a:1:{s:10:"firstimage";s:0:"";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1408422039;s:8:"modified";i:1408424382;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:7:{s:4:"date";i:1408424382;s:2:"ip";s:14:"165.194.48.224";s:4:"type";s:1:"E";s:2:"id";s:63:"chapter_11_jsp:usebean_액션_태그를_이용한_객체_사용";s:4:"user";s:7:"velmont";s:3:"sum";s:0:"";s:5:"extra";s:0:"";}s:11:"contributor";a:1:{s:7:"velmont";s:6:"벨몽";}}}

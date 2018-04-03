@@ -1,0 +1,123 @@
+
+<h1 class="sectionedit1" id="병사_캐릭터">병사 (캐릭터)</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "병사 (캐릭터)" [1-34] -->
+<h2 class="sectionedit2" id="구조">구조</h2>
+<div class="level2">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EB%B3%91%EC%82%AC&amp;media=%EA%B7%B8%EC%95%84%EC%95%84%EC%95%84%EC%95%84%EC%95%99.png" class="media" title="그아아아아앙.png"><img src="/dokuwiki/lib/exe/fetch.php?media=%EA%B7%B8%EC%95%84%EC%95%84%EC%95%84%EC%95%84%EC%95%99.png" class="mediacenter" alt="" /></a>
+</p>
+
+</div>
+<!-- EDIT2 SECTION "구조" [35-86] -->
+<h3 class="sectionedit3" id="아군_타입_military_type_int">아군 타입(military_type/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">근거리(지뢰)=0, 원거리(병사)=1</div></li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "아군 타입(military_type/Int)" [87-173] -->
+<h3 class="sectionedit4" id="아군_자원_수량_military_resource_int">아군 자원 수량(military_resource/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">병사 생성 시 필요한 자원 수량</div></li>
+  <li><div class="li">정수, 15</div></li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "아군 자원 수량(military_resource/int)" [174-286] -->
+<h3 class="sectionedit5" id="아군_파괴_여부_military_broken_bool">아군 파괴 여부(military_broken/bool)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">파괴가 가능하면 T, 불가능하면 F</div></li>
+  <li><div class="li">병사는 파괴 불가능</div></li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "아군 파괴 여부(military_broken/bool)" [287-417] -->
+<h3 class="sectionedit6" id="아군_체력_military_hp_int">아군 체력(military_hp/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">정수</div></li>
+  <li><div class="li">파괴 여부가 T일 때, 해당 수치를 적용함</div></li>
+  <li><div class="li">파괴 여부가 F일 때, 무한대 수치로 처리</div></li>
+  <li><div class="li">병사는 파괴가 불가능하기에 체력 수치 무한대</div></li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "아군 체력(military_hp/int)" [418-651] -->
+<h3 class="sectionedit7" id="아군_공격_범위_military_range_int">아군 공격 범위(military_range/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">캐릭터 중심의 구형 범위</div></li>
+  <li><div class="li">구형 범위의 넓이 수치</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "아군 공격 범위(military_range/int)" [652-785] -->
+<h3 class="sectionedit8" id="아군_이동_속도_military_speed_float">아군 이동 속도(military_speed/float)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">해당 수치가 0일 경우 이동 불가능</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "아군 이동 속도(military_speed/float)" [786-898] -->
+<h3 class="sectionedit9" id="아군_공격_속도_military_attackspeed_float">아군 공격 속도(military_attackspeed/float)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">병사 캐릭터의 공격 속도 수치</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "아군 공격 속도(military_attackspeed/float)" [899-1012] -->
+<h3 class="sectionedit10" id="아군_공격력_military_attack_int">아군 공격력(military_attack/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">병사 캐릭터의 공격력 수치</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "아군 공격력(military_attack/int)" [1013-1111] -->
+<h3 class="sectionedit11" id="아군_공격_스플래시_적용_여부_military_splash_bool">아군 공격 스플래시 적용 여부(military_splash/bool)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">스플래시 공격 적용 시 T, 미적용 시 F</div></li>
+  <li><div class="li">병사 공격은 스플래시 미적용</div></li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "아군 공격 스플래시 적용 여부(military_splash/bool)" [1112-1281] -->
+<h3 class="sectionedit12" id="아군_타격_ai">아군 타격 AI</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">범위 내 들어온 적군을 순서대로 타격한다</div></li>
+  <li><div class="li">먼저 에이밍 된 적군이 사망한 이후에 다른 적을 에이밍한다</div></li>
+  <li><div class="li">에이밍 된 적군이 시야에서 벗어났을 경우, 진입 순서에 따라 다음 타겟을 찾아 공격한다</div></li>
+</ul>
+
+<ul  class="extlist">
+  <li><div class="li">AIController를 사용하지 않음.</div></li>
+  <li><div class="li">PawnSensing을 가지고 있음. 이것의 값 중 Noise 관련 요소들을 사용함</div></li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "아군 타격 AI" [1282-] -->

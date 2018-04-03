@@ -1,0 +1,40 @@
+====== 스토리 관련 정보 =====
+
+===== 게임 개괄 =====
+
+  * [[게임 컨셉]]
+
+
+----
+===== 시놉시스와 플로우 =====
+
+  * [[https://docs.google.com/document/d/18Ey_7ZY7ojxNRVp7eEGttnt07DM5UdmMQsy8jXAi3Yc/edit?usp=sharing|메인 스토리 시놉시스 - 시즌 1]] (구버전)
+  * [[https://docs.google.com/document/d/128tJ4RM4LKdJWhDVAnpkpYpIdvGCtPIyQZtxCGk_fdw/edit?usp=sharing|시즌 1~2 작업중인 시놉시스]] (권한 필요)
+  * [[https://drive.google.com/file/d/0B-0MK9Y1-n7JRFJrRlZoU0VNUDQ/view?usp=sharing|스토리 플로우]]
+
+
+===== 사건 =====
+----
+  * [[과거 사건 시간순 정리]]
+  * [[게임 시작 이후 사건 시간순 정리]]
+  * [[사건 리스트]]
+
+
+
+===== 설정 =====
+----
+  * [[설정 리스트]]
+
+
+
+
+----
+===== 지역 =====
+
+  * [[홍콩 (시즌 1)]]
+  * [[심천 (시즌 2)]]
+
+
+===== 기타 =====
+  * [[ASU 417팀 조직도]]
+  * [[이스터에그 요소]](개발팀 비화 등 정리용)

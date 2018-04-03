@@ -1,0 +1,87 @@
+
+<h1 class="sectionedit1" id="chapter_06_기본_객체와_영역">Chapter 06 기본 객체와 영역</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter 06 기본 객체와 영역" [1-49] -->
+<h2 class="sectionedit2" id="jsp_기본_객체와_영역">05) JSP 기본 객체와 영역</h2>
+<div class="level2">
+
+<p>
+웹 어플리케이션은 네 개의 영역(scope)을 갖고 있는데, 이들 영역은 다음과 같다.
+</p>
+<ul>
+<li class="level1"><div class="li"> PAGE 영역 - 하나의 JSP 페이지를 처리할 때 사용되는 영역</div>
+</li>
+<li class="level1"><div class="li"> REQUEST 영역 - 하나의 HTTP 요청을 처리할 때 사용되는 영역</div>
+</li>
+<li class="level1"><div class="li"> SESSION 영역 - 하나의 웹 브라우저와 관련된 영역</div>
+</li>
+<li class="level1"><div class="li"> APPLICATION 영역 - 하나의 웹 어플리케이션과 관련된 영역</div>
+</li>
+</ul>
+
+<p>
+PAGE 영역은 한번의 클라이언트 요청에 대해서 하나의 JSP 페이지를 범위로 갖는다. 즉, 웹 브라우저의 요청이 들어오면 JSP 페이지를 실행하게 되는데, 이때 JSP 페이지를 실행하는 범위가 하나의 PAGE 영역이 된다. 
+</p>
+
+<p>
+REQUEST 영역은 웹 브라우저의 한번의 요청과 관련된다. 즉, 웹 브라우저의 주소에 URL을 입력하거나 또는 링크를 클릭해서 페이지를 이동할 때, 웹 브라우저가 웹 서버에 전송하는 요청이 하나의 REQUEST 영역이 된다. 웹 브라우저가 요청을 보낼 때마다 매번 새로운 REQUEST 영역이 생성된다. PAGE 영역과 차이점이 있다면, PAGE 영역은 오직 하나의 JSP 페이지만을 포함하는데 반해, REQUEST 영역은 하나의 요청을 처리하는데 사용되는 모든 JSP 페이지를 포함한다.
+</p>
+
+<p>
+SESSION 영역은 하나의 웹 브라우저와 관련된 영역이다. 일단, 세션이 생성되면 하나의 웹 브라우저와 관련된 모든 요청은 하나의 SESSION 영역에 포함된다.
+</p>
+
+<p>
+APPLICATION 영역은 하나의 웹 애플리케이션과 관련된 전체 영역을 포함한다. 예를 들어, 이 장에서 사용 중인 예제인 /chap06 웹 어플리케이션에 포함된 모든 요청과 브라우저의 세션은 모두 하나의 APPLICATION 영역에 속하게 된다.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "05) JSP 기본 객체와 영역" [50-1884] -->
+<h3 class="sectionedit3" id="jsp_기본_객체의_속성_attribute_사용하기">06) JSP 기본 객체의 속성(Attribute) 사용하기</h3>
+<div class="level3">
+
+<p>
+네 개의 기본 객체는 속성을 갖고 있다. 속성은 각각의 기본 객체가 존재하는 동안에 사용될 수 있으며, JSP 페이지 사이에서 정보를 주고 받거나 공유하기 위한 목적으로 사용된다.
+</p>
+
+</div>
+<!-- EDIT3 SECTION "06) JSP 기본 객체의 속성(Attribute) 사용하기" [1885-2190] -->
+<h3 class="sectionedit4" id="속성의_값_타입">6.1 속성의 값 타입</h3>
+<div class="level3">
+
+<p>
+속성의 이름은 문자열을 나타내는 String 타입이지만, 값은 기본 데이터 타입을 제외한 나머지 모든 클래스 타입이 올 수 있다.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "6.1 속성의 값 타입" [2191-2392] -->
+<h3 class="sectionedit5" id="속성의_활용_방법">6.2 속성의 활용 방법</h3>
+<div class="level3">
+
+<p>
+속성의 쓰임새
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0"> 기본 객체 </th><th class="col1"> 영역 </th><th class="col2"> 쓰임새 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> pageContext </td><td class="col1"> PAGE </td><td class="col2"> (한번의 요청을 처리하는) 하나의 JSP 페이지 내에서 공유될 값을 저장한다. 주로 커스텀 태그에서 새로운 변수를 추가할 때 사용된다. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> request </td><td class="col1"> REQUEST </td><td class="col2"> 한번의 요청을 처리하는데 사용되는 모든 JSP 페이지에서 공유될 값을 저장한다. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> session </td><td class="col1"> SESSION </td><td class="col2"> 한 사용자와 관련된 정보를 JSP들이 공유하기 위해서 사용된다. 사용자의 로그인 정보와 같은 것들을 저장한다.</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> application </td><td class="col1"> APPLICATION </td><td class="col2"> 모든 사용자와 관련해서 공유할 정보를 저장한다. 임시 디렉터리 경로와같은 웹 어플리케이션의 설정 정보를 주로 저장한다.</td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [2451-3192] -->
+</div>
+<!-- EDIT5 SECTION "6.2 속성의 활용 방법" [2393-] -->

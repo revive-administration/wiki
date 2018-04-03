@@ -1,0 +1,181 @@
+
+<h1 class="sectionedit1" id="필드_구조체">필드 구조체</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "필드 구조체" [1-30] -->
+<h2 class="sectionedit2" id="field">Field</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  RowName  </th><th class="col1 centeralign">  TileList  </th><th class="col2 centeralign">  EnemyCorpsList  </th><th class="col3 centeralign">  EliteEnemyCorpsList  </th><th class="col4 centeralign">  ItemCodeList  </th><th class="col5 centeralign">  GetItemMinList  </th><th class="col6 centeralign">  GetItemMaxList  </th><th class="col7 centeralign">  GetItemProbability  </th><th class="col8 centeralign">  TimeZone  </th><th class="col9 centeralign">  BattleImage  </th><th class="col10 centeralign">  FieldImage  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Field_1  </td><td class="col1 leftalign">  </td><td class="col2 centeralign">  (EnemyCorps_1, EnemyCorps_2, EnemyCorps_3)  </td><td class="col3 centeralign">  (EnemyCorps_10, EnemyCorps_11, EnemyCorps_12)  </td><td class="col4 centeralign">  (Material_1, Material_2, Material_2)  </td><td class="col5 centeralign">  (1, 2, 3)  </td><td class="col6 centeralign">  (3, 2, 10)  </td><td class="col7 centeralign">  (1, 4, 5)  </td><td class="col8 centeralign">  VE_Morning  </td><td class="col9 leftalign">  </td><td class="col10 leftalign">  </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [48-458] --><div class="table sectionedit4"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  TileList  </td><td class="col1 centeralign">  Tile의 배열.  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  EnemyCorpsList  </td><td class="col1 centeralign">  타일의 효과가 BattleRandom인 경우 이 중에서 랜덤으로 1개가 골라진다.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  EliteEnemyCorpsList  </td><td class="col1 centeralign">  경계가 100%가 되어서 진입하는 전투의 경우 이 중에서 랜덤으로 1개가 골라진다.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  ItemCodeList  </td><td class="col1 centeralign">  타일의 효과가 GetItemRandom인 경우 이 중에서 랜덤으로 1개가 골라진다. 그리고 필드 클리어 시 이 중에서 랜덤으로 3개가 골라진다.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  GetItemMinList  </td><td class="col1 centeralign">  ItemCodeList에서 n번 앨리먼트가 골라지면 이 리스트에서 n번 리스트를 골라서 MinNumber로 사용한다.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  GetItemMaxList  </td><td class="col1 centeralign">  ItemCodeList에서 n번 앨리먼트가 골라지면 이 리스트에서 n번 리스트를 골라서 MaxNumber로 사용하여 랜덤한 개수의 아이템을 부여한다.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  GetItemProbability  </td><td class="col1 centeralign">  ItemCodeList 중 어느 항목이 결정되는 지에 대한 각 항목의 확률 비중  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  TimeZone  </td><td class="col1 centeralign">  VE_Morning, VE_Afternoon, VE_Night. 배경 이미지의 시간대  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  BattleImage  </td><td class="col1 centeralign">  전투 시 배경 이미지. TimeZone과 조합해서 배경이미지가 정해짐  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  FieldImage  </td><td class="col1 centeralign">  필드 배경 이미지.  </td>
+	</tr>
+</table></div>
+<!-- EDIT4 TABLE [460-1674] -->
+</div>
+<!-- EDIT2 SECTION "Field" [31-1675] -->
+<h2 class="sectionedit5" id="tile">Tile</h2>
+<div class="level2">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%ED%95%84%EB%93%9C_%EA%B5%AC%EC%A1%B0%EC%B2%B4&amp;media=kakaotalk_photo_2017-03-08-11-15-41.png" class="media" title="kakaotalk_photo_2017-03-08-11-15-41.png"><img src="/dokuwiki/lib/exe/fetch.php?w=400&amp;tok=de33d5&amp;media=kakaotalk_photo_2017-03-08-11-15-41.png" class="media" alt="" width="400" /></a>
+</p>
+<div class="table sectionedit6"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  TileX  </th><th class="col1 centeralign">  TileY  </th><th class="col2 centeralign">  TileType  </th><th class="col3 centeralign">  TileEffect  </th><th class="col4 centeralign">  ArrowDirection  </th><th class="col5 centeralign">  StoryType  </th><th class="col6 centeralign">  StoryCode  </th><th class="col7 centeralign">   IsRandomable  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  0  </td><td class="col2 centeralign">  VE_Start  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  (VE_Right)  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">      False  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  1  </td><td class="col2 centeralign">  VE_Normal  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  (VE_Right,VE_Down)  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">      True  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  1  </td><td class="col1 centeralign">  1  </td><td class="col2 centeralign">  VE_Normal  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  (VE_Up)  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">      True  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  0  </td><td class="col1 centeralign">  1  </td><td class="col2 centeralign">  VE_Normal  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  (VE_Down)  </td><td class="col5 centeralign">  VE_PreviousEffect  </td><td class="col6 centeralign">  MainStory_1  </td><td class="col7 centeralign">    False  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  1  </td><td class="col1 centeralign">  2  </td><td class="col2 centeralign">  VE_Clear  </td><td class="col3 leftalign">  </td><td class="col4 centeralign">  ()  </td><td class="col5 centeralign">  VE_None  </td><td class="col6 leftalign">  </td><td class="col7 centeralign">  False  </td>
+	</tr>
+</table></div>
+<!-- EDIT6 TABLE [1741-2240] --><div class="table sectionedit7"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  TileX  </td><td class="col1 centeralign">  타일이 위치할 X좌표  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  TileY  </td><td class="col1 centeralign">  타일이 위치할 Y좌표  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  TileType  </td><td class="col1 centeralign">  Start, Normal, Clear.  Start는 1개만 존재 가능. Clear타일은 필드 클리어 처리를 해준다. Normal타일은 TileEffect를 처리한 후 다음 카드 사용을 대기한다.  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  TileEffect  </td><td class="col1 centeralign">  TileEffect. 순서대로 처리해준다.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  ArrowDirection  </td><td class="col1 centeralign">  다음 타일이 어느 방향에 위치하는 지 이넘 배열. Up, Right, Down. 마지막 타일인 경우 빈 배열.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  StoryType  </td><td class="col1 centeralign">  None, PreviousEffect, AfterEffect. 스토리 실행을 TileEffect 처리 전에 하는지 후에 하는지, 스토리가 있는지 없는지 지정  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  ChapterCode  </td><td class="col1 centeralign">  실행시킬 챕터의 RowName을 지정  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  StoryCode  </td><td class="col1 centeralign">  ChapterCode에 적은 챕터에 포함된 스토리의 RowName을 지정  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  IsRandomable  </td><td class="col1 centeralign">  타일의 Shuffle을 진행하는 경우 Shuffle될 수 있는지 여부. Start, Clear타일은 False이고, Normal타일 중에서도 방향타일, 스토리타일, 정지 타일은 False이다.  </td>
+	</tr>
+</table></div>
+<!-- EDIT7 TABLE [2243-3316] -->
+</div>
+<!-- EDIT5 SECTION "Tile" [1676-3317] -->
+<h2 class="sectionedit8" id="tileeffect">TileEffect</h2>
+<div class="level2">
+<div class="table sectionedit9"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  TileEffectType  </th><th class="col1 centeralign">  IntValue  </th><th class="col2 centeralign">  TextValue  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  VE_Battle  </td><td class="col1 leftalign">    </td><td class="col2 centeralign">  EnemyCorps_1  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  VE_BattleRandom  </td><td class="col1 leftalign">    </td><td class="col2 leftalign">  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  VE_BossBattle  </td><td class="col1 leftalign">    </td><td class="col2 centeralign">  EnemyCorps_100  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  VE_Heal  </td><td class="col1 centeralign">  10  </td><td class="col2 leftalign">  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  VE_GetGold  </td><td class="col1 centeralign">  500  </td><td class="col2 leftalign">  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  VE_GetItemRandom  </td><td class="col1 leftalign">  </td><td class="col2 leftalign">  </td>
+	</tr>
+</table></div>
+<!-- EDIT9 TABLE [3340-3580] --><div class="table sectionedit10"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  설명  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  TileEffectType  </td><td class="col1 centeralign">  처리할 Effect의 이넘  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Battle  </td><td class="col1 centeralign">  TextValue에 지정한 코드로 DT에서 검색하여 전투 발생.  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  BattleRandom  </td><td class="col1 centeralign">  Field가 가지고 있는 EnemyCorpsList에서 랜덤으로 1개를 뽑아와 전투 발생  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  BossBattle  </td><td class="col1 centeralign">  TextValue에 지정한 코드로 DT에서 검색하여 전투 발생. Battle과 전투 진입 이펙트가 다르다.  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Heal  </td><td class="col1 centeralign">  아군 전체의 체력을 최대 체력의 n%만큼 회복시킨다.  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  GetGold  </td><td class="col1 centeralign">  IntValue만큼의 골드를 획득한다.  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  GetItemRandom  </td><td class="col1 centeralign">  Field가 가지고 있는 ItemCodeList에서 랜덤으로 1개를 뽑아와 아이템 획득  </td>
+	</tr>
+</table></div>
+<!-- EDIT10 TABLE [3582-4260] -->
+</div>
+<!-- EDIT8 SECTION "TileEffect" [3318-] -->

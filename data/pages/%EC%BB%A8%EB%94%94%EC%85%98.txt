@@ -1,0 +1,53 @@
+======Condition======
+
+^  Code  ^  Target  ^  SelectionCondition  ^  Bufftype  ^  BuffLabel  ^  ActionType  ^  WeaponType  ^  AtkType  ^  DefType  ^  Subject  ^  ValueType  ^  Value  ^  StringValue  ^  LogicSymbol  ^  Number  ^
+|  EC_PM5G_A_2_1  |  VE_Enemy  |  VE_AttackTarget  |  VE_None  |    |  VE_None  |  VE_None  |  VE_None  |  VE_Machinary  |  VE_None  |  VE_None  |  0  |    |  VE_None  |  0  |
+|  EC_Raid_A_1_1  |  VE_Enemy  |  VE_AttackTarget  |  VE_None  |    |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  VE_HpLowRank_Equal  |  VE_Fixed  |  1  |    |  VE_None  |  0  |
+|  EC_Abdc_A_1  |  VE_Ally  |  VE_Position_Front  |  VE_None  |    |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  VE_Hp_GraterEqual  |  VE_Percent  |  0.3  |    |  VE_None  |  0  |
+|  EC_Wbdc_A_1  |  VE_Self  |  VE_None  |  VE_None  |  ShieldDisable  |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  0  |    |  VE_None  |  0  |
+|  EC_Fbdc_A_1  |  VE_Ally  |  VE_Die  |  VE_None  |    |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  VE_None  |  0  |    |  VE_GraterEqual  |  3  |
+
+^  항목  ^  내용  ^
+|  Code  |  Condition DB의 RowName  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%A1%B0%EA%B1%B4_%EB%8C%80%EC%83%81_target|Target]]  |  조건 검사 대상 범위. All, Ally, Enemy, Self, Target, Selected, Probability  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%9C%84%EC%B9%98_position|Position]]  |  대상이 위치한 영역. None, Front, Back  |
+|  SlotIndexList  |  대상이 위치한 슬롯 번호 리스트, 배열의 형태로 표현하며 대상이 없다면 빈칸으로 처리한다 ex) (0), (1,3,5) |
+|  BuffType  |  걸렸는 지 판별할 상태이상. 출혈, 파괘, 침묵 등  |
+|  ActionType  |  하고 있는 지 판별할 행위. 일반 공격 중, 스킬 발동 중, 이동 중 등  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EB%B0%A9%EC%96%B4_%ED%83%80%EC%9E%85_deftype|DefType]]  |  바디의 방어 타입  |
+|  WeaponKind  |  착용한 무기의 Kind  |
+|  Subject  |  수치적으로 판별할 항목. Hp, Shield, Atk, Def, Balance, Character 등  |
+|  LogicSymbol1  |  Subject와 Float을 비교할 부등호. <, >, ≤, ≥, =, !=  |
+|  Value  |  비교할 수치.  |
+|  StringValue  |  Value수치로 적기 어려운 부분 처리(캐릭터 등)  |
+|  LogicSymbol2  |  Target 내에서 Position~Float까지의 조건을 모두 만족하는 개체 수와 Number를 비교할 부등호. <, >, ≤, ≥, =, !=  |
+|  Number  |  비교할 개체 수.  |
+
+<code>
+Target이 Probability인 경우
+- 일정 확률로 발생한다는 조건에 사용.
+- Target을 Probability로 지정하고 확률을 Float에 입력. (50%확률이면 500을 입력)
+- 무작위로 0~1000의 숫자를 검출.
+- 무작위 숫자가 Float이하인 경우 True. 초과인 경우 False.
+</code>
+
+<code>
+FrSkill1_1_1_C1 : 스킬 대상이 전방에 위치한 경우
+FrSkill1_1_2_C1 : 스킬 대상이 후방에 위치한 경우
+CPSkill1_1_C1   : 자신의 Hp가 30% 이하인 경우
+BPSkill2_C1     : 10% 확률로 판별
+PPSkill1_1_C1   : 자신이 출혈에 걸려있는 경우
+</code>
+
+----
+
+  * Logical Symbol 표현식
+
+^ 구분 ^ 표현 ^
+| None | VE_None |
+| == | VE_Equal |
+| > | VE_Greator |
+| >= | VE_GreatorEqual |
+| < | VE_Low |
+| <= | VE_LowEqual |
+| != | VE_NotEqual |

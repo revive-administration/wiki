@@ -1,0 +1,62 @@
+
+<h1 class="sectionedit1" id="모듈">06 모듈</h1>
+<div class="level1">
+
+<p>
+모듈은 대체로 관련된 기능을 하나로 묶어 다른 코드와 결합도를 줄이고 재사용성을 높이기 위해 사용한다. 최근에 자바스크립트에서는 코드의 복잡도를 낮추기 위해 많은 자바스크립트 라이브러리를 모듈화할 필요성이 생겼고, 모듈을 이용한 개발이 거의 필수가 되었다. AngularJS에서도 이러한 모듈을 만들 수 있는 기능을 제공하고 별도의 모듈 패턴을 구현할 필요가 없는 API를 제공한다. 다음은 모듈을 선언하는 코드다.
+</p>
+<pre class="code">angular.module(&quot;모듈이름&quot;, [&quot;사용할 모듈&quot;, ...])</pre>
+
+<p>
+angular.module 함수를 사용해 모듈을 만들면 모듈 인스턴스가 반환되는데 해당 모듈 인스턴스는 컨트롤러, 서비스, 지시자, 필터들을 담는다.
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0">모듈 메서드 </th><th class="col1"> 설명 </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0"> Module.config(configFunction) </td><td class="col1"> 모듈이 로딩될 때 호출되며 config 함수에 해당 익명 함수로 서비스를 설정할 수 있다.</td>
+	</tr>
+	<tr class="row2">
+		<td class="col0"> Module.constant(name,object) </td><td class="col1"> 모듈에서 사용되는 상수를 등록한다.</td>
+	</tr>
+	<tr class="row3">
+		<td class="col0"> Module.controller(name,constructor) </td><td class="col1"> 모듈에서 사용되는 컨트롤러를 등록한다.</td>
+	</tr>
+	<tr class="row4">
+		<td class="col0"> Module.directive(name,directiveFacotry) </td><td class="col1"> 모듈에서 사용되는 지시자를 등록한다.</td>
+	</tr>
+	<tr class="row5">
+		<td class="col0"> Module.factory(name, providerFactory) </td><td class="col1"> 모듈에서 사용되는 서비스를 팩토리 형태로 등록한다.</td>
+	</tr>
+	<tr class="row6">
+		<td class="col0"> Module.filter(name, filterFactory) </td><td class="col1"> 모듈에서 사용되는 필터를 등록한다.</td>
+	</tr>
+	<tr class="row7">
+		<td class="col0"> Module.provider(name, providerType) </td><td class="col1"> 모듈에서 사용되는 서비스를 제공하는 프로바이더를 등록한다.</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0"> Module.run(initializationFn) </td><td class="col1"> 애플리케이션 초기화 함수를 등록한다. 모든 모듈의 등록을 완료했을 때 초기화 함수가 실행한다.</td>
+	</tr>
+	<tr class="row9">
+		<td class="col0"> Module.service(name, constructor) </td><td class="col1"> 모듈에서 사용되는 서비스를 등록한다.</td>
+	</tr>
+	<tr class="row10">
+		<td class="col0"> Module.value(name, object) </td><td class="col1"> 모듈에서 사용되는 객체를 등록한다.</td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [835-1961] -->
+</div>
+<!-- EDIT1 SECTION "06 모듈" [1-1962] -->
+<h2 class="sectionedit3" id="모듈을_이용한_컨트롤러_등록">모듈을 이용한 컨트롤러 등록</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "모듈을 이용한 컨트롤러 등록" [1963-2014] -->
+<h2 class="sectionedit4" id="다른_모듈의_사용">다른 모듈의 사용</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "다른 모듈의 사용" [2015-] -->

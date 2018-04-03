@@ -1,0 +1,77 @@
+
+<h1 class="sectionedit1" id="게임_오브젝트_기능">9. 게임 오브젝트 기능</h1>
+<div class="level1">
+
+<p>
+오브젝트를 다루는 구현은 크게 오브젝트를 DB에 저장하기, 불러오기, 처리하기로 볼 수 있다. 조금 더 구체적으로 db 저장, 불러오기 성능을 위해 캐시 및 다중 I/O처리, 처리하기는 다중 서버간, 다중 스레드간 동기화, 데이터 무결성 유지를 위한 트랜잭션 등의 복잡한 구현을 필요로 한다. 
+</p>
+
+<p>
+Object Subsystem은 Game Object의 Model을 Json 형식으로 정의하면 Engine은 Model에 대응되는 C++ Interface Code를 자동생성한다. 이 Interface를 이용하면 단순한 함수 호출만으로 Object의 CRUD가 가능하며, 아래의 처리가 자동으로 수행된다.
+</p>
+<ul>
+<li class="level1"><div class="li"> DB처리 자동화</div>
+</li>
+<li class="level1"><div class="li"> Multithreading 처리 자동화 : Event Subsystem에서 Event Thread의 수를 2개 이상으로 설정하면 Multi-Thread로 작동되며, Object Subsystem과 자동 생성된 Interface 코드는 Thread-Safe하다.</div>
+</li>
+<li class="level1"><div class="li"> Transaction 처리 자동화 : Object Subsystem은 Event 단위로 Transaction 처리를 보장한다.</div>
+</li>
+<li class="level1"><div class="li"> 분산처리 자동화 : Distribution System과 연동되어 단순한 설정만으로 자동으로 분산처리합니다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT1 SECTION "9. 게임 오브젝트 기능" [1-1198] -->
+<h3 class="sectionedit2" id="오브젝트_정의하기">9.1 오브젝트 정의하기</h3>
+<div class="level3">
+
+<p>
+게임 개발자가 Object를 구현하기 위해 유일한 작업은 Object Model을 작성하는 것이다. 
+</p>
+
+<p>
+Object Model 은 Json 포맷으로 정의하며, 프로젝트의 <code>src/object_model/</code> 디렉터리에 <code>*.json</code> 으로 작성하면 된ㅇ다.
+</p>
+
+<p>
+Json 으로 Object를 정의하는 규칙은 아래와 같다.
+</p>
+<ul>
+<li class="level1"><div class="li"> Flags : 해당 Attribute의 특성을 나타낸다.</div>
+<ul>
+<li class="level2"><div class="li"> <code>Key</code> : Key로 지정된 Attribute는 중복 값을 허용하지 않으며 해당 Attribute 값으로 검색하여 Object를 불러올 수 있다. 하지만 값을 변경할 수 없으며, 만약 String 이라면 길이가 4096을 초과할 수 없다.</div>
+</li>
+<li class="level2"><div class="li"> <code>Foreign</code> : User-Defined Object 에만 해당되며 Foreign 으로 지정되면 Object를 불러올 때 이 Attribute의 Object는 자동으로 불러오지 않고 Object의 Id만 불러온다. 이 Id 값으로 필요할 때만 불러올 수 있다.</div>
+</li>
+<li class="level2"><div class="li"> <code>Volatile</code> : DB에 저장하지 않는다. 서버가 재시작되면 초기화된다.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "9.1 오브젝트 정의하기" [1199-2231] -->
+<h3 class="sectionedit3" id="인터페이스">9.2 인터페이스</h3>
+<div class="level3">
+
+<p>
+Defining an object의 설명에 따라 Object Model을 정의하고 Build(Build using command line tools 또는 Build using CLion 참고)하면 Object를 다루기 위한 C++ Interface Code가 아래와 같은 파일로 자동 생성된다.
+</p>
+<ul>
+<li class="level1"><div class="li"> src/<a href="/dokuwiki/lib/exe/fetch.php?media=projectname" class="media mediafile mf_ wikilink2" title="projectname">projectname</a>_object.h</div>
+</li>
+<li class="level1"><div class="li"> src/object_model/<a href="/dokuwiki/lib/exe/fetch.php?media=projectname" class="media mediafile mf_ wikilink2" title="projectname">projectname</a>_object.cc</div>
+</li>
+<li class="level1"><div class="li"> src/object_model/common.h</div>
+</li>
+<li class="level1"><div class="li"> src/obejct_model/<a href="/dokuwiki/lib/exe/fetch.php?media=objectname" class="media mediafile mf_ wikilink2" title="objectname">objectname</a>.h</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="인터페이스_예제">9.2.1 인터페이스 예제</h4>
+<div class="level4">
+
+</div>
+<!-- EDIT3 SECTION "9.2 인터페이스" [2232-] -->

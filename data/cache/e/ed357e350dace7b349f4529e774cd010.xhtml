@@ -1,0 +1,202 @@
+
+<h1 class="sectionedit1" id="장_해싱">14장 해싱</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "14장 해싱" [1-27] -->
+<h2 class="sectionedit2" id="해싱이란_무엇인가">14.1 해싱이란 무엇인가?</h2>
+<div class="level2">
+
+<p>
+해싱(Hashing)은 정보를 최대한 빨리 저장하고 꺼내오는 기법이다. 최적의 검색을 수행하는 데 사용하고 심볼 테이블을 구현하는데 좋은 기법이다.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "14.1 해싱이란 무엇인가?" [28-265] -->
+<h2 class="sectionedit3" id="왜_해싱을_하는가">14.2 왜 해싱을 하는가?</h2>
+<div class="level2">
+
+<p>
+시간복잡도 O(n)으로 단축하기 위해서, 평균 O(1)
+</p>
+
+</div>
+<!-- EDIT3 SECTION "14.2 왜 해싱을 하는가?" [266-370] -->
+<h2 class="sectionedit4" id="해시_테이블_adt">14.3 해시 테이블 ADT</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "14.3 해시 테이블 ADT" [371-408] -->
+<h2 class="sectionedit5" id="해싱을_이해하기">14.4 해싱을 이해하기</h2>
+<div class="level2">
+
+<p>
+숫자의 경우 가능한 키의 집합이 무한하다(혹은 매우 크다). 거대한 배열을 만들어 카운터를 저장하는 것은 불가능하다. 결국 가능한 키들을 사용할 수 있는 장소 중 하나에 매핑해야한다. 다수의 키를 적절한 장소에 매핑하는 과정을 해싱이라고 한다.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "14.4 해싱을 이해하기" [409-782] -->
+<h2 class="sectionedit6" id="해싱의_구성_요소">14.5 해싱의 구성 요소</h2>
+<div class="level2">
+
+<p>
+해싱과 관련된 4개의 주요 구성 요소들이 있다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 1) 해시 테이블</div>
+</li>
+<li class="level1"><div class="li"> 2) 해시 함수</div>
+</li>
+<li class="level1"><div class="li"> 3) 충돌(Collision)</div>
+</li>
+<li class="level1"><div class="li"> 4) 충돌 해결 기법</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "14.5 해싱의 구성 요소" [783-985] -->
+<h2 class="sectionedit7" id="해시_테이블">14.6 해시 테이블</h2>
+<div class="level2">
+
+<p>
+해시 테이블은 배열의 일반화된 형태이다. 배열에서 우리는 키가 k인 항목을 배열의 k위치에 저장한다. 즉 주어진 키 k에 대해 키가 k인 항목을배열의 k번째 위치를 통해 찾는다는 것이다. 이를 Direct Addressing이라고 한다. 반면 해시 테이블 또는 해시 맵(map)은 키와 그에 연관된 값을 저장하는 데이터 구조이다. 해시 테이블은 해시 함수를 사용하여 키를 연관된 값에 할당한다. 일반저긍로 실제 저장되는 키의 개수가 가능한 키의 모든 개수에 비해 상대적으로 적을 때 해시 테이블을 사용한다.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "14.6 해시 테이블" [986-1670] -->
+<h2 class="sectionedit8" id="해시_함수">14.7 해시 함수</h2>
+<div class="level2">
+
+<p>
+해시 함수는 키를 인덱스로 변환할 때 사용된다. 이상적으로 해시 함수가 각 가능한 키를 고유한 슬롯 인덱스로 할당해야 하지만 실제로는 달성하기 어렵다. 
+</p>
+
+<p>
+<strong>해시 함수를 어떻게 선택할 것인가?</strong><br/>
+
+해시 테이블의 생성과 관련된 기본적인 문제들은 다음과 같다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 삽입된 객체들을 테이블에 균일하게 분배할 수 있도록 효율적인 해시 함수가 설계되어야 한다.</div>
+</li>
+<li class="level1"><div class="li"> 해시 인덱스가 해시 테이블에 이미 다른 객체가 삽입된 위치를 가리킬 때 또 다른 인덱스를 계산할 수 있는 효율적인 충돌 해결 알고리즘이 설계되어야 한다.</div>
+</li>
+<li class="level1"><div class="li"> 계산이 빨리 이루어지고, 테이블 안의 위치 범위 내의 값을 리턴하며 충돌을 최소화하는 해시 함수를 선택해야만 한다.</div>
+</li>
+</ul>
+
+<p>
+<strong> 좋은 해시 함수의 특성</strong><br/>
+
+좋은 해시 함수는 다음과 같은 특성을 갖고 있다.
+</p>
+<ul>
+<li class="level1"><div class="li"> 충돌 최소화</div>
+</li>
+<li class="level1"><div class="li"> 쉽고 빠른 계산</div>
+</li>
+<li class="level1"><div class="li"> 해시 테이블 안에 키를 균등하게 분배</div>
+</li>
+<li class="level1"><div class="li"> 키에서 제공하는 모든 정보를 사용</div>
+</li>
+<li class="level1"><div class="li"> 주어진 키 집합에 대해 높은 적재율(Load Factor)를 가져야 한다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "14.7 해시 함수" [1671-2903] -->
+<h2 class="sectionedit9" id="적재율">14.8 적재율</h2>
+<div class="level2">
+
+<p>
+빈 해시 테이블이 아닌 해시 테이블에서의 적재율은 테이블에 저장된 항목의 개수를 테이블의 크기로 나눈 것이다. 적재율은 리해시(rehash)를 해야 할지 기존의 해시 테이블을 확장해야 할지 결정할 때 고려된다. 또한 해시 함수의 효율성을 계산할 때도 사용된다. 즉 해시 함수가 키들을 균등하게 분배하는지 여부를 알 수 있게 해준다.
+</p>
+<pre class="code">적재윤 = 해시 테이블 안의 항목 개수 / 해시 테이블 크기</pre>
+
+</div>
+<!-- EDIT9 SECTION "14.8 적재율" [2904-3455] -->
+<h2 class="sectionedit10" id="충돌">14.9 충돌</h2>
+<div class="level2">
+
+<p>
+충돌은 두 개의 항목이 같은 장소에 저장되어 버리는 상황이다.
+</p>
+
+</div>
+<!-- EDIT10 SECTION "14.9 충돌" [3456-3564] -->
+<h2 class="sectionedit11" id="충돌_해결_기법들">14.10 충돌 해결 기법들</h2>
+<div class="level2">
+
+<p>
+대체 자소를 찾는 과정을 충돌 해결(Collision Resolution)이라고 한다. 해시 테이블에 충돌 문제가 있다고 하더라도 많은 경우에 검색 트리와 같은 다른 데이터 구조보다 훨씬 효율적이다. 많은 충돌 해결 기법이 있는데 가장 많이 쓰이는 것은 개방 번지화(Open Addressing)와 체인법(Chaining)이다. 
+</p>
+<ul>
+<li class="level1"><div class="li"> 직접 체인법(Direct Chaining) : 연결 리스트들의 배열</div>
+<ul>
+<li class="level2"><div class="li"> 분리 체인법(Separate Chaining)</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> 개방 번지화 : 배열에 기반한 구현</div>
+<ul>
+<li class="level2"><div class="li"> 선형 탐사(Linear Probing) : 선형 검색</div>
+</li>
+<li class="level2"><div class="li"> 2차 탐사(Quadratic Probing) : 비선형 검색</div>
+</li>
+<li class="level2"><div class="li"> 이중 해싱(Double Hahsing) : 두 개의 해시 함수 사용</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "14.10 충돌 해결 기법들" [3565-4327] -->
+<h2 class="sectionedit12" id="분리_체인법">14.11 분리 체인법</h2>
+<div class="level2">
+
+<p>
+체인법에 의한 충돌 해결은 연결 리스트 표현과 해시 테이블의 결합이다. 두 개 이상의 항목이 같은 장소로 해시되면 이 항목들은 체인이라고 부르는 단일 연결 리스트를 만든다.
+</p>
+
+</div>
+<!-- EDIT12 SECTION "14.11 분리 체인법" [4328-4600] -->
+<h2 class="sectionedit13" id="개방_번지화">14.12 개방 번지화</h2>
+<div class="level2">
+
+<p>
+개방 번지화에서 모든 키는 해시 테이블 자체에 저장되는데, 개방 번지화는 닫힌 해싱이라고도 불린다. 이 기법은 탐사(Probing)에 기반하고, 충돌은 탐사에 의해 해결된다.
+</p>
+
+</div>
+<!-- EDIT13 SECTION "14.12 개방 번지화" [4601-4862] -->
+<h3 class="sectionedit14" id="선형_탐사">선형 탐사</h3>
+<div class="level3">
+
+<p>
+각 탐사의 간격은 1로 고정된다. 선형 탐사(Linear Probing)은 해시 테이블을 원래의 해시 위치로부터 시작해서 순차적으로 검색한다. 어떤 위치가 정유되어 있으면 다음 위치를 검사한다. 필요하다면 테이블의 마지막 위치에서 첫 위치로 이동한다. 리해싱 함수는 다음과 같다.
+</p>
+
+<p>
+rehash(key) = (n + 1) % tablesize
+</p>
+
+<p>
+선형 탐사의 문제 중 하나는 테이블 항목들이 해시 테이블 안에서 뭉치는 경향이 있다는 것이다. 즉 테이블엔 연속적으로 점유된 위치 그룹이 있고 이를 클러스터링(Clustering)이라고 한다. 클러스터들은 서로 가까워질 수 있고 더 큰 클러스터로 병합될 수 있다. 그러므로 다른 부분엔 상대적으로 적은 항목들이 있어도 테이블의 한 부분은 매우 밀집될 수 있다. 클러스터링은 탐색 검사를 길게 만들기 때문에 전체적인 효율을 감소시킨다.
+</p>
+
+<p>
+탐사도리 다음 위치는 스텝의 크기로 결정되는데 (1이 아닌) 다른 크기의 스텝도 가능하다. 스텝의 크기는 테이블의 크기에 상대적으로 소수적(prime)이어야 한다. 즉 최대공약수가 1이어야 한다. 결국 클러스터링은 큰 스텝 크기로는 해결할 수 없다. 
+</p>
+
+</div>
+<!-- EDIT14 SECTION "선형 탐사" [4863-6191] -->
+<h3 class="sectionedit15" id="차_탐사">2차 탐사</h3>
+<div class="level3">
+
+<p>
+탐사의 간격은 해시 값에 비례해서 증가한다(그러므로 간격은 선형적으로 증가하고 인덱스들은 2차 함수로 표현된다). 2차 탐사 기법을 사용하면 클러스터링 문제가 사라진다. 2차 탐사에서는 원래의 해시 위치 i에서 시작한다. 어떤 위치가 점유되어 있으면, i+1^2, i+2^2, i+3^2, i+4^2 … 위치를 검사한다. 필요하다면 테이블의 마지막 위치에서 첫 위치로 이동한다. 리해싱 함수는 다음과 같다. 
+</p>
+<pre class="code">rehash(key) = (n+k^2)%tablesize</pre>
+
+</div>
+<!-- EDIT15 SECTION "2차 탐사" [6192-] -->

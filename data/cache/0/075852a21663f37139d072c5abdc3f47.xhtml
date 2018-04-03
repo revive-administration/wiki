@@ -1,0 +1,127 @@
+
+<h2 class="sectionedit1" id="지뢰">지뢰</h2>
+<div class="level2">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%A7%80%EB%A2%B0&amp;media=%EA%B7%B8%EC%95%84%EC%95%84%EC%95%84%EC%95%84%EC%95%99.png" class="media" title="그아아아아앙.png"><img src="/dokuwiki/lib/exe/fetch.php?media=%EA%B7%B8%EC%95%84%EC%95%84%EC%95%84%EC%95%84%EC%95%99.png" class="mediacenter" alt="" /></a>
+</p>
+
+</div>
+<!-- EDIT1 SECTION "지뢰" [2-54] -->
+<h3 class="sectionedit2" id="아군_타입_mine_type_int">아군 타입(mine_type/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">근거리(지뢰)=0, 원거리(병사)=1</div></li>
+  <li><div class="li">지뢰의 경우 0</div></li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "아군 타입(mine_type/Int)" [55-160] -->
+<h3 class="sectionedit3" id="지뢰_생산_자원_수_mine_resource_int">지뢰 생산 자원 수(mine_resource/Int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">지뢰 생성 시 필요한 자원 수량</div></li>
+  <li><div class="li">정수</div></li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "지뢰 생산 자원 수(mine_resource/Int)" [161-270] -->
+<h3 class="sectionedit4" id="지뢰_체력_mine_hp_int">지뢰 체력(mine_hp/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">파괴 여부가 T일 때, 해당 수치를 적용함</div></li>
+  <li><div class="li">파괴 여부가 F일 때, 무한대 수치로 처리</div></li>
+  <li><div class="li">지뢰는 파괴가 불가능하기에 체력 수치가 무한대</div></li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "지뢰 체력(mine_hp/int)" [271-492] -->
+<h3 class="sectionedit5" id="지뢰_공격_타입_mine_attacktype_int">지뢰 공격 타입(mine_attacktype/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">0=원거리, 1=근거리(폭발)</div></li>
+  <li><div class="li">지뢰의 경우 근거리(폭발)타입</div></li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "지뢰 공격 타입(mine_attacktype/int)" [493-625] -->
+<h3 class="sectionedit6" id="지뢰_폭발_조건_mine_bomb_str">지뢰 폭발 조건(mine_bomb/str)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">조건 체크: 공격 범위 내 적군 오브젝트가 2체 이상 존재하는가</div></li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "지뢰 폭발 조건(mine_bomb/str)" [626-758] -->
+<h3 class="sectionedit7" id="지뢰_공격_범위_mine_range_int">지뢰 공격 범위(mine_range/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">오브젝트 중심의 원형 범위</div></li>
+  <li><div class="li">원형 범위의 넓이 수치</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "지뢰 공격 범위(mine_range/int)" [759-891] -->
+<h3 class="sectionedit8" id="지뢰_이동_속도_mine_speed_int">지뢰 이동 속도(mine_speed/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">해당 수치가 0일 경우 이동 불가능</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "지뢰 이동 속도(mine_speed/int)" [892-998] -->
+<h3 class="sectionedit9" id="지뢰_공격_속도_mine_attackspeed_int">지뢰 공격 속도(mine_attackspeed/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">병사 캐릭터의 공격 속도 수치</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "지뢰 공격 속도(mine_attackspeed/int)" [999-1106] -->
+<h3 class="sectionedit10" id="지뢰_공격력_mine_attack_int">지뢰 공격력(mine_attack/int)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">지뢰 오브젝트의 공격력 수치</div></li>
+  <li><div class="li">실수</div></li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "지뢰 공격력(mine_attack/int)" [1107-1204] -->
+<h3 class="sectionedit11" id="지뢰_공격_스플래시_적용_여부_mine_splash_bool">지뢰 공격 스플래시 적용 여부(mine_splash/bool)</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">스플래시 공격 적용 시 T, 미적용 시 F</div></li>
+  <li><div class="li">지뢰 공격은 스플래시 적용</div></li>
+  <li><div class="li">스플래시 공격 발동 시, 지뢰 범위 내에 있는 모든 적군 오브젝트에게 데미지</div></li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "지뢰 공격 스플래시 적용 여부(mine_splash/bool)" [1205-1474] -->
+<h3 class="sectionedit12" id="지뢰_타격_ai">지뢰 타격 AI</h3>
+<div class="level3">
+
+<ul  class="extlist">
+  <li><div class="li">공격 범위 내 2체 이상의 적 오브젝트가 존재하는 경우 폭발</div></li>
+  <li><div class="li">폭발 이후 지뢰 오브젝트는 파괴된다</div></li>
+</ul>
+
+<ul  class="extlist">
+  <li><div class="li">AIController를 사용하지 않음.</div></li>
+  <li><div class="li">PawnSensing을 가지고 있음. 이것의 값 중 Noise 관련 요소들을 사용함</div></li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "지뢰 타격 AI" [1475-] -->

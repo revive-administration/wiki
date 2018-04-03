@@ -1,0 +1,9 @@
+====== JATS 1.0 XML 실습 ======
+===== 1.  XML coding =====
+===== 2. Text editor =====
+===== 4. 선언문 작성 =====
+===== 5. Tag 구성 =====
+===== 6. 각 tag 내용 입력 =====
+===== 7. 파일 위치 =====
+
+섹션 참조 : http://jats.nlm.nih.gov/archiving/tag-library/0.4/n-du22.html

@@ -1,0 +1,112 @@
+
+<h1 class="sectionedit1" id="passiveskill">PassiveSkill</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  IsActionCancel  </th><th class="col4 centeralign">  Description……………….  </th><th class="col5 centeralign">  CheckTime  </th><th class="col6 centeralign">  Probability  </th><th class="col7 centeralign">  Target1  </th><th class="col8 centeralign">  Sel.Cond.1  </th><th class="col9 centeralign">  Sel.Number1  </th><th class="col10 centeralign">  EffectNumber1  </th><th class="col11 rightalign">  C.Number1 </th><th class="col12 leftalign"> AnimType1  </th><th class="col13 centeralign">  Target2  </th><th class="col14 centeralign">  Sel.Cond.2  </th><th class="col15 centeralign">  Sel.Number2  </th><th class="col16 centeralign">  EffectNumber2  </th><th class="col17 centeralign">  C.Number2  </th><th class="col18 centeralign">  AnimType2  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  BPSkill1  </td><td class="col1 centeralign">  세포재생  </td><td class="col2 centeralign">  CharacterPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 스킬 사용 시 Hp가 30% 이하라면 Hp 50 회복  </td><td class="col5 centeralign">  VE_UseSkill  </td><td class="col6 centeralign">  0.50  </td><td class="col7 centeralign">  VE_Self  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  1  </td><td class="col11 rightalign">  0 </td><td class="col12 leftalign">  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  BPSkill2  </td><td class="col1 centeralign">  강인한 체력  </td><td class="col2 centeralign">  CharacterPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 최대 Hp + 100, 방어력 + 100  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  1.00  </td><td class="col7 centeralign">  VE_Self  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  2  </td><td class="col11 centeralign">  0  </td><td class="col12 leftalign">  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  BPSkill3  </td><td class="col1 centeralign">  카리스마  </td><td class="col2 centeralign">  CharacterPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 모든 적의 공격력 - 10%  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  1.00  </td><td class="col7 centeralign">  VE_Enemy  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  5  </td><td class="col10 centeralign">  1  </td><td class="col11 centeralign">  0  </td><td class="col12 leftalign">   </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  BPSkill4  </td><td class="col1 centeralign">  공격력 상승  </td><td class="col2 centeralign">  BodyPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 공격력 + 10%  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  1.00  </td><td class="col7 centeralign">  VE_Self  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  1  </td><td class="col11 centeralign">  0  </td><td class="col12 leftalign">  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  BPSkill5  </td><td class="col1 centeralign">  아몰랑  </td><td class="col2 centeralign">  BodyPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 리로드 완료 시 10% 확률로 쉴드 100 회복  </td><td class="col5 centeralign">  VE_CompleteReload  </td><td class="col6 centeralign">  0.1  </td><td class="col7 centeralign">  VE_Self  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  1  </td><td class="col11 centeralign">  1  </td><td class="col12 leftalign">  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  BPSkill6  </td><td class="col1 centeralign">  더몰랑  </td><td class="col2 centeralign">  BodyPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 골드 획득량 + 10%  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  1.00  </td><td class="col7 centeralign">  VE_Player  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  0  </td><td class="col10 centeralign">  1  </td><td class="col11 centeralign">  0  </td><td class="col12 leftalign">  </td><td class="col13 centeralign">   VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  PPSkill1  </td><td class="col1 centeralign">  친한 친구  </td><td class="col2 centeralign">  PairPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 스킬 사용 시 출혈 상태인 경우 Hp 50 회복  </td><td class="col5 centeralign">  VE_UseSkill  </td><td class="col6 centeralign">  0.7  </td><td class="col7 centeralign">  VE_Self  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  1  </td><td class="col11 rightalign">  2 </td><td class="col12 leftalign">   </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  PPSkill2  </td><td class="col1 centeralign">  질긴 악연  </td><td class="col2 centeralign">  PairPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 최대 Hp + 100, 방어력 + 100  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  1.00  </td><td class="col7 centeralign">  VE_Self  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  1  </td><td class="col10 centeralign">  2  </td><td class="col11 centeralign">  2  </td><td class="col12 leftalign">  </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  PPSkill3  </td><td class="col1 centeralign">  부자 사랑  </td><td class="col2 centeralign">  PairPassive  </td><td class="col3 centeralign">  False  </td><td class="col4 leftalign"> 모든 적의 공격력 - 10%  </td><td class="col5 centeralign">  VE_Always  </td><td class="col6 centeralign">  1.00  </td><td class="col7 centeralign">  VE_Enemy  </td><td class="col8 centeralign">  VE_None  </td><td class="col9 centeralign">  5  </td><td class="col10 centeralign">  1  </td><td class="col11 centeralign">  1  </td><td class="col12 leftalign">   </td><td class="col13 centeralign">  VE_None  </td><td class="col14 centeralign">  VE_None  </td><td class="col15 centeralign">  0  </td><td class="col16 centeralign">  0  </td><td class="col17 centeralign">  0  </td><td class="col18"></td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [26-2217] --><div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  PassiveSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype" rel="nofollow">Type</a>  </td><td class="col1 centeralign">  스킬 타입 Enum. CharacterPassive, BodyPassive, PairPassive  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  Removable  </td><td class="col1 centeralign">  면역, 해제 가능 여부. 패시브 스킬은 무조건 False  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime" rel="nofollow">CheckTime</a>  </td><td class="col1 centeralign">  Condition이 True인지 False인지 판정해서 효과를 적용시키는 시점 Enum  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target" rel="nofollow">Target</a>  </td><td class="col1 centeralign">  대상 분류. AllUnit, Ally, Enemy, Self, Bullet, None  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  <a href="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition" class="urlextern" title="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition" rel="nofollow">SelectionCondition</a>  </td><td class="col1 centeralign">  Target 내에서 선별기준 Enum.  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 centeralign">  SelectionNumber  </td><td class="col1 centeralign">  SelectionCondition에 해당하는 개체 중 고르는 개수.  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 centeralign">  EffectNumber  </td><td class="col1 centeralign">  Effect의 개수.  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 centeralign">  C.Number  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 centeralign">  Probability  </td><td class="col1 centeralign">  체크타임 시 Condition이 True라면 확률을 판정하여 발동 여부를 결정  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 centeralign">  BuffIcon  </td><td class="col1 centeralign">  사용 안 함  </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [2219-3538] --><pre class="code">CheckTime=&#039;Always&#039; 상세내용
+- 모든 Condition이 만족되면 효과가 적용된다.
+- 모든 Condition이 만족되어 효과가 적용되고 있다가, Condition이 만족되지 않게 되면 효과가 사라진다.</pre>
+<pre class="code">PairPassive 상세내용
+- Condition에 &#039;부대에 ~ 캐릭터 포함&#039;이라는 조건을 넣어준다.
+- 해당 캐릭터가 부대에 속해있지 않으면 효과가 적용되지 않음.
+- 효과를 받다가 해당 캐릭터가 전투불능이 된 경우, 효과가 해제된다.</pre>
+<hr />
+
+</div>
+<!-- EDIT1 SECTION "PassiveSkill" [1-4085] -->
+<h1 class="sectionedit4" id="스킬_발동_처리">스킬 발동 처리</h1>
+<div class="level1">
+<pre class="code">1. 전투 중 CheckTime에 해당할 때 전투에 참여 중인 바디들이 보유한 &#039;같은 CheckTime을 갖는 PassiveSkill&#039;에 대해 다음과 같은 처리 실시.
+
+2. Target1, SelectionCoindition1, SelectionNumber1로 스킬 대상을 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_1_Ca인 행이 참인지 판정. (a=1~C.Number)
+3. True인 경우 Effect DB에서 RowName이 (PassiveSkill DB의 RowName)_1_b인 행을 참조. (b=1~EffectNumber)
+4. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_1_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+5. True인 Effect들을 체크.
+
+6. Target2, SelectionCoindition2, SelectionNumber2로 스킬 대상을 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_2_Ca인 행이 참인지 판정. (a=1~C.Number)
+7. True인 경우 Effect DB에서 RowName이 (PassiveSkill DB의 RowName)_2_b인 행을 참조. (b=1~EffectNumber)
+8. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_2_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+9. True인 Effect들을 체크.
+
+10. True였던 Effect들 효과 적용.</pre>
+
+</div>
+<!-- EDIT4 SECTION "스킬 발동 처리" [4086-] -->

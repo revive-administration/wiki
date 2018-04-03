@@ -1,0 +1,46 @@
+<span class="kw4">void</span> path<span class="br0">&#40;</span><span class="kw4">void</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+	<span class="coMULTI">/* 미로를 통과하는 경로가 있으면 그 경로를 출력한다. */</span>
+	<span class="kw4">int</span> i<span class="sy0">,</span> row<span class="sy0">,</span> col<span class="sy0">,</span> nextRow<span class="sy0">,</span> nextCol<span class="sy0">,</span> dir<span class="sy0">,</span> found<span class="sy0">=</span>FALSE<span class="sy0">;</span>
+	element position<span class="sy0">;</span>
+	mark<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span>
+	top<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span>
+	stack<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">row</span> <span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span>
+	stack<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">col</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+	stack<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>.<span class="me1">dir</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span>
+	<span class="kw1">while</span><span class="br0">&#40;</span>top<span class="sy0">&gt;-</span><span class="nu0">1</span> <span class="sy0">&amp;&amp;</span> <span class="sy0">!</span>found<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		position <span class="sy0">=</span> pop<span class="br0">&#40;</span><span class="sy0">&amp;</span>top<span class="br0">&#41;</span><span class="sy0">;</span>
+		row <span class="sy0">=</span> position.<span class="me1">row</span><span class="sy0">;</span>
+		col <span class="sy0">=</span> position.<span class="me1">col</span><span class="sy0">;</span>
+		dir <span class="sy0">=</span> position.<span class="me1">dir</span><span class="sy0">;</span>
+		<span class="kw1">while</span><span class="br0">&#40;</span>dir <span class="sy0">&lt;</span> <span class="nu0">8</span> <span class="sy0">&amp;&amp;</span> <span class="sy0">!</span>found<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="coMULTI">/* dir 방향으로 이동 */</span>
+			nextRow <span class="sy0">=</span> row <span class="sy0">+</span> move<span class="br0">&#91;</span>dir<span class="br0">&#93;</span>.<span class="me1">vert</span><span class="sy0">;</span>
+			nextCol <span class="sy0">=</span> col <span class="sy0">+</span> move<span class="br0">&#91;</span>dir<span class="br0">&#93;</span>.<span class="me1">horiz</span><span class="sy0">;</span>
+			<span class="kw1">if</span><span class="br0">&#40;</span>nextRow <span class="sy0">==</span> EXIT_ROW <span class="sy0">&amp;&amp;</span> nextCol <span class="sy0">==</span>EXIT_COL<span class="br0">&#41;</span>
+				found <span class="sy0">=</span> TRUE<span class="sy0">;</span>
+			<span class="kw1">else</span> <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span>maze<span class="br0">&#91;</span>nextRow<span class="br0">&#93;</span><span class="br0">&#91;</span>nextCol<span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="sy0">!</span>mark<span class="br0">&#91;</span>nextRow<span class="br0">&#93;</span><span class="br0">&#91;</span>nextCol<span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+				mark<span class="br0">&#91;</span>nextRow<span class="br0">&#93;</span><span class="br0">&#91;</span>nextCol<span class="br0">&#93;</span> <span class="sy0">=</span> <span class="nu0">1</span><span class="sy0">;</span>
+				position.<span class="me1">row</span> <span class="sy0">=</span> row<span class="sy0">;</span>
+				position.<span class="me1">col</span> <span class="sy0">=</span> col<span class="sy0">;</span>
+				position.<span class="me1">dir</span> <span class="sy0">=</span> <span class="sy0">++</span>dir<span class="sy0">;</span>
+				push<span class="br0">&#40;</span>position<span class="br0">&#41;</span><span class="sy0">;</span>
+				row <span class="sy0">=</span> nextRow<span class="sy0">;</span>
+				col <span class="sy0">=</span> nextCol<span class="sy0">;</span>
+				dir <span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span>
+&nbsp;
+			<span class="br0">&#125;</span><span class="kw1">else</span>
+				<span class="sy0">++</span>dir<span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">if</span><span class="br0">&#40;</span>found<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span class="kw3">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;The path is : <span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span class="kw3">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;row col <span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">for</span><span class="br0">&#40;</span>i<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span> i<span class="sy0">&lt;=</span>top<span class="sy0">;</span> i<span class="sy0">++</span><span class="br0">&#41;</span>
+			<a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span class="kw3">printf</span></a><span class="br0">&#40;</span><span class="st0">&quot;%2d%5d&quot;</span><span class="sy0">,</span> stack<span class="br0">&#91;</span>i<span class="br0">&#93;</span>.<span class="me1">row</span><span class="sy0">,</span> stack<span class="br0">&#91;</span>i<span class="br0">&#93;</span>.<span class="me1">col</span><span class="st0">&quot;);
+		printf(&quot;</span><span class="sy0">%</span>2d<span class="sy0">%</span>5d<span class="st0">&quot;, row, col);
+		printf(&quot;</span><span class="sy0">%</span>2d<span class="sy0">%</span>5d<span class="st0">&quot;, EXIT_ROW, EXIT_COL);
+	}
+	else
+		printf(&quot;</span>The maze doex not have a path\n<span class="st0">&quot;);
+}</span>

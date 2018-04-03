@@ -1,0 +1,42 @@
+====== LISA 개발 용어 정리 ======
+===== 용어 규칙 =====
+  * [[로우 네임 규칙]]
+===== 관련 용어 =====
+  * [[캐릭터 & 바디]]
+  * 바디
+    * [[방어 타입 (DefType)]]
+    * [[실드/에너지]]
+  * 아이템
+    * [[아이템의 등급]] 
+  * 무기
+    * [[공격 타입 (AtkType)]]
+    * [[무기의 분류 (권총,소총,기관총,저격총)]]
+  * 방어구
+    * [[방어구의 분류 (글러브)]]
+  * 스킬 관련 용어
+    * [[스킬 로우 네임]]
+    * [[스킬_타입_SkillType]]
+    * [[스킬 체크타임 CheckTime]]
+    * [[스킬 대상 Target]]
+    * [[스킬 대상 선별 기준 SelectionCondition]]
+    * [[스킬 애니메이션 타입 AnimType]]
+    * SkillEffect
+      * [[인스턴트_이펙트_instanteffect]]
+      * [[값 타입 ValueType]]
+  * 버프 관련 용어
+    * [[버프_타입_bufftype]] 
+    * [[스킬 체크타임 CheckTime]]
+    * [[스킬 대상 Target]]
+    * [[스킬 대상 선별 기준 SelectionCondition]]
+    * [[스킬 애니메이션 타입 AnimType]]
+    * BuffEffect
+      * [[버프 이펙트 타입 EffectType]]
+      * [[스테이터스_이펙트_statuseffect]]
+      * [[스테이트_이펙트_stateeffect]]
+      * [[인스턴트_이펙트_instanteffect]]
+      * [[값 타입 ValueType]]
+  * 컨디션 관련 용어
+    * [[조건 대상 Target]]
+    * [[위치 Position]]
+  * 유닛스테이터스 관련 용어
+    * [[스테이터스 재계산]]

@@ -1,0 +1,7 @@
+====== 소환권 (SummonTicket) ======
+===== 개요 =====
+(나도 잘 모름 누가써주셈)
+===== 데이터 =====
+
+^ ID ^ CodeName ^ PackName ^ Amount ^
+| int | string | enum | int |

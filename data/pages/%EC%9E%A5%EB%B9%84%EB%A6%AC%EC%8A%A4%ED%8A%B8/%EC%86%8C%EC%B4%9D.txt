@@ -1,0 +1,15 @@
+====== 소총 ======
+
+^  제조사  ^  이름  ^  등급  ^  컨펌  ^
+|  ITC  |  [[GARV-0]]  |  N  |    |
+|  ITC  |  [[GARV-CC]]  |  N  |    |
+|  ITC  |  [[GARV-CC2]]  |  N  |    |
+|  Austin-Houston  |  [[KA-74]]  |  N  |    |
+|  SACorp  |  [[사이프]]  |  U  |    |
+|  DUTech  |  [[W1705]]  |  R  |    |
+|  DUTech  |  [[W1685]]  |  U  |    |
+|  DUTech  |  [[W1879]]  |  U  |    |
+|  SACorp  |  [[민타카]]  |  U  |    |
+|  SACorp  |  [[베텔기우스]]  |  L  |    |
+|    |  [[풍아]]  |    |    |
+|    |  [[낭아]]  |    |    |

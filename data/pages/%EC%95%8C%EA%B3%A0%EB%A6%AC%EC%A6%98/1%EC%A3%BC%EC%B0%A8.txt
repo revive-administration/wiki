@@ -1,0 +1,24 @@
+====== 1주차 ======
+  * Problem이란?
+    * A question to which we find on answer, Computer Science적인 해답을 Step-by-step procedure로 찾아나가는 작업
+    * [문제 1]
+      * S = [5, 7, 8, 10, 11, 13]
+      * find x=11, 찾으면 Y, 못찾으면 N을 리턴
+      * 1) 순차적 탐색(Sequential Search)
+        * 인덱스 순서로 비교하여 y/n을 판정한다
+        * 효율성 : O(n)
+      * 2) 이진 탐색(Binary Search)
+        * 크기 순서대로 정렬되어 있다는 점에 유의하여 크기의 반부터 시작해서 대소비교를 한 뒤 선택된 한쪽의 반부터 다시 크기 비교를 시작해 나간다
+        * 효율성 : O(logN)
+    * [문제 2] fibonacci numbers
+      * f(0) = 0이고, f(1) = `1 이며, f(n) = f(n-1) + f(n-2) 일때, f(5)를 구하라
+        * 1) f(5) 부터 하나씩 내려가는 재귀적 방법
+          * 시간 복잡도 : O(2^2/n) <- 정확하지 않음
+        * 2) f(2) 부터 하나씩 올라가는 방법
+          * f(2) = 1, f(3) = 2, f(4) = 3, f(5) = 5
+          * 시간 복잡도 : O(n)
+* Algorithm Design * [      ]
+  * 1) Brute-Force : 무식하게 다 써보기
+  * 2) Divide & Conquer : 쪼개기
+  * 3) Dynamic Programming
+  * 4) Greedy

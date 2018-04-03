@@ -1,0 +1,4 @@
+====== 모듈화 ======
+
+  * https://answers.unrealengine.com/questions/243201/wrapping-reusable-c-in-a-separate-project.html
+  * https://docs.unrealengine.com/latest/INT/Programming/Modules/Gameplay/index.html

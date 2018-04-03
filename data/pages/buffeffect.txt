@@ -1,0 +1,31 @@
+======BuffEffect======
+
+^  Code  ^  EffectType  ^  StatusEffect  ^  StateEffect  ^  ValueType  ^  Value  ^  ConditionNumber  ^
+|  Buff_1_1_1  |  VE_Status  |  VE_Atk  |  VE_None  |   VE_Percent  |  0.1  |  0  |
+|  Buff_2_1_1  |  VE_Status  |  VE_PassiveEffect  |  VE_None  |   VE_Percent  |  1  |  0  |
+|  Buff_3_1_1  |  VE_State  |  VE_None  |  VE_S.Disabling  |  VE_None  |  0  |  0  |
+|  Buff_4_1_1  |  VE_Status  |  VE_AttackWeight  |  VE_None  |  VE_Fixed  |  500  |  1  |
+|  Buff_4_1_2  |  VE_State  |  VE_None  |  VE_Misfire  |   VE_None  |  0  |  0  |
+|  Buff_provoke_1  |  VE_Status  |  VE_AttackWeight  |  VE_None  |   VE_Fixed  |  500  |  0  |
+
+^  항목  ^  설명  ^
+|  Code  | BuffEffect DB의 RowName |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EB%B2%84%ED%94%84_%EC%9D%B4%ED%8E%99%ED%8A%B8_%ED%83%80%EC%9E%85_effecttype|EffectType]]  | StatusEffect, StateEffect, InstantEffect 중 사용할 컬럼을 지정. Status, State, Instant |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%84%B0%EC%8A%A4_%EC%9D%B4%ED%8E%99%ED%8A%B8_statuseffect|StatusEffect]]  | 스테이터스 증감에 사용 |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%85%8C%EC%9D%B4%ED%8A%B8_%EC%9D%B4%ED%8E%99%ED%8A%B8_stateeffect|StateEffect]]  | Status로 처리되지 않는 하드 코딩이 필요한 상태들. 제압, 불발 등|
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EA%B0%92_%ED%83%80%EC%9E%85_valuetype|ValueType]]  | 값 타입. Fixed, Percent, DurationTime, None |
+|  Value  | StatusEffect라면 스테이터스를 증감할 수치, InstantEffect라면 줄 대미지 혹은 걸어줄 버프의 지속 시간 등 |
+|  ConditionNumber  | 이 Effect가 적용될 조건의 개수 |
+
+<code>
+BuffEffect 규칙
+- 단순한 스테이터스 증감의 경우 StatusType 사용
+- 즉시 효과의 경우 InstantEffect 사용
+- InstantEffect가 VE_AddBuff인 경우 BuffCode 사용
+- 그 외의 경우 StateEffect 사용
+</code>
+
+=====Condition=====
+
+^  Code  ^  Target  ^  Position  ^  Slot  ^  Buff  ^  Action  ^  WeaponType  ^  DefType  ^  Subject  ^  LogicSymbol1  ^  Float  ^  LogicSymbol2  ^  Number  ^
+|  Buff_4_1_1_C1  |  VE_Enemy  |  VE_None  |  0  |    |  VE_None  |  VE_None  |  VE_None  |  VE_Hp_Low_Rank  |  VE_==  |  1  |  VE_None  |  0  |

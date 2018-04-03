@@ -1,0 +1,52 @@
+<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw1">class</span> Display<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw4">void</span> draw<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> RoadDisplay <span class="kw1">extends</span> Display<span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw4">void</span> draw<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;기본 도로 표시&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="co1">// 다양한 추가 기능에 대한 공통 클래스</span>
+<span class="kw1">public</span> <span class="kw1">abstract</span> <span class="kw1">class</span> DisplayDecorator <span class="kw1">extends</span> Display<span class="br0">&#123;</span>
+	<span class="kw1">private</span> Display decoratedDisplay<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> DisplayDecorator<span class="br0">&#40;</span>Display decoratedDisplay<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">this</span>.<span class="me1">decoratedDisplay</span> <span class="sy0">=</span> decoratedDisplay<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> draw<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		decoratedDisplay.<span class="me1">draw</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> LaneDecorator <span class="kw1">extends</span> DisplayDecorator<span class="br0">&#123;</span>
+	<span class="kw1">public</span> LaneDecorator<span class="br0">&#40;</span>Display decoratedDisplay<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">super</span><span class="br0">&#40;</span>decoratedDisplay<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> draw<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">super</span>.<span class="me1">draw</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		drawLane<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">private</span> <span class="kw4">void</span> drawLane<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es0">\t</span>차선 표시&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> TrafficDecorator <span class="kw1">extends</span> DisplayDecorator<span class="br0">&#123;</span>
+	<span class="kw1">public</span> TrafficDecorator<span class="br0">&#40;</span>Display decoratedDisplay<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">super</span><span class="br0">&#40;</span>decoratedDisplay<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <span class="kw4">void</span> draw<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">super</span>.<span class="me1">draw</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		drawTraffic<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">private</span> <span class="kw4">void</span> drawTraffic<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;<span class="es0">\t</span>교통량 표시&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

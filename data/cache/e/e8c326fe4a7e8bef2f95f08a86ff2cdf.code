@@ -1,0 +1,30 @@
+<span class="kw1">package</span> <span class="co2">Ch02</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.sql.*</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.io.*</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.util.Vector</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> Database <span class="br0">&#123;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+connection"><span class="kw3">Connection</span></a> con<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+statement"><span class="kw3">Statement</span></a> stmt<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+resultset"><span class="kw3">ResultSet</span></a> rset<span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> Database<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> server <span class="sy0">=</span> <span class="st0">&quot;localhost&quot;</span><span class="sy0">;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			<span class="kw1">Class</span>.<span class="me1">forName</span><span class="br0">&#40;</span><span class="st0">&quot;org.gjt.mm.mysql.Driver&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+classnotfoundexception"><span class="kw3">ClassNotFoundException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> url <span class="sy0">=</span> <span class="st0">&quot;jdbc:mysql://localhost:3306/test&quot;</span><span class="sy0">;</span>
+			con<span class="sy0">=</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+drivermanager"><span class="kw3">DriverManager</span></a>.<span class="me1">getConnection</span><span class="br0">&#40;</span>url<span class="br0">&#41;</span><span class="sy0">;</span>
+			stmt<span class="sy0">=</span>con.<span class="me1">createStatement</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+sqlexception"><span class="kw3">SQLException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+connection"><span class="kw3">Connection</span></a> getConnection<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">return</span> con<span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

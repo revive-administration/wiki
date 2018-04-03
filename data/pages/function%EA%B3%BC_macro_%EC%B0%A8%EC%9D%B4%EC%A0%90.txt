@@ -1,0 +1,39 @@
+====== Function과 Macro 차이점 ======
+
+So, to sum it up:
+
+**Function**
+
+• Represents a single unit that is compiled once, and can then be called over and over.
+
+
+• Does not support latent nodes.
+
+
+• Has one input execution wire, and one output execution wire (Unless pure).
+
+
+• Can have multiple inputs and outputs.
+
+
+• Calls to functions can be replicated in network games.
+
+
+**Macro**
+
+• Represents a template of nodes, where each reference to it will be replaced by the actual nodes at compile time, and thus is only compiled if used.
+
+
+• Supports latent nodes.
+
+
+• Can have multiple input execution wires, and multiple output execution wires (Including no execution wires at all).
+
+
+• Can have multiple inputs and outputs.
+
+
+• Cannot be replicated, as they aren't "tangible".
+
+
+{{:kakaotalk_20160304_112506788.png|}}

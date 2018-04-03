@@ -1,0 +1,11 @@
+a:2:{s:7:"current";a:9:{s:4:"date";a:2:{s:7:"created";i:1493258860;s:8:"modified";i:1493352181;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:8:{s:4:"date";i:1493352181;s:2:"ip";s:12:"106.102.1.75";s:4:"type";s:1:"E";s:2:"id";s:16:"전후방_이동";s:4:"user";s:8:"dbstn003";s:3:"sum";s:25:"[전후방이동 규칙] ";s:5:"extra";s:0:"";s:10:"sizechange";i:10;}s:11:"contributor";a:2:{s:7:"velmont";s:6:"벨몽";s:8:"dbstn003";s:9:"최윤수";}s:5:"title";s:16:"전후방 이동";s:11:"description";a:2:{s:15:"tableofcontents";a:6:{i:0;a:4:{s:3:"hid";s:16:"전후방_이동";s:5:"title";s:16:"전후방 이동";s:4:"type";s:2:"ul";s:5:"level";i:1;}i:1;a:4:{s:3:"hid";s:20:"아군_적군_진형";s:5:"title";s:20:"아군/적군 진형";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:2;a:4:{s:3:"hid";s:29:"전후방_이동_우선순위";s:5:"title";s:29:"전후방 이동 우선순위";s:4:"type";s:2:"ul";s:5:"level";i:2;}i:3;a:4:{s:3:"hid";s:33:"캐릭터가_후방에_있을_때";s:5:"title";s:33:"캐릭터가 후방에 있을 때";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:4;a:4:{s:3:"hid";s:33:"캐릭터가_전방에_있을_때";s:5:"title";s:33:"캐릭터가 전방에 있을 때";s:4:"type";s:2:"ul";s:5:"level";i:3;}i:5;a:4:{s:3:"hid";s:22:"전후방이동_규칙";s:5:"title";s:22:"전후방이동 규칙";s:4:"type";s:2:"ul";s:5:"level";i:2;}}s:8:"abstract";s:311:"전후방 이동
+
+아군/적군 진형
+
+
+
+전투 진입 시 캐릭터는 전방1,3 후방0,2,4에 배치됨.
+
+어느 캐릭터가 어느 위치에 배치되는지는 부대화면에서 변경할 수 있음.
+
+(기본적으로 0,1번 째 캐릭터가 전방1,3에, 2,3,4번 째 캐릭터가 후방0,2,4에 배치)";}s:8:"relation";a:2:{s:5:"media";a:7:{s:17:"앞뒤이동1.png";b:1;s:17:"앞뒤이동2.png";b:1;s:17:"앞뒤이동3.png";b:1;s:17:"앞뒤이동4.png";b:1;s:17:"앞뒤이동5.png";b:1;s:17:"앞뒤이동6.png";b:1;s:17:"앞뒤이동7.png";b:1;}s:10:"firstimage";s:17:"앞뒤이동1.png";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1493258860;s:8:"modified";i:1493352181;}s:7:"creator";s:6:"벨몽";s:4:"user";s:7:"velmont";s:11:"last_change";a:8:{s:4:"date";i:1493352181;s:2:"ip";s:12:"106.102.1.75";s:4:"type";s:1:"E";s:2:"id";s:16:"전후방_이동";s:4:"user";s:8:"dbstn003";s:3:"sum";s:25:"[전후방이동 규칙] ";s:5:"extra";s:0:"";s:10:"sizechange";i:10;}s:11:"contributor";a:2:{s:7:"velmont";s:6:"벨몽";s:8:"dbstn003";s:9:"최윤수";}}}

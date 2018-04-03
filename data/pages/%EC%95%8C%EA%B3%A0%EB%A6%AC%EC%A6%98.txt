@@ -1,0 +1,8 @@
+====== 알고리즘 ======
+  * [[Greedy Algorithm vs Dynamic Programming]]
+  * [[검토해볼 문제들]]
+  * [[Backtracking]]
+  * [[Branch & Bound]]
+  * [[TSP(Travelling Salesman Problem)]]
+  * [[DFS]]
+  * [[백준 수업]]

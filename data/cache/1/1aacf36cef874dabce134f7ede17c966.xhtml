@@ -1,0 +1,292 @@
+
+<h1 class="sectionedit1" id="intro_to_refactoring">Intro to refactoring</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Intro to refactoring" [1-36] -->
+<h2 class="sectionedit2" id="introduction">1. Introduction</h2>
+<div class="level2">
+
+<p>
+Focused more on how refactoring and unit testing is supported by tools currently available. By applying multiple iterations of refactoring on the program its design will improve considerably and new features will be easier to add.
+</p>
+
+</div>
+<!-- EDIT2 SECTION "1. Introduction" [37-295] -->
+<h2 class="sectionedit3" id="what_is_refactoring">2. What Is Refactoring?</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "2. What Is Refactoring?" [296-331] -->
+<h3 class="sectionedit4" id="definition">2.1 Definition</h3>
+<div class="level3">
+
+<p>
+Refactoring :
+A change made to the internal structure of software to make it easier to understand and cheaper to modify without changing its observable behavior.
+</p>
+
+</div>
+<!-- EDIT4 SECTION "2.1 Definition" [332-519] -->
+<h3 class="sectionedit5" id="hitory">2.2 Hitory</h3>
+<div class="level3">
+
+<p>
+Although the methodology can be used with almost every programming language, object-oriented languages make things easier. This is specially ture for the more complex refactorings, which rely heavily on objects, inheritance and polymorphism.
+</p>
+
+</div>
+<!-- EDIT5 SECTION "2.2 Hitory" [520-783] -->
+<h3 class="sectionedit6" id="why_refactoring_matters">2.3 Why Refactoring matters</h3>
+<div class="level3">
+
+<p>
+About 50% of all programming effort in most enterpises goes into maintaining software. Refactoring will help to improve the design, make the code easier to understand and maintain.
+</p>
+
+</div>
+<!-- EDIT6 SECTION "2.3 Why Refactoring matters" [784-1003] -->
+<h2 class="sectionedit7" id="unit_testing">3. Unit Testing</h2>
+<div class="level2">
+
+<p>
+“Software features that can&#039;t be demonstrated by automated tests simply don exist”
+</p>
+
+<p>
+It is not component testing, which is interested whether the application behaves generally the way it was specified it should. See for further information about the difference.
+</p>
+
+</div>
+<!-- EDIT7 SECTION "3. Unit Testing" [1004-1293] -->
+<h3 class="sectionedit8" id="why_testing_is_important">3.1 Why testing is important</h3>
+<div class="level3">
+
+<p>
+Whether you like Extreme Programming or not, tests have been proven to be the methodology to ultimately control if the changes you just made to your code introduced bugs. Because refactoring is all about changing code, testing is a must.
+</p>
+
+</div>
+<!-- EDIT8 SECTION "3.1 Why testing is important" [1294-1571] -->
+<h3 class="sectionedit9" id="the_junit_framework">3.2 The JUnit Framework</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="assertions">3.2.3 Assertions</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> assertEquals</div>
+</li>
+<li class="level1"><div class="li"> assertFalse</div>
+</li>
+<li class="level1"><div class="li"> assertNotNull</div>
+</li>
+<li class="level1"><div class="li"> assertNotSame</div>
+</li>
+<li class="level1"><div class="li"> assertNull</div>
+</li>
+<li class="level1"><div class="li"> assertSame</div>
+</li>
+<li class="level1"><div class="li"> assertTrue</div>
+</li>
+<li class="level1"><div class="li"> fail</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "3.2 The JUnit Framework" [1572-1755] -->
+<h2 class="sectionedit10" id="refactoring_a_concrete_example">4. Refactoring a concrete example</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT10 SECTION "4. Refactoring a concrete example" [1756-1801] -->
+<h3 class="sectionedit11" id="the_starting_point">4.1 The starting point</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT11 SECTION "4.1 The starting point" [1802-1834] -->
+<h3 class="sectionedit12" id="comments_of_the_program">4.2 Comments of the program</h3>
+<div class="level3">
+
+<p>
+Rule 1: When you find you have to add a feature to a program, and the program&#039;s code is not structured in a convenient way to add the feature, first refactor the program to make it easy to add the feature, then add the feature.
+</p>
+
+</div>
+<!-- EDIT12 SECTION "4.2 Comments of the program" [1835-2101] -->
+<h2 class="sectionedit13" id="steps_in_refactoring_the_concrete_example">5. Steps in refactoring the concrete example</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT13 SECTION "5. Steps in refactoring the concrete example" [2102-2158] -->
+<h3 class="sectionedit14" id="creating_unit_tests">5.1 Creating Unit Tests</h3>
+<div class="level3">
+
+<p>
+the goal is to keep the observable behavior of a program, even if we change its underlying structure. So a fundamental thing to have are solid tests.
+</p>
+
+<p>
+Rule2 : Before you start refactoring, check that you have a solid suite of tests. These tests must be self-checking.
+</p>
+
+</div>
+<!-- EDIT14 SECTION "5.1 Creating Unit Tests" [2159-2461] -->
+<h3 class="sectionedit15" id="decomposing_the_statement_method">5.2 Decomposing the statement() method</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT15 SECTION "5.2 Decomposing the statement() method" [2462-2511] -->
+<h2 class="sectionedit16" id="bad_smells_in_code">6 Bad Smells in Code</h2>
+<div class="level2">
+
+<p>
+Refactoring is centainly not(only) about aesthetics, about beautiful code - so a somewhat solid tem had to be found by Martin Fowler to describe when refactorign should be applied:
+</p>
+
+<p>
+“If it stinks, change it”
+</p>
+
+</div>
+<!-- EDIT16 SECTION "6 Bad Smells in Code" [2512-2753] -->
+<h3 class="sectionedit17" id="duplicated_code">6.1 Duplicated Code</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT17 SECTION "6.1 Duplicated Code" [2754-2783] -->
+<h3 class="sectionedit18" id="long_method_and_large_class">6.2 Long Method and Large Class</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT18 SECTION "6.2 Long Method and Large Class" [2784-2825] -->
+<h3 class="sectionedit19" id="long_parameter_list">6.3 Long Parameter List</h3>
+<div class="level3">
+
+<p>
+Long parameter lists are hard to understand and usually deliver too much information to the method. With objects, you can always ask another object to get the needed information for you. Using Replace Parameter with Method may be a solution to separate a parameter logically from the others. Alternatively you could pass a special parameter object(a Value Object or Transfer Object)
+</p>
+
+</div>
+<!-- EDIT19 SECTION "6.3 Long Parameter List" [2826-3243] -->
+<h3 class="sectionedit20" id="feature_envy">6.4 Feature Envy</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT20 SECTION "6.4 Feature Envy" [3244-3270] -->
+<h3 class="sectionedit21" id="data_clumps">6.5 Data Clumps</h3>
+<div class="level3">
+
+<p>
+It is frequent that the same set of variables are spotted together in various places of the code. Use Extract Class to group together those variables in their own class.
+</p>
+
+</div>
+<!-- EDIT21 SECTION "6.5 Data Clumps" [3271-3467] -->
+<h3 class="sectionedit22" id="speculative_generality">6.6 Speculative Generality</h3>
+<div class="level3">
+
+<p>
+Sometimes you&#039;re implementing handling for special cases that are probably never used. The result are methods which are only called by their own tests and thus only add to the complexity of maintenance and understanding. Replace unnecessary delegation with the code of the delegate(Inline Class), Collapse the Hierarchy if there are abstract classes not doing much. Purge unused parameters, rename methods, fields and classes to achieve sensible names.
+</p>
+
+</div>
+<!-- EDIT22 SECTION "6.6 Speculative Generality" [3468-3958] -->
+<h3 class="sectionedit23" id="temporary_field">6.7 Temporary Field</h3>
+<div class="level3">
+
+<p>
+Temporary variables can be replaced with the expression used to the set the variable(Inline Temp).
+</p>
+
+</div>
+<!-- EDIT23 SECTION "6.7 Temporary Field" [3959-4088] -->
+<h3 class="sectionedit24" id="message_chains">6.8 Message chains</h3>
+<div class="level3">
+
+<p>
+If you have code like the following snippet, you should consider getting the target object directly
+</p>
+
+</div>
+<!-- EDIT24 SECTION "6.8 Message chains" [4089-4218] -->
+<h3 class="sectionedit25" id="inappropriate_intimacy">6.9 Inappropriate Intimacy</h3>
+<div class="level3">
+
+<p>
+Some classes know too much about other classes and should therefore be broken up(use Move Method and Move Field, or extract common code into another class). Subclasses are an example for this misbehavior, because they always know too much about their parent. You can replace the inheritance with delegation in this case.
+</p>
+
+</div>
+<!-- EDIT25 SECTION "6.9 Inappropriate Intimacy" [4219-4578] -->
+<h3 class="sectionedit26" id="comments">6.10 Comments</h3>
+<div class="level3">
+
+<p>
+Rule 3 : When you feel the need to write a comment, first try to refactor the code so that any comment becomes superfluous.
+</p>
+
+</div>
+<!-- EDIT26 SECTION "6.10 Comments" [4579-4726] -->
+<h2 class="sectionedit27" id="principles">7. Principles</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT27 SECTION "7. Principles" [4727-4752] -->
+<h3 class="sectionedit28" id="why_should_you_refactor">7.1 Why should You Refactor?</h3>
+<div class="level3">
+
+<p>
+The following points give you a broad overview why you should consider refactoring for your own projects. These points highlight the strengths of refactoring.
+</p>
+<ul>
+<li class="level1"><div class="li"> Improving the design of software</div>
+</li>
+<li class="level1"><div class="li"> Refactoring makes software easier to understand</div>
+</li>
+<li class="level1"><div class="li"> Refactoring helps you find bugs</div>
+</li>
+<li class="level1"><div class="li"> Refactoring helps you program faster</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT28 SECTION "7.1 Why should You Refactor?" [4753-5118] -->
+<h3 class="sectionedit29" id="when">7.2 When ?</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Refactor when you add function : Adding features to code you don&#039;t fully understand is easier when you refactor.</div>
+</li>
+<li class="level1"><div class="li"> Refactor when you need to fix a bug</div>
+</li>
+<li class="level1"><div class="li"> Refactor as you do a code review</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT29 SECTION "7.2 When ?" [5119-5334] -->
+<h2 class="sectionedit30" id="problems">8 Problems</h2>
+<div class="level2">
+
+<p>
+There are areas where you should take care that refactoring does not make things worse instead of better.
+</p>
+<ul>
+<li class="level1"><div class="li"> Database : Because application using databases are tightly coupled to the data model in the database, refactoring the application alone is not enough. Refactoring databases although is not easy if you have to do it by hand. A possible solution is an intermediate layer which takes care of persistence and can be refactor without problems.</div>
+</li>
+<li class="level1"><div class="li"> Changing interfaces : It is disturbing that refactoring generally changes interfaces. If people rely on frozen interfaces you published, their code won&#039;t work anymore after you refactored them. To avoid this, you can arrange it that the old interface calls the new one(but don&#039;t copy-paste methods because of the resulting code duplication) and thus the old and new interfaces run in parallel. In Java, mark the old interface as deprecated.</div>
+</li>
+</ul>
+
+<p>
+There are situations when you shouldn&#039;t refactor. If for example the existing code base is just a mess, is full of bugs and does not work even rudimentary, you should consider a total rewrite. Another time refactoring should be avoided is when you are close to a deadline. The productivity gain would only appear after the deadline and thus be too late.
+</p>
+
+</div>
+<!-- EDIT30 SECTION "8 Problems" [5335-6607] -->
+<h2 class="sectionedit31" id="conclusion">11 Conclusion</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT31 SECTION "11 Conclusion" [6608-] -->

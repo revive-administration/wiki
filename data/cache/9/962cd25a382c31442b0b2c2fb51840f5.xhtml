@@ -1,0 +1,355 @@
+
+<h1 class="sectionedit1" id="object_oriented_design">Object Oriented Design</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Object Oriented Design" [1-37] -->
+<h2 class="sectionedit2" id="oop_technique_exampleresponsibility_driven_design">OOP Technique Example : Responsibility Driven Design</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> OOP = a set of interacting objects</div>
+</li>
+<li class="level1"><div class="li"> Each object is a component that has responsibility in a community</div>
+</li>
+<li class="level1"><div class="li"> System is divided into various activities that the system has to perform. Then, those activities(responsibilities) are distributes among objects in the system.</div>
+</li>
+<li class="level1"><div class="li"> After completing a list of responsibilities, we need to decide a set of objects and determine which responsibilities should be assigned to which object</div>
+</li>
+<li class="level1"><div class="li"> Responsibilities in an object should be closely related</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "OOP Technique Example : Responsibility Driven Design" [38-592] -->
+<h2 class="sectionedit3" id="design_process">Design Process</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Specification</div>
+</li>
+<li class="level1"><div class="li"> Software System Design</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Design Process" [593-665] -->
+<h2 class="sectionedit4" id="development_process">Development Process</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "Development Process" [666-697] -->
+<h3 class="sectionedit5" id="initial_description">1. Initial Description</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> We need to clarify the ambiguities in the description</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "1. Initial Description" [698-789] -->
+<h3 class="sectionedit6" id="refine_specification">2. Refine Specification</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Because of the ambiguity in the specification, the major tool we will use to uncover the desired behavior is to walk through application scenarios</div>
+<ul>
+<li class="level2"><div class="li"> Pretend we had already a working application. Walk through the various uses of the system</div>
+</li>
+<li class="level2"><div class="li"> Establish the “look and feel” of the system</div>
+</li>
+<li class="level2"><div class="li"> Make sure we have uncovered all the intended uses.</div>
+</li>
+<li class="level2"><div class="li"> Develop descriptive documentation</div>
+</li>
+<li class="level2"><div class="li"> Create the high level software design</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Other authors use the “use-cases” for this process of developing scenarios</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "2. Refine Specification" [790-1341] -->
+<h3 class="sectionedit7" id="identification_of_components">3. Identification of Components</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Component</div>
+<ul>
+<li class="level2"><div class="li"> an abstract design entity with which we can associate responsibilities for different tasks</div>
+</li>
+<li class="level2"><div class="li"> must have a small well defined set of responsibilities</div>
+</li>
+<li class="level2"><div class="li"> should interact with other components to the minimal extent possible</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "3. Identification of Components" [1342-1631] -->
+<h3 class="sectionedit8" id="identification_of_components_responsibilities">4. Identification of Components Responsibilities</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> CRC Cards</div>
+<ul>
+<li class="level2"><div class="li"> Components are most easily described using CRC cards</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Characteristics of Components</div>
+<ul>
+<li class="level2"><div class="li"> Behavior and State</div>
+<ul>
+<li class="level3"><div class="li"> Behavior</div>
+<ul>
+<li class="level4"><div class="li"> the set of actions a component can perform</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> State</div>
+<ul>
+<li class="level4"><div class="li"> all the information (data values) held within a component</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> It is common for behavior to change state</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Instances and Classes</div>
+<ul>
+<li class="level3"><div class="li"> There are likely many instances of recipe, but they will all behave in the same way</div>
+</li>
+<li class="level3"><div class="li"> We say the behavior is common to the class Recipe</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Coupling and Cohesion</div>
+<ul>
+<li class="level3"><div class="li"> Cohesion</div>
+<ul>
+<li class="level4"><div class="li"> the degree to which the tasks assigned to a component seem to form a meaningful unit.</div>
+</li>
+<li class="level4"><div class="li"> Want to maximize cohesion</div>
+</li>
+</ul>
+</li>
+<li class="level3"><div class="li"> Coupling</div>
+<ul>
+<li class="level4"><div class="li"> the degree to which the ability to fulfill a certain responsibility depends upon the actions of another component</div>
+</li>
+<li class="level4"><div class="li"> Want to minimize coupling</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Interface and Implementation</div>
+<ul>
+<li class="level3"><div class="li"> We have characterized software components by what they can do</div>
+</li>
+<li class="level3"><div class="li"> The user of a software component need only know what it does, not how it does.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="public_and_private_view">Public and Private View</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Public View</div>
+<ul>
+<li class="level2"><div class="li"> those features (data or behavior) that other components can see and use</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Private View</div>
+<ul>
+<li class="level2"><div class="li"> those features that are used only within the component</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "4. Identification of Components Responsibilities" [1632-2954] -->
+<h3 class="sectionedit9" id="formalize_the_interface">5. Formalize the Interface</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Formalize the channels of communication between the components</div>
+<ul>
+<li class="level2"><div class="li"> The general structure of each component is identified</div>
+</li>
+<li class="level2"><div class="li"> Components with only one behavior may be made into functions</div>
+</li>
+<li class="level2"><div class="li"> Components with many behaviors are probably more easily implemented as classes</div>
+</li>
+<li class="level2"><div class="li"> Names are given to each of the responsibilities - these will eventually be mapped on to procedure names</div>
+</li>
+<li class="level2"><div class="li"> Function parameters should be identified</div>
+</li>
+<li class="level2"><div class="li"> Information is assigned to each component and accounted for</div>
+</li>
+<li class="level2"><div class="li"> Scenarios are replayed in order to ensure all data is available</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="the_selection_of_names">The selection of names</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> should be evocative in the context of the problem</div>
+</li>
+<li class="level1"><div class="li"> should be short</div>
+</li>
+<li class="level1"><div class="li"> should be pronounceable (read them out load)</div>
+</li>
+<li class="level1"><div class="li"> names should be consistent within the project</div>
+</li>
+<li class="level1"><div class="li"> avoid digits within a name</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "5. Formalize the Interface" [2955-3799] -->
+<h2 class="sectionedit10" id="design">6. Design</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Transform description into SW layout</div>
+</li>
+<li class="level1"><div class="li"> Design data structures in each component</div>
+</li>
+<li class="level1"><div class="li"> Transform behavior description into algorithms</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "6. Design" [3800-3959] -->
+<h2 class="sectionedit11" id="implementing_components">7. Implementing Components</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> implement the desired activities in each component</div>
+</li>
+<li class="level1"><div class="li"> Unit testing : Subsystems are validate individually</div>
+<ul>
+<li class="level2"><div class="li"> Identify necessary conditions for correct functioning</div>
+</li>
+<li class="level2"><div class="li"> Test input values to verify that SW component will perform correctly when presented with legal input values</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+===== 8. Integration of Components
+</p>
+<ul>
+<li class="level1"><div class="li"> Components are slowly integrated into completed system, using stubs as ye unimplemented parts</div>
+</li>
+<li class="level1"><div class="li"> Stubs</div>
+<ul>
+<li class="level2"><div class="li"> simple dummy routines with no behavior or wit very limited behavior</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Errors discovered during integration cause reinvestigation of validation techniques performed at the subsystem level</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "7. Implementing Components" [3960-4622] -->
+<h2 class="sectionedit12" id="maintenance_and_evolution">9. Maintenance and Evolution</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Software Maintenance</div>
+<ul>
+<li class="level2"><div class="li"> Activities subsequent to the delivery of the initial working version of SW system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Software does not remain fixed after the first working version is released</div>
+<ul>
+<li class="level2"><div class="li"> Errors or bugs can be discovered. Must be corrected </div>
+</li>
+<li class="level2"><div class="li"> Requirements may change. Say as a result of government regulations, or standardization among similar products </div>
+</li>
+<li class="level2"><div class="li"> Hardware may change</div>
+</li>
+<li class="level2"><div class="li"> Users expectations may change. Greater functionality, more features. Often as a result of competition from similar products </div>
+</li>
+<li class="level2"><div class="li"> Better documentation may be required</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Good Desion</div>
+<ul>
+<li class="level2"><div class="li"> Recognized the inevitability of changes and plans an accommodation from the very beginning</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="prepare_for_change">Prepare for Change!</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> User requirements change with experience, hardware changes, government regulation change.</div>
+<ul>
+<li class="level2"><div class="li"> Try to predict the most likely sources of change, and isolate the effect. Common changes include interfaces, file formats, communication protocols</div>
+</li>
+<li class="level2"><div class="li"> Isolate interfaces to hardware that is likely to change</div>
+</li>
+<li class="level2"><div class="li"> Reduce dependency of one software component on another</div>
+</li>
+<li class="level2"><div class="li"> Keep accurate record of the reasoning behind every major decision in the design documentation</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "9. Maintenance and Evolution" [4623-5844] -->
+<h3 class="sectionedit13" id="common_design_flaws">Common Design Flaws</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Direct modification</div>
+<ul>
+<li class="level2"><div class="li"> Components that make direct modification of data values in other components are a direct violation of encapsulation</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Too Much Responsibility</div>
+<ul>
+<li class="level2"><div class="li"> Components with too much responsibility are difficult to understand and to use</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> No Responsibility</div>
+<ul>
+<li class="level2"><div class="li"> Components with no responsibility serve no purpose</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Components with unused responsibility</div>
+<ul>
+<li class="level2"><div class="li"> Usually the result of designing software components without thinking about how they will be use</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Misleading Names</div>
+<ul>
+<li class="level2"><div class="li"> Names should be short and unambiguously indicate what the responsibilities of the component involve</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "Common Design Flaws" [5845-] -->

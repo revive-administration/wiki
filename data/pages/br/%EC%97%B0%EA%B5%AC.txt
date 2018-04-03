@@ -1,0 +1,2 @@
+====== 연구 ======
+  * PHP + MYSQL 환경에서 고려해야 할 기술적인 문제들 : http://naiyumie.tistory.com/959

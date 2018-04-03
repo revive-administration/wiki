@@ -1,0 +1,10 @@
+^  회사  ^  이름  ^  등급  ^  컨펌  ^
+|  Austin-Houston  |  [[RGT]]  |  N  |    |
+|  eRam  |  [[F160T]]  |  R  |    |
+|  eRam  |  [[F360T]]  |  R  |    |
+|  SACorp  |  [[하트샤]]  |  U  |    |
+|  SACorp  |  [[벨라트릭스]]  |  L  |    |
+|  CCE  |  [[스칼렛 스네이크]]  |  L  |    |
+|  CCE  |  [[화이트 타란튤라]]  |  L  |    |
+|  BMmaker  |  [[니 뒤에 있다]]  |  N  |    |
+|  SACorp  |  [[킬링히트]]  |  L  |    |

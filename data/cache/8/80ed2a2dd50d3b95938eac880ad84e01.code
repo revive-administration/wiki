@@ -1,0 +1,22 @@
+<span class="kw1">public</span> <span class="kw1">class</span> PatternInJava <span class="br0">&#123;</span>
+	<span class="kw1">public</span> <span class="kw1">static</span> <span class="kw4">void</span> main<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a><span class="br0">&#91;</span><span class="br0">&#93;</span> args<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn <span class="sy0">=</span> <span class="st0">&quot;7411218&quot;</span><span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name <span class="sy0">=</span> <span class="st0">&quot;KimDaeHoon&quot;</span><span class="sy0">;</span>
+		<span class="kw4">int</span> age <span class="sy0">=</span> <span class="nu0">27</span><span class="sy0">;</span>
+&nbsp;
+		Person person <span class="sy0">=</span> <span class="kw1">new</span> Person<span class="br0">&#40;</span>ssn, name, age<span class="br0">&#41;</span><span class="sy0">;</span>
+		Person _person <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+&nbsp;
+		<span class="kw1">try</span> <span class="br0">&#123;</span>
+			_person <span class="sy0">=</span> <span class="br0">&#40;</span>Person<span class="br0">&#41;</span> person.<span class="me1">myClone</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span> <span class="kw1">catch</span> <span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+clonenotsupportedexception"><span class="kw3">CloneNotSupportedException</span></a> e<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<span class="kw4">boolean</span> flag <span class="sy0">=</span> person.<span class="me1">equals</span><span class="br0">&#40;</span>_person<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;Person == _person ? &quot;</span> <span class="sy0">+</span> flag<span class="br0">&#41;</span><span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;person.getName() : &quot;</span> <span class="sy0">+</span> person.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;_person.getName() : &quot;</span> <span class="sy0">+</span> _person.<span class="me1">getName</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

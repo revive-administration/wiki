@@ -1,0 +1,55 @@
+
+<h1 class="sectionedit1" id="pairpassiveskill">PairPassiveSkill</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  Code  </th><th class="col1 centeralign">  Name  </th><th class="col2 centeralign">  Type  </th><th class="col3 centeralign">  EffectSetNumber  </th><th class="col4 centeralign">  Text  </th><th class="col5 centeralign">  ConditionNumber  </th><th class="col6 centeralign">  CheckTime  </th><th class="col7 centeralign">  PairCharacter  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  PPSkill1  </td><td class="col1 centeralign">  친한 친구  </td><td class="col2 centeralign">  PPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 스킬 사용 시 출혈 상태인 경우 Hp 50 회복  </td><td class="col5 centeralign">   1   </td><td class="col6 centeralign">  스킬 사용 시  </td><td class="col7 centeralign">  {Izumi}  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  PPSkill2  </td><td class="col1 centeralign">  질긴 악연  </td><td class="col2 centeralign">  PPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 최대 Hp + 100, 방어력 + 100  </td><td class="col5 centeralign">   0   </td><td class="col6 centeralign">  항상 적용  </td><td class="col7 centeralign">  {Izumi, Lisa}  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  PPSkill3  </td><td class="col1 centeralign">  부자 사랑  </td><td class="col2 centeralign">  PPassiveSkill  </td><td class="col3 centeralign">  1  </td><td class="col4 leftalign"> 모든 적의 공격력 - 10%  </td><td class="col5 centeralign">   0   </td><td class="col6 centeralign">  항상 적용  </td><td class="col7 centeralign">  {Brek}  </td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [30-563] --><div class="table sectionedit3"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  항목  </th><th class="col1 centeralign">  내용  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  Code  </td><td class="col1 centeralign">  PassiveSkill DB의 RowName  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  Name  </td><td class="col1 centeralign">  스킬 이름  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  Type  </td><td class="col1 centeralign">  스킬 타입 Enum. PPassiveSkill  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  EffectSetNumber  </td><td class="col1 centeralign">  EffectSet의 개수  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 centeralign">  Text  </td><td class="col1 centeralign">  유저에게 보이는 스킬 설명  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 centeralign">  ConditionNumber  </td><td class="col1 centeralign">  발동 조건식 개수  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 centeralign">  CheckTime  </td><td class="col1 centeralign">  ConditionSet이 True인지 False인지 판정하는 시점 Enum  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 centeralign">  PairCharacter  </td><td class="col1 centeralign">  해당 캐릭터가 부대에 속해 있어야만 이 스킬이 적용된다. Character Enum 배열. 비어 있으면 제한 없는 스킬.  </td>
+	</tr>
+</table></div>
+<!-- EDIT3 TABLE [565-1104] --><pre class="code">PairCharacter 상세내용
+- PairCharacter에 포함된 캐릭터가 부대에 속해있지 않으면 효과가 적용되지 않음.
+- 효과를 받다가 PairCharacter에 포함된 캐릭터가 전투불능이 된 경우, 효과 해제.</pre>
+
+</div>

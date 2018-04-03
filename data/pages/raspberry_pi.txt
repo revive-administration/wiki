@@ -1,0 +1,7 @@
+  * [[http://cafe.naver.com/openrt/2673|라즈베리 활용 및 강좌 목차]]
+
+  * [[http://blog.naver.com/endofsky98/110161492649|OS 설치 후 초기 설정작업]]
+  * [[http://cafe.naver.com/openrt/4133|SD카드 복원]]
+  * [[http://leo81.tistory.com/4 | SD 카드 용량 확장]]
+  * [[http://www.rasplay.org/?p=1935 | 라즈베리파이 웹 모니터링(raspcontrol)]]
+  * [[http://cafe.naver.com/openrt/2913| 개발을 위한 SAMBA 화면 꾸미기]]

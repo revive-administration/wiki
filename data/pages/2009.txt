@@ -1,0 +1,11 @@
+====== 2009 ======
+  * One of the important goals of software engineering is to minimize the complexity of software development and maintenance
+  * Generally, object oriented programming increases programmer productivity, quality of software, understandability of software, scalability of software, lifetime of software
+  * Coupling is the degree to which each program module relies on each one of the other modules.
+  * Cohesion is a measure of hos strongly-related and focused the various responsibilities of a software
+  * It is desirable to maximize cohesion and minimize coupling
+  * Const member function does not modify any data members of the object on which it is called
+  * friend function of a class has the right to access the non-public members of the class
+  * An abstract class should contain at least one abstract method
+  * ?? can check whether two classes have inheritance relationship
+  * What is encapsulation? ???

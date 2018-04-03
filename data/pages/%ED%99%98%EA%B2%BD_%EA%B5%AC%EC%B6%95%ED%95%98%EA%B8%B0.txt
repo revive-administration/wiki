@@ -1,0 +1,2 @@
+1. PDT 설치하기  
+  http://www.eclipse.org/pdt/index.html#download에 들어가서 PDT를 다운로드 받는다.

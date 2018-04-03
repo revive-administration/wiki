@@ -1,0 +1,88 @@
+
+<h1 class="sectionedit1" id="chapter5_파티션_관리">Chapter5 파티션 관리</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "Chapter5 파티션 관리" [1-40] -->
+<h2 class="sectionedit2" id="vkxltus_tofh_aksemfrl">vkxltus tofh aksemfrl</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> 라즈베리 파이에 원격접속한다. <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 터미널 윈도우를 열고 sudo fdisk -l 이라고 입력한다. 파이에 연결된 저장 장치들과 현재 파티션들이 목록으로 보여질 것이다. <br/>
+<br/>
+- sudo cfdisk /dev/mmblk0라고 입력해서 메뉴 형태의 파티션 관리 툴을 로드시키자. (타겟 장치로 SD카드를 사용할 것임) <br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 커서 키를 움직여서 파티션 선택이 하이라이트 상태로 보여지면 리스트 아래쪽에 Free Space라고 쓰여진 부분을 선택한다. <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 다시 커서 키를 사용해서 스크린의 아래쪽에 있는 옵션 선택부분으로 가서 New 옵션(Primary)에 하이라이팅 후 Enter <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 디폴트 설정의 용량을 두고 Enter <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> Write를 선택하고 Enter <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> yes를 치고 Enter<br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> Quit에 Enter해주고 빠져나간다. <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 재부팅을 해준다 sudo reboot  <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> sudo fdisk -l 명령어로 새 파티션이 잘 준비가 되었는지 확인할 수 있다. <br/>
+<br/>
+</div>
+</li>
+</ol>
+
+<p>
+그러나 새 파티션에 파일을 저장하려면 다음과 같이 mkfs 툴을 통해 드라이브를 포맷함으로써 파일 시스템을 구축해야 한다.
+</p>
+<ol>
+<li class="level1"><div class="li"> fdisk -l 이라고 입력하여 파이에 연결된 저장 장치와 기존 파티션들에 대한 목록을 확인한다. 새로운 파티션을 찾아보자. 새로운 파티션은 본인의 라즈베리 SD카드의 경우 /dev/mmcblk0p3으로 나타난다. <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> sudo mkfs.ext4 /dev/mmcblk0p3 이라고 입력하여 파티션 안에 새로운 EXT4파일 시스테믕ㄹ 만든다. 해당 명령은 파티션 안에 있는 모든 파일을 지우고 포맷하게 되므로 주의하자. <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 새 파일 시스템을 사용하려면 먼저 마운트되어야 한다. 터미널에 sudo mkdir /storage라고 입력하여 마운트 지점(mount point, 빈 ㅌ디렉토리)을 만들도록 하자. <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 마운트 명령을 써서 새 파티션이 마운트 지점에 연결되도록 한다. sudo mount /dev/mmcblk0p3 /storage <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 모든 유저들이 새로운 파티션에 접글할 수 있도록 하기 위해 chgrp 명령을 통해 그룹 멤버십을 루트에서 일반 사용자로 변경해 주자. sudo chgrp -R users /storage <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 또 해당 그룹의 모든 사용자들이 해당 디렉토리에 쓸 수 있는 권한을 허용해야 한다. sudo chmod -R g+w /storage <br/>
+<br/>
+</div>
+</li>
+<li class="level1"><div class="li"> 새로운 파티션을 사용할 준비가 되었다. 현재 파티션은 매번 파이가 부팅할 때마다 mount 명령과 sudo 명령을 함께 사용하여 수동으로 마운팅되어야 한다. 이 시간을 절약하기 위해 fstab 파일을 편집하여 새 파티션이 자동으로 마운트되게 할 수 있다. sudo nano /etc/fstab로 들어간 후 파일 하단에 새로운 커맨드 라인을 추가한다. <br/>
+/dev/mmcblk0p3 [Tab] /storage [Tab] ext4[Tab] defaults[Tab] 0[Tab] 2 <br/>
+저장 후 리부팅하고 mount를 입력해서 /storage가 자동적으로 마운트되는지 점검하자</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT2 SECTION "vkxltus tofh aksemfrl" [41-] -->

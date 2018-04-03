@@ -1,0 +1,16 @@
+====== 게임 설계 ======
+===== Chapter 2 =====
+  * [[Rendering Pipeline]]
+    * http://diehard98.tistory.com/entry/OpenGL-Rendering-Pipeline
+  * Camera Analogy
+    * http://www.glprogramming.com/red/chapter03.html
+    * http://diehard98.tistory.com/128
+    * [[Viewing]]
+  * Transformation
+    * http://rednine.tistory.com/475
+    * [[Transformation Pipeline]]
+  * Illumination
+    * [[Illumination & Shading]]
+
+===== Chapter 3 =====
+  * [[OpenGL texture mapping setup]]

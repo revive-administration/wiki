@@ -1,0 +1,11 @@
+<span class="kw1">module</span> SillyModule
+  <span class="kw1">def</span> hello
+    <span class="st0">&quot;Hello&quot;</span>
+  <span class="kw1">end</span>
+<span class="kw1">end</span>
+<span class="kw1">class</span> SillyClass
+  <span class="kw1">include</span> SillyModule
+<span class="kw1">end</span>
+s = SillyClass.<span class="me1">net</span>
+s.<span class="me1">hello</span> 
+<span class="kw1">end</span>

@@ -1,0 +1,8 @@
+====== Lecture 2.1 - Higher-Order functions ======
+Functional languager treat functions as first-class values.
+
+This means that, like any other value, a function can be passed as a parameter and returned as aresult.
+
+This provides a flexible way to compose programs.
+
+Functions that take other functions as parameters or that return functions as results are called higher order functions

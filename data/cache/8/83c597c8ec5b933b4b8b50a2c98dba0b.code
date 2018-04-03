@@ -1,0 +1,5 @@
+       d<span class="br0">&#40;</span>k<span class="sy0">,</span>i<span class="sy0">,</span>j<span class="br0">&#41;</span>
+          <span class="kw1">if</span><span class="br0">&#40;</span>k<span class="sy0">=</span><span class="nu0">0</span><span class="br0">&#41;</span>
+	    w<span class="br0">&#40;</span>i<span class="sy0">,</span>j<span class="br0">&#41;</span>
+          <span class="kw1">if</span><span class="br0">&#40;</span>k<span class="sy0">&gt;=</span><span class="nu0">1</span><span class="br0">&#41;</span>
+	    min<span class="br0">&#123;</span> d<span class="br0">&#40;</span>k<span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span>i<span class="sy0">,</span>j<span class="br0">&#41;</span><span class="sy0">,</span> d<span class="br0">&#40;</span>k<span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span>i<span class="sy0">,</span>k<span class="br0">&#41;</span><span class="sy0">+</span>d<span class="br0">&#40;</span>k<span class="sy0">-</span><span class="nu0">1</span><span class="sy0">,</span>k<span class="sy0">,</span>j<span class="br0">&#41;</span> <span class="br0">&#125;</span>

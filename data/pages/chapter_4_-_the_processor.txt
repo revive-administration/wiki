@@ -1,0 +1,10 @@
+  * How to implements the instructions in the hardware?
+    * Single-cycle processor
+    * Pipelined processor
+  * Pipelining improves instruction through using parallelism
+    * More instructions completed per second
+    * Latency for each instruction not reduced
+  * Hazards : structural, data, control
+    * forwarding, stall
+  * ISA influences design of datapath and control
+    * Datapath and control influence design of ISA

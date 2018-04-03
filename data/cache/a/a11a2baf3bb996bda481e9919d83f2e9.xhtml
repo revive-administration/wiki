@@ -1,0 +1,812 @@
+
+<h1 class="sectionedit1" id="software_process">2. Software Process</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT1 SECTION "2. Software Process" [1-34] -->
+<h2 class="sectionedit2" id="software_process_and_software_process_models">Software process and software process models</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Software Process</div>
+<ul>
+<li class="level2"><div class="li"> A structured set of activities required to develop a software system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Software Process Model</div>
+<ul>
+<li class="level2"><div class="li"> An abstract representation of a software process, presented from a specific perspective</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Many different software processes but all involve</div>
+<ul>
+<li class="level2"><div class="li"> Specification</div>
+<ul>
+<li class="level3"><div class="li"> defining what the system should do</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Design and implementation</div>
+<ul>
+<li class="level3"><div class="li"> defining the organization of the system and implementing the system</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Validation</div>
+<ul>
+<li class="level3"><div class="li"> checking that it does what customer wants</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Evolution</div>
+<ul>
+<li class="level3"><div class="li"> changing the system in response to changing customer needs</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT2 SECTION "Software process and software process models" [35-684] -->
+<h3 class="sectionedit3" id="software_process_descriptions">Software process descriptions</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Typically include</div>
+<ul>
+<li class="level2"><div class="li"> Activities such as specifying a data model, designinig a user interface</div>
+</li>
+<li class="level2"><div class="li"> The ordering of these activities</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Process descriptions may also include:</div>
+<ul>
+<li class="level2"><div class="li"> Products(상품), which are the outcomes of a process activity;</div>
+</li>
+<li class="level2"><div class="li"> Roles(역할), which reflect the responsibilities of the people involved int the process;</div>
+</li>
+<li class="level2"><div class="li"> Pre- and post-conditions(전후조건), which are statements that are true before and after a process activity has been enacted or a product produced.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT3 SECTION "Software process descriptions" [685-1230] -->
+<h2 class="sectionedit4" id="software_process_models">2.1 Software process models</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT4 SECTION "2.1 Software process models" [1231-1270] -->
+<h3 class="sectionedit5" id="plan-driven_and_agile_processes">Plan-driven and agile processes</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Plan-driven processes</div>
+<ul>
+<li class="level2"><div class="li"> all of the processes activities are planned in advance and progress is measured against this plan</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Agile processes</div>
+<ul>
+<li class="level2"><div class="li"> planning is incremental and it is easier to change the process to reflect changing customer requirements</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> In practive most practical processes include elements of both plan-driven and agile approaches</div>
+</li>
+<li class="level1"><div class="li"> There are no right or wrong software processes.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT5 SECTION "Plan-driven and agile processes" [1271-1725] -->
+<h3 class="sectionedit6" id="the_waterfall_model">2.1.1 The waterfall model</h3>
+<div class="level3">
+
+<p>
+This takes the fundamental process activities of specification, development, validation, and evolution and represents them as separate process phases such as requirements specification, software design, implementation, testing, and so on.
+</p>
+<ul>
+<li class="level1"><div class="li"> Separate and distinct phases</div>
+<ul>
+<li class="level2"><div class="li"> Requirements analysis definition</div>
+</li>
+<li class="level2"><div class="li"> System and software design</div>
+</li>
+<li class="level2"><div class="li"> Implementation and unit testing</div>
+</li>
+<li class="level2"><div class="li"> Integration and system testing</div>
+</li>
+<li class="level2"><div class="li"> Operation and maintanance</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Main drawback</div>
+<ul>
+<li class="level2"><div class="li"> Difficulty of accommodating change after the process is underway.</div>
+</li>
+<li class="level2"><div class="li"> In principle, a phase has to be completed before moving onto the next phase.</div>
+</li>
+<li class="level2"><div class="li"> Inflexible partitioning of the project into distinct stages</div>
+</li>
+<li class="level2"><div class="li"> Still effective to large systems</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT6 SECTION "2.1.1 The waterfall model" [1726-2491] -->
+<h3 class="sectionedit7" id="incremental_development">2.1.2 Incremental development</h3>
+<div class="level3">
+
+<p>
+This approach interleaves the activities of specification, development, and validation. The system is developed as a series of versions(increments), with each version adding functionality to the previous version.
+</p>
+<ul>
+<li class="level1"><div class="li"> The cost of accommodating changing customer requirements is reduced.</div>
+</li>
+<li class="level1"><div class="li"> It is easier to get customer feedback on the development work that has been done</div>
+</li>
+<li class="level1"><div class="li"> More rapid delivery and deployment of useful software to the customer is possible.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Problems</div>
+<ul>
+<li class="level2"><div class="li"> Lack of process visibility</div>
+</li>
+<li class="level2"><div class="li"> Systems are often poorly structured</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Applicability</div>
+<ul>
+<li class="level2"><div class="li"> For small or medium-size interactive systems</div>
+</li>
+<li class="level2"><div class="li"> For parts of large systems (UI)</div>
+</li>
+<li class="level2"><div class="li"> For short-lifetime systems</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT7 SECTION "2.1.2 Incremental development" [2492-3221] -->
+<h3 class="sectionedit8" id="reuse-oriented_software_engineering">2.1.3 Reuse-oriented software engineering</h3>
+<div class="level3">
+
+<p>
+This approach is based on the existence of a significant number of reusable components. The system development process focuses on integrating these components into a system rather than developing them from scratch.
+</p>
+<ul>
+<li class="level1"><div class="li"> Systematic reuse</div>
+<ul>
+<li class="level2"><div class="li"> systems are integrated from existing components or COTS(Commercial-off-the-shelf) systems.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Process stages</div>
+<ul>
+<li class="level2"><div class="li"> Component analysis</div>
+</li>
+<li class="level2"><div class="li"> Requirements modification</div>
+</li>
+<li class="level2"><div class="li"> System design with reuse</div>
+</li>
+<li class="level2"><div class="li"> Development and integration</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Becoming popular</div>
+<ul>
+<li class="level2"><div class="li"> Reuse is now the standard approach for building many types of business system</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT8 SECTION "2.1.3 Reuse-oriented software engineering" [3222-3853] -->
+<h2 class="sectionedit9" id="process_activities">2.2 Process activities</h2>
+<div class="level2">
+
+<p>
+Real software processes are interleaved sequences of technical, collaborative, and managerial activities.
+</p>
+<ul>
+<li class="level1"><div class="li"> Four basic process activities</div>
+<ul>
+<li class="level2"><div class="li"> Specification, Development, Validation, and Evolution</div>
+</li>
+<li class="level2"><div class="li"> Organized differently in defferent development processes</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT9 SECTION "2.2 Process activities" [3854-4151] -->
+<h3 class="sectionedit10" id="software_specification">2.2.1 Software specification</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> The process of establishing what services are required and the constraints on the system&#039;s operation and development</div>
+</li>
+<li class="level1"><div class="li"> Requirements engineering process</div>
+<ul>
+<li class="level2"><div class="li"> Feasibility study(사업화 가능성 조사)</div>
+</li>
+<li class="level2"><div class="li"> Requirements elicitation(도출) and analysis</div>
+</li>
+<li class="level2"><div class="li"> Requirements specification</div>
+</li>
+<li class="level2"><div class="li"> Requirements validation</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT10 SECTION "2.2.1 Software specification" [4152-4515] -->
+<h3 class="sectionedit11" id="software_design_and_implementation">2.2.2 Software design and implementation</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> The process of converting the system specification into an executable system</div>
+</li>
+<li class="level1"><div class="li"> Software design</div>
+<ul>
+<li class="level2"><div class="li"> Design a software structure that realises the specification</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Implementation</div>
+<ul>
+<li class="level2"><div class="li"> Translate this structure into an executable program</div>
+</li>
+<li class="level2"><div class="li"> The activities of design and implementation are closely related and may be inter-leaved</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="design_activities">Design activities</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Architectural design</div>
+<ul>
+<li class="level3"><div class="li"> identify the overall structure of the system, the principal components, their relationships and how they are distributed</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Database design</div>
+</li>
+<li class="level2"><div class="li"> Interface design</div>
+</li>
+<li class="level2"><div class="li"> Component selection and design</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="system_implementation">System implementation</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> The software is implemented</div>
+<ul>
+<li class="level2"><div class="li"> By developing a program or programs or</div>
+</li>
+<li class="level2"><div class="li"> by configuring an application system</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Design and implementation are interleaved activities for most types of software system</div>
+</li>
+<li class="level1"><div class="li"> Programming is an individual activity with no standard process</div>
+</li>
+<li class="level1"><div class="li"> Debugging is the activity of finding program faults and correcting these faults</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT11 SECTION "2.2.2 Software design and implementation" [4516-5562] -->
+<h3 class="sectionedit12" id="software_validation_v_v">2.2.3 Software validation (V&amp;V)</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Verification</div>
+<ul>
+<li class="level2"><div class="li"> Show that the system conforms to its specification</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Validation</div>
+<ul>
+<li class="level2"><div class="li"> Show that the system meets the requirements of the system customer</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Involves checking and review processes</div>
+</li>
+<li class="level1"><div class="li"> Testing is the most commonly used V&amp;V activity</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Testing stages</div>
+<ul>
+<li class="level2"><div class="li"> Component or unit testing</div>
+<ul>
+<li class="level3"><div class="li"> Individual components are tested independently</div>
+</li>
+<li class="level3"><div class="li"> Components may be functions or objects or coherent(일관성 있는) groupings of these entities</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> System testing</div>
+<ul>
+<li class="level3"><div class="li"> Testing of the system as a whole</div>
+</li>
+<li class="level3"><div class="li"> Testing of emergent properties is particularly important</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Acceptance testing</div>
+<ul>
+<li class="level3"><div class="li"> Testing with customer data to check that the system meets the customer&#039;s needs.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT12 SECTION "2.2.3 Software validation (V&V)" [5563-6313] -->
+<h3 class="sectionedit13" id="software_evolution">2.2.4 Software evolution</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Software is inherently(본질적으로) flexible and can change</div>
+</li>
+<li class="level1"><div class="li"> As requirements change through changing business circumstances, the software that supports the business must also evolve and change</div>
+</li>
+<li class="level1"><div class="li"> Fewer and fewer systems are completely new</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT13 SECTION "2.2.4 Software evolution" [6314-6600] -->
+<h2 class="sectionedit14" id="coping_with_change">2.3 Coping with change</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Requirement evolves</div>
+<ul>
+<li class="level2"><div class="li"> system requirements ALWAYS evolve in the course of a project</div>
+</li>
+<li class="level2"><div class="li"> Change leads to rework so the costs of change include both</div>
+<ul>
+<li class="level3"><div class="li"> implementing new functionality</div>
+</li>
+<li class="level3"><div class="li"> rework(re-analyzing requirements)</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Iteration can be applied to any of the generic process models.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT14 SECTION "2.3 Coping with change" [6601-6942] -->
+<h3 class="sectionedit15" id="reducing_the_costs_of_rework">Reducing the costs of rework</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Change anticipation</div>
+<ul>
+<li class="level2"><div class="li"> process includes activities that can anticipate possible changes before significant rework is required</div>
+</li>
+<li class="level2"><div class="li"> E.g. prototype system</div>
+<ul>
+<li class="level3"><div class="li"> a version of the system or part of the system is developed quickly to check the customer&#039;s requirements and the feasibility of design decisions</div>
+</li>
+<li class="level3"><div class="li"> Requirements engineering : help with requirements elicitation(도출) validation.</div>
+</li>
+<li class="level3"><div class="li"> Design : explore options and develop a UI design</div>
+</li>
+<li class="level3"><div class="li"> Testing : run back-to-back tests</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Change tolerance</div>
+<ul>
+<li class="level3"><div class="li"> process is designed so that changes can be accommodated at relatively low cost</div>
+</li>
+<li class="level3"><div class="li"> E.g. incremental development</div>
+<ul>
+<li class="level4"><div class="li"> proposed changes may be implements that have not yet been developed</div>
+</li>
+<li class="level4"><div class="li"> then only a single increment may have be altered to incorporate the change</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT15 SECTION "Reducing the costs of rework" [6943-7792] -->
+<h3 class="sectionedit16" id="incremental_delivery">2.3.2 Incremental delivery</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Definition</div>
+<ul>
+<li class="level2"><div class="li"> Rather than deliver the system as a single delivery, the development and delivery is broken down into increments with each increment delivering part of the required functionality</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Requirement Prioritization</div>
+<ul>
+<li class="level2"><div class="li"> The highest priority requirements are included in early increments</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Requirement Freezing</div>
+<ul>
+<li class="level2"><div class="li"> Once the development of an increment is started, the requirements are frozen</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Problems</div>
+<ul>
+<li class="level2"><div class="li"> Most systems require a set of basic facilities</div>
+<ul>
+<li class="level3"><div class="li"> It can be hard to identify common facilities that are needed by all increments</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Specification is developed in conjunction(결합) with the software</div>
+<ul>
+<li class="level3"><div class="li"> Procurement model of many organizations prohibit this.</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="extreme_programming_xp">Extreme Programming (XP)</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> development and delivery of very small increments(typically 1-2 weeks) of functionality</div>
+</li>
+<li class="level1"><div class="li"> Relies on</div>
+<ul>
+<li class="level2"><div class="li"> constant code improvement(refactoring)</div>
+</li>
+<li class="level2"><div class="li"> user involvement in the development team</div>
+</li>
+<li class="level2"><div class="li"> Pair-wise programming</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Enabled by</div>
+<ul>
+<li class="level2"><div class="li"> automated test framework</div>
+</li>
+<li class="level2"><div class="li"> continuous build</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT16 SECTION "2.3.2 Incremental delivery" [7793-8861] -->
+<h3 class="sectionedit17" id="boehm_s_spiral_model">2.3.3 Boehm&#039;s spiral model</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Process is represented as a spiral</div>
+<ul>
+<li class="level2"><div class="li"> rather than as a sequence of activities with backtracking</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Each loop is the spiral represents a phase in the process</div>
+</li>
+<li class="level1"><div class="li"> No fixed phases such as specification or design</div>
+<ul>
+<li class="level2"><div class="li"> loops in the spiral are chosen depending on what is required</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Risks are explicitly assessed and resolved throughout the process</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Spiral model sectors</div>
+<ul>
+<li class="level2"><div class="li"> Objective setting (목표설정)</div>
+<ul>
+<li class="level3"><div class="li"> Specific objectives for the phase are identified</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Risk assessment and reduction (리스크 측정과 해결)</div>
+<ul>
+<li class="level3"><div class="li"> Risks are assessed and activities put in place to reduce the key risks.</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Development and validation (개발과 확인)</div>
+<ul>
+<li class="level3"><div class="li"> A development model for the system is chosen which can be any of the generic models</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> Planning (다음 개발 계획)</div>
+<ul>
+<li class="level3"><div class="li"> The project is review and the next phase of the spiral is planned</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT17 SECTION "2.3.3 Boehm's spiral model" [8862-9776] -->
+<h2 class="sectionedit18" id="the_rational_unified_process_rup">2.4 The Rational Unified Process (RUP)</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> A modern process model derived from the work on the UML and associated process</div>
+</li>
+<li class="level1"><div class="li"> 객체지향 개발 방법론</div>
+</li>
+<li class="level1"><div class="li"> Brings together aspects of the 3 generic process models discussed previously</div>
+</li>
+<li class="level1"><div class="li"> Normarlly described from 3 perspectives</div>
+<ul>
+<li class="level2"><div class="li"> A dynamic perspective that shows phases over time</div>
+</li>
+<li class="level2"><div class="li"> A static perspective that shows process activities</div>
+</li>
+<li class="level2"><div class="li"> A practice perspective that suggest good practice</div>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> RUP good practice </div>
+<ul>
+<li class="level2"><div class="li"> 발견된 위험 요소를 원동력으로 반복적으로 개발하라.</div>
+<ul>
+<li class="level3"><div class="li"> Develop software iteratively</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 필수사항을 관리하라.</div>
+<ul>
+<li class="level3"><div class="li"> Manage requirements</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 컴포넌트 기반의 구조를 도입하라.</div>
+<ul>
+<li class="level3"><div class="li"> Use component-based architectures</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 소프트웨어를 시각화하라.</div>
+<ul>
+<li class="level3"><div class="li"> Visually model software</div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 품질을 지속적으로 확인하라.</div>
+<ul>
+<li class="level3"><div class="li"> Verify software quality </div>
+</li>
+</ul>
+</li>
+<li class="level2"><div class="li"> 변화를 통제하라.</div>
+<ul>
+<li class="level3"><div class="li"> Control changes to software</div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+===== 2.5 CASE (Computer-Aided Software Engineering)
+</p>
+<ul>
+<li class="level1"><div class="li"> Software systems that are intended to provide automated support for software process activities</div>
+</li>
+<li class="level1"><div class="li"> CASE systems are often used for method support</div>
+<ul>
+<li class="level2"><div class="li"> support the early process activities of requirements and design.</div>
+</li>
+<li class="level2"><div class="li"> support later activities such as programming, debugging and testing.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT18 SECTION "2.4 The Rational Unified Process (RUP)" [9777-11107] -->
+<h2 class="sectionedit19" id="process_improvement">2.6 Process improvement</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Software Process Improvement</div>
+<ul>
+<li class="level2"><div class="li"> To enhance the quality of software</div>
+</li>
+<li class="level2"><div class="li"> To reduce costs</div>
+</li>
+<li class="level2"><div class="li"> To accelerate development process</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Understanding existing processes and changing these processes</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT19 SECTION "2.6 Process improvement" [11108-11345] -->
+<h3 class="sectionedit20" id="process_improvement_activities">2.6.1 Process improvement activities</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> Process measurement</div>
+<ul>
+<li class="level2"><div class="li"> Measure one or more attributes of the software process or product</div>
+</li>
+<li class="level2"><div class="li"> These measurements forms a baseline</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Process analysis</div>
+<ul>
+<li class="level2"><div class="li"> Assessment of the current process</div>
+</li>
+<li class="level2"><div class="li"> Process models that describe the process may be developed</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Process change</div>
+<ul>
+<li class="level2"><div class="li"> Process changes and proposed to address some of the identified process weakness</div>
+</li>
+<li class="level2"><div class="li"> These are introduced and the cycle resumes to collect data about the effectiveness of the changes</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT20 SECTION "2.6.1 Process improvement activities" [11346-11865] -->
+<h3 class="sectionedit21" id="what_are_cmm_and_cmmi">2.6.2 What are CMM and CMMI?</h3>
+<div class="level3">
+<ul>
+<li class="level1"><div class="li"> CMM : Capability(능력) Maturity Model</div>
+</li>
+<li class="level1"><div class="li"> CMMI : Capability Maturity Model Integration</div>
+</li>
+<li class="level1"><div class="li"> Developed by the Software Engineering Institute (SEI) of the Carnegie Mellon University</div>
+</li>
+<li class="level1"><div class="li"> Process improvement training and appraisal program and service</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="what_is_cmm">What is CMM?</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Describing evolutionary improvement path for software organizatinos</div>
+<ul>
+<li class="level2"><div class="li"> from an ad hoc(임시 변통의), immature(미숙한) process to a mature, disciplined one.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Provide guidance</div>
+<ul>
+<li class="level2"><div class="li"> how to gain control of processes for developing and maintaining software</div>
+</li>
+<li class="level2"><div class="li"> how to evolve toward a culture of software engineering and management excellence. </div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+=== Process Maturity Concepts
+</p>
+<ul>
+<li class="level1"><div class="li"> Software Process</div>
+<ul>
+<li class="level2"><div class="li"> set of activities, methods, practices, and transformations that people use to develop and maintain software and the associated products</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Software Process Capability</div>
+<ul>
+<li class="level2"><div class="li"> describes the range of expected results that can be achieved by following a software process</div>
+</li>
+<li class="level2"><div class="li"> means of predicting the most likely outcomes to be expected from the next software project the organization undertakes</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h4 id="cmm_levels">CMM Levels</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> Level 1. Initial</div>
+<ul>
+<li class="level2"><div class="li"> Processes unpredictable, poorly controlled and reactive</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Level 2. Managed</div>
+<ul>
+<li class="level2"><div class="li"> Processes characterized for projects and is often reactive</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Levle 3. Defined</div>
+<ul>
+<li class="level2"><div class="li"> Processes characterized for the organization and is proactive</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Level 4. (Quantitiatively) Managed</div>
+<ul>
+<li class="level2"><div class="li"> Processes measured and controlled</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Level 5. Optimizing Focus on process improvement</div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="approaches_to_improvement">Approaches to improvement</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> The process maturity approach</div>
+<ul>
+<li class="level2"><div class="li"> Improving process and project management</div>
+</li>
+<li class="level2"><div class="li"> Introducing good software engineering practice</div>
+</li>
+<li class="level2"><div class="li"> Process maturity level reflects the extend to which good technical and management practice has been adopted in organizational software development processes</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> The agile approach</div>
+<ul>
+<li class="level2"><div class="li"> Iterative development and the reduction of overheads in the software process</div>
+</li>
+<li class="level2"><div class="li"> Rapid delivery of functionality and responsiveness to changing customer requirements</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+<!-- EDIT21 SECTION "2.6.2 What are CMM and CMMI?" [11866-] -->

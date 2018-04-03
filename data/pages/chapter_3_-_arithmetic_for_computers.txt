@@ -1,0 +1,13 @@
+  * Operations on integers
+    * Addition and subtraciton, Multiplication and division, Dealing with overflow
+  * Floating-point real numbers
+    * Representation and operations (float & double)
+  * Computer representations of numbers
+    * Finite range, precision, accuracy
+      * rounding control
+      * extra bits of precision (guard, round, sticky)
+      * choice of rounding modes (up, down, truncate, nearest even, away from 0)
+    * Need to account for this in programs
+  * Bits have no inherent meaning
+    * Interpretation depends on the instructions applied
+ 

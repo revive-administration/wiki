@@ -1,0 +1,5 @@
+  * [[http://www.rasplay.org/?p=72|라즈베리파이 서버 활용 강좌 : 아파치 웹서버 설치]]
+  * [[http://smile22.tistory.com/6|아파치 포트변경]]
+  * [[http://leanu.tistory.com/590|아파치 삭제하기]]
+  * [[http://cafe.naver.com/openrt/1597| MYSQL 및 PHPMYADMIN 설치]]
+  * [[http://giyatto.tistory.com/34| PHPMYADMIN 한글 패치]]

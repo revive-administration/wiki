@@ -1,0 +1,57 @@
+====== No Silver Bullet : Essence and Accident in Software Engineering ======
+===== Introduction =====
+We seek silver bullets which make software better. But there is no silver bullet. 
+===== Does It Have To Be Hard? - Essential Difficulties =====
+ * Anomaly(변칙) is not that software progress is so slow but that computer hardware progress is so fast. 
+ * to see what rate of progress we can expect in software technology, let us examine its difficulties. 
+
+The essence of a software entity is a construct of interlocking(맞물리게 하다) concepts: data sets, relationships among data items, algorithms, and invocations of functions. The hard part of building software is the specification, design and testing of this conceptual construct. building software is always hard. so there is no silver bullet. 
+
+irreducible essence of modern software systems : complexity, conformity, changeability, invisibility
+
+==== Complexity ===
+Software systems differ profoundly from computers, buildings, or automobiels, where repeated elements abound. the complexity of software is in essential property, not an accidental one, hence descriptions of a software entity that abstract away its complexity often abstract away its essence. Many of the classical problems of developing software products derived from this essential complexity and its nonlinear increased with size. 
+
+==== Conformity ====
+Softwared is different because they were designed by different people. this cannot be simplified out by any redesigin of the software alone.
+
+==== Changeability ====
+Software change is frequent. All changes continually, this fact force our software product change. 
+
+==== Invisibility ====
+In spite of progress in restricting and simplifying the structure of software, they remain inherently unvisualizable, thus depriving the mind of some of its most powerful conceptual tools. This lack not only impedes the process of design within one mind, it severely hinders communication among minds.
+
+===== Past Breakthroughs Solved Accidental Difficulties =====
+==== High-level languages ====
+productivity-high, be more simple
+==== Time-sharing ====
+Time-sharing preserves immedicacy.
+==== Unified programming environments ====
+this stimulated the development of whole toolbenches, since each new tools could be applied to any programs by using the standard formats.
+
+===== Hopes for the Silver =====
+==== Ada and other high-level language advances ====
+Ada indeed not only reflects evolutionary improvements in language concepts but embodies features to encourage modren design and modularization concepts. 
+
+==== Object-oriented programming ====
+abstract data types / hierarchical types(class) \\
+Adt is that an object's type should be defined by a name, a set of proper values, and a set of proper operations, rather than its storage structure. \\
+Hierarchical types, allow the definition of general interfaces that can be further refined by providing subordinate types. Both concepts represent real advances in the art of building software.
+
+But, the complexity of the design itself is essential: and such attacks make no change whatever in that.
+
+==== Artificial intelligence ====
+==== Expert systems ====
+An expert system is a program containing a generalized inference engine(추론) and a rule base, designed to take input data and assumptions and explore the logical consequences through the inferences derivable from the rule base, yielding conclusions and advice, and offering to explain its results by retracing its reasoning for the user.
+
+==== "Automatic" programming ====
+==== Graphical programming ====
+==== Program verification ====
+Much of the effort in modern programming goes into the testing and repair bugs. Verifications save labor. It does not mean error-proof programs. but it reduce the program-testing load, not eliminate it.
+
+==== Environments and tools ====
+Its biggest gain is the use of integrated database systems to keep track of the myriads of details that must be recalled accurately by the individual programmer and kept current in a group of collaborators on a single system.
+
+===== Promising Attacks on the Conceptual Essence =====
+==== Buy versus build ====
+==== Requirements refinement and rapid prototyping ====

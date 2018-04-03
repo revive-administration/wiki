@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="FeedCreator 1.7.2-ppt DokuWiki" -->
+<?xml-stylesheet href="http://minus-one.co.kr/dokuwiki/lib/exe/css.php?s=feed" type="text/css"?>
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://minus-one.co.kr/dokuwiki/feed.php">
+        <title>프로젝트 위키</title>
+        <description></description>
+        <link>http://minus-one.co.kr/dokuwiki/</link>
+        <image rdf:resource="http://minus-one.co.kr/dokuwiki/lib/tpl/dokuwiki/images/favicon.ico" />
+       <dc:date>2016-08-29T10:54:37+09:00</dc:date>
+        <items>
+            <rdf:Seq>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%95%84%EB%8B%88%EC%8A%A4_%ED%8E%A0%EC%A0%A4-%EC%8A%88%ED%83%80%EC%9D%B4%EA%B1%B0&amp;rev=1465993389&amp;do=diff"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?id=%EA%B0%9C%EC%9D%B8%EB%B3%84_%EC%9E%91%EC%97%85_%EA%B4%80%EB%A6%AC_%EB%AC%B8%EC%84%9C&amp;rev=1465029679&amp;do=diff"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%B5%9C%ED%95%98%EC%A7%84&amp;rev=1464480597&amp;do=diff"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%95%A0%EB%93%9C%EB%AF%B8%EB%9F%B4%ED%8B%B0&amp;rev=1464355598&amp;do=diff"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%A7%80%EC%97%AD&amp;rev=1464355357&amp;do=diff"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=2.shenzhen.png&amp;ns=&amp;rev=1464355174&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=victoriaharbor2.jpg&amp;ns=&amp;rev=1464353666&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=victoriaharbor.jpg&amp;ns=&amp;rev=1464353641&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=repulse_bay_004.jpg&amp;ns=&amp;rev=1464353488&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=1.5.4.5-repulse-bay-beach_03.jpg&amp;ns=&amp;rev=1464353472&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=1.hongkong.png&amp;ns=&amp;rev=1464353323&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=%EA%B7%B8%EB%A6%BC1.png&amp;ns=&amp;rev=1464352854&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20160304_112506788.png&amp;ns=&amp;rev=1457058561&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20140902_142748988.jpg&amp;ns=&amp;rev=1409635795&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=4-4_prototype_diagram.jpg&amp;ns=&amp;rev=1405930017&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=993032_xe_flowchart.jpg&amp;ns=&amp;rev=1405567445&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+                <rdf:li rdf:resource="http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20140707_234357406.jpg&amp;ns=&amp;rev=1404744339&amp;tab_details=history&amp;mediado=diff&amp;do=media"/>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="http://minus-one.co.kr/dokuwiki/lib/tpl/dokuwiki/images/favicon.ico">
+        <title>프로젝트 위키</title>
+        <link>http://minus-one.co.kr/dokuwiki/</link>
+        <url>http://minus-one.co.kr/dokuwiki/lib/tpl/dokuwiki/images/favicon.ico</url>
+    </image>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%95%84%EB%8B%88%EC%8A%A4_%ED%8E%A0%EC%A0%A4-%EC%8A%88%ED%83%80%EC%9D%B4%EA%B1%B0&amp;rev=1465993389&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-06-15T21:23:09+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>아니스 펠젤-슈타이거</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%95%84%EB%8B%88%EC%8A%A4_%ED%8E%A0%EC%A0%A4-%EC%8A%88%ED%83%80%EC%9D%B4%EA%B1%B0&amp;rev=1465993389&amp;do=diff</link>
+        <description>1. 기본 정보
+  아니스    기본 정보    이름    TEXT    본명    TEXT    영어이름    TEXT    영어본명    TEXT    성별    TEXT    나이    TEXT    국적    TEXT    인종    TEXT    소속    TEXT    직함    TEXT    역할    TEXT    주 무기    TEXT    종교    TEXT    인식번호    ASU-417-007    외형 정보    키    TEXT    몸무게    TEXT    머리카락 색    TEXT    눈동자 색    TEXT    피부 색    TEXT        TEXT    기타 정보    성격    TEXT    가치관    TEXT    좋아하는 것    TEXT    싫어하는 것    TEXT    좋아하는 음식    TEXT    싫어하는 음식    TEXT    취미    TEXT    특기    TEXT    외형묘사        성격        …</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?id=%EA%B0%9C%EC%9D%B8%EB%B3%84_%EC%9E%91%EC%97%85_%EA%B4%80%EB%A6%AC_%EB%AC%B8%EC%84%9C&amp;rev=1465029679&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-06-04T17:41:19+09:00</dc:date>
+        <dc:creator>dbstn003</dc:creator>
+        <title>개인별 작업 관리 문서 - [dbstn003] </title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?id=%EA%B0%9C%EC%9D%B8%EB%B3%84_%EC%9E%91%EC%97%85_%EA%B4%80%EB%A6%AC_%EB%AC%B8%EC%84%9C&amp;rev=1465029679&amp;do=diff</link>
+        <description>*  작업 현황은 매주 화요일마다, 직접 작성해주시기 바랍니다.
+	*  작업이 완료되면 확인 과정을 거치고, 컨펌 이후에 새 작업을 할당합니다.
+
+----------
+
+xzvfinet
+  작업 이름    목표 날짜    완성 날짜    #2 스킬 기능 구현    5월 29일    0    작업 상세    드디어 노가다의 성지인 스킬을 구현할 때가 되었다. 완전한 컨테츠가 없으므로 최대한 general하게 분류하여 구현해보자.    작업 현황    1주차…</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%B5%9C%ED%95%98%EC%A7%84&amp;rev=1464480597&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-29T09:09:57+09:00</dc:date>
+        <dc:creator>xzvfinet</dc:creator>
+        <title>최하진</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%B5%9C%ED%95%98%EC%A7%84&amp;rev=1464480597&amp;do=diff</link>
+        <description>작업 이름    목표 날짜    완성 날짜    Battle 마이그레이션    5월 3일    0    작업 상세    옛날 UniverseProject에 구현되어 있던 Battle 수준만큼 구현(스킬 등은 제외)    작업 현황    1주차    기간이 얼마 되지 않아 변동사항이 없음.    2주차    완료     작업 이름    목표 날짜    완성 날짜    Widget에서 원형 버튼 만들기    5월 3일    0    작업 상세    T241 원형 버튼 및 원형 프로그레스 바의 제작
+위젯에서는 원형 버튼이 만들어지지 않는다. 그러므로 따로 로직을 만들어서 제작해야 함. 이를 위한 원형 버튼의 틀을 만든다.    작업 현황    1주차    완료     작업 이름    목표 날짜    완성 날짜    이동 시스템 제작    5월 3일    0    작업 상세    제작된 UI에 맞춰서 시스템을 만들고 구현한다.    작업 현황    1주차    Velmont to Xzvfi…</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%95%A0%EB%93%9C%EB%AF%B8%EB%9F%B4%ED%8B%B0&amp;rev=1464355598&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T22:26:38+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>애드미럴티 - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%95%A0%EB%93%9C%EB%AF%B8%EB%9F%B4%ED%8B%B0&amp;rev=1464355598&amp;do=diff</link>
+        <description>홍콩의 번화가.
+
+홍콩 경시청 주재지이다.</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%A7%80%EC%97%AD&amp;rev=1464355357&amp;do=diff">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T22:22:37+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>지역</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%A7%80%EC%97%AD&amp;rev=1464355357&amp;do=diff</link>
+        <description>1. 홍콩
+
+
+
+홍콩은 LISA의 캐릭터들이 활약하는 주 무대이다. 전투가 일어나는 지역이기보다는, 대체로 스토리의 진행이 이루어지는 곳이다.
+
+	*  ASU 본사
+	*  빅토리아 항
+	*  애드미럴티
+	*  리펄스 베이
+	*  국제공항
+	*  대모산</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=2.shenzhen.png&amp;ns=&amp;rev=1464355174&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T22:19:34+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>2.shenzhen.png - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=2.shenzhen.png&amp;ns=&amp;rev=1464355174&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=295&amp;t=1464355174&amp;amp;tok=abfd75&amp;amp;media=2.shenzhen.png&quot; alt=&quot;2.shenzhen.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=victoriaharbor2.jpg&amp;ns=&amp;rev=1464353666&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T21:54:26+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>victoriaharbor2.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=victoriaharbor2.jpg&amp;ns=&amp;rev=1464353666&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=333&amp;t=1464353666&amp;amp;tok=a8e933&amp;amp;media=victoriaharbor2.jpg&quot; alt=&quot;victoriaharbor2.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=victoriaharbor.jpg&amp;ns=&amp;rev=1464353641&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T21:54:01+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>victoriaharbor.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=victoriaharbor.jpg&amp;ns=&amp;rev=1464353641&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=332&amp;t=1464353641&amp;amp;tok=5a301e&amp;amp;media=victoriaharbor.jpg&quot; alt=&quot;victoriaharbor.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=repulse_bay_004.jpg&amp;ns=&amp;rev=1464353488&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T21:51:28+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>repulse_bay_004.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=repulse_bay_004.jpg&amp;ns=&amp;rev=1464353488&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=334&amp;t=1464353488&amp;amp;tok=778165&amp;amp;media=repulse_bay_004.jpg&quot; alt=&quot;repulse_bay_004.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=1.5.4.5-repulse-bay-beach_03.jpg&amp;ns=&amp;rev=1464353472&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T21:51:12+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>1.5.4.5-repulse-bay-beach_03.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=1.5.4.5-repulse-bay-beach_03.jpg&amp;ns=&amp;rev=1464353472&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=250&amp;t=1464353472&amp;amp;tok=d009fd&amp;amp;media=1.5.4.5-repulse-bay-beach_03.jpg&quot; alt=&quot;1.5.4.5-repulse-bay-beach_03.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=1.hongkong.png&amp;ns=&amp;rev=1464353323&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T21:48:43+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>1.hongkong.png - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=1.hongkong.png&amp;ns=&amp;rev=1464353323&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=318&amp;t=1464353323&amp;amp;tok=cca23c&amp;amp;media=1.hongkong.png&quot; alt=&quot;1.hongkong.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=%EA%B7%B8%EB%A6%BC1.png&amp;ns=&amp;rev=1464352854&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-05-27T21:40:54+09:00</dc:date>
+        <dc:creator>soyagok11</dc:creator>
+        <title>그림1.png - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=%EA%B7%B8%EB%A6%BC1.png&amp;ns=&amp;rev=1464352854&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=317&amp;t=1464352854&amp;amp;tok=6227ad&amp;amp;media=%EA%B7%B8%EB%A6%BC1.png&quot; alt=&quot;그림1.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20160304_112506788.png&amp;ns=&amp;rev=1457058561&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2016-03-04T11:29:21+09:00</dc:date>
+        <dc:creator>velmont</dc:creator>
+        <title>kakaotalk_20160304_112506788.png - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20160304_112506788.png&amp;ns=&amp;rev=1457058561&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=163&amp;t=1457058561&amp;amp;tok=01eab3&amp;amp;media=kakaotalk_20160304_112506788.png&quot; alt=&quot;kakaotalk_20160304_112506788.png&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20140902_142748988.jpg&amp;ns=&amp;rev=1409635795&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2014-09-02T14:29:55+09:00</dc:date>
+        <dc:creator>velmont</dc:creator>
+        <title>kakaotalk_20140902_142748988.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20140902_142748988.jpg&amp;ns=&amp;rev=1409635795&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=152&amp;t=1409635795&amp;amp;tok=4ee59b&amp;amp;media=kakaotalk_20140902_142748988.jpg&quot; alt=&quot;kakaotalk_20140902_142748988.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=4-4_prototype_diagram.jpg&amp;ns=&amp;rev=1405930017&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2014-07-21T17:06:57+09:00</dc:date>
+        <dc:creator>velmont</dc:creator>
+        <title>4-4_prototype_diagram.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=4-4_prototype_diagram.jpg&amp;ns=&amp;rev=1405930017&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=433&amp;h=500&amp;t=1405930017&amp;amp;tok=ec50c9&amp;amp;media=4-4_prototype_diagram.jpg&quot; alt=&quot;4-4_prototype_diagram.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=993032_xe_flowchart.jpg&amp;ns=&amp;rev=1405567445&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2014-07-17T12:24:05+09:00</dc:date>
+        <dc:creator>velmont</dc:creator>
+        <title>993032_xe_flowchart.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=993032_xe_flowchart.jpg&amp;ns=&amp;rev=1405567445&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=310&amp;h=500&amp;t=1405567445&amp;amp;tok=276b4b&amp;amp;media=993032_xe_flowchart.jpg&quot; alt=&quot;993032_xe_flowchart.jpg&quot; /&gt;</description>
+    </item>
+    <item rdf:about="http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20140707_234357406.jpg&amp;ns=&amp;rev=1404744339&amp;tab_details=history&amp;mediado=diff&amp;do=media">
+        <dc:format>text/html</dc:format>
+        <dc:date>2014-07-07T23:45:39+09:00</dc:date>
+        <dc:creator>velmont</dc:creator>
+        <title>kakaotalk_20140707_234357406.jpg - 만듦</title>
+        <link>http://minus-one.co.kr/dokuwiki/doku.php?image=kakaotalk_20140707_234357406.jpg&amp;ns=&amp;rev=1404744339&amp;tab_details=history&amp;mediado=diff&amp;do=media</link>
+        <description>&lt;img src=&quot;http://minus-one.co.kr/dokuwiki/lib/exe/fetch.php?w=500&amp;h=300&amp;t=1404744339&amp;amp;tok=04b24c&amp;amp;media=kakaotalk_20140707_234357406.jpg&quot; alt=&quot;kakaotalk_20140707_234357406.jpg&quot; /&gt;</description>
+    </item>
+</rdf:RDF>

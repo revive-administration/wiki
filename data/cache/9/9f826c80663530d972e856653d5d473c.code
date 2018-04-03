@@ -1,0 +1,3 @@
+<span class="kw1">def</span> <span class="kw4">Math</span>.<span class="me1">square</span><span class="br0">&#40;</span>x<span class="br0">&#41;</span>
+  x<span class="sy0">*</span>x
+<span class="kw1">end</span>

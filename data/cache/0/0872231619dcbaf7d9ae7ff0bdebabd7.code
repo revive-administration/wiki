@@ -1,0 +1,66 @@
+<span class="kw1">import</span> <span class="co2">java.sql.*</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.io.*</span><span class="sy0">;</span>
+<span class="kw1">import</span> <span class="co2">java.util.Vector</span><span class="sy0">;</span>
+&nbsp;
+<span class="kw1">public</span> <span class="kw1">class</span> ExpensiveDatabase<span class="br0">&#123;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+connection"><span class="kw3">Connection</span></a> conn<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+statement"><span class="kw3">Statement</span></a> stmt<span class="sy0">;</span>
+	<span class="kw1">private</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+resultset"><span class="kw3">ResultSet</span></a> rset<span class="sy0">;</span>
+&nbsp;
+	<span class="kw4">int</span> _default <span class="sy0">=</span> <span class="nu0">0</span>, age<span class="sy0">=</span><span class="nu0">1</span>, name<span class="sy0">=</span><span class="nu0">2</span><span class="sy0">;</span> tel<span class="sy0">=</span><span class="nu0">3</span><span class="sy0">;</span>
+&nbsp;
+	<span class="kw1">public</span> ExpensiveDatabase<span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> sever<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			<span class="kw1">Class</span>.<span class="me1">forName</span><span class="br0">&#40;</span><span class="st0">&quot;org.gjt.mm.mysql.Driver&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> url <span class="sy0">=</span> <span class="st0">&quot;jdbc:mysql://localhost:3306/text&quot;</span><span class="sy0">;</span>
+			con <span class="sy0">=</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+drivermanager"><span class="kw3">DriverManager</span></a>.<span class="me1">getConnection</span><span class="br0">&#40;</span>url, <span class="st0">&quot;root&quot;</span>, <span class="st0">&quot;ekdrmfl67&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			stmt <span class="sy0">=</span> con.<span class="me1">createStatement</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+classnotfoundexception"><span class="kw3">ClassNotFoundException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+sqlexception"><span class="kw3">SQLException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+&nbsp;
+	<span class="kw1">public</span> Address<span class="br0">&#91;</span><span class="br0">&#93;</span> getAllAddress<span class="br0">&#40;</span><span class="kw4">int</span> mode<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> query <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+&nbsp;
+		<span class="co1">//정렬 방식에 따라 호출되는 쿼리를 달리한다.</span>
+		<span class="kw1">if</span><span class="br0">&#40;</span>mode <span class="sy0">==</span> _drefault<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			query <span class="sy0">=</span> <span class="st0">&quot;select * from address&quot;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span>mode <span class="sy0">==</span> age<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			query <span class="sy0">=</span> <span class="st0">&quot;select * from address order by ssn&quot;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span>mode <span class="sy0">==</span> name<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			query <span class="sy0">=</span> <span class="st0">&quot;select * from address order by name&quot;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">else</span> <span class="kw1">if</span><span class="br0">&#40;</span>mode <span class="sy0">==</span> tel<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			query <span class="sy0">=</span> <span class="st0">&quot;select * from address order by tel&quot;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			rset <span class="sy0">=</span> stmt.<span class="me1">executeQuery</span><span class="br0">&#40;</span>query<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+sqlexception"><span class="kw3">SQLException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+vector"><span class="kw3">Vector</span></a> v <span class="sy0">=</span> <span class="kw1">new</span> <a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+vector"><span class="kw3">Vector</span></a><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			<span class="kw1">while</span><span class="br0">&#40;</span>rset.<span class="me1">next</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+				<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> ssn  <span class="sy0">=</span> rset.<span class="me1">getString</span><span class="br0">&#40;</span><span class="st0">&quot;ssn&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> name <span class="sy0">=</span> rset.<span class="me1">getString</span><span class="br0">&#40;</span><span class="st0">&quot;name&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> tel <span class="sy0">=</span> rset.<span class="me1">getString</span><span class="br0">&#40;</span><span class="st0">&quot;tel&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+string"><span class="kw3">String</span></a> address <span class="sy0">=</span> rset.<span class="me1">getString</span><span class="br0">&#40;</span><span class="st0">&quot;address&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				<span class="kw4">int</span> gender <span class="sy0">=</span> rset.<span class="me1">getInt</span><span class="br0">&#40;</span><span class="st0">&quot;gender&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				Address _address <span class="sy0">=</span> <span class="kw1">new</span> Address<span class="br0">&#40;</span>ssn, name, tel, address, gender<span class="br0">&#41;</span><span class="sy0">;</span>
+				v.<span class="me1">addElement</span><span class="br0">&#40;</span>_address<span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+sqlexception"><span class="kw3">SQLException</span></a> e<span class="br0">&#41;</span><span class="br0">&#123;</span>
+				<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+system"><span class="kw3">System</span></a>.<span class="me1">out</span>.<span class="me1">println</span><span class="br0">&#40;</span><span class="st0">&quot;can't reference that&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				e.<span class="me1">printStackTrace</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="br0">&#125;</span>
+&nbsp;
+			Address addresses<span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="kw1">new</span> Address<span class="br0">&#91;</span>v.<span class="me1">size</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#93;</span><span class="sy0">;</span>
+			v.<span class="me1">copyInto</span><span class="br0">&#40;</span>addresses<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+			<span class="kw1">return</span> addresses<span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

@@ -1,0 +1,25 @@
+
+<h1 class="sectionedit1" id="스킬_구조">스킬 구조</h1>
+<div class="level1">
+
+<p>
+<a href="/dokuwiki/lib/exe/detail.php?id=%EC%8A%A4%ED%82%AC_%EA%B5%AC%EC%A1%B0&amp;media=%EC%8A%A4%ED%82%AC_%EA%B5%AC%EC%A1%B0.png" class="media" title="스킬_구조.png"><img src="/dokuwiki/lib/exe/fetch.php?w=500&amp;tok=eec37a&amp;media=%EC%8A%A4%ED%82%AC_%EA%B5%AC%EC%A1%B0.png" class="media" alt="" width="500" /></a>
+</p>
+<pre class="code">- Skill은 효과를 적용시킬 그룹의 개수만큼 EffectSet을 가진다.
+- PassiveSkill은 추가적으로 여러 개의 Condition도 가진다.
+- EffectSet은 그룹에게 적용시킬 여러 개의 Effect와 Condition을 가진다. 모든 Condition을 만족해야 사용할 Effect가 결정된다.
+- Effect는 효과 내용 및 수치와 Condition을 가진다. 모든 Condition을 만족해야 최종적으로 이 Effect가 적용된다.</pre>
+
+<p>
+예시
+</p>
+<pre class="code">- 랜덤한 적군 1명에게 1000의 대미지로 공격하고 10초간 출혈을 걸며, 자신의 Hp를 50 회복시킨다.
+  - &#039;랜덤한 적군 1명&#039;과 &#039;자신&#039;이라는 2개의 그룹이 존재하므로 2개의 EffectSet을 가짐.
+  - &#039;랜덤한 적군 1명&#039;을 지정한 EffectSet은 &#039;1000의 대미지를 입힘&#039;과 &#039;10초간 출혈&#039;이라는 Effect를 가짐.
+  - &#039;자신&#039;을 지정한 EffectSet은 &#039;Hp 50 회복&#039;이라는 Effect를 가짐.</pre>
+<pre class="code">- 체력이 가장 낮은 아군 1명의 체력을 100 회복시키고 10초간 방어력 증가(+100)를 걸며, 대상의 체력이 30% 이하라면 Hp를 추가로 50 회복시킨다.
+  - &#039;체력이 가장 낮은 아군 1명&#039;이라는 1개의 그룹이 존재하므로 1개의 EffectSet을 가짐.
+  - EffectSet은 &#039;체력 100 회복&#039;, &#039;10초간 방어력 100 증가 버프&#039;, &#039;체력 50 회복&#039;이라는 Effect를 가짐.
+  - &#039;체력 50 회복&#039;이라는 Effect는 &#039;대상의 체력이 30% 이하&#039;라는 Condition을 가짐.</pre>
+
+</div>

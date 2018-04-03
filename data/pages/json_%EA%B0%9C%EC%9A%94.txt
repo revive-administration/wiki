@@ -1,0 +1,17 @@
+====== JSON 개요 ======
+JSON(JavaScript Object Notation)은 경량의 DATA-교환 형식이다. 이 형식은 사람이 읽고 쓰기에 용이하며, 기계가 분석하고 생성함에도 용이하다. JSON은 완벽하게 언어로부터 독립적이지만 다수의 프로그래머들에게 친숙한 관습을 사용하는 텍스트 형식이다. 이러한 속성들이 JSON을 이상적인 DATA-교환 언어로 만들고 있다.
+
+JSON은 두개의 구조를 기본으로 두고 있다.
+  * name/value 형태의 쌍으로 collection 타입. 다양한 언어들에서 이는 object, record, struct(구조체), dictionary, hash table, 키가 있는 list, 또는 연상배열로서 실현 되었다.
+  * 값들의 순서화된 리스트, 대부분의 언어들에서 이는 array, vector, list, 또는 sequence로서 실현되었다.
+
+이러한 것들은 보편적인 DATA 구조이다. 사실상 모든 현대의 프로그래밍 언어들은 어떠한 형태로든 이것들을 지원한다. 
+
+JSON에서, 이러한 형식들을 취한다.
+
+**object**는 name/value 쌍들의 비순서화된 SET이다. object는 '{' 로 시작하고 '}'로 끝내어 표현한다. 각 name 뒤에 ':' 을 붙이고 ','로 name/value 쌍들 간을 구분한다.
+
+**array**는 값들의 순서화된 collection이다. array는 '['로 시작해서 ']'로 끝내어 표현한다. ','로 array의 값들을 구분한다.
+
+**value**는 큰따옴표 안에 string, number, true, false, null, object, array이 올 수 있다. 
+

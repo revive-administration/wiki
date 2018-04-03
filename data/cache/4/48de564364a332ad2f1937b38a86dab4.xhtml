@@ -1,0 +1,64 @@
+
+<h2 class="sectionedit1" id="전투_흐름">전투 흐름</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT1 SECTION "전투 흐름" [1-25] -->
+<h3 class="sectionedit2" id="시퀀스">시퀀스</h3>
+<div class="level3">
+<pre class="code">- 전투 진입 시 등장할 적군의 부대 개수를 의미.
+- 전투는 최대 3개의 시퀀스로 이루어져 있다.
+- 하나의 시퀀스마다 최대 5명의 적군이 등장한다.
+- 모든 적군을 처치하면 해당 시퀀스가 종료되며 다음 시퀀스로 넘어간다.
+- 모든 시퀀스가 종료되면 보상을 받으며 전투가 종료된다.</pre>
+
+</div>
+<!-- EDIT2 SECTION "시퀀스" [26-430] -->
+<h3 class="sectionedit3" id="행동_게이지">행동 게이지</h3>
+<div class="level3">
+<pre class="code">- 전투는 실시간 턴제방식으로 진행.
+- 바디마다 행동 게이지가 존재하며 시간이 흐름에 따라 증가.
+- 행동 게이지의 최대량은 현재 무기의 ReloadTime에 비례.
+- 행동 게이지가 꽉 차면 재장전(현재 탄알수를 무기의 Magazine만큼 충전).</pre>
+
+</div>
+<!-- EDIT3 SECTION "행동 게이지" [431-774] -->
+<h3 class="sectionedit4" id="일반_공격">일반 공격</h3>
+<div class="level3">
+<pre class="code">- 현재 탄알수가 남아있으면 대상 지정 확률에 따라 무작위로 적군 1명에게 일반 공격을 가함.
+- 일반 공격은 무기의 AttackCount만큼 탄환 발사하는 것을 의미.
+- 탄환의 속도는 BulletSpeed에 비례.
+- 탄환과 탄환 사이에는 BulletInterval(초)만큼 대기.
+- 일반 공격을 가하고도 현재 탄알수가 남아있으면 TrigerInterval(초)만큼 대기 후 다시 일반 공격을 가함.
+- 현재 탄알수보다 AttackCount가 더 큰 경우, 현재 탄알수만큼만 탄환 발사.</pre>
+
+</div>
+<!-- EDIT4 SECTION "일반 공격" [775-1364] -->
+<h3 class="sectionedit5" id="스킬_게이지">스킬 게이지</h3>
+<div class="level3">
+<pre class="code">- 바디마다 스킬 게이지가 존재하며 시간이 흐름에 따라 증가.
+- 일반 공격, 피격 시에도 소량 증가.
+- 스킬 게이지의 최대치는 100.
+- 스킬 게이지가 꽉 차면 스킬 발동 타입에 따라 발동 시점 판단해서 발동.</pre>
+
+</div>
+<!-- EDIT5 SECTION "스킬 게이지" [1365-1676] -->
+<h3 class="sectionedit6" id="스킬_발동_시점">스킬 발동 시점</h3>
+<div class="level3">
+<pre class="code">1. 일반 공격 and 리로딩이 취소되고 발동.
+2. 일반 공격은 일시 정지 and 리로딩은 취소되고 발동.
+3. 일반 공격 and 리로딩이 일시 정지되고 발동.
+4. 일반 공격 중에는 발동하지 않고 기본 공격이 끝난 시점에 스킬 게이지가 꽉 차있으면 리로딩대신 발동.
+4-1. 리로딩 중에는 리로딩이 취소되고 발동.
+4-2. 리로딩 중에는 리로딩이 일시정지되고 발동.
+4-3. 리로딩 중에는 발동하지 않음.</pre>
+
+</div>
+<!-- EDIT6 SECTION "스킬 발동 시점" [1677-2222] -->
+<h3 class="sectionedit7" id="스킬_발동">스킬 발동</h3>
+<div class="level3">
+<pre class="code">- 바디가 전방에 위치한 경우 프론트 스킬 발동.
+- 바디가 후방에 위차한 경우 백 스킬 발동.</pre>
+
+</div>
+<!-- EDIT7 SECTION "스킬 발동" [2223-] -->

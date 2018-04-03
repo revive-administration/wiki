@@ -1,0 +1,54 @@
+
+<h1 class="sectionedit1" id="chapter_6_http_모듈">Chapter 6 http 모듈</h1>
+<div class="level1">
+
+<p>
+http 모듈은 Node.js에서 가장 기본적인 웹 모듈이며 Node.js에서 HTTP 웹 서버를 생성하는 것과 관련된 모든 기능을 담당합니다. 이 장에서는 HTTP 모듈을 사용해 HTTP 웹 서버를 생성하는 방법을 공부합니다. 
+</p>
+
+</div>
+<!-- EDIT1 SECTION "Chapter 6 http 모듈" [1-302] -->
+<h2 class="sectionedit2" id="요청과_응답">6.1 요청과 응답</h2>
+<div class="level2">
+
+<p>
+요청 메시지를 사용해야 사용자에게 적절한 페이지를 제공할 수 있습니다. 또한 응답 메시지를 사용하면 쿠키를 저장하거나 추출할 수 있고 강제적으로 페이지를 이동할 수도 있습니다. 
+</p>
+
+</div>
+<!-- EDIT2 SECTION "6.1 요청과 응답" [303-584] -->
+<h2 class="sectionedit3" id="server_객체">6.2 server 객체</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT3 SECTION "6.2 server 객체" [585-614] -->
+<h2 class="sectionedit4" id="response_객체">6.3 response 객체</h2>
+<div class="level2">
+
+<p>
+웹 브라우저가 요청 메시지를 전달했지만 웹 서버가 응답 메시지를 전달하지 않았으므로 웹 브라우저는 응답을 기다리는 상태가 된다. 클라이언트에게 웹 페이지를 제공하려면 응답 메시지를 작성해야 한다. 응답 메시지를 작성할 떄는 response 객체를 작성해야 한다. response 객체는 request 이벤트 핸들러의 두 번째 매개 변수로 전달되는 객체이다. response 객체는 아래 메서드를 갖는다
+</p>
+<ul>
+<li class="level1"><div class="li"> writeHead(statusCode, object) 응답 헤더를 작성한다.</div>
+</li>
+<li class="level1"><div class="li"> end([data],[encoding]) : 응답 본문을 작성한다.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT4 SECTION "6.3 response 객체" [615-1280] -->
+<h3 class="sectionedit5" id="file_system_모듈을_사용한_html_페이지_제공">6.3.1 File System 모듈을 사용한 HTML 페이지 제공</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT5 SECTION "6.3.1 File System 모듈을 사용한 HTML 페이지 제공" [1281-1350] -->
+<h2 class="sectionedit6" id="request_객체">6.4 request 객체</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT6 SECTION "6.4 request 객체" [1351-1381] -->
+<h3 class="sectionedit7" id="method_속성을_사용한_페이지_구분">6.4.2 method 속성을 사용한 페이지 구분</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT7 SECTION "6.4.2 method 속성을 사용한 페이지 구분" [1382-] -->

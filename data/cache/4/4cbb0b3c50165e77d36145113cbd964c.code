@@ -1,0 +1,29 @@
+<span class="kw1">public</span> <span class="kw1">class</span> ReadArticleService<span class="br0">&#123;</span>
+	<span class="kw1">public</span> Article read<span class="br0">&#40;</span><span class="kw4">int</span> articleId<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+connection"><span class="kw3">Connection</span></a> conn <span class="sy0">=</span> <span class="kw2">null</span><span class="sy0">;</span>
+		<span class="kw1">try</span><span class="br0">&#123;</span>
+			conn <span class="sy0">=</span> ...<span class="co1">// Connection 구함</span>
+			conn.<span class="me1">setAutoCommit</span><span class="br0">&#40;</span><span class="kw2">false</span><span class="br0">&#41;</span><span class="sy0">;</span> <span class="co1">//트랜잭션 시작</span>
+&nbsp;
+			<span class="co1">//기능을 구현하는 데 필요한 DAO를 구한다.</span>
+			ArticleDao articleDao <span class="sy0">=</span> ArticleDaoProvider.<span class="me1">getInstance</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">getDao</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="kw1">if</span><span class="br0">&#40;</span>article <span class="sy0">==</span> <span class="kw2">null</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+				<span class="kw1">throw</span> <span class="kw1">new</span> ArticleNotFoundException<span class="br0">&#40;</span>articleId<span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="br0">&#125;</span>
+			article.<span class="me1">increaseReadCount</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			articleDao.<span class="me1">updateReadCount</span><span class="br0">&#40;</span>conn, article<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+			conn.<span class="me1">commit</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="kw1">return</span> article<span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span>ArticleNotFoundException ex<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			JdbcUtil.<span class="me1">rollback</span><span class="br0">&#40;</span>conn<span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="kw1">throw</span> ex<span class="sy0">;</span>
+		<span class="br0">&#125;</span><span class="kw1">catch</span><span class="br0">&#40;</span><a href="http://www.google.com/search?hl=en&amp;q=allinurl%3Adocs.oracle.com+javase+docs+api+sqlexception"><span class="kw3">SQLException</span></a> ex<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			JdbcUtil.<span class="me1">rollback</span><span class="br0">&#40;</span>conn<span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="kw1">throw</span> <span class="kw1">new</span> ArticleServiceException<span class="br0">&#40;</span><span class="st0">&quot;에러 발생 : &quot;</span><span class="sy0">+</span>ex.<span class="me1">getMessage</span><span class="br0">&#40;</span><span class="br0">&#41;</span>, ex<span class="br0">&#41;</span><span class="sy0">;</span>
+&nbsp;
+		<span class="br0">&#125;</span><span class="kw1">finally</span><span class="br0">&#123;</span>
+			JdbcUtil.<span class="me1">close</span><span class="br0">&#40;</span>conn<span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+	<span class="br0">&#125;</span>
+<span class="br0">&#125;</span>

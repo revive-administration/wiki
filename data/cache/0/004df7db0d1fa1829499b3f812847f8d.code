@@ -1,0 +1,48 @@
+<span class="kw4">static</span> <span class="kw4">int</span>
+deliverSWP<span class="br0">&#40;</span>SwpState state<span class="sy0">,</span> Msg <span class="sy0">*</span>frame<span class="br0">&#41;</span><span class="br0">&#123;</span>
+	SwpHdr hdr<span class="sy0">;</span>
+	<span class="kw4">char</span> <span class="sy0">*</span>hbuf<span class="sy0">;</span>
+&nbsp;
+	hbuf <span class="sy0">=</span> msgStripHdr<span class="br0">&#40;</span>frame<span class="sy0">,</span> HLEN<span class="br0">&#41;</span><span class="sy0">;</span>
+	load_swp_hdr<span class="br0">&#40;</span><span class="sy0">&amp;</span>hdr<span class="sy0">,</span> hbuf<span class="br0">&#41;</span><span class="sy0">;</span>
+	<span class="kw1">if</span><span class="br0">&#40;</span>hdr<span class="sy0">-&gt;</span>Flags <span class="sy0">&amp;</span> FLAG_ACK_VALID<span class="br0">&#41;</span><span class="br0">&#123;</span>
+		<span class="coMULTI">/* ACK를 수신한경우 --- 송신한 작업을 수행 */</span>
+		<span class="kw1">if</span><span class="br0">&#40;</span>swpInWindow<span class="br0">&#40;</span>hdr.<span class="me1">AckNum</span><span class="sy0">,</span> state<span class="sy0">-&gt;</span>LAR <span class="sy0">+</span><span class="nu0">1</span><span class="sy0">,</span> state<span class="sy0">-&gt;</span>LFS<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw1">do</span><span class="br0">&#123;</span>
+				<span class="kw4">struct</span> sendQ_slot <span class="sy0">*</span>slot<span class="sy0">;</span>
+				slot <span class="sy0">=</span> <span class="sy0">&amp;</span>state<span class="sy0">-&gt;</span>sendQ<span class="br0">&#91;</span><span class="sy0">++</span>state<span class="sy0">-&gt;</span>LAR <span class="sy0">%</span> SWS<span class="br0">&#93;</span><span class="sy0">;</span>
+				evCancel<span class="br0">&#40;</span>slot<span class="sy0">-&gt;</span>timeout<span class="br0">&#41;</span><span class="sy0">;</span>
+				msgDestroy<span class="br0">&#40;</span><span class="sy0">&amp;</span>slot<span class="sy0">-&gt;</span>msg<span class="br0">&#41;</span><span class="sy0">;</span>
+				semSignal<span class="br0">&#40;</span><span class="sy0">&amp;</span>state<span class="sy0">-&gt;</span>sendWindowNotFull<span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="br0">&#125;</span><span class="kw1">while</span><span class="br0">&#40;</span>state<span class="sy0">-&gt;</span>LAR <span class="sy0">!=</span> hdr.<span class="me1">AckNum</span><span class="br0">&#41;</span><span class="sy0">;</span>
+		<span class="br0">&#125;</span>
+&nbsp;
+		<span class="kw1">if</span><span class="br0">&#40;</span>hdr.<span class="me1">Flags</span> <span class="sy0">&amp;</span> FLAG_HAS_DATA<span class="br0">&#41;</span><span class="br0">&#123;</span>
+			<span class="kw4">struct</span> recvQ_slot <span class="sy0">*</span>slot<span class="sy0">;</span>
+&nbsp;
+			<span class="coMULTI">/* 데이터 패킷을 수신한 경우 --- 수신쪽 작업을 수행 */</span>
+			slot <span class="sy0">=</span> <span class="sy0">&amp;</span>state<span class="sy0">-&gt;</span>recvQ<span class="br0">&#91;</span>hdr.<span class="me1">SeqNum</span> <span class="sy0">%</span> RWS<span class="br0">&#93;</span><span class="sy0">;</span>
+			<span class="kw1">if</span><span class="br0">&#40;</span><span class="sy0">!</span>swpInWindow<span class="br0">&#40;</span>hdr.<span class="me1">SeqNum</span><span class="sy0">,</span> state<span class="sy0">-&gt;</span>NFE<span class="sy0">,</span> state<span class="sy0">-&gt;</span>NFE<span class="sy0">+</span> RWS <span class="sy0">-</span> <span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#123;</span>
+				<span class="coMULTI">/* 메시지를 버린다 */</span>
+				<span class="kw1">return</span> SUCCESS<span class="sy0">;</span>
+			<span class="br0">&#125;</span>
+			msgSaveCopy<span class="br0">&#40;</span><span class="sy0">&amp;</span>slot<span class="sy0">-&gt;</span>msg<span class="sy0">,</span> frame<span class="br0">&#41;</span><span class="sy0">;</span>
+			slot<span class="sy0">-&gt;</span>received <span class="sy0">=</span> TRUE<span class="sy0">;</span>
+			<span class="kw1">if</span><span class="br0">&#40;</span>hdr.<span class="me1">SeqNum</span><span class="sy0">==</span>state<span class="sy0">-&gt;</span>NFE<span class="br0">&#41;</span><span class="br0">&#123;</span>
+				Msg m<span class="sy0">;</span>
+				<span class="kw1">while</span><span class="br0">&#40;</span>slot<span class="sy0">-&gt;</span>received<span class="br0">&#41;</span><span class="br0">&#123;</span>
+					deliverHLP<span class="br0">&#40;</span><span class="sy0">&amp;</span>slot<span class="sy0">-&gt;</span>msg<span class="br0">&#41;</span><span class="sy0">;</span>
+					msgDestroy<span class="br0">&#40;</span><span class="sy0">&amp;</span>slot<span class="sy0">-&gt;</span>msg<span class="br0">&#41;</span><span class="sy0">;</span>
+					slot<span class="sy0">-&gt;</span>received <span class="sy0">=</span> FALSE<span class="sy0">;</span>
+					slot <span class="sy0">=</span> <span class="sy0">&amp;</span>state<span class="sy0">-&gt;</span>recvQ<span class="br0">&#91;</span><span class="sy0">++</span>state<span class="sy0">-&gt;</span>NFE <span class="sy0">%</span> RWS<span class="br0">&#93;</span><span class="sy0">;</span>
+				<span class="br0">&#125;</span>
+				<span class="coMULTI">/* ACK를 보낸다. */</span>
+				prepare_ack<span class="br0">&#40;</span><span class="sy0">&amp;</span>m<span class="sy0">,</span> state<span class="sy0">-&gt;</span>NFE <span class="sy0">-</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+				sendLINK<span class="br0">&#40;</span><span class="sy0">&amp;</span>m<span class="br0">&#41;</span><span class="sy0">;</span>
+				msgDestroy<span class="br0">&#40;</span><span class="sy0">&amp;</span>m<span class="br0">&#41;</span><span class="sy0">;</span>
+			<span class="br0">&#125;</span>
+		<span class="br0">&#125;</span>
+		<span class="kw1">return</span> SUCCESS
+	<span class="br0">&#125;</span>
+	<span class="kw1">return</span> pos <span class="sy0">&lt;</span> maxpos<span class="sy0">;</span>
+<span class="br0">&#125;</span>

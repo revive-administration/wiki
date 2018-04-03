@@ -1,0 +1,58 @@
+======PassiveSkill======
+^  Code  ^  Name  ^  Type  ^  IsActionCancel  ^  Description...................  ^  CheckTime  ^  Probability  ^  Target1  ^  Sel.Cond.1  ^  Sel.Number1  ^  EffectNumber1  ^  C.Number1 ^ AnimType1  ^  Target2  ^  Sel.Cond.2  ^  Sel.Number2  ^  EffectNumber2  ^  C.Number2  ^  AnimType2  ^ 
+|  BPSkill1  |  세포재생  |  CharacterPassive  |  False  | 스킬 사용 시 Hp가 30% 이하라면 Hp 50 회복  |  VE_UseSkill  |  0.50  |  VE_Self  |  VE_None  |  1  |  1  |  0 |  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  BPSkill2  |  강인한 체력  |  CharacterPassive  |  False  | 최대 Hp + 100, 방어력 + 100  |  VE_Always  |  1.00  |  VE_Self  |  VE_None  |  1  |  2  |  0  |  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  BPSkill3  |  카리스마  |  CharacterPassive  |  False  | 모든 적의 공격력 - 10%  |  VE_Always  |  1.00  |  VE_Enemy  |  VE_None  |  5  |  1  |  0  |   |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  BPSkill4  |  공격력 상승  |  BodyPassive  |  False  | 공격력 + 10%  |  VE_Always  |  1.00  |  VE_Self  |  VE_None  |  1  |  1  |  0  |  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  BPSkill5  |  아몰랑  |  BodyPassive  |  False  | 리로드 완료 시 10% 확률로 쉴드 100 회복  |  VE_CompleteReload  |  0.1  |  VE_Self  |  VE_None  |  1  |  1  |  1  |  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  BPSkill6  |  더몰랑  |  BodyPassive  |  False  | 골드 획득량 + 10%  |  VE_Always  |  1.00  |  VE_Player  |  VE_None  |  0  |  1  |  0  |  |   VE_None  |  VE_None  |  0  |  0  |  0  |
+|  PPSkill1  |  친한 친구  |  PairPassive  |  False  | 스킬 사용 시 출혈 상태인 경우 Hp 50 회복  |  VE_UseSkill  |  0.7  |  VE_Self  |  VE_None  |  1  |  1  |  2 |   |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  PPSkill2  |  질긴 악연  |  PairPassive  |  False  | 최대 Hp + 100, 방어력 + 100  |  VE_Always  |  1.00  |  VE_Self  |  VE_None  |  1  |  2  |  2  |  |  VE_None  |  VE_None  |  0  |  0  |  0  |
+|  PPSkill3  |  부자 사랑  |  PairPassive  |  False  | 모든 적의 공격력 - 10%  |  VE_Always  |  1.00  |  VE_Enemy  |  VE_None  |  5  |  1  |  1  |   |  VE_None  |  VE_None  |  0  |  0  |  0  |
+
+^  항목  ^  내용  ^
+|  Code  |  PassiveSkill DB의 RowName  |
+|  Name  |  스킬 이름  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%ED%83%80%EC%9E%85_skilltype|Type]]  |  스킬 타입 Enum. CharacterPassive, BodyPassive, PairPassive  |
+|  Removable  |  면역, 해제 가능 여부. 패시브 스킬은 무조건 False  |
+|  Text  |  유저에게 보이는 스킬 설명  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EC%B2%B4%ED%81%AC%ED%83%80%EC%9E%84_checktime|CheckTime]]  |  Condition이 True인지 False인지 판정해서 효과를 적용시키는 시점 Enum  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_target|Target]]  |  대상 분류. AllUnit, Ally, Enemy, Self, Bullet, None  |
+|  [[http://minus-one.co.kr/dokuwiki/doku.php?id=%EC%8A%A4%ED%82%AC_%EB%8C%80%EC%83%81_%EC%84%A0%EB%B3%84_%EA%B8%B0%EC%A4%80_selectioncondition|SelectionCondition]]  |  Target 내에서 선별기준 Enum.  |
+|  SelectionNumber  |  SelectionCondition에 해당하는 개체 중 고르는 개수.  |
+|  EffectNumber  |  Effect의 개수.  |
+|  C.Number  |  발동 조건식 개수  |
+|  Probability  |  체크타임 시 Condition이 True라면 확률을 판정하여 발동 여부를 결정  |
+|  BuffIcon  |  사용 안 함  |
+
+<code>
+CheckTime='Always' 상세내용
+- 모든 Condition이 만족되면 효과가 적용된다.
+- 모든 Condition이 만족되어 효과가 적용되고 있다가, Condition이 만족되지 않게 되면 효과가 사라진다.
+</code>
+
+<code>
+PairPassive 상세내용
+- Condition에 '부대에 ~ 캐릭터 포함'이라는 조건을 넣어준다.
+- 해당 캐릭터가 부대에 속해있지 않으면 효과가 적용되지 않음.
+- 효과를 받다가 해당 캐릭터가 전투불능이 된 경우, 효과가 해제된다.
+</code>
+
+----
+
+====== 스킬 발동 처리 ======
+<code>
+1. 전투 중 CheckTime에 해당할 때 전투에 참여 중인 바디들이 보유한 '같은 CheckTime을 갖는 PassiveSkill'에 대해 다음과 같은 처리 실시.
+
+2. Target1, SelectionCoindition1, SelectionNumber1로 스킬 대상을 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_1_Ca인 행이 참인지 판정. (a=1~C.Number)
+3. True인 경우 Effect DB에서 RowName이 (PassiveSkill DB의 RowName)_1_b인 행을 참조. (b=1~EffectNumber)
+4. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_1_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+5. True인 Effect들을 체크.
+
+6. Target2, SelectionCoindition2, SelectionNumber2로 스킬 대상을 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_2_Ca인 행이 참인지 판정. (a=1~C.Number)
+7. True인 경우 Effect DB에서 RowName이 (PassiveSkill DB의 RowName)_2_b인 행을 참조. (b=1~EffectNumber)
+8. Effect로 스킬 효과를 결정하고 Condition DB에서 RowName이 (PassiveSkill DB의 RowName)_2_b_Cc인 행이 참인지 판정. (c=1~C.Number)
+9. True인 Effect들을 체크.
+
+10. True였던 Effect들 효과 적용.
+</code>

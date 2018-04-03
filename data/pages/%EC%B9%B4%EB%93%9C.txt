@@ -1,0 +1,8 @@
+====== 카드 ======
+===== 개요 =====
+===== 데이터 =====
+  * IsFoiled : 포일카드 (반짝이는 희귀 카드) 인지의 여부
+  * Attribute : 카드 속성(화, 수, 목, 명, 암)
+
+^ ID ^ CodeName ^ IsFoiled ^ Attribute ^
+| int | string | boolean | string |

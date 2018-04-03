@@ -1,0 +1,9 @@
+* [[http://www.rasplay.org/?p=3552|라즈베리파이 서버 활용 강좌 : VPN Server(OpenVPN) 구축하기(open ssl)|]] 하다 말았음
+  * [[http://respectedb.tistory.com/234|공유기를 외부랑 연결하기]]
+  * [[http://openwiki.kr/tech/vsftpd|VSFTPD]]
+  * [[http://blog.naver.com/endofsky98/110161492649|라즈베리파이 FTP Server 구축하기]]
+  * [[http://jonghyunkim816.blogspot.kr/2014/01/ftp.html|라즈베리파이로 FTP 파일 서버 만들기]]
+  * [[http://shsong97.blogspot.kr/2014/02/ftp-server.html|라즈베리파이 FTP Server 설치]]
+  * [[https://bensmann.no/restrict-sftp-users-to-home-folder|restrict-sftp-users-to-home-folder/]]
+  * [[http://luyin.tistory.com/339|사용자 계정 추가]]
+  * [[http://sonhc.tistory.com/433| 계정 아이디에 sudo 권한 추가]]

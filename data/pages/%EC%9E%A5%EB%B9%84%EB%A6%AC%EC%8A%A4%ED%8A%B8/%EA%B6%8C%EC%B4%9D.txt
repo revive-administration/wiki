@@ -1,0 +1,9 @@
+====== 권총 ======
+
+^  회사  ^  이름  ^  등급  ^  컨펌  ^
+|  ITC  |  [[GPV-0]]  |  N  |    |
+|  ITC  |  [[GPV-CC]]  |  N  |    |
+|  ITC  |  [[GPV-CC2]]  |  N  |    |
+|  SACorp  |  [[데저트 토네이도]]  |  R  |    |
+|  SACorp  |  [[톡식 피스톨]]  |  R  |    |
+|  Austin-Houston  |  [[Magnum-512]]  |  R  |    |

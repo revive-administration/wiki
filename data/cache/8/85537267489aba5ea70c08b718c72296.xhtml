@@ -1,0 +1,281 @@
+
+<h1 class="sectionedit1" id="데미지_계산식">데미지 계산식</h1>
+<div class="level1">
+<div class="table sectionedit2"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  공격 종류  </th><th class="col1 centeralign">  공식  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  NormalAttack  </td><td class="col1"> = (공격자의 Atk)*(평타대미지 비율)*{1-(피해감소율)}*(명중 비율)*(치명 비율)*(상성 계수) </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  PercentAttack  </td><td class="col1"> = (공격자의 Atk)*(퍼센트대미지 비율)*(표기 퍼센트)*{1-(피해감소율)}*(명중 비율)*(치명 비율)*(상성 계수) </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  FixedAttack  </td><td class="col1"> = (표기 대미지)*(픽스대미지 비율)*{1-(피해감소율)}*(명중 비율)*(치명 비율)*(상성 계수) </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  TrueAttack  </td><td class="col1"> = (표기 대미지) </td>
+	</tr>
+</table></div>
+<!-- EDIT2 TABLE [35-538] -->
+</div>
+<!-- EDIT1 SECTION "데미지 계산식" [1-539] -->
+<h2 class="sectionedit3" id="atk">Atk</h2>
+<div class="level2">
+
+<p>
+= [ (무기의 Atk) + (바디 특성에 의한 Atk 고정 증감) + (패시브 스킬에 의한 Atk 고정 증감) + (버프에 의한 Atk 고정 증감) + (착용한 장비의 옵션에 의한 Atk 고정 증감) ] × [ 1 + (바디 특성에 의한 Atk 비율 증감) + (패시브 스킬에 의한 Atk 비율 증감) + (버프에 의한 Atk 비율 증감) + (착용한 장비의 옵션에 의한 Atk 비율 증감) ]
+</p>
+<hr />
+
+</div>
+<!-- EDIT3 SECTION "Atk" [540-978] -->
+<h2 class="sectionedit4" id="대미지_비율">대미지 비율</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  대미지 비율  </th><th class="col1 centeralign">  공식  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  평타대미지 비율  </td><td class="col1"> = {(바디 레벨)0.7제곱}/27 + 0.97 </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  퍼센트대미지 비율  </td><td class="col1"> = {(바디 레벨)0.7제곱}/7 + 0.86 </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  픽스대미지 비율  </td><td class="col1"> = {(바디 레벨)0.7제곱}/13 + 0.93 </td>
+	</tr>
+</table></div>
+<!-- EDIT5 TABLE [1007-1252] --><hr />
+
+</div>
+<!-- EDIT4 SECTION "대미지 비율" [979-1259] -->
+<h2 class="sectionedit6" id="피해감소율">피해감소율</h2>
+<div class="level2">
+
+<p>
+= [(피해자의 DefRate)-(공격자의 Pierce), 최대1.00, 최소0.00]
+</p>
+
+</div>
+<!-- EDIT6 SECTION "피해감소율" [1260-1360] -->
+<h3 class="sectionedit7" id="defrate">DefRate</h3>
+<div class="level3">
+
+<p>
+= -42/(Def + 60) + 0.70
+</p>
+
+</div>
+<!-- EDIT7 SECTION "DefRate" [1361-1402] -->
+<h3 class="sectionedit8" id="def">Def</h3>
+<div class="level3">
+
+<p>
+= (방어구의 Def) + (바디 특성에 의한 Def 고정 증감) + (패시브 스킬에 의한 Def 고정 증감) + (버프에 의한 Def 고정 증감) + (착용한 장비의 옵션에 의한 Def 고정 증감)
+</p>
+
+</div>
+<!-- EDIT8 SECTION "Def" [1403-1630] -->
+<h3 class="sectionedit9" id="pierce">Pierce</h3>
+<div class="level3">
+
+<p>
+= (무기의 Pierce) + (바디 특성에 의한 Pierce 고정 증감) + (패시브 스킬에 의한 Pierce 고정 증감) + (버프에 의한 Pierce 고정 증감) + (착용한 장비의 옵션에 의한 Pierce 고정 증감)
+</p>
+<hr />
+
+</div>
+<!-- EDIT9 SECTION "Pierce" [1631-1879] -->
+<h2 class="sectionedit10" id="명중_비율">명중 비율</h2>
+<div class="level2">
+
+<p>
+= (공격자의 Balance)~1.00의 랜덤값
+</p>
+
+<p>
+명중 비율의 값이 [1-(공격자의 Critical)] 이상인 경우 치명타 발생
+</p>
+
+</div>
+<!-- EDIT10 SECTION "명중 비율" [1880-2036] -->
+<h3 class="sectionedit11" id="balance">Balance</h3>
+<div class="level3">
+
+<p>
+= (무기의 Balance) + (바디 특성에 의한 Balance 고정 증감) + (패시브 스킬에 의한 Balance 고정 증감) + (버프에 의한 Balance 고정 증감) + (착용한 장비의 옵션에 의한 Balance 고정 증감) + (공격자와 피격자 위치에 따른 Balance 보정값)
+</p>
+
+</div>
+<!-- EDIT11 SECTION "Balance" [2037-2347] -->
+<h3 class="sectionedit12" id="공격자와_피격자_위치에_따른_balance_보정값">공격자와 피격자 위치에 따른 Balance 보정값</h3>
+<div class="level3">
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  공격자 위치  </th><th class="col1 centeralign">  피격자 위치  </th><th class="col2 centeralign">  Balance 보정값  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  전방  </td><td class="col1 centeralign">  전방  </td><td class="col2 centeralign">  0.0  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  전방  </td><td class="col1 centeralign">  후방  </td><td class="col2 centeralign">  -0.1  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  후방  </td><td class="col1 centeralign">  전방  </td><td class="col2 centeralign">  -0.1  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 centeralign">  후방  </td><td class="col1 centeralign">  후방  </td><td class="col2 centeralign">  -0.2  </td>
+	</tr>
+</table></div>
+<!-- EDIT13 TABLE [2414-2610] -->
+</div>
+<!-- EDIT12 SECTION "공격자와 피격자 위치에 따른 Balance 보정값" [2348-2611] -->
+<h3 class="sectionedit14" id="critical">Critical</h3>
+<div class="level3">
+
+<p>
+= (무기의 Critical) + (바디 특성에 의한 Critical 고정 증감) + (패시브 스킬에 의한 Critical 고정 증감) + (버프에 의한 Critical 고정 증감) + (착용한 장비의 옵션에 의한 Critical 고정 증감)
+</p>
+<hr />
+
+</div>
+<!-- EDIT14 SECTION "Critical" [2612-2872] -->
+<h2 class="sectionedit15" id="치명_비율">치명 비율</h2>
+<div class="level2">
+
+<p>
+치명타가 아닌 경우 = 1
+</p>
+
+<p>
+치명타인 경우 = [1 + (공격자의 CriticalDamage)]
+</p>
+
+</div>
+<!-- EDIT15 SECTION "치명 비율" [2873-2988] -->
+<h3 class="sectionedit16" id="criticaldamage">CriticalDamage</h3>
+<div class="level3">
+
+<p>
+= (무기의 CriticalDamage) + (바디 특성에 의한 CriticalDamage 고정 증감) + (패시브 스킬에 의한 CriticalDamage 고정 증감) + (버프에 의한 CriticalDamage 고정 증감) + (착용한 장비의 옵션에 의한 CriticalDamage 고정 증감)
+</p>
+<hr />
+
+</div>
+<!-- EDIT16 SECTION "CriticalDamage" [2989-3286] -->
+<h2 class="sectionedit17" id="데미지_감소">데미지 감소</h2>
+<div class="level2">
+
+<p>
+공격자의 공격타입과 피격자의 방어, 실드 여부에 따라 데미지가 달라짐.
+</p>
+<div class="table sectionedit18"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 centeralign">  공격 타입  </th><th class="col1 centeralign">  방어력 영향  </th><th class="col2 centeralign">  실드 영향  </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 centeralign">  실탄계     </td><td class="col1 centeralign">  방어율만큼 감소  </td><td class="col2 centeralign">  감소하지 않음  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 centeralign">  광학계     </td><td class="col1 centeralign">  감소하지 않음  </td><td class="col2 centeralign">  50% 감소  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 centeralign">  폭발계     </td><td class="col1 centeralign">  방어율만큼 감소  </td><td class="col2 centeralign">  50% 감소  </td>
+	</tr>
+</table></div>
+<!-- EDIT18 TABLE [3414-3661] --><hr />
+
+</div>
+<!-- EDIT17 SECTION "데미지 감소" [3287-3668] -->
+<h2 class="sectionedit19" id="예시1">예시1</h2>
+<div class="level2">
+
+<p>
+공격자 : 공격력=100, 바디레벨=20, 관통률=1.00, 균형=0.40, 치명타=0.05, 치명타대미지=0.50, 광학계.
+</p>
+
+<p>
+피격자 : 방어력=10, 쉴드 존재.
+</p>
+
+<p>
+평타대미지 비율 = 20의0.7제곱/27 + 0.97 = 1.27
+</p>
+
+<p>
+DefRate = -42/(10 + 60) + 0.70 = 0.10
+</p>
+
+<p>
+피해감소율 무시
+</p>
+
+<p>
+명중 비율 = 0.40~1.00의 랜덤값
+</p>
+
+<p>
+치명 비율 = (치명타인 경우)1.00 + 0.50 = 1.50 / (치명타가 아닌 경우)1.00
+</p>
+<div class="table sectionedit20"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> 데미지(치명타X) </td><td class="col1"> = 100*1.27*(1.00-0.00)*(0.40~0.95의 랜덤값)*1.00*0.50 </td><td class="col2"> = [25.4]~[60.325] </td><td class="col3"> = 25~60 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> 데미지(치명타O) </td><td class="col1"> = 100*1.27*(1.00-0.00)*(0.95~1.00의 랜덤값)*1.50*0.50 </td><td class="col2"> = [90.4875]~[95.25] </td><td class="col3"> = 90~95 </td>
+	</tr>
+</table></div>
+<!-- EDIT20 TABLE [4113-4346] -->
+</div>
+<!-- EDIT19 SECTION "예시1" [3669-4347] -->
+<h2 class="sectionedit21" id="예시2">예시2</h2>
+<div class="level2">
+
+<p>
+공격자 : 공격력=150, 바디레벨=30, 관통률=0.20, 균형=0.60, 치명타=0.10, 치명타대미지=0.80, 실탄계.
+</p>
+
+<p>
+피격자 : 방어력=100, 쉴드 없음.
+</p>
+
+<p>
+평타대미지 비율 = 30의0.7제곱/27 + 0.97 = 1.37
+</p>
+
+<p>
+DefRate = -42/(100 + 60) + 0.70 = 0.4375
+</p>
+
+<p>
+피해감소율 = [0.4375 - 0.20, 최대1.00, 최소1.00] = [0.2375, 최대1.00, 최소0.00] = 0.2375
+</p>
+
+<p>
+명중 비율 = 0.60~1.00의 랜덤값
+</p>
+
+<p>
+치명 비율 = (치명타인 경우)1.00 + 0.80 = 1.80 / (치명타가 아닌 경우)1.00
+</p>
+<div class="table sectionedit22"><table class="inline">
+	<tr class="row0">
+		<td class="col0"> 체력 데미지(치명타X) </td><td class="col1"> = 150*1.37*(1.00-0.2375)*(0.60~0.90의 랜덤값)*1.00*1.00 </td><td class="col2"> = [94.02]~[141.02] </td><td class="col3"> = 94~141 </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0"> 체력 데미지(치명타O) </td><td class="col1"> = 150*1.37*(1.00-0.2375)*(0.90~1.00의 랜덤값)*1.80*1.00 </td><td class="col2"> = [253.84]~[282.05] </td><td class="col3"> = 253~282 </td>
+	</tr>
+</table></div>
+<!-- EDIT22 TABLE [4875-5130] -->
+</div>
+<!-- EDIT21 SECTION "예시2" [4348-] -->
